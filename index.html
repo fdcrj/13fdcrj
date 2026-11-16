@@ -507,7 +507,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
       </div>
     </div>
     <details class="advanced-filters"><summary>Mais filtros e critérios</summary><div class="advanced-grid">
-      <div class="field"><label for="brewer">Cervejeiro</label><select id="brewer"></select></div>
+      <div class="field"><label for="brewer">Cervejeiro</label><select id="brewer"></select></div><div class="field"><label for="school">Escola de cerveja</label><select id="school"></select></div>
       <div class="field"><label for="abvMin">ABV mínimo</label><input class="number-input" id="abvMin" inputmode="decimal" placeholder="Ex.: 4,5"></div>
       <div class="field"><label for="abvMax">ABV máximo</label><input class="number-input" id="abvMax" inputmode="decimal" placeholder="Ex.: 8,0"></div>
       <div class="field"><label for="ibuMin">IBU mínimo</label><input class="number-input" id="ibuMin" inputmode="numeric" placeholder="Ex.: 20"></div>
@@ -621,6 +621,31 @@ function deriveFamily(style) {
   if (/fruit|frut|spice|herb|vegetable|experimental|rio/.test(value)) return 'Especiais & Frutadas';
   return 'Outros';
 }
+const BEER_SCHOOLS = ['Alemã', 'Americana', 'Belga', 'Inglesa'];
+const GERMAN_BJCP_CODES = new Set(['3A','3B','3C','3D','4A','4B','4C','5A','5B','5C','5D','6A','6B','6C','7A','7B','8A','8B','9A','9B','9C','10A','10B','10C','23A','23G']);
+const GERMAN_HISTORICAL_STYLES = ['kellerbier', 'lichtenhainer', 'piwo grodziskie', 'roggenbier', 'sahti'];
+function getBJCPCode(style) {
+  const match = normalizeText(style).match(/(?:^|[^0-9])0?([3-9]|10|23)([a-g])(?:[^a-z]|$)/i);
+  return match ? `${Number(match[1])}${match[2].toUpperCase()}` : '';
+}
+function isGermanSchoolStyle(style) {
+  const value = normalizeText(style);
+  const code = getBJCPCode(style);
+  return GERMAN_BJCP_CODES.has(code) || (value.includes('27') && GERMAN_HISTORICAL_STYLES.some(name => value.includes(name))) || GERMAN_HISTORICAL_STYLES.some(name => value === name);
+}
+function classifyBeerSchool(style) {
+  const value = normalizeText(style);
+  // Regra deliberadamente fechada: a Escola Alemã contém somente os estilos solicitados.
+  if (isGermanSchoolStyle(style)) return 'Alemã';
+  if (/belg|belga|trappist|monastic|saison|lambic|gueuze|flanders|witbier|dubbel|tripel|golden strong|biere de garde|fruit lambic/.test(value)) return 'Belga';
+  if (/english ipa/.test(value)) return 'Inglesa';
+  if (/american|americana|california common|new world|kentucky common|ipa|hazy|imperial|american wild/.test(value)) return 'Americana';
+  if (/british|britan|english|ingles|scottish|scotch|wee heavy|irish|porter|old ale|barleywine|mild|bitter|stout/.test(value)) return 'Inglesa';
+  // Estilos não listados são encaminhados às outras escolas por aproximação textual.
+  if (/sour|acid|fruit|spice|wild/.test(value)) return 'Belga';
+  if (/ale|bitter|brown|dark|red/.test(value)) return 'Inglesa';
+  return 'Americana';
+}
 function normalizeSheetData(text) {
   const rows = parseCSV(text);
   if (!rows.length) return [];
@@ -636,6 +661,7 @@ function normalizeSheetData(text) {
       confrariaNome: confraria,
       categoria: get(row, 'Tipo') || 'Não informado',
       responsavel: get(row, 'Cervejeiro') || 'Não informado',
+      escola: classifyBeerSchool(estilo),
       cerveja: get(row, 'Nome da cerveja') || 'Cerveja não informada',
       estilo,
       descricao: get(row, 'Descrição'),
@@ -759,12 +785,14 @@ function buildFilters() {
   const fams = [...new Set(DATA.map(d => d.familia))].sort();
   const styles = [...new Set(DATA.map(d => d.estilo))].sort();
   const brewers = [...new Set(DATA.map(d => d.responsavel).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'pt-BR'));
+  const schools = BEER_SCHOOLS;
 
   fillSelect('#cf', 'Todas as Confrarias', confs);
   fillSelect('#ct', 'Todas as Categorias', cats);
   fillSelect('#fm', 'Todas as Famílias', fams);
   fillSelect('#st', 'Todos os Estilos', styles);
   fillSelect('#brewer', 'Todos os Cervejeiros', brewers);
+  fillSelect('#school', 'Todas as Escolas Cervejeiras', schools);
 }
 
 function fillSelect(sel, placeholder, items) {
@@ -777,6 +805,7 @@ function getFilteredData() {
   const q = normalizeText($('#q').value);
   const cf = $('#cf').value, ct = $('#ct').value, fm = $('#fm').value, st = $('#st').value;
   const brewer = $('#brewer').value;
+  const school = $('#school').value;
   const abvMin = toNumber($('#abvMin').value), abvMax = toNumber($('#abvMax').value);
   const ibuMin = toNumber($('#ibuMin').value), volume = toNumber($('#volumeFilter').value);
   const sort = $('#or').value;
@@ -792,6 +821,7 @@ function getFilteredData() {
     if (fm && item.familia !== fm) return false;
     if (st && item.estilo !== st) return false;
     if (brewer && item.responsavel !== brewer) return false;
+    if (school && item.escola !== school) return false;
     const itemAbv = toNumber(item.abv), itemIbu = toNumber(item.ibu), itemVolume = toNumber(item.volume);
     if (Number.isFinite(abvMin) && (!Number.isFinite(itemAbv) || itemAbv < abvMin)) return false;
     if (Number.isFinite(abvMax) && (!Number.isFinite(itemAbv) || itemAbv > abvMax)) return false;
@@ -804,7 +834,7 @@ function getFilteredData() {
     if (onlyComplete && !hasCompleteData(item)) return false;
     if (onlyUntasted && userTasted[idx]) return false;
     if (q) {
-      const haystack = normalizeText([item.cerveja, item.estilo, item.confrariaNome, item.responsavel, item.descricao, item.categoria, item.familia, item.volume, item.abv, item.ibu, item.ebc].join(' '));
+      const haystack = normalizeText([item.cerveja, item.estilo, item.confrariaNome, item.responsavel, item.escola, item.descricao, item.categoria, item.familia, item.volume, item.abv, item.ibu, item.ebc].join(' '));
       if (!q.split(/\s+/).every(term => haystack.includes(term))) return false;
     }
     return true;
@@ -823,7 +853,7 @@ function renderActiveFilters() {
   if (!target) return;
   const filters = [
     ['Busca', $('#q').value.trim()], ['Confraria', $('#cf').value], ['Categoria', $('#ct').value],
-    ['Família', $('#fm').value], ['Estilo', $('#st').value], ['Cervejeiro', $('#brewer').value],
+    ['Família', $('#fm').value], ['Estilo', $('#st').value], ['Cervejeiro', $('#brewer').value], ['Escola de cerveja', $('#school').value],
     ['ABV mín.', $('#abvMin').value], ['ABV máx.', $('#abvMax').value], ['IBU mín.', $('#ibuMin').value], ['Volume', $('#volumeFilter').value],
     ['⭐ Favoritas', $('#onlyFav').getAttribute('aria-pressed') === 'true' ? 'Ativo' : ''],
     ['📝 Com descrição', $('#onlyDesc').getAttribute('aria-pressed') === 'true' ? 'Ativo' : ''],
@@ -863,7 +893,7 @@ function renderGrid() {
           <div class="meta">${escapeHtml(item.estilo)} • <strong>${escapeHtml(item.confrariaNome)}</strong></div>
           <div class="specs">${item.volume ? `<span class="spec">${escapeHtml(formatMeasure(item.volume, 'L'))}</span>` : ''}${item.abv ? `<span class="spec">${escapeHtml(formatMeasure(item.abv, '% ABV'))}</span>` : ''}${item.ibu ? `<span class="spec">${escapeHtml(formatMeasure(item.ibu, 'IBU'))}</span>` : ''}</div>
           <p class="desc">${item.descricao ? escapeHtml(item.descricao) : '<em>Sem descrição sensorial detalhada.</em>'}</p>
-          <div class="owner">👤 ${escapeHtml(item.responsavel)} (${escapeHtml(item.categoria)})</div><div class="compare-actions"><button class="compare-card-button" type="button" onclick="event.stopPropagation(); toggleCompare(${idx})">${isCompared ? '✓ Comparando' : '⚖️ Comparar'}</button>${userTasted[idx] ? '<span class="compare-card-button">✓ Já degustei</span>' : ''}</div>
+          <div class="owner">👤 ${escapeHtml(item.responsavel)} (${escapeHtml(item.categoria)})${item.escola ? `<br>🎓 ${escapeHtml(item.escola)}` : ''}</div><div class="compare-actions"><button class="compare-card-button" type="button" onclick="event.stopPropagation(); toggleCompare(${idx})">${isCompared ? '✓ Comparando' : '⚖️ Comparar'}</button>${userTasted[idx] ? '<span class="compare-card-button">✓ Já degustei</span>' : ''}</div>
         </div>
       </article>
     `;
@@ -964,7 +994,7 @@ function renderCompare() {
   panel.hidden=compareSet.length===0;
   if (!compareSet.length) { table.innerHTML=''; return; }
   const items=compareSet.map(index=>DATA[index]).filter(Boolean);
-  const rows=[['Cerveja','cerveja'],['Estilo','estilo'],['Confraria','confrariaNome'],['ABV','abv'],['IBU','ibu'],['EBC','ebc'],['Volume','volume'],['Cervejeiro','responsavel'],['Descrição','descricao']];
+  const rows=[['Cerveja','cerveja'],['Estilo','estilo'],['Confraria','confrariaNome'],['ABV','abv'],['IBU','ibu'],['EBC','ebc'],['Volume','volume'],['Cervejeiro','responsavel'],['Escola de cerveja','escola'],['Descrição','descricao']];
   table.innerHTML=`<table class="compare-table"><thead><tr><th>Critério</th>${items.map((item,index)=>`<th><span class="compare-name">${escapeHtml(item.cerveja)}</span><br><button class="compare-card-button" onclick="toggleCompare(${compareSet[index]})">Remover</button></th>`).join('')}</tr></thead><tbody>${rows.slice(1).map(([label,key])=>`<tr><th>${label}</th>${items.map(item=>`<td>${escapeHtml(item[key]||'Não informado')}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
 }
 function markTasted(index) { userTasted[index]=true; localStorage.setItem('fdcrj_tasted',JSON.stringify(userTasted)); renderDashboard(); }
@@ -1004,6 +1034,7 @@ function openModal(idx) {
   $('#details').innerHTML = `
     <div class="detail"><b>Confraria</b>${escapeHtml(item.confrariaNome)}</div>
     <div class="detail"><b>Responsável</b>${escapeHtml(item.responsavel)}</div>
+    <div class="detail"><b>Escola de cerveja</b>${escapeHtml(item.escola || 'Não informado')}</div>
     <div class="detail"><b>Volume</b>${escapeHtml(item.volume || 'Não informado')}</div>
     <div class="detail"><b>ABV</b>${escapeHtml(item.abv || 'Não informado')}</div>
     <div class="detail"><b>IBU</b>${escapeHtml(item.ibu || 'Não informado')}</div>
@@ -1093,6 +1124,7 @@ function clearAllFilters() {
   $('#fm').value = '';
   $('#st').value = '';
   $('#brewer').value = '';
+  $('#school').value = '';
   $('#abvMin').value = '';
   $('#abvMax').value = '';
   $('#ibuMin').value = '';
@@ -1102,7 +1134,7 @@ function clearAllFilters() {
   renderGrid();
 }
 function bindEvents() {
-  ['#q', '#cf', '#ct', '#fm', '#st', '#or', '#brewer', '#abvMin', '#abvMax', '#ibuMin', '#volumeFilter'].forEach(sel => {
+  ['#q', '#cf', '#ct', '#fm', '#st', '#or', '#brewer', '#school', '#abvMin', '#abvMax', '#ibuMin', '#volumeFilter'].forEach(sel => {
     $(sel).addEventListener('input', renderGrid);
   });
 
@@ -1131,6 +1163,7 @@ function bindEvents() {
     if ($('#fm').value) params.set('fm', $('#fm').value);
     if ($('#st').value) params.set('st', $('#st').value);
     if ($('#brewer').value) params.set('brewer', $('#brewer').value);
+    if ($('#school').value) params.set('school', $('#school').value);
     ['abvMin','abvMax','ibuMin','volumeFilter'].forEach(id => { if ($('#'+id).value) params.set(id, $('#'+id).value); });
     if ($('#onlyComplete').getAttribute('aria-pressed') === 'true') params.set('complete','1');
     if ($('#onlyUntasted').getAttribute('aria-pressed') === 'true') params.set('untasted','1');
@@ -1149,6 +1182,7 @@ function parseURLParams() {
   if (p.get('fm')) $('#fm').value = p.get('fm');
   if (p.get('st')) $('#st').value = p.get('st');
   if (p.get('brewer')) $('#brewer').value = p.get('brewer');
+  if (p.get('school')) $('#school').value = p.get('school');
   ['abvMin', 'abvMax', 'ibuMin', 'volumeFilter'].forEach(id => { if (p.get(id)) $(`#${id}`).value = p.get(id); });
   if (p.get('complete') === '1') $('#onlyComplete').setAttribute('aria-pressed', 'true');
   if (p.get('untasted') === '1') $('#onlyUntasted').setAttribute('aria-pressed', 'true');
