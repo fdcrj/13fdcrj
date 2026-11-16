@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f2b48">
+<link rel="canonical" href="https://fdcrj.github.io/13fdcrj/cerveja.html">
+<link rel="stylesheet" href="css/app.css">
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js" defer></script>
+<script src="js/data-source.js" defer></script>
+<script src="js/beer-model.js" defer></script>
+<script src="js/beer-page.js" defer></script>
+<title>Ficha da cerveja • 13º FDCRJ</title>
+</head>
+<body>
+<header class="hero"><div class="wrap"><div class="topline">🍻 13º FESTIVAL DE CONFRARIAS DO RIO DE JANEIRO · 13FDCRJ</div><a class="ghost" href="index.html">← Voltar ao guia</a><div class="hero-content"><img src="logo fdcrj.jpg" alt="Logo FDCRJ"><div><h1 id="beerName">Carregando ficha...</h1><p id="beerSubtitle">Consultando os dados da cerveja.</p></div></div></div></header>
+<main class="wrap beer-page"><div id="beerStatus" class="panel">Carregando informações...</div><article id="beerCard" class="panel beer-detail-page" hidden><div class="detail-page-grid"><div><div id="beerImage" class="beer-image-placeholder">🍺</div><div class="qr-box standalone-qr"><canvas id="beerQr" width="150" height="150"></canvas><strong>QR Code desta ficha</strong><span class="filter-help">Escaneie para abrir esta mesma página em outro celular.</span><a id="beerUrl" class="qr-link" target="_blank" rel="noopener"></a><button id="copyBeerUrl" class="pill" type="button">Copiar link</button></div></div><div><div class="tag" id="beerSchool"></div><h2 id="beerTitle"></h2><p id="beerStyle" class="meta"></p><div id="beerMetrics" class="detail-page-metrics"></div><div id="beerDescription"></div><div id="beerExtras" class="detail-extra"></div></div></div></article></main>
+<script>document.documentElement.classList.add('beer-page-ready');</script>
+</body>
+</html>
