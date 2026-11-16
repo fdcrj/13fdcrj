@@ -22,6 +22,7 @@
     <div class="topbar">
       <span class="kicker">🍻 13º Festival de Confrarias do Rio de Janeiro - 13FDCRJ • @fdcrj</span>
       <div class="top-actions"><button class="ghost" id="reloadData" type="button">↻ Atualizar dados</button><button class="ghost" id="presentationToggle" type="button" aria-pressed="false">▣ Apresentação</button><button class="ghost" id="eventModeToggle" type="button" aria-pressed="false">🎪 Modo evento</button><button class="ghost" id="accessibilityToggle" type="button" aria-pressed="false">◐ Acessibilidade</button><button class="ghost" id="theme" type="button">🌙 Tema</button></div>
+      <div class="auth-panel" id="authArea" aria-live="polite"><button class="google-sign-in" id="googleSignIn" type="button">Continuar com Google</button><div class="auth-user" id="authUser" hidden><img id="authAvatar" alt="" hidden><span id="authName"></span><button class="auth-sign-out" id="googleSignOut" type="button">Sair</button></div><span class="auth-status" id="authStatus">Entre para salvar sua experiência</span></div>
     </div>
 <!-- Estrutura HTML -->
 <div class="header-logo">
@@ -145,5 +146,6 @@
 <script src="js/data-source.js" defer></script>
 <script src="js/beer-model.js" defer></script>
 <script src="js/app.js" defer></script>
+<script type="module" src="js/auth.js"></script>
 </body>
 </html>
