@@ -469,7 +469,7 @@ function openModal(idx) {
   const tasting = userTasting[idx] || {};
   $('#tasteDate').value=tasting.date||''; $('#appearance').value=tasting.appearance||''; $('#aroma').value=tasting.aroma||''; $('#flavor').value=tasting.flavor||''; $('#bitterness').value=tasting.bitterness||''; $('#body').value=tasting.body||''; $('#pairing').value=tasting.pairing||'';
   const qrUrl = beerShareUrl(item);
-  $('#qrLink').textContent = qrUrl;
+  $('#qrLink').textContent = 'Abrir ficha completa';
   $('#qrLink').href = qrUrl;
   $('#qrCanvas').getContext('2d').clearRect(0, 0, 110, 110);
   if (window.QRCode) {
