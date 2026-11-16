@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f2b48">
+<link rel="canonical" href="https://fdcrj.github.io/13fdcrj/">
+<meta property="og:url" content="https://fdcrj.github.io/13fdcrj/">
+<meta property="og:title" content="Guia de Cervejas • 13º FDCRJ">
+<meta property="og:description" content="Guia interativo das cervejas do 13º Festival de Confrarias do Rio de Janeiro.">
+<meta name="description" content="Guia oficial interativo do 13º Festival de Confrarias do Rio de Janeiro (13FDCRJ). Encontre cervejas por confraria, estilo, categoria e degustação.">
+<title>Guia de Cervejas • 13º Festival de Confrarias do Rio de Janeiro - 13FDCRJ</title>
+<link rel="icon" type="image/jpeg" href="logo fdcrj.jpg">
+<style>
+:root {
+  --bg: #f4f7f6;
+  --card: #ffffff;
+  --ink: #0f2b48;
+  --muted: #5c7080;
+  --line: #d8e2ea;
+  --brand: #e67e22;        /* Tom cervejeiro/dourado vibrante */
+  --brand-ink: #a04000;
+  --accent: #2a9d8f;       /* Toque tropical / Rio */
+  --header-bg: linear-gradient(135deg, #0f2b48 0%, #1b4965 60%, #e67e22 100%);
+  --shadow: 0 6px 18px rgba(15, 43, 72, 0.08);
+  --radius: 16px;
+}
+
+html[data-theme="dark"] {
+  --bg: #0a141d;
+  --card: #122230;
+  --ink: #e6f1f8;
+  --muted: #8fa2b3;
+  --line: #1e354a;
+  --brand: #f39c12;
+  --brand-ink: #fdebd0;
+  --accent: #48cae4;
+  --header-bg: linear-gradient(135deg, #07121b 0%, #0f2b48 60%, #b35400 100%);
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1180px; margin: auto; padding: 0 16px; }
+
+/* Header */
+header {
+  background: var(--header-bg);
+  color: #fff;
+  padding: 30px 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+header::after {
+  content: "🍺";
+  position: absolute;
+  right: -10px;
+  top: -20px;
+  font-size: 200px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.kicker {
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #fceae6;
+  text-transform: uppercase;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 6px 0 6px; line-height: 1.1; font-weight: 800; }
+.sub { color: #d0e1fd; max-width: 64ch; margin: 0; font-size: 0.98rem; opacity: 0.95; }
+.data-source { color: #fceae6; margin: 8px 0 0; font-size: 0.78rem; font-weight: 700; opacity: 0.9; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.top-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.ghost {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.ghost:hover { background: rgba(255, 255, 255, 0.3); }
+
+.stats { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.stat {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  padding: 10px 18px;
+  min-width: 108px;
+  backdrop-filter: blur(4px);
+}
+.stat b { display: block; font-size: 1.6rem; line-height: 1; }
+.stat small { color: #f2f7fc; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+
+/* Main layout & Panel */
+main { margin-top: -62px; padding-bottom: 56px; }
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.filter-panel { position: sticky; top: 12px; z-index: 20; }
+.filter-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.filter-heading h2 { margin: 0; font-size: 1.05rem; }
+.filter-heading p { margin: 3px 0 0; color: var(--muted); font-size: 0.8rem; }
+.filter-help { color: var(--muted); font-size: 0.78rem; }
+.advanced-filters { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+.advanced-filters summary { cursor: pointer; color: var(--brand-ink); font-weight: 800; font-size: 0.82rem; }
+.advanced-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 12px; }
+.number-input { width: 100%; height: 42px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); padding: 0 10px; }
+.search-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.search {
+  flex: 1 1 280px;
+  height: 52px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 0 18px;
+  font-size: 1rem;
+  background: var(--card);
+  color: var(--ink);
+  transition: border-color 0.2s;
+}
+.search:focus, select:focus, button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--brand) 35%, transparent);
+  border-color: var(--brand);
+}
+.sel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 14px; }
+.field label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 5px;
+}
+select {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+  padding: 0 10px;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+.quick { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+.pill {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.pill:hover { border-color: var(--brand); color: var(--brand); }
+.pill[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.clear {
+  margin-left: auto;
+  border: 0;
+  background: color-mix(in srgb, var(--brand) 15%, transparent);
+  color: var(--brand-ink);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+.clear:hover { background: color-mix(in srgb, var(--brand) 25%, transparent); }
+
+/* Bar & Cards Grid */
+.bar { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; margin: 26px 4px 14px; flex-wrap: wrap; }
+.bar h2 { margin: 0; font-size: 1.2rem; font-weight: 800; }
+.bar span { font-size: 0.88rem; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(15, 43, 72, 0.15); }
+.stripe { height: 8px; background: var(--c, var(--brand)); }
+.body { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+.tag {
+  display: inline-block;
+  background: color-mix(in srgb, var(--c, var(--brand)) 18%, transparent);
+  color: var(--c, var(--brand));
+  border: 1px solid color-mix(in srgb, var(--c, var(--brand)) 35%, transparent);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  width: fit-content;
+}
+.card h3 { margin: 10px 34px 4px 0; font-size: 1.1rem; line-height: 1.25; font-weight: 700; }
+.meta { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+.desc {
+  font-size: 0.88rem;
+  margin: 10px 0 14px;
+  color: var(--ink);
+  opacity: 0.9;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+.owner { font-size: 0.78rem; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 10px; }
+.fav {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  filter: grayscale(1);
+  opacity: 0.4;
+  padding: 4px;
+}
+.fav[aria-pressed="true"] { filter: none; opacity: 1; }
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  background: var(--card);
+  border: 2px dashed var(--line);
+  border-radius: 16px;
+  padding: 50px 20px;
+  color: var(--muted);
+}
+.empty strong { display: block; color: var(--ink); font-size: 1.15rem; margin-bottom: 6px; }
+.empty a { display: inline-flex; margin-top: 14px; background: var(--brand); color: #fff; border-radius: 999px; padding: 9px 15px; font-weight: 800; font-size: 0.82rem; }
+.active-filters { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 7px; }
+.active-filter { background: color-mix(in srgb, var(--brand) 13%, transparent); color: var(--brand-ink); border-radius: 999px; padding: 4px 9px; font-size: 0.7rem; font-weight: 800; }
+.insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.insight h3 { margin: 0 0 10px; font-size: 0.92rem; }
+.insight-row { display: grid; grid-template-columns: minmax(90px, 0.8fr) 2fr auto; gap: 8px; align-items: center; margin: 7px 0; font-size: 0.72rem; }
+.insight-row .track { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.insight-row .fill { height: 100%; border-radius: inherit; background: var(--brand); }
+.validation-result { margin-top: 12px; color: var(--muted); font-size: 0.82rem; }
+.validation-result strong { color: var(--ink); }
+.presentation-mode header { min-height: 100vh; display: flex; align-items: center; }
+.presentation-mode main { max-width: 1400px; }
+.presentation-mode .filter-panel, .presentation-mode .legend, .presentation-mode footer, .presentation-mode .insights, .presentation-mode .validation-panel { display: none; }
+.presentation-mode .grid { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 22px; }
+.presentation-mode .card h3 { font-size: 1.45rem; }
+.card .specs { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 10px; }
+.card .spec { border: 1px solid var(--line); border-radius: 999px; padding: 3px 7px; color: var(--muted); font-size: 0.68rem; }
+
+/* Legend section */
+.legend { margin-top: 32px; }
+.legend h2 { margin: 0 0 4px; font-size: 1.15rem; font-weight: 800; }
+.legend p { margin: 0 0 14px; color: var(--muted); font-size: 0.85rem; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+.chip:hover { border-color: var(--brand); }
+.chip b { color: var(--muted); font-weight: 700; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--brand)); display: inline-block; }
+
+/* Modal & Dialog */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 20, 33, 0.75);
+  backdrop-filter: blur(3px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 100;
+}
+.modal.open { display: flex; }
+.dialog {
+  width: min(620px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--card);
+  border-radius: 22px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+.inside { padding: 22px; }
+.x {
+  float: right;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#mn { margin: 10px 0 2px; font-size: 1.5rem; font-weight: 800; }
+.details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+.detail { background: color-mix(in srgb, var(--ink) 5%, transparent); border-radius: 12px; padding: 11px; }
+.detail b { display: block; color: var(--muted); text-transform: uppercase; font-size: 0.66rem; letter-spacing: 0.07em; margin-bottom: 3px; }
+#mdesc { line-height: 1.6; font-size: 0.95rem; }
+.notes {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  font: inherit;
+  background: var(--bg);
+  color: var(--ink);
+  resize: vertical;
+}
+.tasting-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 12px 0; }
+.tasting-grid > div { display: flex; flex-direction: column; gap: 4px; }
+.tasting-grid .wide { grid-column: 1 / -1; }
+.tasting-grid label { color: var(--muted); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; }
+.tasting-grid input { width: 100%; min-height: 40px; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; background: var(--bg); color: var(--ink); font: inherit; }
+.rate { display: flex; gap: 6px; align-items: center; margin: 10px 0; }
+.star { border: 0; background: transparent; font-size: 1.6rem; cursor: pointer; filter: grayscale(1); opacity: 0.3; padding: 0 2px; }
+.star.on { filter: none; opacity: 1; }
+
+/* Footer & Toast */
+footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--muted); font-size: 0.85rem; text-align: center; }
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translate(-50%, 120%);
+  background: var(--ink);
+  color: var(--bg);
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  transition: transform 0.25s ease-out;
+  z-index: 200;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+.toast.show { transform: translate(-50%, 0); }
+
+/* Responsive Adjustments */
+@media(max-width: 900px) { .sel, .advanced-grid { grid-template-columns: repeat(2, 1fr); } .insights-grid { grid-template-columns: 1fr; } }
+@media(max-width: 560px) {
+  .sel { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  .details { grid-template-columns: 1fr; }
+  .clear { margin-left: 0; width: 100%; }
+  .filter-panel { position: static; }
+  .advanced-grid { grid-template-columns: 1fr; }
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .top-actions { justify-content: flex-start; }
+  .tasting-grid { grid-template-columns: 1fr; }
+  .tasting-grid .wide { grid-column: auto; }
+}
+@media print {
+  header, .panel, .quick, .legend, footer, .fav { display: none !important; }
+  .card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  main { margin-top: 10px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <span class="kicker">🍻 13º Festival de Confrarias do Rio de Janeiro - 13FDCRJ • @fdcrj</span>
+      <div class="top-actions"><button class="ghost" id="reloadData" type="button">↻ Atualizar dados</button><button class="ghost" id="presentationToggle" type="button" aria-pressed="false">▣ Apresentação</button><button class="ghost" id="theme" type="button">🌙 Tema</button></div>
+    </div>
+<!-- Estrutura HTML -->
+<div class="header-logo">
+  <img src="logo fdcrj.jpg" alt="Logo FDCRJ" class="logo-img">
+  <h1 class="titulo-guia">Guia de Cervejas</h1>
+</div>
+
+<!-- Estilização CSS -->
+<style>
+  .header-logo {
+    display: flex;       /* Coloca a imagem e o texto na mesma linha */
+    align-items: center; /* Alinha verticalmente pelo centro */
+    gap: 12px;           /* Espaço entre a imagem e o texto */
+  }
+
+  .logo-img {
+    width: 80px;         /* Ajuste o tamanho da imagem para acompanhar o texto se necessário */
+    height: auto;
+  }
+
+  .titulo-guia {
+    margin: 0;
+    font-size: 48px;     /* <--- AUMENTE AQUI! (por exemplo: 36px, 42px, 48px...) */
+    font-weight: bold;   /* Deixa o texto em negrito (opcional) */
+  }
+</style>
+    <p class="sub">Explore todas as produções inscritas no 13º FDCRJ. Filtre por confraria, estilo, categoria ou ingrediente, avalie com estrelas e salve suas anotações de degustação!</p><p class="data-source" id="dataSourceStatus">Carregando dados da planilha...</p>
+    <div class="stats">
+      <div class="stat"><b id="sBeers">0</b><small>cervejas</small></div>
+      <div class="stat"><b id="sConf">0</b><small>confrarias</small></div>
+      <div class="stat"><b id="sStyles">0</b><small>estilos</small></div>
+      <div class="stat"><b id="sFav">0</b><small>favoritas</small></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="panel filter-panel" aria-label="Filtros">
+    <div class="filter-heading"><div><h2>Encontre sua cerveja</h2><p>Use a busca ou combine os filtros para refinar a lista.</p></div><span class="filter-help">Atualização automática</span></div>
+    <div class="search-row">
+      <input class="search" id="q" type="search" autocomplete="off"
+        placeholder="Buscar por cerveja, aroma ou ingrediente: IPA, cacau, limão, mate, café...">
+    </div>
+    <div class="sel">
+      <div class="field"><label for="cf">Confraria</label><select id="cf"></select></div>
+      <div class="field"><label for="ct">Categoria</label><select id="ct"></select></div>
+      <div class="field"><label for="fm">Família de estilo</label><select id="fm"></select></div>
+      <div class="field"><label for="st">Estilo BJCP</label><select id="st"></select></div>
+      <div class="field"><label for="or">Ordenar por</label>
+        <select id="or">
+          <option value="cerveja">Nome da cerveja (A–Z)</option>
+          <option value="confraria">Confraria</option>
+          <option value="estilo">Estilo</option>
+          <option value="categoria">Categoria</option>
+          <option value="rating">Minha nota (maior primeiro)</option>
+        </select>
+      </div>
+    </div>
+    <details class="advanced-filters"><summary>Mais filtros e critérios</summary><div class="advanced-grid">
+      <div class="field"><label for="brewer">Cervejeiro</label><select id="brewer"></select></div>
+      <div class="field"><label for="abvMin">ABV mínimo</label><input class="number-input" id="abvMin" inputmode="decimal" placeholder="Ex.: 4,5"></div>
+      <div class="field"><label for="abvMax">ABV máximo</label><input class="number-input" id="abvMax" inputmode="decimal" placeholder="Ex.: 8,0"></div>
+      <div class="field"><label for="ibuMin">IBU mínimo</label><input class="number-input" id="ibuMin" inputmode="numeric" placeholder="Ex.: 20"></div>
+      <div class="field"><label for="volumeFilter">Volume</label><input class="number-input" id="volumeFilter" inputmode="decimal" placeholder="Ex.: 30"></div>
+    </div></details>
+    <div class="quick">
+      <button class="pill" id="onlyFav" type="button" aria-pressed="false">⭐ Só favoritas</button>
+      <button class="pill" id="onlyDesc" type="button" aria-pressed="false">📝 Com descrição</button>
+      <button class="pill" id="onlyRio" type="button" aria-pressed="false">🏖️ Estilo Rio</button>
+      <button class="pill" id="onlyIpa" type="button" aria-pressed="false">🌿 IPAs</button>
+      <button class="pill" id="onlyComplete" type="button" aria-pressed="false">✅ Dados completos</button>
+      <button class="pill" id="share" type="button">🔗 Copiar link dos filtros</button>
+      <button class="clear" id="clear" type="button">Limpar filtros</button>
+    </div>
+  </section>
+
+  <div class="bar">
+    <div>
+      <h2>Cervejas do festival</h2>
+      <span id="count">—</span>
+      <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+    </div>
+    <button class="pill" id="print" type="button">🖨️ Imprimir lista filtrada</button>
+  </div>
+
+  <section class="grid" id="grid" aria-live="polite"></section>
+
+  <section class="panel legend">
+    <h2>Legenda de famílias</h2>
+    <p>Clique em uma família de estilos para filtrar a lista instantaneamente.</p>
+    <div class="chips" id="chips"></div>
+  </section>
+  <section class="panel insights"><h2>Visão geral</h2><p>Resumo atualizado com os dados atualmente carregados.</p><div class="insights-grid" id="insightsGrid"></div></section>
+  <section class="panel validation-panel"><div class="bar" style="margin:0"><div><h2>Qualidade dos dados</h2><span>Confira campos ausentes e valores que precisam de revisão.</span></div><button class="pill" id="validateData" type="button">Validar registros</button></div><div class="validation-result" id="validationResult">A validação ainda não foi executada.</div></section>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mn">
+  <article class="dialog">
+    <div class="stripe" id="ms"></div>
+    <div class="inside">
+      <button class="x" id="x" type="button" aria-label="Fechar">×</button>
+      <span class="tag" id="mt"></span>
+      <h2 id="mn"></h2>
+      <div class="meta" id="mfam"></div>
+      <div class="details" id="details"></div>
+      <p id="mdesc"></p>
+      <h3 style="margin:18px 0 6px;font-size:1rem">Minha avaliação & degustação</h3>
+      <div class="rate" id="rate" aria-label="Nota"></div>
+      <div class="tasting-grid"><div><label for="tasteDate">Data da degustação</label><input id="tasteDate" type="date"></div><div><label for="appearance">Aparência</label><input id="appearance" type="text" placeholder="Cor, espuma, limpidez"></div><div><label for="aroma">Aroma</label><input id="aroma" type="text" placeholder="Notas aromáticas"></div><div><label for="flavor">Sabor</label><input id="flavor" type="text" placeholder="Sabores percebidos"></div><div><label for="bitterness">Amargor</label><input id="bitterness" type="text" placeholder="Leve, médio, intenso"></div><div><label for="body">Corpo</label><input id="body" type="text" placeholder="Leve, médio, cheio"></div><div class="wide"><label for="pairing">Harmonização</label><input id="pairing" type="text" placeholder="Comida ou ocasião"></div></div>
+      <textarea class="notes" id="notes" placeholder="Sua percepção geral da degustação..."></textarea>
+      <div class="quick" style="margin-top:12px">
+        <button class="pill" id="mfav" type="button" aria-pressed="false">⭐ Favoritar</button>
+        <button class="pill" id="modalShare" type="button">🔗 Compartilhar cerveja</button>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer class="wrap">
+  <p>Guia interativo Oficial do 13º Festival de Confrarias do Rio de Janeiro (13FDCRJ). Suas anotações e avaliações ficam salvas localmente no seu navegador.<br>
+     <p>Página inspirada na elaborada pelo Levi Ciqueira Jr.<br>
+  <strong>Aprecie com moderação — Se beber, não dirija! Siga <a href="https://instagram.com/fdcrj" target="_blank" rel="noopener">@fdcrj</a> no Instagram.</strong></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1S_ajLE6RhxOfa771lQaWYcAKhK_BnS1fRC9lLhABLx4/gviz/tq?tqx=out:csv&gid=503452782';
+let DATA = [];
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [], cell = '', quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i], next = text[i + 1];
+    if (ch === '"' && quoted && next === '"') { cell += '"'; i++; continue; }
+    if (ch === '"') { quoted = !quoted; continue; }
+    if (ch === ',' && !quoted) { row.push(cell); cell = ''; continue; }
+    if ((ch === '\n' || ch === '\r') && !quoted) {
+      if (ch === '\r' && next === '\n') i++;
+      row.push(cell); cell = '';
+      if (row.some(value => value.trim())) rows.push(row);
+      row = [];
+      continue;
+    }
+    cell += ch;
+  }
+  if (cell || row.length) { row.push(cell); if (row.some(value => value.trim())) rows.push(row); }
+  return rows;
+}
+function deriveFamily(style) {
+  const value = String(style || '').toLowerCase();
+  if (/ipa|pale ale|hoppy/.test(value)) return 'IPA & Lupuladas';
+  if (/sour|ácid|acid|gose|kettle/.test(value)) return 'Ácidas & Sours';
+  if (/trigo|wheat|weiss|witbier/.test(value)) return 'Trigo';
+  if (/saison|belgian|belga|dubbel|tripel|strong ale/.test(value)) return 'Belgas & Saison';
+  if (/lager|pils|helles|bock|kölsch|kolsch/.test(value)) return 'Lagers';
+  if (/stout|porter|dunkel|schwarz|black ale|brown ale/.test(value)) return 'Escuras tostadas';
+  if (/bitter|amber|altbier|red ale|scotch ale/.test(value)) return 'Ales maltadas';
+  if (/blonde|blond|cream ale|golden ale|pilsen|pale lager/.test(value)) return 'Ales claras';
+  if (/fruit|frut|spice|herb|vegetable|experimental|rio/.test(value)) return 'Especiais & Frutadas';
+  return 'Outros';
+}
+function normalizeSheetData(text) {
+  const rows = parseCSV(text);
+  if (!rows.length) return [];
+  const headers = rows[0].map(value => value.trim().toLowerCase());
+  const column = (...names) => names.map(name => headers.indexOf(name.toLowerCase())).find(index => index >= 0);
+  const get = (row, ...names) => { const index = column(...names); return index === undefined ? '' : String(row[index] || '').trim(); };
+  return rows.slice(1).map((row, index) => {
+    const estilo = get(row, 'Estilo BJCP') || 'Não informado';
+    const confraria = get(row, 'Confraria') || 'Não informado';
+    return {
+      id: index,
+      confraria,
+      confrariaNome: confraria,
+      categoria: get(row, 'Tipo') || 'Não informado',
+      responsavel: get(row, 'Cervejeiro') || 'Não informado',
+      cerveja: get(row, 'Nome da cerveja') || 'Cerveja não informada',
+      estilo,
+      descricao: get(row, 'Descrição'),
+      volume: get(row, 'Volume'),
+      abv: get(row, 'ABV'),
+      ibu: get(row, 'IBU'),
+      ebc: get(row, 'EBC'),
+      familia: deriveFamily(estilo)
+    };
+  }).filter(item => item.cerveja && item.cerveja !== 'Cerveja não informada' || item.descricao || item.confraria !== 'Não informado');
+}
+async function loadSheetData() {
+  const status = document.getElementById('dataSourceStatus');
+  try {
+    const response = await fetch(SHEET_CSV_URL, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    DATA = normalizeSheetData(await response.text());
+    if (status) status.textContent = DATA.length ? `Fonte: planilha 13º FDCRJ • ${DATA.length} cervejas carregadas • carregado em ${new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}` : 'Fonte conectada: a aba All Beers ainda não possui registros';
+  } catch (error) {
+    DATA = [];
+    if (status) status.textContent = 'Não foi possível carregar a planilha. Verifique o acesso público e tente novamente.';
+    console.error('Falha ao carregar a planilha:', error);
+  }
+}
+let BEERS = [];
+
+// Cores temáticas por família de estilo
+const FAM_COLORS = {
+  "Ales maltadas": "#d97706",
+  "Escuras tostadas": "#451a03",
+  "IPA & Lupuladas": "#15803d",
+  "Ales claras": "#eab308",
+  "Lagers": "#f59e0b",
+  "Trigo": "#ca8a04",
+  "Especiais & Frutadas": "#0284c7",
+  "Belgas & Saison": "#b45309",
+  "Ácidas & Sours": "#ec4899",
+  "Outros": "#64748b"
+};
+
+let userFavs = JSON.parse(localStorage.getItem('fdcrj_favs') || '[]');
+let userRatings = JSON.parse(localStorage.getItem('fdcrj_ratings') || '{}');
+let userNotes = JSON.parse(localStorage.getItem('fdcrj_notes') || '{}');
+let userTasting = JSON.parse(localStorage.getItem('fdcrj_tasting') || '{}');
+let activeModalBeer = null;
+
+// Elementos DOM
+const $ = s => document.querySelector(s); const $$ = s => document.querySelectorAll(s);
+
+// Inicialização
+function init() {
+  setupTheme();
+  buildFilters();
+  renderGrid();
+  renderLegend();
+  updateStats();
+  renderInsights();
+  bindEvents();
+  parseURLParams();
+}
+
+function setupTheme() {
+  const savedTheme = localStorage.getItem('fdcrj_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  $('#theme').textContent = savedTheme === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+}
+
+$('#theme').addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('fdcrj_theme', next);
+  $('#theme').textContent = next === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+});
+
+function normalizeText(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+}
+function toNumber(value) {
+  const match = String(value || '').replace(',', '.').match(/-?\d+(?:\.\d+)?/);
+  return match ? Number(match[0]) : NaN;
+}
+function hasCompleteData(item) {
+  return Boolean(item.confrariaNome && item.cerveja && item.estilo && item.descricao && item.volume && item.abv && item.ibu && item.ebc);
+}
+function buildFilters() {
+  const confs = [...new Set(DATA.map(d => d.confrariaNome))].sort();
+  const cats = [...new Set(DATA.map(d => d.categoria))].sort();
+  const fams = [...new Set(DATA.map(d => d.familia))].sort();
+  const styles = [...new Set(DATA.map(d => d.estilo))].sort();
+  const brewers = [...new Set(DATA.map(d => d.responsavel).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'pt-BR'));
+
+  fillSelect('#cf', 'Todas as Confrarias', confs);
+  fillSelect('#ct', 'Todas as Categorias', cats);
+  fillSelect('#fm', 'Todas as Famílias', fams);
+  fillSelect('#st', 'Todos os Estilos', styles);
+  fillSelect('#brewer', 'Todos os Cervejeiros', brewers);
+}
+
+function fillSelect(sel, placeholder, items) {
+  const el = $(sel);
+  el.innerHTML = `<option value="">${placeholder}</option>` +
+    items.map(i => `<option value="${escapeAttr(i)}">${escapeHtml(i)}</option>`).join('');
+}
+
+function getFilteredData() {
+  const q = normalizeText($('#q').value);
+  const cf = $('#cf').value, ct = $('#ct').value, fm = $('#fm').value, st = $('#st').value;
+  const brewer = $('#brewer').value;
+  const abvMin = toNumber($('#abvMin').value), abvMax = toNumber($('#abvMax').value);
+  const ibuMin = toNumber($('#ibuMin').value), volume = toNumber($('#volumeFilter').value);
+  const sort = $('#or').value;
+  const onlyFav = $('#onlyFav').getAttribute('aria-pressed') === 'true';
+  const onlyDesc = $('#onlyDesc').getAttribute('aria-pressed') === 'true';
+  const onlyRio = $('#onlyRio').getAttribute('aria-pressed') === 'true';
+  const onlyIpa = $('#onlyIpa').getAttribute('aria-pressed') === 'true';
+  const onlyComplete = $('#onlyComplete').getAttribute('aria-pressed') === 'true';
+  return DATA.filter((item, idx) => {
+    if (cf && item.confrariaNome !== cf) return false;
+    if (ct && item.categoria !== ct) return false;
+    if (fm && item.familia !== fm) return false;
+    if (st && item.estilo !== st) return false;
+    if (brewer && item.responsavel !== brewer) return false;
+    const itemAbv = toNumber(item.abv), itemIbu = toNumber(item.ibu), itemVolume = toNumber(item.volume);
+    if (Number.isFinite(abvMin) && (!Number.isFinite(itemAbv) || itemAbv < abvMin)) return false;
+    if (Number.isFinite(abvMax) && (!Number.isFinite(itemAbv) || itemAbv > abvMax)) return false;
+    if (Number.isFinite(ibuMin) && (!Number.isFinite(itemIbu) || itemIbu < ibuMin)) return false;
+    if (Number.isFinite(volume) && (!Number.isFinite(itemVolume) || itemVolume !== volume)) return false;
+    if (onlyFav && !userFavs.includes(idx)) return false;
+    if (onlyDesc && !item.descricao) return false;
+    if (onlyRio && !item.categoria.includes('Rio') && item.estilo !== 'Estilo Rio') return false;
+    if (onlyIpa && !normalizeText(item.estilo).includes('ipa') && !normalizeText(item.familia).includes('ipa')) return false;
+    if (onlyComplete && !hasCompleteData(item)) return false;
+    if (q) {
+      const haystack = normalizeText([item.cerveja, item.estilo, item.confrariaNome, item.responsavel, item.descricao, item.categoria, item.familia, item.volume, item.abv, item.ibu, item.ebc].join(' '));
+      if (!q.split(/\s+/).every(term => haystack.includes(term))) return false;
+    }
+    return true;
+  }).sort((a, b) => {
+    const idxA = DATA.indexOf(a), idxB = DATA.indexOf(b);
+    if (sort === 'cerveja') return a.cerveja.localeCompare(b.cerveja);
+    if (sort === 'confraria') return a.confrariaNome.localeCompare(b.confrariaNome);
+    if (sort === 'estilo') return a.estilo.localeCompare(b.estilo);
+    if (sort === 'categoria') return a.categoria.localeCompare(b.categoria);
+    if (sort === 'rating') return (userRatings[idxB] || 0) - (userRatings[idxA] || 0);
+    return 0;
+  });
+}
+function renderActiveFilters() {
+  const target = $('#activeFilters');
+  if (!target) return;
+  const filters = [
+    ['Busca', $('#q').value.trim()], ['Confraria', $('#cf').value], ['Categoria', $('#ct').value],
+    ['Família', $('#fm').value], ['Estilo', $('#st').value], ['Cervejeiro', $('#brewer').value],
+    ['ABV mín.', $('#abvMin').value], ['ABV máx.', $('#abvMax').value], ['IBU mín.', $('#ibuMin').value], ['Volume', $('#volumeFilter').value],
+    ['⭐ Favoritas', $('#onlyFav').getAttribute('aria-pressed') === 'true' ? 'Ativo' : ''],
+    ['📝 Com descrição', $('#onlyDesc').getAttribute('aria-pressed') === 'true' ? 'Ativo' : ''],
+    ['🏖️ Estilo Rio', $('#onlyRio').getAttribute('aria-pressed') === 'true' ? 'Ativo' : ''],
+    ['🌿 IPAs', $('#onlyIpa').getAttribute('aria-pressed') === 'true' ? 'Ativo' : '']
+    ,['✅ Dados completos', $('#onlyComplete').getAttribute('aria-pressed') === 'true' ? 'Ativo' : '']
+  ].filter(([, value]) => value);
+  target.innerHTML = filters.length ? filters.map(([label, value]) => `<span class="active-filter">${escapeHtml(label)}: ${escapeHtml(value)}</span>`).join('') : '<span class="filter-help">Nenhum filtro aplicado</span>';
+}
+function renderGrid() {
+  const list = getFilteredData();
+  const grid = $('#grid');
+  $('#count').textContent = `${list.length} cerveja(s) encontrada(s)`;
+
+  if (list.length === 0) {
+    grid.innerHTML = DATA.length === 0
+      ? `<div class="empty"><strong>A lista ainda está aguardando os dados</strong><p>A conexão com a aba <b>All Beers</b> está funcionando, mas a planilha ainda não possui registros preenchidos.</p><a href="https://docs.google.com/spreadsheets/d/1S_ajLE6RhxOfa771lQaWYcAKhK_BnS1fRC9lLhABLx4/edit?gid=503452782" target="_blank" rel="noopener">Abrir planilha</a></div>`
+      : `<div class="empty"><strong>Nenhuma cerveja encontrada</strong><p>Tente remover algum filtro ou use o botão “Limpar filtros”.</p><button class="pill" type="button" onclick="clearAllFilters()">Limpar filtros</button></div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(item => {
+    const idx = DATA.indexOf(item);
+    const color = FAM_COLORS[item.familia] || 'var(--brand)';
+    const isFav = userFavs.includes(idx);
+    const rating = userRatings[idx] || 0;
+    const stars = rating > 0 ? ' ⭐'.repeat(rating) : '';
+
+    return `
+      <article class="card" onclick="openModal(${idx})">
+        <div class="stripe" style="--c:${color}"></div>
+        <div class="body">
+          <div><span class="tag" style="--c:${color}">${escapeHtml(item.familia)}</span></div>
+          <button class="fav" aria-pressed="${isFav}" onclick="toggleFav(event, ${idx})" title="Favoritar">⭐</button>
+          <h3>${escapeHtml(item.cerveja)}${stars}</h3>
+          <div class="meta">${escapeHtml(item.estilo)} • <strong>${escapeHtml(item.confrariaNome)}</strong></div>
+          <div class="specs">${item.volume ? `<span class="spec">${escapeHtml(formatMeasure(item.volume, 'L'))}</span>` : ''}${item.abv ? `<span class="spec">${escapeHtml(formatMeasure(item.abv, '% ABV'))}</span>` : ''}${item.ibu ? `<span class="spec">${escapeHtml(formatMeasure(item.ibu, 'IBU'))}</span>` : ''}</div>
+          <p class="desc">${item.descricao ? escapeHtml(item.descricao) : '<em>Sem descrição sensorial detalhada.</em>'}</p>
+          <div class="owner">👤 ${escapeHtml(item.responsavel)} (${escapeHtml(item.categoria)})</div>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function renderLegend() {
+  const chips = $('#chips');
+  chips.innerHTML = Object.keys(FAM_COLORS).map(fam => {
+    const color = FAM_COLORS[fam];
+    const count = DATA.filter(d => d.familia === fam).length;
+    return `
+      <button class="chip" onclick="filterByFam('${fam}')">
+        <span class="dot" style="--c:${color}"></span>
+        <span>${escapeHtml(fam)}</span>
+        <b>(${count})</b>
+      </button>
+    `;
+  }).join('');
+}
+
+function filterByFam(fam) {
+  $('#fm').value = fam;
+  renderGrid();
+  window.scrollTo({ top: $('#grid').offsetTop - 80, behavior: 'smooth' });
+}
+
+function renderInsights() {
+  const target = $('#insightsGrid');
+  if (!target) return;
+  const countBy = key => Object.entries(DATA.reduce((acc, item) => { const value = item[key] || 'Não informado'; acc[value] = (acc[value] || 0) + 1; return acc; }, {})).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  const groups = [['Famílias', countBy('familia')], ['Estilos', countBy('estilo')], ['Confrarias', countBy('confrariaNome')]];
+  const max = Math.max(1, ...groups.flatMap(([, values]) => values.map(([, count]) => count)));
+  target.innerHTML = groups.map(([title, values]) => `<div class="insight"><h3>${escapeHtml(title)}</h3>${values.length ? values.map(([label, count]) => `<div class="insight-row"><span title="${escapeAttr(label)}">${escapeHtml(label)}</span><span class="track"><span class="fill" style="width:${Math.round(count / max * 100)}%"></span></span><b>${count}</b></div>`).join('') : '<span class="filter-help">Sem dados</span>'}</div>`).join('');
+}
+function validateData() {
+  const result = $('#validationResult');
+  if (!DATA.length) { result.innerHTML = '<strong>Nenhum registro carregado.</strong> A aba All Beers está vazia ou ainda não foi preenchida.'; return; }
+  const checks = {
+    'sem nome': DATA.filter(item => !item.cerveja || item.cerveja === 'Cerveja não informada').length,
+    'sem confraria': DATA.filter(item => !item.confrariaNome || item.confrariaNome === 'Não informado').length,
+    'sem estilo': DATA.filter(item => !item.estilo || item.estilo === 'Não informado').length,
+    'sem descrição': DATA.filter(item => !item.descricao).length,
+    'ABV inválido': DATA.filter(item => !Number.isFinite(toNumber(item.abv))).length,
+    'IBU inválido': DATA.filter(item => !Number.isFinite(toNumber(item.ibu))).length,
+    'EBC inválido': DATA.filter(item => !Number.isFinite(toNumber(item.ebc))).length
+  };
+  const issues = Object.entries(checks).filter(([, count]) => count);
+  result.innerHTML = `<strong>${DATA.length} registro(s) analisado(s).</strong> ${issues.length ? issues.map(([label, count]) => `${escapeHtml(label)}: ${count}`).join(' · ') : 'Nenhum problema encontrado nos campos principais.'}`;
+}
+function updateStats() {
+  $('#sBeers').textContent = DATA.length;
+  $('#sConf').textContent = new Set(DATA.map(d => d.confrariaNome)).size;
+  $('#sStyles').textContent = new Set(DATA.map(d => d.estilo)).size;
+  $('#sFav').textContent = userFavs.length;
+}
+
+function toggleFav(e, idx) {
+  e.stopPropagation();
+  const p = userFavs.indexOf(idx);
+  if (p >= 0) userFavs.splice(p, 1);
+  else userFavs.push(idx);
+
+  localStorage.setItem('fdcrj_favs', JSON.stringify(userFavs));
+  updateStats();
+  renderGrid();
+  showToast(p >= 0 ? 'Removido dos favoritos' : 'Adicionado aos favoritos ⭐');
+}
+
+function openModal(idx) {
+  activeModalBeer = idx;
+  const item = DATA[idx];
+  const color = FAM_COLORS[item.familia] || 'var(--brand)';
+
+  $('#ms').style.background = color;
+  $('#mt').textContent = item.categoria;
+  $('#mt').style.setProperty('--c', color);
+  $('#mn').textContent = item.cerveja;
+  $('#mfam').textContent = `${item.estilo} • ${item.familia}`;
+
+  $('#details').innerHTML = `
+    <div class="detail"><b>Confraria</b>${escapeHtml(item.confrariaNome)}</div>
+    <div class="detail"><b>Responsável</b>${escapeHtml(item.responsavel)}</div>
+    <div class="detail"><b>Volume</b>${escapeHtml(item.volume || 'Não informado')}</div>
+    <div class="detail"><b>ABV</b>${escapeHtml(item.abv || 'Não informado')}</div>
+    <div class="detail"><b>IBU</b>${escapeHtml(item.ibu || 'Não informado')}</div>
+    <div class="detail"><b>EBC</b>${escapeHtml(item.ebc || 'Não informado')}</div>
+  `;
+
+  $('#mdesc').innerHTML = item.descricao ? escapeHtml(item.descricao) : '<em>Sem descrição adicional cadastrada para esta cerveja.</em>';
+  $('#notes').value = userNotes[idx] || '';
+
+  renderModalStars(userRatings[idx] || 0);
+
+  const isFav = userFavs.includes(idx);
+  const mfav = $('#mfav');
+  mfav.setAttribute('aria-pressed', isFav);
+  mfav.textContent = isFav ? '⭐ Favoritado' : '⭐ Favoritar';
+
+  $('#modal').classList.add('open');
+}
+
+function renderModalStars(rating) {
+  const container = $('#rate');
+  let html = '';
+  for (let i = 1; i <= 5; i++) {
+    html += `<button type="button" class="star ${i <= rating ? 'on' : ''}" onclick="setRating(${i})">⭐</button>`;
+  }
+  container.innerHTML = html;
+}
+
+function setRating(r) {
+  if (activeModalBeer === null) return;
+  userRatings[activeModalBeer] = r;
+  localStorage.setItem('fdcrj_ratings', JSON.stringify(userRatings));
+  renderModalStars(r);
+  renderGrid();
+}
+
+function saveTastingField(field, value) {
+  if (activeModalBeer === null) return;
+  userTasting[activeModalBeer] = { ...(userTasting[activeModalBeer] || {}), [field]: value };
+  localStorage.setItem('fdcrj_tasting', JSON.stringify(userTasting));
+}
+['tasteDate', 'appearance', 'aroma', 'flavor', 'bitterness', 'body', 'pairing'].forEach(id => {
+  document.getElementById(id).addEventListener('input', event => saveTastingField(id === 'tasteDate' ? 'date' : id, event.target.value));
+});
+$('#notes').addEventListener('input', (e) => {
+  if (activeModalBeer === null) return;
+  userNotes[activeModalBeer] = e.target.value;
+  localStorage.setItem('fdcrj_notes', JSON.stringify(userNotes));
+});
+
+$('#mfav').addEventListener('click', () => {
+  if (activeModalBeer === null) return;
+  toggleFav(new Event('click'), activeModalBeer);
+  const isFav = userFavs.includes(activeModalBeer);
+  $('#mfav').setAttribute('aria-pressed', isFav);
+  $('#mfav').textContent = isFav ? '⭐ Favoritado' : '⭐ Favoritar';
+});
+
+$('#modalShare').addEventListener('click', async () => {
+  if (activeModalBeer === null) return;
+  const item = DATA[activeModalBeer];
+  const url = `${window.location.origin}${window.location.pathname}?beer=${encodeURIComponent(activeModalBeer)}`;
+  const data = { title: item.cerveja, text: `${item.cerveja} — ${item.estilo} • ${item.confrariaNome}`, url };
+  try { if (navigator.share) await navigator.share(data); else { await navigator.clipboard.writeText(url); showToast('Link da cerveja copiado'); } } catch (error) {}
+});
+function closeModal() {
+  $('#modal').classList.remove('open');
+  activeModalBeer = null;
+}
+
+$('#x').addEventListener('click', closeModal);
+$('#modal').addEventListener('click', e => { if (e.target === $('#modal')) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#modal').classList.contains('open')) closeModal(); });
+
+function clearAllFilters() {
+  $('#q').value = '';
+  $('#cf').value = '';
+  $('#ct').value = '';
+  $('#fm').value = '';
+  $('#st').value = '';
+  $('#brewer').value = '';
+  $('#abvMin').value = '';
+  $('#abvMax').value = '';
+  $('#ibuMin').value = '';
+  $('#volumeFilter').value = '';
+  $('#or').value = 'cerveja';
+  $$('.quick .pill[aria-pressed]').forEach(btn => btn.setAttribute('aria-pressed', 'false'));
+  renderGrid();
+}
+function bindEvents() {
+  ['#q', '#cf', '#ct', '#fm', '#st', '#or', '#brewer', '#abvMin', '#abvMax', '#ibuMin', '#volumeFilter'].forEach(sel => {
+    $(sel).addEventListener('input', renderGrid);
+  });
+
+  ['onlyFav', 'onlyDesc', 'onlyRio', 'onlyIpa', 'onlyComplete'].forEach(id => {
+    $(`#${id}`).addEventListener('click', function() {
+      const pressed = this.getAttribute('aria-pressed') === 'true';
+      this.setAttribute('aria-pressed', !pressed);
+      renderGrid();
+    });
+  });
+
+  $('#clear').addEventListener('click', () => { clearAllFilters(); showToast('Filtros limpos'); });
+  $('#reloadData').addEventListener('click', async () => { $('#reloadData').disabled = true; $('#reloadData').textContent = '↻ Carregando...'; await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); buildFilters(); renderGrid(); renderLegend(); updateStats(); renderInsights(); $('#reloadData').disabled = false; $('#reloadData').textContent = '↻ Atualizar dados'; showToast('Dados atualizados'); });
+  $('#presentationToggle').addEventListener('click', event => { const active = document.body.classList.toggle('presentation-mode'); event.currentTarget.setAttribute('aria-pressed', active); event.currentTarget.textContent = active ? '▣ Sair da apresentação' : '▣ Apresentação'; });
+  $('#validateData').addEventListener('click', validateData);
+
+  $('#print').addEventListener('click', () => window.print());
+
+  $('#share').addEventListener('click', () => {
+    const params = new URLSearchParams();
+    if ($('#q').value) params.set('q', $('#q').value);
+    if ($('#cf').value) params.set('cf', $('#cf').value);
+    if ($('#ct').value) params.set('ct', $('#ct').value);
+    if ($('#fm').value) params.set('fm', $('#fm').value);
+    if ($('#st').value) params.set('st', $('#st').value);
+    
+    const shareUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      showToast('Link de filtros copiado!');
+    });
+  });
+}
+
+function parseURLParams() {
+  const p = new URLSearchParams(window.location.search);
+  if (p.get('q')) $('#q').value = p.get('q');
+  if (p.get('cf')) $('#cf').value = p.get('cf');
+  if (p.get('ct')) $('#ct').value = p.get('ct');
+  if (p.get('fm')) $('#fm').value = p.get('fm');
+  if (p.get('st')) $('#st').value = p.get('st');
+  if (p.get('brewer')) $('#brewer').value = p.get('brewer');
+  ['abvMin', 'abvMax', 'ibuMin', 'volumeFilter'].forEach(id => { if (p.get(id)) $(`#${id}`).value = p.get(id); });
+  if (p.get('complete') === '1') $('#onlyComplete').setAttribute('aria-pressed', 'true');
+  renderGrid();
+  if (p.has('beer')) { const beerIndex = Number(p.get('beer')); if (Number.isInteger(beerIndex) && DATA[beerIndex]) openModal(beerIndex); }
+}
+
+function showToast(msg) {
+  const toast = $('#toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+function escapeHtml(str) {
+  return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function escapeAttr(str) {
+  return String(str || '').replace(/"/g, '&quot;');
+}
+function formatMeasure(value, unit) {
+  const clean = String(value || '').trim();
+  if (!clean) return '';
+  if (unit === '% ABV') return `${clean.replace(/%(?:\s*ABV?)?$/i, '').trim()}% ABV`;
+  if (new RegExp(`\\s${unit}$`, 'i').test(clean)) return clean;
+  return `${clean} ${unit}`;
+}
+document.addEventListener('DOMContentLoaded', async () => { await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); init(); });
+</script>
+</body>
+</html>
