@@ -749,7 +749,7 @@ function renderGrid() {
 
   if (list.length === 0) {
     grid.innerHTML = DATA.length === 0
-      ? `<div class="empty"><strong>A lista ainda está aguardando os dados</strong><p>A conexão com a aba <b>All Beers</b> está funcionando, mas a planilha ainda não possui registros preenchidos.</p><a href="https://docs.google.com/spreadsheets/d/1S_ajLE6RhxOfa771lQaWYcAKhK_BnS1fRC9lLhABLx4/edit?gid=503452782" target="_blank" rel="noopener">Abrir planilha</a></div>`
+      ? `<div class="empty"><strong>A lista ainda está aguardando os dados</strong><p>A conexão com a aba <b>All Beers</b> está funcionando, mas a planilha ainda não possui registros preenchidos.</p></div>`
       : `<div class="empty"><strong>Nenhuma cerveja encontrada</strong><p>Tente remover algum filtro ou use o botão “Limpar filtros”.</p><button class="pill" type="button" onclick="clearAllFilters()">Limpar filtros</button></div>`;
     return;
   }
