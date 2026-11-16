@@ -12,12 +12,12 @@
   function key(item) { return window.FDCRJ_BEER_MODEL.shareKey({ cerveja: item.name || item.cerveja, confrariaNome: item.confrariaNome || item.confraria, estilo: item.style || item.estilo }); }
   function showBeer(item) {
     const url = new URL(window.location.href); url.search = ''; url.searchParams.set('slug', key(item));
-    $('#beerStatus').hidden=true; $('#beerCard').hidden=false; $('#beerName').textContent=item.name; $('#beerTitle').textContent=item.name; $('#beerSubtitle').textContent=`${item.style} • ${item.confraria}`; $('#beerStyle').textContent=`${item.style} • ${item.category}`; $('#beerSchool').textContent=school(item.style); $('#beerUrl').href=url.href; $('#beerUrl').textContent=url.href;
+    $('#beerStatus').hidden=true; $('#beerCard').hidden=false; $('#beerName').textContent=item.name; $('#beerTitle').textContent=item.name; $('#beerSubtitle').textContent=`${item.style} • ${item.confraria}`; $('#beerStyle').textContent=`${item.style} • ${item.category}`; $('#beerSchool').textContent=school(item.style);
     $('#beerMetrics').innerHTML=[['Confraria',item.confraria],['Cervejeiro',item.brewer],['ABV',item.abv],['IBU',item.ibu],['EBC',item.ebc],['Volume',item.volume]].map(([label,value])=>`<div class="detail"><b>${label}</b>${escapeHtml(value||'Não informado')}</div>`).join('');
     $('#beerDescription').innerHTML=item.description ? `<p>${escapeHtml(item.description)}</p>` : '<p><em>Sem descrição adicional cadastrada.</em></p>';
     $('#beerExtras').innerHTML=[item.ingredients?`<div><strong>Ingredientes:</strong> ${escapeHtml(item.ingredients)}</div>`:'',item.aroma?`<div><strong>Aroma:</strong> ${escapeHtml(item.aroma)}</div>`:'',item.flavor?`<div><strong>Sabor:</strong> ${escapeHtml(item.flavor)}</div>`:'',item.pairing?`<div><strong>Harmonização:</strong> ${escapeHtml(item.pairing)}</div>`:''].filter(Boolean).join('') || '<span class="filter-help">Não há características adicionais cadastradas.</span>';
     if (item.photo) $('#beerImage').innerHTML=`<img class="detail-photo" src="${escapeHtml(item.photo)}" alt="${escapeHtml(item.name)}">`;
-    QRCode.toCanvas($('#beerQr'), url.href, { width:150, margin:2, color:{dark:'#0f2b48',light:'#ffffff'} });
+    QRCode.toCanvas($('#beerQr'), url.href, { width:118, margin:2, color:{dark:'#0f2b48',light:'#ffffff'} });
     $('#copyBeerUrl').addEventListener('click', async()=>{await navigator.clipboard.writeText(url.href); $('#copyBeerUrl').textContent='Link copiado';});
     document.title=`${item.name} • 13º FDCRJ`;
   }
