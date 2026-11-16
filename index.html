@@ -571,7 +571,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
       <div class="quick" style="margin-top:12px">
         <button class="pill" id="mfav" type="button" aria-pressed="false">⭐ Favoritar</button>
         <button class="pill" id="modalShare" type="button">🔗 Compartilhar cerveja</button><button class="pill" id="modalCompare" type="button">⚖️ Comparar</button>
-      <div class="qr-box"><canvas id="qrCanvas" width="110" height="110"></canvas><span class="filter-help">Escaneie para abrir esta ficha no celular.</span></div>
+      <div class="qr-box"><canvas id="qrCanvas" width="110" height="110" aria-label="QR Code da cerveja"></canvas><strong>Ficha desta cerveja</strong><span class="filter-help">Escaneie com outro celular para abrir diretamente esta ficha.</span><a id="qrLink" class="qr-link" target="_blank" rel="noopener"></a><div class="qr-actions"><button class="pill" id="copyQrLink" type="button">Copiar link</button><a class="pill" id="downloadQr" download="qr-code-cerveja.png">Baixar QR Code</a></div></div>
     </div>
   </article>
 </div>
@@ -645,6 +645,12 @@ function classifyBeerSchool(style) {
   if (/sour|acid|fruit|spice|wild/.test(value)) return 'Belga';
   if (/ale|bitter|brown|dark|red/.test(value)) return 'Inglesa';
   return 'Americana';
+}
+function beerShareKey(item) {
+  return normalizeText(`${item.cerveja}-${item.confrariaNome}-${item.estilo}`).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 120);
+}
+function beerShareUrl(item) {
+  return `${window.location.origin}${window.location.pathname}?beer=${encodeURIComponent(beerShareKey(item))}`;
 }
 function normalizeSheetData(text) {
   const rows = parseCSV(text);
@@ -1047,8 +1053,13 @@ function openModal(idx) {
   $('#notes').value = userNotes[idx] || '';
   const tasting = userTasting[idx] || {};
   $('#tasteDate').value=tasting.date||''; $('#appearance').value=tasting.appearance||''; $('#aroma').value=tasting.aroma||''; $('#flavor').value=tasting.flavor||''; $('#bitterness').value=tasting.bitterness||''; $('#body').value=tasting.body||''; $('#pairing').value=tasting.pairing||'';
-  const qrUrl = `${window.location.origin}${window.location.pathname}?beer=${encodeURIComponent(idx)}`;
-  if (window.QRCode) QRCode.toCanvas($('#qrCanvas'), qrUrl, { width:110, margin:1 }, () => {});
+  const qrUrl = beerShareUrl(item);
+  $('#qrLink').textContent = qrUrl;
+  $('#qrLink').href = qrUrl;
+  $('#qrCanvas').getContext('2d').clearRect(0, 0, 110, 110);
+  if (window.QRCode) {
+    QRCode.toCanvas($('#qrCanvas'), qrUrl, { width:110, margin:1, color:{ dark:'#0f2b48', light:'#ffffff' } }, error => { if (error) console.error('Falha ao gerar QR Code:', error); });
+  }
 
   renderModalStars(userRatings[idx] || 0);
 
@@ -1102,10 +1113,12 @@ $('#mfav').addEventListener('click', () => {
 $('#modalShare').addEventListener('click', async () => {
   if (activeModalBeer === null) return;
   const item = DATA[activeModalBeer];
-  const url = `${window.location.origin}${window.location.pathname}?beer=${encodeURIComponent(activeModalBeer)}`;
+  const url = beerShareUrl(item);
   const data = { title: item.cerveja, text: `${item.cerveja} — ${item.estilo} • ${item.confrariaNome}`, url };
   try { if (navigator.share) await navigator.share(data); else { await navigator.clipboard.writeText(url); showToast('Link da cerveja copiado'); } } catch (error) {}
 });
+$('#copyQrLink').addEventListener('click', async () => { if (activeModalBeer === null) return; try { await navigator.clipboard.writeText(beerShareUrl(DATA[activeModalBeer])); showToast('Link do QR Code copiado'); } catch (error) { showToast('Não foi possível copiar o link'); } });
+$('#downloadQr').addEventListener('click', () => { const canvas=$('#qrCanvas'); $('#downloadQr').href=canvas.toDataURL('image/png'); });
 $('#modalCompare').addEventListener('click', () => { if (activeModalBeer !== null) { toggleCompare(activeModalBeer); showToast(compareSet.includes(activeModalBeer) ? 'Adicionado à comparação' : 'Removido da comparação'); } });
 $('#clearCompare').addEventListener('click', () => { compareSet=[]; localStorage.setItem('fdcrj_compare','[]'); renderCompare(); renderGrid(); });
 function closeModal() {
@@ -1187,7 +1200,13 @@ function parseURLParams() {
   if (p.get('complete') === '1') $('#onlyComplete').setAttribute('aria-pressed', 'true');
   if (p.get('untasted') === '1') $('#onlyUntasted').setAttribute('aria-pressed', 'true');
   renderGrid();
-  if (p.has('beer')) { const beerIndex = Number(p.get('beer')); if (Number.isInteger(beerIndex) && DATA[beerIndex]) openModal(beerIndex); }
+  if (p.has('beer')) {
+    const requested = p.get('beer');
+    const beerIndex = DATA.findIndex(item => beerShareKey(item) === requested);
+    const legacyIndex = Number(requested);
+    if (beerIndex >= 0) openModal(beerIndex);
+    else if (Number.isInteger(legacyIndex) && DATA[legacyIndex]) openModal(legacyIndex);
+  }
 }
 
 function showToast(msg) {
