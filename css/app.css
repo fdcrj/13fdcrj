@@ -456,3 +456,9 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .beer-page + * { max-width:100%; }
 body:has(.beer-page) .hero-content img { width:64px; height:64px; object-fit:contain; }
 body:has(.beer-page) .hero-content { display:flex; align-items:center; gap:14px; }
+
+.top-qr { display:flex; flex-direction:column; align-items:center; gap:4px; margin-left:auto; padding:8px; border-radius:12px; background:rgba(255,255,255,.94); color:#0f2b48; box-shadow:0 4px 14px rgba(0,0,0,.12); }
+.top-qr canvas { width:118px; height:118px; display:block; }
+.top-qr span { font-size:.7rem; font-weight:700; }
+.top-qr .pill { font-size:.72rem; padding:6px 10px; }
+@media(max-width:650px) { .top-qr { margin:12px auto 0; } body:has(.beer-page) .hero-content { flex-wrap:wrap; } }
