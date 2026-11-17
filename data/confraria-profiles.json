@@ -1,6 +1,5 @@
 {
   "schema_version": 2,
-  "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
   "medal_rule": "Nas abas 1FDCRJ a 12FDCRJ, 1º lugar = ouro, 2º = prata, 3º = bronze, conforme informado pelo usuário. Menções honrosas e reconhecimentos sem medalha especificada não entram nos totais. Resultados externos só entram quando a fonte confirma o resultado e a associação do premiado à confraria.",
   "source_policy": "O Instagram oficial do FDCRJ (@fdcrj) não foi utilizado como fonte. Quando necessário, datas foram confirmadas por fontes independentes, como a página do Festival no Facebook, plataformas de resultados e imprensa local.",
   "coverage_note": "Levantamento das 16 confrarias cadastradas, das 12 abas de edições e de concursos externos publicamente verificáveis. QUADRO GERAL não foi somado em duplicidade. Campos de data ausentes permanecem sem inferência; ausência de registro encontrado não prova ausência de prêmios históricos.",
@@ -18,8 +17,6 @@
           "month": "julho",
           "placement": "3º lugar",
           "recipient": "3CJ — Confraria dos Cervejeiros Caseiros de Jacarepaguá",
-          "source_title": "Planilha completa das 12 edições do FDCRJ — aba 3FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2017",
           "supporting_sources": [
             {
@@ -39,8 +36,6 @@
           "month": "setembro",
           "placement": "2º lugar",
           "recipient": "3CJ — Confraria dos Cervejeiros Caseiros de Jacarepaguá",
-          "source_title": "Planilha completa das 12 edições do FDCRJ — aba 8FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -64,8 +59,6 @@
           "month": "setembro",
           "placement": "2º lugar",
           "recipient": "3CJ — Confraria dos Cervejeiros Caseiros de Jacarepaguá",
-          "source_title": "Planilha completa das 12 edições do FDCRJ — aba 8FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -89,8 +82,6 @@
           "month": "agosto",
           "placement": "3º lugar",
           "recipient": "3CJ — Confraria dos Cervejeiros Caseiros de Jacarepaguá",
-          "source_title": "Planilha completa das 12 edições do FDCRJ — aba 10FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024",
           "supporting_sources": [
             {
@@ -114,8 +105,6 @@
           "month": "agosto",
           "placement": "1º lugar",
           "recipient": "3CJ — Confraria dos Cervejeiros Caseiros de Jacarepaguá",
-          "source_title": "Planilha completa das 12 edições do FDCRJ — aba 11FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -139,8 +128,6 @@
           "month": "agosto",
           "placement": "1º lugar",
           "recipient": "3CJ — Confraria dos Cervejeiros Caseiros de Jacarepaguá",
-          "source_title": "Planilha completa das 12 edições do FDCRJ — aba 11FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -154,7 +141,7 @@
           ]
         }
       ],
-      "coverage_note": "Foram incluídos os seis resultados da 3CJ identificados nas abas de edição da planilha fornecida, sem contar a aba QUADRO GERAL em duplicidade. As datas são preenchidas com base em páginas públicas do concurso: a 3ª edição é datada de julho de 2017; para a 8ª, consta 24/09/2022; para a 10ª e a 11ª, as fontes consultadas confirmam o mês de avaliação, mas não o dia do festival, que por isso ficou vazio. Não foi encontrada fonte pública suficiente para comprovar que algum dos códigos históricos sugeridos (4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF) seja nome anterior da 3CJ; nenhum foi fundido ou atribuído. Também não foi incluído o bronze do World Beer Awards Brazil anunciado por Leonardo Alves em 2023: a publicação consultada anuncia o prêmio individual, mas não confirma que ele fosse membro da 3CJ no período. Não localizei outro prêmio externo elegível com vínculo comprovado; isso não demonstra ausência de prêmios históricos.",
+      "coverage_note": "Foram incluídos os seis resultados da 3CJ identificados nas abas de edição do registro fornecido, sem contar a aba QUADRO GERAL em duplicidade. As datas são preenchidas com base em páginas públicas do concurso: a 3ª edição é datada de julho de 2017; para a 8ª, consta 24/09/2022; para a 10ª e a 11ª, as fontes consultadas confirmam o mês de avaliação, mas não o dia do festival, que por isso ficou vazio. Não foi encontrada fonte pública suficiente para comprovar que algum dos códigos históricos sugeridos (4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF) seja nome anterior da 3CJ; nenhum foi fundido ou atribuído. Também não foi incluído o bronze do World Beer Awards Brazil anunciado por Leonardo Alves em 2023: a publicação consultada anuncia o prêmio individual, mas não confirma que ele fosse membro da 3CJ no período. Não localizei outro prêmio externo elegível com vínculo comprovado; isso não demonstra ausência de prêmios históricos.",
       "founded": "29/03/2016",
       "historical_aliases": [],
       "id": "3CJ",
@@ -229,8 +216,6 @@
           "month": "07",
           "placement": "2º lugar",
           "recipient": "ACRL — Associação dos Cervejeiros da Região dos Lagos",
-          "source_title": "Planilha de resultados das 12 edições do FDCRJ — aba 5FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2018",
           "supporting_sources": [
             {
@@ -250,8 +235,6 @@
           "month": "01",
           "placement": "2º lugar",
           "recipient": "ACRL — Associação dos Cervejeiros da Região dos Lagos",
-          "source_title": "Planilha de resultados das 12 edições do FDCRJ — aba 6FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -271,8 +254,6 @@
           "month": "01",
           "placement": "3º lugar",
           "recipient": "ACRL — Associação dos Cervejeiros da Região dos Lagos",
-          "source_title": "Planilha de resultados das 12 edições do FDCRJ — aba 6FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -292,8 +273,6 @@
           "month": "01",
           "placement": "2º lugar",
           "recipient": "ACRL — Associação dos Cervejeiros da Região dos Lagos",
-          "source_title": "Planilha de resultados das 12 edições do FDCRJ — aba 6FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -313,8 +292,6 @@
           "month": "09",
           "placement": "3º lugar",
           "recipient": "ACRL — Associação dos Cervejeiros da Região dos Lagos",
-          "source_title": "Planilha de resultados das 12 edições do FDCRJ — aba 12FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2026",
           "supporting_sources": [
             {
@@ -324,7 +301,7 @@
           ]
         }
       ],
-      "coverage_note": "Foram incluídas as cinco linhas ACRL encontradas nas fichas das edições 5FDCRJ, 6FDCRJ e 12FDCRJ; QUADRO GERAL não foi contado em separado. As posições numéricas foram mapeadas conforme a regra do usuário, incluindo BOS quando aplicável; não há BOS nem menção honrosa da ACRL nessas linhas. O vídeo público do Vº FDCRJ também registra a prata da ACRL em estilo livre em 21/07/2018; o mesmo prêmio foi mantido em uma única linha, citando a planilha como fonte de resultado. Não localizei prêmio externo ao FDCRJ com fonte pública verificável, o que não demonstra ausência histórica. Nenhum dos códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA, CONCERMIRAJF ou CONCERMIRAFJ foi confirmado por fonte como nome anterior da ACRL; por isso nenhum foi atribuído. A possível equivalência entre CONCERMIRAJF e CONCERMIRAFJ também permanece sem confirmação. Não foi encontrada fonte pública suficiente para data de fundação, encontros regulares, Instagram oficial ou site próprio da ACRL; esses campos permanecem vazios.",
+      "coverage_note": "Foram incluídas as cinco linhas ACRL encontradas nas fichas das edições 5FDCRJ, 6FDCRJ e 12FDCRJ; QUADRO GERAL não foi contado em separado. As posições numéricas foram mapeadas conforme a regra do usuário, incluindo BOS quando aplicável; não há BOS nem menção honrosa da ACRL nessas linhas. O vídeo público do Vº FDCRJ também registra a prata da ACRL em estilo livre em 21/07/2018; o mesmo prêmio foi mantido em uma única linha, citando a fonte pública do resultado. Não localizei prêmio externo ao FDCRJ com fonte pública verificável, o que não demonstra ausência histórica. Nenhum dos códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA, CONCERMIRAJF ou CONCERMIRAFJ foi confirmado por fonte como nome anterior da ACRL; por isso nenhum foi atribuído. A possível equivalência entre CONCERMIRAJF e CONCERMIRAFJ também permanece sem confirmação. Não foi encontrada fonte pública suficiente para data de fundação, encontros regulares, Instagram oficial ou site próprio da ACRL; esses campos permanecem vazios.",
       "founded": "",
       "historical_aliases": [],
       "id": "ACRL",
@@ -367,7 +344,7 @@
           "date": "2018-01-20",
           "edition": "4FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A matéria identifica o 4º Festival de Confrarias no Clube Olaria, no Rio, informa que ocorreu no sábado, 20/01/2018, e relata o 1º lugar da receita Litoral de Minas na categoria American Wheat. A aba 4FDCRJ da planilha fornecida também registra ACZ em 1º lugar em ESTILO OBRIGATÓRIO; planilha: https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit. A equivalência de 1º lugar a ouro segue a regra expressa pelo usuário para as fichas por edição.",
+          "evidence": "A matéria identifica o 4º Festival de Confrarias no Clube Olaria, no Rio, informa que ocorreu no sábado, 20/01/2018, e relata o 1º lugar da receita Litoral de Minas na categoria American Wheat. O registro informado para a edição \u0001 \u0002registra ACZ em 1º lugar em ESTILO OBRIGATÓRIO; A equivalência de 1º lugar a ouro segue a regra expressa pelo usuário para as fichas por edição.",
           "medal": "ouro",
           "month": "01",
           "placement": "1º lugar",
@@ -375,12 +352,7 @@
           "source_title": "Juiz-foranos vencem concurso no Rio com cerveja ‘Litoral de Minas’ — Tribuna de Minas",
           "source_url": "https://tribunademinas.com.br/noticias/economia/24-01-2018/juiz-foranos-vencem-concurso-no-rio-com-cerveja-litoral-de-minas.html",
           "year": "2018",
-          "supporting_sources": [
-            {
-              "url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
-              "title": "Fonte complementar — docs.google.com"
-            }
-          ]
+          "supporting_sources": []
         }
       ],
       "coverage_note": "Nas 12 fichas por edição do workbook, houve uma única ocorrência exata de ACZ: 4FDCRJ, 1º lugar em estilo obrigatório. O QUADRO GERAL não foi somado. Não foi encontrada comprovação de que 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF/CONCERMIRAFJ sejam nomes anteriores da ACZ; não foram atribuídos resultados por semelhança. A imprensa de Juiz de Fora menciona uma ACERVA da Zona em 2014, mas as fontes consultadas não estabelecem continuidade com a ACZ; não foi mesclada. Também apareceram relatos de terceiro lugar da Cervejas Litorânea no concurso anual da ACZ em 2017 e de Priscila Brandão como vencedora do Concurso ACZ 2024, mas essas fontes não confirmaram vínculo dos premiados com a associação no período; foram omitidos conforme a regra de atribuição, sem medalhas somadas. A pesquisa identifica o prêmio documentado acima, mas não demonstra ausência de outros resultados históricos.",
@@ -478,13 +450,11 @@
           "date": "2022-09-24",
           "edition": "8FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A aba 8FDCRJ lista C3 em ESTILO LIVRE na posição 3. A classificação como bronze aplica a regra expressa para os pódios da planilha.",
+          "evidence": "A aba 8FDCRJ lista C3 em ESTILO LIVRE na posição 3. A classificação como bronze aplica a regra expressa para os pódios do registro.",
           "medal": "bronze",
           "month": "setembro",
           "placement": "3º lugar",
           "recipient": "C3 — Confraria Cervejeiros Caxienses",
-          "source_title": "Premiação todos os FDCRJ — planilha pública de resultados",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022"
         },
         {
@@ -493,13 +463,11 @@
           "date": "2022-09-24",
           "edition": "8FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A aba 8FDCRJ lista C3 em ESTILO RIO na posição 1. A classificação como ouro aplica a regra expressa para os pódios da planilha.",
+          "evidence": "A aba 8FDCRJ lista C3 em ESTILO RIO na posição 1. A classificação como ouro aplica a regra expressa para os pódios do registro.",
           "medal": "ouro",
           "month": "setembro",
           "placement": "1º lugar",
           "recipient": "C3 — Confraria Cervejeiros Caxienses",
-          "source_title": "Premiação todos os FDCRJ — planilha pública de resultados",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022"
         },
         {
@@ -508,13 +476,11 @@
           "date": "2023-08-26",
           "edition": "9FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A aba 9FDCRJ lista C3 em ESTILO OBRIGATÓRIO na posição 3. A classificação como bronze aplica a regra expressa para os pódios da planilha.",
+          "evidence": "A aba 9FDCRJ lista C3 em ESTILO OBRIGATÓRIO na posição 3. A classificação como bronze aplica a regra expressa para os pódios do registro.",
           "medal": "bronze",
           "month": "agosto",
           "placement": "3º lugar",
           "recipient": "C3 — Confraria Cervejeiros Caxienses",
-          "source_title": "Premiação todos os FDCRJ — planilha pública de resultados",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023"
         },
         {
@@ -523,13 +489,11 @@
           "date": "2023-08-26",
           "edition": "9FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A aba 9FDCRJ lista C3 em ESTILO RIO na posição 2. A classificação como prata aplica a regra expressa para os pódios da planilha.",
+          "evidence": "A aba 9FDCRJ lista C3 em ESTILO RIO na posição 2. A classificação como prata aplica a regra expressa para os pódios do registro.",
           "medal": "prata",
           "month": "agosto",
           "placement": "2º lugar",
           "recipient": "C3 — Confraria Cervejeiros Caxienses",
-          "source_title": "Premiação todos os FDCRJ — planilha pública de resultados",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023"
         },
         {
@@ -538,17 +502,15 @@
           "date": "2025-08-23",
           "edition": "11FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A aba 11FDCRJ lista C3 em ESTILO OBRIGATÓRIO na posição 3. A classificação como bronze aplica a regra expressa para os pódios da planilha.",
+          "evidence": "A aba 11FDCRJ lista C3 em ESTILO OBRIGATÓRIO na posição 3. A classificação como bronze aplica a regra expressa para os pódios do registro.",
           "medal": "bronze",
           "month": "agosto",
           "placement": "3º lugar",
           "recipient": "C3 — Confraria Cervejeiros Caxienses",
-          "source_title": "Premiação todos os FDCRJ — planilha pública de resultados",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025"
         }
       ],
-      "coverage_note": "Incluídos todos os registros numéricos de C3 nas fichas 8FDCRJ, 9FDCRJ e 11FDCRJ da planilha pública indicada; QUADRO GERAL não foi contado separadamente. As datas dos eventos foram preenchidas somente quando corroboradas por fontes públicas. Não foi localizada fonte que conecte C3 aos códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF/CONCERMIRAFJ; portanto nenhum resultado desses códigos foi atribuído à C3. Não foi possível confirmar que CONCERMIRAJF corresponda a CONCERMIRAFJ. Pesquisas por premiações da C3 ou de membros em outros concursos não localizaram resultados adicionais com evidência pública suficiente; isso não prova ausência histórica. Nenhuma premiação individual foi atribuída sem fonte que confirme o vínculo da pessoa à confraria no período.",
+      "coverage_note": "Incluídos todos os registros numéricos de C3 nas fichas 8FDCRJ, 9FDCRJ e 11FDCRJ do registro pública indicada; QUADRO GERAL não foi contado separadamente. As datas dos eventos foram preenchidas somente quando corroboradas por fontes públicas. Não foi localizada fonte que conecte C3 aos códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF/CONCERMIRAFJ; portanto nenhum resultado desses códigos foi atribuído à C3. Não foi possível confirmar que CONCERMIRAJF corresponda a CONCERMIRAFJ. Pesquisas por premiações da C3 ou de membros em outros concursos não localizaram resultados adicionais com evidência pública suficiente; isso não prova ausência histórica. Nenhuma premiação individual foi atribuída sem fonte que confirme o vínculo da pessoa à confraria no período.",
       "founded": "15/06/2019 (data do lançamento público anunciada; não foi localizada data distinta de constituição).",
       "historical_aliases": [],
       "id": "C3",
@@ -628,8 +590,6 @@
           "month": "dezembro",
           "placement": "2º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 2FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -649,8 +609,6 @@
           "month": "dezembro",
           "placement": "3º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 2FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -670,8 +628,6 @@
           "month": "julho",
           "placement": "3º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 3FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2017",
           "supporting_sources": [
             {
@@ -691,8 +647,6 @@
           "month": "julho",
           "placement": "3º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 3FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2017",
           "supporting_sources": [
             {
@@ -712,8 +666,6 @@
           "month": "",
           "placement": "2º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 4FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": ""
         },
         {
@@ -727,8 +679,6 @@
           "month": "",
           "placement": "3º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 4FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": ""
         },
         {
@@ -742,8 +692,6 @@
           "month": "janeiro",
           "placement": "1º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 6FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -763,8 +711,6 @@
           "month": "janeiro",
           "placement": "1º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 6FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -784,8 +730,6 @@
           "month": "janeiro",
           "placement": "1º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 6FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -805,8 +749,6 @@
           "month": "janeiro",
           "placement": "1º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 6FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -826,8 +768,6 @@
           "month": "julho",
           "placement": "1º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 7FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -847,8 +787,6 @@
           "month": "julho",
           "placement": "2º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 7FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -868,8 +806,6 @@
           "month": "",
           "placement": "3º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 9FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": ""
         },
         {
@@ -883,8 +819,6 @@
           "month": "agosto",
           "placement": "2º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 10FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024",
           "supporting_sources": [
             {
@@ -908,8 +842,6 @@
           "month": "agosto",
           "placement": "2º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 11FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -933,8 +865,6 @@
           "month": "agosto",
           "placement": "1º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 11FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -958,8 +888,6 @@
           "month": "agosto",
           "placement": "1º lugar",
           "recipient": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
-          "source_title": "Premiação todos os FDCRJ — planilha pública, aba 11FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -973,7 +901,7 @@
           ]
         }
       ],
-      "coverage_note": "A contagem inclui somente as 17 linhas da CCBR nas fichas individuais das abas 2FDCRJ, 3FDCRJ, 4FDCRJ, 6FDCRJ, 7FDCRJ, 9FDCRJ, 10FDCRJ e 11FDCRJ da planilha pública; QUADRO GERAL não foi contado. As posições numéricas 1/2/3 foram convertidas em ouro/prata/bronze em todas as categorias, inclusive BOS; nenhuma menção honrosa da planilha pertence à CCBR. A página BAP de 11FDCRJ usa outras classificações de categoria/cerveja, mas as posições atribuídas neste arquivo seguem a planilha citada e a regra expressa pelo usuário. Não foram localizados outros prêmios públicos elegíveis atribuíveis com segurança à confraria ou a membros individuais; isso não prova ausência histórica. Não foi confirmada continuidade da CCBR com os códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF; estes não foram fundidos nem contabilizados. O arquivo do usuário não traz datas. A data do 4FDCRJ e outras datas sem confirmação permanecem vazias.",
+      "coverage_note": "A contagem inclui somente as 17 linhas da CCBR nas fichas individuais das abas 2FDCRJ, 3FDCRJ, 4FDCRJ, 6FDCRJ, 7FDCRJ, 9FDCRJ, 10FDCRJ e 11FDCRJ do registro pública; QUADRO GERAL não foi contado. As posições numéricas 1/2/3 foram convertidas em ouro/prata/bronze em todas as categorias, inclusive BOS; nenhuma menção honrosa do registro pertence à CCBR. A página BAP de 11FDCRJ usa outras classificações de categoria/cerveja, mas as posições atribuídas neste arquivo seguem o registro citado e a regra expressa pelo usuário. Não foram localizados outros prêmios públicos elegíveis atribuíveis com segurança à confraria ou a membros individuais; isso não prova ausência histórica. Não foi confirmada continuidade da CCBR com os códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF; estes não foram fundidos nem contabilizados. O arquivo do usuário não traz datas. A data do 4FDCRJ e outras datas sem confirmação permanecem vazias.",
       "founded": "2016 (ano informado em reportagem; dia e mês de fundação não confirmados)",
       "historical_aliases": [],
       "id": "CCBR",
@@ -1036,7 +964,7 @@
           "date": "2022-09-24",
           "edition": "8FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A plataforma identifica a cerveja Verão Petro-Rio como Estilo Rio da CCCP. A aba 8FDCRJ da planilha fornecida registra a CCCP em 3º lugar; aplicando a regra do usuário, conta como bronze. Planilha: https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit. A página do evento informa realização em 24/09/2022.",
+          "evidence": "A plataforma identifica a cerveja Verão Petro-Rio como Estilo Rio da CCCP. O registro informado para a edição \u0001 \u0002registra a CCCP em 3º lugar; aplicando a regra do usuário, conta como bronze. A página do evento informa realização em 24/09/2022.",
           "medal": "bronze",
           "month": "setembro",
           "placement": "3º lugar",
@@ -1044,12 +972,7 @@
           "source_title": "Resultados do 8º Concurso do Festival de Confrarias do Rio de Janeiro",
           "source_url": "https://beerawardsplatform.com/8cfdcrj/results",
           "year": "2022",
-          "supporting_sources": [
-            {
-              "url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
-              "title": "Fonte complementar — docs.google.com"
-            }
-          ]
+          "supporting_sources": []
         },
         {
           "attribution_note": "A página oficial de resultados inclui a CCCP entre as menções honrosas da categoria; não é medalha nem pódio numérico.",
@@ -1078,7 +1001,7 @@
           "date": "2024-08-24",
           "edition": "10FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A página lista Bentão, estilo American Porter, sob CCCP em Estilo Obrigatório. A aba 10FDCRJ da planilha fornecida registra 1º lugar, contado como ouro conforme a regra do usuário. Planilha: https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit. A data do festival é 24/08/2024; a página do concurso registra julgamento em 17/08/2024.",
+          "evidence": "A página lista Bentão, estilo American Porter, sob CCCP em Estilo Obrigatório. O registro informado para a edição \u0001 \u0002registra 1º lugar, contado como ouro conforme a regra do usuário. A data do festival é 24/08/2024; a página do concurso registra julgamento em 17/08/2024.",
           "medal": "ouro",
           "month": "agosto",
           "placement": "1º lugar",
@@ -1086,12 +1009,7 @@
           "source_title": "Resultados do 10º Concurso do Festival de Confrarias do Rio de Janeiro",
           "source_url": "https://beerawardsplatform.com/10cfdcrj/results",
           "year": "2024",
-          "supporting_sources": [
-            {
-              "url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
-              "title": "Fonte complementar — docs.google.com"
-            }
-          ]
+          "supporting_sources": []
         },
         {
           "attribution_note": "Resultado de cerveja inscrita pela confraria; não há autoria individual confirmada na fonte pública consultada.",
@@ -1099,7 +1017,7 @@
           "date": "2024-08-24",
           "edition": "10FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A página lista Jabuticaba sour, 29A Fruit Beer, sob CCCP na seção Estilo Livre. A aba 10FDCRJ da planilha fornecida registra 3º lugar, contado como bronze conforme a regra do usuário. Planilha: https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit. A data do festival é 24/08/2024; o julgamento ocorreu em 17/08/2024.",
+          "evidence": "A página lista Jabuticaba sour, 29A Fruit Beer, sob CCCP na seção Estilo Livre. O registro informado para a edição \u0001 \u0002registra 3º lugar, contado como bronze conforme a regra do usuário. A data do festival é 24/08/2024; o julgamento ocorreu em 17/08/2024.",
           "medal": "bronze",
           "month": "agosto",
           "placement": "3º lugar",
@@ -1107,20 +1025,15 @@
           "source_title": "Resultados do 10º Concurso do Festival de Confrarias do Rio de Janeiro",
           "source_url": "https://beerawardsplatform.com/10cfdcrj/results",
           "year": "2024",
-          "supporting_sources": [
-            {
-              "url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
-              "title": "Fonte complementar — docs.google.com"
-            }
-          ]
+          "supporting_sources": []
         },
         {
-          "attribution_note": "Prêmio coletivo para a confraria. A classificação publicada pelo concurso e a planilha fornecida coincidem em primeiro lugar; contabilizado como ouro pela regra expressa do usuário.",
+          "attribution_note": "Prêmio coletivo para a confraria. A classificação publicada pelo concurso e a registro fornecido coincidem em primeiro lugar; contabilizado como ouro pela regra expressa do usuário.",
           "category": "Melhor Confraria",
           "date": "2024-08-24",
           "edition": "10FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A página de resultados explicita “1° CCCP - Confraria dos Cervejeiros Caseiros de Petrópolis” em Melhor Confraria. A aba 10FDCRJ da planilha também registra 1º lugar. Planilha: https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit. A página do concurso descreve o festival para 24/08/2024 e julgamentos em 17/08/2024.",
+          "evidence": "A página de resultados explicita “1° CCCP - Confraria dos Cervejeiros Caseiros de Petrópolis” em Melhor Confraria. O registro informado para a edição \u0001 \u0002registra 1º lugar. A página do concurso descreve o festival para 24/08/2024 e julgamentos em 17/08/2024.",
           "medal": "ouro",
           "month": "agosto",
           "placement": "1º lugar",
@@ -1128,12 +1041,7 @@
           "source_title": "Resultados do 10º Concurso do Festival de Confrarias do Rio de Janeiro",
           "source_url": "https://beerawardsplatform.com/10cfdcrj/results",
           "year": "2024",
-          "supporting_sources": [
-            {
-              "url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
-              "title": "Fonte complementar — docs.google.com"
-            }
-          ]
+          "supporting_sources": []
         }
       ],
       "coverage_note": "A varredura identificou quatro pódios numéricos da CCCP nas abas 8FDCRJ e 10FDCRJ; todos foram convertidos conforme a regra do usuário, incluindo Melhor Confraria, e não se contou a menção honrosa como medalha. A página de resultados do 8FDCRJ também registra uma menção honrosa da CCCP em Historical Beer, incluída como prêmio sem medalha. Não foi confirmada outra premiação pública externa da confraria. Uma postagem oficial registra Beto Belera em primeiro lugar no 4º Concurso de Cervejas Artesanais CCCP, mas não confirma que ele fosse membro no período; por isso o prêmio individual não foi incluído. Não foi localizada prova pública da data de fundação, site próprio ou rotina regular de encontros. Os códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA e CONCERMIRAJF não foram atribuídos à CCCP: não se encontrou fonte que prove continuidade histórica; a hipótese CONCERMIRAJF/CONCERMIRAFJ permanece sem resolução e não foi fundida com a CCCP. Ausência de outros resultados localizados não prova ausência histórica de prêmios.",
@@ -1204,8 +1112,6 @@
           "month": "07",
           "placement": "2º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 1FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -1225,8 +1131,6 @@
           "month": "12",
           "placement": "3º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 2FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -1246,8 +1150,6 @@
           "month": "07",
           "placement": "3º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 7FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -1267,8 +1169,6 @@
           "month": "09",
           "placement": "3º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 8FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -1288,8 +1188,6 @@
           "month": "09",
           "placement": "1º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 8FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -1313,8 +1211,6 @@
           "month": "09",
           "placement": "1º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 8FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -1338,8 +1234,6 @@
           "month": "09",
           "placement": "1º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 8FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -1363,8 +1257,6 @@
           "month": "08",
           "placement": "2º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 9FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023",
           "supporting_sources": [
             {
@@ -1379,13 +1271,11 @@
           "date": "2024-08-24",
           "edition": "10FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A aba 10FDCRJ lista CCGM em 2º lugar no Estilo Rio. A página oficial BAP da 10ª edição informa que o festival seria realizado em 24/08/2024: https://beerawardsplatform.com/10cfdcrj. Os resultados BAP também vinculam a cerveja Água de Coco ao clube CCGM, mas não foram contados como prêmio adicional para evitar duplicar a colocação da planilha: https://beerawardsplatform.com/10cfdcrj/results.",
+          "evidence": "A aba 10FDCRJ lista CCGM em 2º lugar no Estilo Rio. A página oficial BAP da 10ª edição informa que o festival seria realizado em 24/08/2024: https://beerawardsplatform.com/10cfdcrj. Os resultados BAP também vinculam a cerveja Água de Coco ao clube CCGM, mas não foram contados como prêmio adicional para evitar duplicar a colocação da https://beerawardsplatform.com/10cfdcrj/results.",
           "medal": "prata",
           "month": "08",
           "placement": "2º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 10FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024",
           "supporting_sources": [
             {
@@ -1409,8 +1299,6 @@
           "month": "08",
           "placement": "sem posição numérica",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 10FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024",
           "supporting_sources": [
             {
@@ -1424,7 +1312,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado atribuído à CCGM na planilha; posição 1 = ouro conforme a regra do usuário.",
+          "attribution_note": "Resultado atribuído à CCGM no registro; posição 1 = ouro conforme a regra do usuário.",
           "category": "ESTILO OBRIGATÓRIO",
           "date": "",
           "edition": "11FDCRJ",
@@ -1434,8 +1322,6 @@
           "month": "08",
           "placement": "1º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 11FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -1449,7 +1335,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado atribuído à CCGM na planilha; posição 2 = prata conforme a regra do usuário.",
+          "attribution_note": "Resultado atribuído à CCGM no registro; posição 2 = prata conforme a regra do usuário.",
           "category": "MELHOR CONFRARIA",
           "date": "",
           "edition": "11FDCRJ",
@@ -1459,8 +1345,6 @@
           "month": "08",
           "placement": "2º lugar",
           "recipient": "CCGM — Confraria dos Cervejeiros do Grande Méier",
-          "source_title": "Planilha de resultados do usuário — aba 11FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -1546,7 +1430,7 @@
     {
       "awards": [
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 1FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 1FDCRJ do registro fornecido pelo usuário.",
           "category": "OBRIGATÓRIO",
           "date": "",
           "edition": "1FDCRJ",
@@ -1556,8 +1440,6 @@
           "month": "junho",
           "placement": "3º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -1567,7 +1449,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 1FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 1FDCRJ do registro fornecido pelo usuário.",
           "category": "LIVRE",
           "date": "",
           "edition": "1FDCRJ",
@@ -1577,8 +1459,6 @@
           "month": "junho",
           "placement": "3º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -1588,7 +1468,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 1FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 1FDCRJ do registro fornecido pelo usuário.",
           "category": "MELHOR CONFRARIA",
           "date": "",
           "edition": "1FDCRJ",
@@ -1598,8 +1478,6 @@
           "month": "junho",
           "placement": "3º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -1609,7 +1487,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 2FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 2FDCRJ do registro fornecido pelo usuário.",
           "category": "ESTILO OBRIGATÓRIO",
           "date": "",
           "edition": "2FDCRJ",
@@ -1619,8 +1497,6 @@
           "month": "dezembro",
           "placement": "1º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -1630,7 +1506,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 2FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 2FDCRJ do registro fornecido pelo usuário.",
           "category": "ESTILO LIVRE",
           "date": "",
           "edition": "2FDCRJ",
@@ -1640,8 +1516,6 @@
           "month": "dezembro",
           "placement": "3º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -1651,7 +1525,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 2FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 2FDCRJ do registro fornecido pelo usuário.",
           "category": "MELHOR CONFRARIA",
           "date": "",
           "edition": "2FDCRJ",
@@ -1661,8 +1535,6 @@
           "month": "dezembro",
           "placement": "1º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2016",
           "supporting_sources": [
             {
@@ -1672,7 +1544,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 7FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 7FDCRJ do registro fornecido pelo usuário.",
           "category": "IRA",
           "date": "",
           "edition": "7FDCRJ",
@@ -1682,8 +1554,6 @@
           "month": "julho",
           "placement": "1º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -1693,7 +1563,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 10FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 10FDCRJ do registro fornecido pelo usuário.",
           "category": "ESTILO RIO",
           "date": "2024-08-24",
           "edition": "10FDCRJ",
@@ -1703,8 +1573,6 @@
           "month": "agosto",
           "placement": "1º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024",
           "supporting_sources": [
             {
@@ -1714,7 +1582,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 10FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 10FDCRJ do registro fornecido pelo usuário.",
           "category": "MELHOR CONFRARIA",
           "date": "2024-08-24",
           "edition": "10FDCRJ",
@@ -1724,8 +1592,6 @@
           "month": "agosto",
           "placement": "2º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024",
           "supporting_sources": [
             {
@@ -1735,7 +1601,7 @@
           ]
         },
         {
-          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 11FDCRJ da planilha do usuário.",
+          "attribution_note": "Resultado coletivo da confraria, conforme linha identificada como CCLA na aba 11FDCRJ do registro fornecido pelo usuário.",
           "category": "ESTILO RIO",
           "date": "2025-08-23",
           "edition": "11FDCRJ",
@@ -1745,8 +1611,6 @@
           "month": "agosto",
           "placement": "2º lugar",
           "recipient": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
-          "source_title": "Planilha completa do Festival de Confrarias — resultados por edição (fonte fornecida pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -1842,14 +1706,13 @@
           ]
         }
       ],
-      "coverage_note": "Foram conferidas diretamente as abas 1FDCRJ a 12FDCRJ, sem somar QUADRO GERAL: há dez linhas CCLA em 1FDCRJ, 2FDCRJ, 7FDCRJ, 10FDCRJ e 11FDCRJ. Os totais incluem as dez colocações numéricas do FDCRJ (ouro 4, prata 2, bronze 4) pela regra expressa do usuário e ainda 1 ouro e 1 prata explícitos na tabela individual do VI Concurso da Confraria Amarga 2026 para cervejeiro cujo vínculo CCLA é declarado pelo próprio resultado; essa página não permite associar cada cor a cada cerveja. No XVII Concurso Estadual Acerva Carioca, os registros individuais listam resultados e Best of Show, mas sem medalha/colocação explícita, então não aumentam os totais. Nenhuma menção honrosa foi atribuída à CCLA. Não foi confirmada continuidade histórica dos códigos investigados; CONCERMIRAJF versus CONCERMIRAFJ permanece hipótese gráfica sem atribuição. A grafia e os resultados FDCRJ foram transcritos da planilha fornecida. Datas não comprovadas ficaram vazias; para 7FDCRJ há mês/ano por postagem de julho de 2019, sem data exata confirmada. Uma lista vazia de outros prêmios históricos não prova ausência de premiações não localizadas em fontes públicas.",
+      "coverage_note": "Foram conferidas diretamente as abas 1FDCRJ a 12FDCRJ, sem somar QUADRO GERAL: há dez linhas CCLA em 1FDCRJ, 2FDCRJ, 7FDCRJ, 10FDCRJ e 11FDCRJ. Os totais incluem as dez colocações numéricas do FDCRJ (ouro 4, prata 2, bronze 4) pela regra expressa do usuário e ainda 1 ouro e 1 prata explícitos na tabela individual do VI Concurso da Confraria Amarga 2026 para cervejeiro cujo vínculo CCLA é declarado pelo próprio resultado; essa página não permite associar cada cor a cada cerveja. No XVII Concurso Estadual Acerva Carioca, os registros individuais listam resultados e Best of Show, mas sem medalha/colocação explícita, então não aumentam os totais. Nenhuma menção honrosa foi atribuída à CCLA. Não foi confirmada continuidade histórica dos códigos investigados; CONCERMIRAJF versus CONCERMIRAFJ permanece hipótese gráfica sem atribuição. A grafia e os resultados FDCRJ foram transcritos do registro fornecido. Datas não comprovadas ficaram vazias; para 7FDCRJ há mês/ano por postagem de julho de 2019, sem data exata confirmada. Uma lista vazia de outros prêmios históricos não prova ausência de premiações não localizadas em fontes públicas.",
       "founded": "",
       "historical_aliases": [
         {
           "code": "4CRJ",
           "note": "Não atribuído à CCLA: a aba 1FDCRJ registra CCLA e 4CRJ em linhas de resultados separadas. A fonte pública disponível identifica a Confraria 4 Cantos RJ como um grupo próprio; não foi achada evidência de continuidade com CCLA.",
-          "same_community": false,
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit"
+          "same_community": false
         },
         {
           "code": "4 CANTOS RJ",
@@ -1954,8 +1817,6 @@
           "month": "setembro",
           "placement": "2º lugar",
           "recipient": "CCLO — Confraria Cervejeiros do Lado Oeste",
-          "source_title": "Premiação todos os FDCRJ (planilha pública indicada pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -1990,8 +1851,6 @@
           "month": "agosto",
           "placement": "3º lugar",
           "recipient": "CCLO — Confraria Cervejeiros do Lado Oeste",
-          "source_title": "Premiação todos os FDCRJ (planilha pública indicada pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023",
           "supporting_sources": [
             {
@@ -2011,8 +1870,6 @@
           "month": "agosto",
           "placement": "1º lugar",
           "recipient": "CCLO — Confraria Cervejeiros do Lado Oeste",
-          "source_title": "Premiação todos os FDCRJ (planilha pública indicada pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023",
           "supporting_sources": [
             {
@@ -2032,8 +1889,6 @@
           "month": "agosto",
           "placement": "3º lugar",
           "recipient": "CCLO — Confraria Cervejeiros do Lado Oeste",
-          "source_title": "Premiação todos os FDCRJ (planilha pública indicada pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024",
           "supporting_sources": [
             {
@@ -2053,8 +1908,6 @@
           "month": "agosto",
           "placement": "3º lugar",
           "recipient": "CCLO — Confraria Cervejeiros do Lado Oeste",
-          "source_title": "Premiação todos os FDCRJ (planilha pública indicada pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -2074,8 +1927,6 @@
           "month": "agosto",
           "placement": "3º lugar",
           "recipient": "CCLO — Confraria Cervejeiros do Lado Oeste",
-          "source_title": "Premiação todos os FDCRJ (planilha pública indicada pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -2095,8 +1946,6 @@
           "month": "agosto",
           "placement": "3º lugar",
           "recipient": "CCLO — Confraria Cervejeiros do Lado Oeste",
-          "source_title": "Premiação todos os FDCRJ (planilha pública indicada pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025",
           "supporting_sources": [
             {
@@ -2116,8 +1965,6 @@
           "month": "setembro",
           "placement": "MH",
           "recipient": "CCLO — Confraria Cervejeiros do Lado Oeste",
-          "source_title": "Premiação todos os FDCRJ (planilha pública indicada pelo usuário)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2026",
           "supporting_sources": [
             {
@@ -2190,7 +2037,7 @@
           ]
         }
       ],
-      "coverage_note": "A planilha pública indicada pelo usuário foi conferida pelas abas de cada edição, sem somar novamente o QUADRO GERAL. Foram incluídos todos os registros da planilha atribuídos explicitamente a CCLO: sete posições numéricas de pódio em 8FDCRJ–11FDCRJ e a menção honrosa de 12FDCRJ; também foi acrescentada a menção honrosa de Historical Beer publicada nos resultados BAP do 8FDCRJ, ausente como linha CCLO nas fichas da planilha. Os totais seguem a regra do usuário para posições 1/2/3, inclusive BOS se houvesse resultado CCLO, e não incluem menções honrosas nem resultados externos sem medalha explicitamente classificável. Para concursos externos, as páginas BAP listam cervejas e a associação dos cervejeiros a CCLO, mas não exibem medalha/posição na página consultada; por isso a medalha ficou ‘não informado’ e esses resultados não alteram totais. Não foi encontrada fonte pública que confirme continuidade entre CCLO e 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF/CONCERMIRAFJ; nenhum foi atribuído como alias. Campos de fundação e site próprio ficaram vazios por falta de comprovação. A pesquisa não comprova ausência de outros prêmios históricos.",
+      "coverage_note": "Os resultados indicados pelo usuário foram conferidos nas abas de cada edição, sem somar novamente o QUADRO GERAL. Foram incluídos todos os registros do registro atribuídos explicitamente a CCLO: sete posições numéricas de pódio em 8FDCRJ–11FDCRJ e a menção honrosa de 12FDCRJ; também foi acrescentada a menção honrosa de Historical Beer publicada nos resultados BAP do 8FDCRJ, ausente como linha CCLO nas fichas do registro. Os totais seguem a regra do usuário para posições 1/2/3, inclusive BOS se houvesse resultado CCLO, e não incluem menções honrosas nem resultados externos sem medalha explicitamente classificável. Para concursos externos, as páginas BAP listam cervejas e a associação dos cervejeiros a CCLO, mas não exibem medalha/posição na página consultada; por isso a medalha ficou ‘não informado’ e esses resultados não alteram totais. Não foi encontrada fonte pública que confirme continuidade entre CCLO e 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA ou CONCERMIRAJF/CONCERMIRAFJ; nenhum foi atribuído como alias. Campos de fundação e site próprio ficaram vazios por falta de comprovação. A pesquisa não comprova ausência de outros prêmios históricos.",
       "founded": "",
       "historical_aliases": [],
       "id": "CCLO",
@@ -2248,7 +2095,7 @@
     },
     {
       "awards": [],
-      "coverage_note": "Não atribuí prêmios do workbook: as fichas das abas 1FDCRJ a 12FDCRJ não apresentam a CDM nem Confraria Coisa de Mulher, e não encontrei fonte que confirme continuidade entre a CDM e os códigos históricos listados na pesquisa. A grafia CONCERMIRAJF foi mantida sem atribuição; a semelhança com CONCERMIRAFJ não comprova identidade. Pesquisas por premiações públicas da confraria e por prêmios individuais de integrantes identificadas em fontes consultadas não localizaram resultado premiado verificável com vínculo confirmado à CDM. A lista vazia não prova ausência histórica de prêmios. O workbook não contém datas das edições; como não há resultado da CDM a datar, nenhum ano/data de edição foi imputado. Planilha citada pelo usuário: https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit.",
+      "coverage_note": "Não atribuí prêmios do workbook: as fichas das abas 1FDCRJ a 12FDCRJ não apresentam a CDM nem Confraria Coisa de Mulher, e não encontrei fonte que confirme continuidade entre a CDM e os códigos históricos listados na pesquisa. A grafia CONCERMIRAJF foi mantida sem atribuição; a semelhança com CONCERMIRAFJ não comprova identidade. Pesquisas por premiações públicas da confraria e por prêmios individuais de integrantes identificadas em fontes consultadas não localizaram resultado premiado verificável com vínculo confirmado à CDM. A lista vazia não prova ausência histórica de prêmios. O workbook não contém datas das edições; como não há resultado da CDM a datar, nenhum ano/data de edição foi imputado. registro citada pelo usuário:",
       "founded": "março de 2022",
       "historical_aliases": [],
       "id": "CDM",
@@ -2312,7 +2159,7 @@
     {
       "awards": [
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; a posição 1 foi convertida em ouro conforme a regra expressa do usuário.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; a posição 1 foi convertida em ouro conforme a regra expressa do usuário.",
           "category": "ESTILO OBRIGATÓRIO",
           "date": "2018-07-21",
           "edition": "5FDCRJ",
@@ -2322,12 +2169,10 @@
           "month": "julho",
           "placement": "1º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2018"
         },
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; a posição 3 foi convertida em bronze conforme a regra expressa do usuário.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; a posição 3 foi convertida em bronze conforme a regra expressa do usuário.",
           "category": "MELHOR CONFRARIA",
           "date": "2018-07-21",
           "edition": "5FDCRJ",
@@ -2337,12 +2182,10 @@
           "month": "julho",
           "placement": "3º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2018"
         },
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; a posição 2 foi convertida em prata conforme a regra expressa do usuário.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; a posição 2 foi convertida em prata conforme a regra expressa do usuário.",
           "category": "ESTILO LIVRE",
           "date": "",
           "edition": "6FDCRJ",
@@ -2352,12 +2195,10 @@
           "month": "",
           "placement": "2º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019"
         },
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; a posição 3 foi convertida em bronze conforme a regra expressa do usuário.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; a posição 3 foi convertida em bronze conforme a regra expressa do usuário.",
           "category": "MELHOR CONFRARIA",
           "date": "",
           "edition": "6FDCRJ",
@@ -2367,12 +2208,10 @@
           "month": "",
           "placement": "3º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019"
         },
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; a posição 2 foi convertida em prata conforme a regra expressa do usuário.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; a posição 2 foi convertida em prata conforme a regra expressa do usuário.",
           "category": "ESTILO OBRIGATÓRIO",
           "date": "",
           "edition": "7FDCRJ",
@@ -2382,12 +2221,10 @@
           "month": "",
           "placement": "2º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019"
         },
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; a posição 2 foi convertida em prata conforme a regra expressa do usuário.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; a posição 2 foi convertida em prata conforme a regra expressa do usuário.",
           "category": "ESTILO LIVRE",
           "date": "2022-09-24",
           "edition": "8FDCRJ",
@@ -2397,12 +2234,10 @@
           "month": "setembro",
           "placement": "2º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022"
         },
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; a posição 1 foi convertida em ouro conforme a regra expressa do usuário.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; a posição 1 foi convertida em ouro conforme a regra expressa do usuário.",
           "category": "ESTILO LIVRE",
           "date": "2024-08-24",
           "edition": "10FDCRJ",
@@ -2412,12 +2247,10 @@
           "month": "agosto",
           "placement": "1º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024"
         },
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; por regra expressa do usuário, BOS em 1º lugar conta como ouro.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; por regra expressa do usuário, BOS em 1º lugar conta como ouro.",
           "category": "BOS",
           "date": "2024-08-24",
           "edition": "10FDCRJ",
@@ -2427,12 +2260,10 @@
           "month": "agosto",
           "placement": "1º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024"
         },
         {
-          "attribution_note": "Resultado transcrito da ficha da edição na planilha do usuário; a posição 1 foi convertida em ouro conforme a regra expressa do usuário.",
+          "attribution_note": "Resultado transcrito da ficha da edição no registro fornecido pelo usuário; a posição 1 foi convertida em ouro conforme a regra expressa do usuário.",
           "category": "ESTILO RIO",
           "date": "2026-09-26",
           "edition": "12FDCRJ",
@@ -2442,8 +2273,6 @@
           "month": "setembro",
           "placement": "1º lugar",
           "recipient": "CG — Confraria Grajaú de Cerveja Artesanal",
-          "source_title": "Planilha completa com resultados das 12 edições do Festival de Confrarias do Rio de Janeiro",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2026"
         },
         {
@@ -2462,7 +2291,7 @@
           "year": "2026"
         }
       ],
-      "coverage_note": "As fichas por edição da planilha foram consideradas como fonte dos resultados do FDCRJ; foram incluídos nove pódios da CG nas abas 5, 6, 7, 8, 10 e 12, sem somar novamente o QUADRO GERAL. As quatro posições de 1º lugar, inclusive BOS, foram contadas como ouro conforme a regra do usuário; o prêmio de Melhor Confraria do 12º FDCRJ divulgado pela própria CG foi incluído como não-medalha e não altera os totais. As datas exatas das edições 6 e 7 não foram confirmadas, por isso mês e dia ficaram vazios. Não localizei fonte que confirme continuidade da CG com 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA, CONCERMIRAJF ou CONCERMIRAFJ; não atribuí esses nomes. Não encontrei outros prêmios externos à série FDCRJ com evidência pública suficiente para atribuição à confraria ou a um membro comprovadamente vinculado no período; isso não prova ausência histórica. Menções honrosas sem posição numérica não foram tratadas como medalhas.",
+      "coverage_note": "As fichas por edição do registro foram consideradas como fonte dos resultados do FDCRJ; foram incluídos nove pódios da CG nas abas 5, 6, 7, 8, 10 e 12, sem somar novamente o QUADRO GERAL. As quatro posições de 1º lugar, inclusive BOS, foram contadas como ouro conforme a regra do usuário; o prêmio de Melhor Confraria do 12º FDCRJ divulgado pela própria CG foi incluído como não-medalha e não altera os totais. As datas exatas das edições 6 e 7 não foram confirmadas, por isso mês e dia ficaram vazios. Não localizei fonte que confirme continuidade da CG com 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS, COCEJUCANA, CONCERMIRAJF ou CONCERMIRAFJ; não atribuí esses nomes. Não encontrei outros prêmios externos à série FDCRJ com evidência pública suficiente para atribuição à confraria ou a um membro comprovadamente vinculado no período; isso não prova ausência histórica. Menções honrosas sem posição numérica não foram tratadas como medalhas.",
       "founded": "2017",
       "historical_aliases": [],
       "id": "CG",
@@ -2562,13 +2391,11 @@
           "date": "2018-07-21",
           "edition": "5FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A aba 5FDCRJ registra posição 1 para CONCEBA na categoria ESTILO LIVRE. Pela regra expressa para a planilha, posição 1 corresponde a ouro. A publicação do organizador confirma que o 5º festival ocorreu em 21/07/2018: https://www.facebook.com/festivaldeconfrariasrj/posts/confraria-dos-cervejeiros-da-baixada-concebafala-galera-cervejeira-a-confraria-d/175364443146793/.",
+          "evidence": "A aba 5FDCRJ registra posição 1 para CONCEBA na categoria ESTILO LIVRE. Pela regra expressa para a registro, posição 1 corresponde a ouro. A publicação do organizador confirma que o 5º festival ocorreu em 21/07/2018: https://www.facebook.com/festivaldeconfrariasrj/posts/confraria-dos-cervejeiros-da-baixada-concebafala-galera-cervejeira-a-confraria-d/175364443146793/.",
           "medal": "ouro",
           "month": "07",
           "placement": "1º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2018",
           "supporting_sources": [
             {
@@ -2583,13 +2410,11 @@
           "date": "2018-07-21",
           "edition": "5FDCRJ",
           "event": "Festival de Confrarias do Rio de Janeiro",
-          "evidence": "A aba 5FDCRJ registra posição 1 para CONCEBA na categoria BOS. Pela regra expressa para a planilha, essa posição corresponde a ouro, inclusive em BOS. A publicação do organizador confirma a data do 5º festival, 21/07/2018: https://www.facebook.com/festivaldeconfrariasrj/posts/confraria-dos-cervejeiros-da-baixada-concebafala-galera-cervejeira-a-confraria-d/175364443146793/.",
+          "evidence": "A aba 5FDCRJ registra posição 1 para CONCEBA na categoria BOS. Pela regra expressa para a registro, essa posição corresponde a ouro, inclusive em BOS. A publicação do organizador confirma a data do 5º festival, 21/07/2018: https://www.facebook.com/festivaldeconfrariasrj/posts/confraria-dos-cervejeiros-da-baixada-concebafala-galera-cervejeira-a-confraria-d/175364443146793/.",
           "medal": "ouro",
           "month": "07",
           "placement": "1º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2018",
           "supporting_sources": [
             {
@@ -2609,8 +2434,6 @@
           "month": "07",
           "placement": "3º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -2630,8 +2453,6 @@
           "month": "07",
           "placement": "1º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -2651,8 +2472,6 @@
           "month": "07",
           "placement": "1º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -2672,8 +2491,6 @@
           "month": "07",
           "placement": "1º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2019",
           "supporting_sources": [
             {
@@ -2693,8 +2510,6 @@
           "month": "09",
           "placement": "1º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -2714,8 +2529,6 @@
           "month": "09",
           "placement": "3º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -2735,8 +2548,6 @@
           "month": "08",
           "placement": "2º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023",
           "supporting_sources": [
             {
@@ -2756,8 +2567,6 @@
           "month": "08",
           "placement": "2º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023",
           "supporting_sources": [
             {
@@ -2777,8 +2586,6 @@
           "month": "09",
           "placement": "2º lugar",
           "recipient": "CONCEBA",
-          "source_title": "Planilha completa de resultados FDCRJ — 12 edições",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5j-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2026",
           "supporting_sources": [
             {
@@ -2868,7 +2675,7 @@
     {
       "awards": [
         {
-          "attribution_note": "A aba 12FDCRJ da planilha fornecida registra este resultado sob a grafia CONCERMIRAJF: https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit. A reportagem identifica a vencedora como Confraria dos Cervejeiros Miracema e Região (CONCERMIRA-FJ), e o perfil da própria confraria confirma a vitória no estilo livre com uma American Lager do confrade Flávio. A atribuição à entidade do cadastro é confirmada pelo evento, estilo e colocação coincidentes; não se trata de fundir confrarias por semelhança de nome. O prêmio é contado uma única vez para a confraria, não como prêmio separado para o cervejeiro.",
+          "attribution_note": "O registro informado para a edição \u0001 \u0002registra este resultado sob a grafia CONCERMIRAJF: A reportagem identifica a vencedora como Confraria dos Cervejeiros Miracema e Região (CONCERMIRA-FJ), e o perfil da própria confraria confirma a vitória no estilo livre com uma American Lager do confrade Flávio. A atribuição à entidade do cadastro é confirmada pelo evento, estilo e colocação coincidentes; não se trata de fundir confrarias por semelhança de nome. O prêmio é contado uma única vez para a confraria, não como prêmio separado para o cervejeiro.",
           "category": "ESTILO LIVRE",
           "date": "2026-09-26",
           "edition": "12FDCRJ",
@@ -2889,10 +2696,6 @@
             {
               "url": "https://www.facebook.com/festivaldeconfrariasrj/posts/-falta-exatamente-1-m%C3%AAs-para-o-12%C2%BA-fdcrj-confrades-e-confreiras-a-contagem-regre/1789980706463599/",
               "title": "Fonte complementar — facebook.com"
-            },
-            {
-              "url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
-              "title": "Fonte complementar — docs.google.com"
             }
           ]
         }
@@ -2902,7 +2705,7 @@
       "historical_aliases": [
         {
           "code": "CONCERMIRAJF",
-          "note": "Grafia variante usada na aba 12FDCRJ da planilha, não confirmada como nome histórico. A reportagem e a publicação da própria confraria ligam a mesma vencedora, edição, categoria e colocação à CONCERMIRA-FJ, que corresponde ao nome fantasia cadastrado CONCERMIRAFJ. Os códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS e COCEJUCANA não foram atribuídos à entidade por não haver fonte que confirme continuidade.",
+          "note": "Grafia variante usada na aba 12FDCRJ do registro, não confirmada como nome histórico. A reportagem e a publicação da própria confraria ligam a mesma vencedora, edição, categoria e colocação à CONCERMIRA-FJ, que corresponde ao nome fantasia cadastrado CONCERMIRAFJ. Os códigos 4CRJ, 4 CANTOS RJ, CCMM, CCN, CCZS e COCEJUCANA não foram atribuídos à entidade por não haver fonte que confirme continuidade.",
           "same_community": true,
           "source_url": "https://doisestados.com.br/confraria-de-miracema-conquista-ouro-no-12o-festival-de-confrarias-do-rio-de-janeiro/"
         }
@@ -2949,8 +2752,8 @@
           "url": "https://www.instagram.com/concermirafj/"
         },
         {
-          "evidence": "A reportagem identifica a confraria como CONCERMIRA-FJ e documenta exatamente o 1º lugar no estilo livre do 12º FDCRJ. A publicação da própria confraria confirma o mesmo resultado; isso permite vincular a linha de grafia CONCERMIRAJF da planilha ao cadastro CONCERMIRAFJ.",
-          "field": "identidade e confirmação da grafia CONCERMIRAJF na planilha",
+          "evidence": "A reportagem identifica a confraria como CONCERMIRA-FJ e documenta exatamente o 1º lugar no estilo livre do 12º FDCRJ. A publicação da própria confraria confirma o mesmo resultado; isso permite vincular a linha de grafia CONCERMIRAJF do registro ao cadastro CONCERMIRAFJ.",
+          "field": "identidade e confirmação da grafia CONCERMIRAJF no registro",
           "title": "Confraria de Miracema conquista ouro no ‘12º Festival de Confrarias do Rio de Janeiro’ — Jornal Dois Estados",
           "url": "https://doisestados.com.br/confraria-de-miracema-conquista-ouro-no-12o-festival-de-confrarias-do-rio-de-janeiro/"
         }
@@ -2966,7 +2769,7 @@
     {
       "awards": [
         {
-          "attribution_note": "Linha da aba 5FDCRJ da planilha fornecida pelo usuário; o terceiro lugar foi convertido em bronze conforme a regra expressa do usuário.",
+          "attribution_note": "Linha da aba 5FDCRJ do registro fornecido pelo usuário; o terceiro lugar foi convertido em bronze conforme a regra expressa do usuário.",
           "category": "ESTILO OBRIGATÓRIO",
           "date": "2018-07-21",
           "edition": "5FDCRJ",
@@ -2976,8 +2779,6 @@
           "month": "07",
           "placement": "3º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2018"
         },
         {
@@ -2996,7 +2797,7 @@
           "year": "2021"
         },
         {
-          "attribution_note": "Linha da aba 8FDCRJ da planilha fornecida pelo usuário; o terceiro lugar foi convertido em bronze conforme a regra expressa do usuário.",
+          "attribution_note": "Linha da aba 8FDCRJ do registro fornecido pelo usuário; o terceiro lugar foi convertido em bronze conforme a regra expressa do usuário.",
           "category": "HISTORICAL BEER",
           "date": "2022-09-24",
           "edition": "8FDCRJ",
@@ -3006,12 +2807,10 @@
           "month": "09",
           "placement": "3º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022"
         },
         {
-          "attribution_note": "Linha da aba 9FDCRJ da planilha fornecida pelo usuário; primeiro lugar convertido em ouro pela regra expressa do usuário. A fonte pública da confraria confirma o ano da edição, mas não permite fixar com segurança o dia do festival.",
+          "attribution_note": "Linha da aba 9FDCRJ do registro fornecido pelo usuário; primeiro lugar convertido em ouro pela regra expressa do usuário. A fonte pública da confraria confirma o ano da edição, mas não permite fixar com segurança o dia do festival.",
           "category": "ESTILO OBRIGATÓRIO",
           "date": "",
           "edition": "9FDCRJ",
@@ -3021,12 +2820,10 @@
           "month": "",
           "placement": "1º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023"
         },
         {
-          "attribution_note": "Linha da aba 9FDCRJ da planilha fornecida pelo usuário; primeiro lugar convertido em ouro pela regra expressa do usuário.",
+          "attribution_note": "Linha da aba 9FDCRJ do registro fornecido pelo usuário; primeiro lugar convertido em ouro pela regra expressa do usuário.",
           "category": "ESTILO LIVRE",
           "date": "",
           "edition": "9FDCRJ",
@@ -3036,12 +2833,10 @@
           "month": "",
           "placement": "1º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023"
         },
         {
-          "attribution_note": "Linha da aba 9FDCRJ da planilha fornecida pelo usuário; terceiro lugar convertido em bronze pela regra expressa do usuário.",
+          "attribution_note": "Linha da aba 9FDCRJ do registro fornecido pelo usuário; terceiro lugar convertido em bronze pela regra expressa do usuário.",
           "category": "ESTILO RIO",
           "date": "",
           "edition": "9FDCRJ",
@@ -3051,12 +2846,10 @@
           "month": "",
           "placement": "3º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023"
         },
         {
-          "attribution_note": "Linha da aba 9FDCRJ da planilha fornecida pelo usuário; primeiro lugar convertido em ouro pela regra expressa do usuário.",
+          "attribution_note": "Linha da aba 9FDCRJ do registro fornecido pelo usuário; primeiro lugar convertido em ouro pela regra expressa do usuário.",
           "category": "MELHOR CONFRARIA",
           "date": "",
           "edition": "9FDCRJ",
@@ -3066,12 +2859,10 @@
           "month": "",
           "placement": "1º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023"
         },
         {
-          "attribution_note": "Linha da aba 9FDCRJ da planilha fornecida pelo usuário; BOS com 1º lugar contado como ouro conforme regra expressa do usuário.",
+          "attribution_note": "Linha da aba 9FDCRJ do registro fornecido pelo usuário; BOS com 1º lugar contado como ouro conforme regra expressa do usuário.",
           "category": "BOS",
           "date": "",
           "edition": "9FDCRJ",
@@ -3081,12 +2872,10 @@
           "month": "",
           "placement": "1º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2023"
         },
         {
-          "attribution_note": "Linha da aba 10FDCRJ da planilha fornecida pelo usuário; segundo lugar convertido em prata pela regra expressa do usuário.",
+          "attribution_note": "Linha da aba 10FDCRJ do registro fornecido pelo usuário; segundo lugar convertido em prata pela regra expressa do usuário.",
           "category": "ESTILO OBRIGATÓRIO",
           "date": "2024-08-24",
           "edition": "10FDCRJ",
@@ -3096,12 +2885,10 @@
           "month": "08",
           "placement": "2º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024"
         },
         {
-          "attribution_note": "Linha da aba 10FDCRJ da planilha fornecida pelo usuário; terceiro lugar convertido em bronze pela regra expressa do usuário.",
+          "attribution_note": "Linha da aba 10FDCRJ do registro fornecido pelo usuário; terceiro lugar convertido em bronze pela regra expressa do usuário.",
           "category": "MELHOR CONFRARIA",
           "date": "2024-08-24",
           "edition": "10FDCRJ",
@@ -3111,12 +2898,10 @@
           "month": "08",
           "placement": "3º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2024"
         },
         {
-          "attribution_note": "Linha da aba 11FDCRJ da planilha fornecida pelo usuário; segundo lugar convertido em prata pela regra expressa do usuário. Fonte oficial confirma o concurso e julgamento em agosto de 2025, mas não a data do festival.",
+          "attribution_note": "Linha da aba 11FDCRJ do registro fornecido pelo usuário; segundo lugar convertido em prata pela regra expressa do usuário. Fonte oficial confirma o concurso e julgamento em agosto de 2025, mas não a data do festival.",
           "category": "ESTILO OBRIGATÓRIO",
           "date": "",
           "edition": "11FDCRJ",
@@ -3126,8 +2911,6 @@
           "month": "08",
           "placement": "2º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2025"
         },
         {
@@ -3146,7 +2929,7 @@
           "year": "2026"
         },
         {
-          "attribution_note": "Linha da aba 12FDCRJ da planilha fornecida pelo usuário; terceiro lugar convertido em bronze pela regra expressa do usuário. A data da edição foi confirmada no anúncio oficial do FDCRJ, listado em profile_sources.",
+          "attribution_note": "Linha da aba 12FDCRJ do registro fornecido pelo usuário; terceiro lugar convertido em bronze pela regra expressa do usuário. A data da edição foi confirmada no anúncio oficial do FDCRJ, listado em profile_sources.",
           "category": "ESTILO LIVRE",
           "date": "2026-09-26",
           "edition": "12FDCRJ",
@@ -3156,8 +2939,6 @@
           "month": "09",
           "placement": "3º lugar",
           "recipient": "CRB — Confraria Rock & Bier",
-          "source_title": "Planilha completa de resultados do Festival de Confrarias do Rio de Janeiro (12 edições)",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2026"
         }
       ],
@@ -3166,7 +2947,7 @@
       "historical_aliases": [
         {
           "code": "4CRJ / 4 CANTOS RJ",
-          "note": "Perfil próprio identifica uma comunidade distinta chamada Confraria 4 Cantos RJ. O código 4CRJ na planilha não foi atribuído à CRB — Confraria Rock & Bier.",
+          "note": "Perfil próprio identifica uma comunidade distinta chamada Confraria 4 Cantos RJ. O código 4CRJ no registro não foi atribuído à CRB — Confraria Rock & Bier.",
           "same_community": false,
           "source_url": "https://www.instagram.com/4cantosrj/"
         }
@@ -3291,8 +3072,6 @@
           "month": "07",
           "placement": "3º lugar",
           "recipient": "CSF — Confraria Sul Fluminense",
-          "source_title": "Planilha completa de resultados do FDCRJ, ficha da edição 5FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2018",
           "supporting_sources": [
             {
@@ -3312,8 +3091,6 @@
           "month": "09",
           "placement": "2º lugar",
           "recipient": "CSF — Confraria Sul Fluminense",
-          "source_title": "Planilha completa de resultados do FDCRJ, ficha da edição 8FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2022",
           "supporting_sources": [
             {
@@ -3333,8 +3110,6 @@
           "month": "09",
           "placement": "2º lugar",
           "recipient": "CSF — Confraria Sul Fluminense",
-          "source_title": "Planilha completa de resultados do FDCRJ, ficha da edição 12FDCRJ",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2026",
           "supporting_sources": [
             {
@@ -3398,8 +3173,6 @@
           "month": "07",
           "placement": "1º lugar",
           "recipient": "INSULANA — Confraria dos Cervejeiros da Ilha do Governador",
-          "source_title": "Planilha de resultados do Festival de Confrarias do Rio de Janeiro, fornecida pelo usuário",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2017",
           "supporting_sources": [
             {
@@ -3419,8 +3192,6 @@
           "month": "07",
           "placement": "1º lugar",
           "recipient": "INSULANA — Confraria dos Cervejeiros da Ilha do Governador",
-          "source_title": "Planilha de resultados do Festival de Confrarias do Rio de Janeiro, fornecida pelo usuário",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2017",
           "supporting_sources": [
             {
@@ -3440,8 +3211,6 @@
           "month": "07",
           "placement": "1º lugar",
           "recipient": "INSULANA — Confraria dos Cervejeiros da Ilha do Governador",
-          "source_title": "Planilha de resultados do Festival de Confrarias do Rio de Janeiro, fornecida pelo usuário",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2017",
           "supporting_sources": [
             {
@@ -3451,7 +3220,7 @@
           ]
         },
         {
-          "attribution_note": "Prêmio coletivo atribuído à INSULANA, não a uma pessoa individual. BOS foi contado como ouro segundo a regra expressa do usuário para pódios numéricos da planilha. A publicação oficial da confraria afirma que o grupo levou todos os prêmios possíveis no 3FDCRJ.",
+          "attribution_note": "Prêmio coletivo atribuído à INSULANA, não a uma pessoa individual. BOS foi contado como ouro segundo a regra expressa do usuário para pódios numéricos do registro. A publicação oficial da confraria afirma que o grupo levou todos os prêmios possíveis no 3FDCRJ.",
           "category": "BOS",
           "date": "2017-07-15",
           "edition": "3FDCRJ",
@@ -3461,8 +3230,6 @@
           "month": "07",
           "placement": "1º lugar",
           "recipient": "INSULANA — Confraria dos Cervejeiros da Ilha do Governador",
-          "source_title": "Planilha de resultados do Festival de Confrarias do Rio de Janeiro, fornecida pelo usuário",
-          "source_url": "https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit",
           "year": "2017",
           "supporting_sources": [
             {
