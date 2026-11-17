@@ -477,7 +477,48 @@ function renderCompare() {
   const rows=[['Cerveja','cerveja'],['Estilo','estilo'],['Confraria','confrariaNome'],['ABV','abv'],['IBU','ibu'],['EBC','ebc'],['Volume','volume'],['Cervejeiro','responsavel'],['Escola de cerveja','escola'],['Descrição','descricao']];
   table.innerHTML=`<table class="compare-table"><thead><tr><th>Critério</th>${items.map((item,index)=>`<th><span class="compare-name">${escapeHtml(item.cerveja)}</span><br><button class="compare-card-button" onclick="toggleCompare(${compareSet[index]})">Remover</button></th>`).join('')}</tr></thead><tbody>${rows.slice(1).map(([label,key])=>`<tr><th>${label}</th>${items.map(item=>`<td>${escapeHtml(item[key]||'Não informado')}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
 }
-function markTasted(index) { userTasted[index]=true; localStorage.setItem('fdcrj_tasted',JSON.stringify(userTasted)); renderDashboard(); }
+function todayISO() {
+  const now = new Date();
+  const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+  return local.toISOString().slice(0, 10);
+}
+function formatTastingDate(value) {
+  if (!value) return 'Data não informada';
+  const [year, month, day] = String(value).split('-');
+  return year && month && day ? `${day}/${month}/${year}` : String(value);
+}
+function getTastingHistory(index) {
+  const tasting = userTasting[index] || {};
+  return Array.isArray(tasting.history) ? tasting.history : [];
+}
+function renderTastingHistory(index) {
+  const target = $('#tastingHistory');
+  if (!target) return;
+  const history = getTastingHistory(index);
+  target.innerHTML = history.length
+    ? `<strong>Histórico de degustações (${history.length})</strong>${history.slice().reverse().map((entry, position) => `<div class="tasting-history-row"><span>Degustação ${history.length - position}</span><time>${escapeHtml(formatTastingDate(entry.date))}</time></div>`).join('')}<button class="pill tasting-again" type="button" onclick="prepareNewTasting()">Registrar outra degustação</button>`
+    : '<span class="filter-help">Nenhuma degustação registrada ainda.</span>';
+}
+function prepareNewTasting() {
+  if (activeModalBeer === null) return;
+  $('#tastedCheckbox').checked = false;
+  $('#tasteDate').value = todayISO();
+  saveTastingField('date', $('#tasteDate').value);
+  $('#tastedCheckbox').focus();
+}
+function markTasted(index, date) {
+  const tasting = userTasting[index] || {};
+  const history = getTastingHistory(index);
+  history.push({ date: date || todayISO(), recordedAt: new Date().toISOString() });
+  userTasting[index] = { ...tasting, history, date: date || tasting.date || todayISO() };
+  userTasted[index] = true;
+  localStorage.setItem('fdcrj_tasting', JSON.stringify(userTasting));
+  localStorage.setItem('fdcrj_tasted', JSON.stringify(userTasted));
+  renderTastingHistory(index);
+  renderDashboard();
+  renderGrid();
+  showToast('Degustação registrada no histórico');
+}
 function getLocationMarkup(item) { const query=[item.endereco,item.bairro,item.cidade].filter(Boolean).join(', '); if (!query && !(item.latitude&&item.longitude)) return ''; const url=item.latitude&&item.longitude?`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.latitude+','+item.longitude)}`:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`; return `<div><strong>Localização:</strong> ${escapeHtml(query||`${item.latitude}, ${item.longitude}`)} <a href="${url}" target="_blank" rel="noopener">Abrir no mapa</a></div>`; }
 function updateStats() {
   $('#sBeers').textContent = DATA.length;
@@ -500,7 +541,6 @@ function toggleFav(e, idx) {
 
 function openModal(idx) {
   activeModalBeer = idx;
-  markTasted(idx);
   const item = DATA[idx];
   const color = FAM_COLORS[item.familia] || 'var(--brand)';
 
@@ -530,6 +570,8 @@ function openModal(idx) {
   $('#notes').value = userNotes[idx] || '';
   const tasting = userTasting[idx] || {};
   $('#tasteDate').value=tasting.date||''; $('#appearance').value=tasting.appearance||''; $('#aroma').value=tasting.aroma||''; $('#flavor').value=tasting.flavor||''; $('#bitterness').value=tasting.bitterness||''; $('#body').value=tasting.body||''; $('#pairing').value=tasting.pairing||'';
+  $('#tastedCheckbox').checked = Boolean(userTasted[idx] || getTastingHistory(idx).length);
+  renderTastingHistory(idx);
   const qrUrl = beerShareUrl(item);
   $('#qrLink').textContent = 'Abrir ficha completa';
   $('#qrLink').href = qrUrl;
@@ -593,6 +635,13 @@ function saveTastingField(field, value) {
 }
 ['tasteDate', 'appearance', 'aroma', 'flavor', 'bitterness', 'body', 'pairing'].forEach(id => {
   document.getElementById(id).addEventListener('input', event => saveTastingField(id === 'tasteDate' ? 'date' : id, event.target.value));
+});
+$('#tastedCheckbox').addEventListener('change', event => {
+  if (activeModalBeer === null || !event.target.checked) return;
+  const date = $('#tasteDate').value || todayISO();
+  $('#tasteDate').value = date;
+  saveTastingField('date', date);
+  markTasted(activeModalBeer, date);
 });
 $('#notes').addEventListener('input', (e) => {
   if (activeModalBeer === null) return;
