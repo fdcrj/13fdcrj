@@ -26,6 +26,8 @@ No Firebase Console, abra **Firestore Database**, crie o banco de dados e publiq
 
 O catálogo lê a coluna `Status Engate` das abas públicas das confrarias e combina o resultado com a aba `All Beers`. Os estados esperados são `Aguardando`, `Engatado`, `Esgotado` e `Reserva`. O status aparece obrigatoriamente em cada card e ficha, com cores próprias; quando a célula estiver vazia, o site mostra `Não informado`. Somente `Engatado` é tratado como **Na torneira** e aparece no filtro correspondente; os demais estados continuam visíveis na ficha da cerveja.
 
-## Referência de estilos BJCP 2021
+## Referência BJCP 2021 e Estilos Rio
 
-As fichas exibem um painel expansível que associa automaticamente o estilo informado na planilha a um índice central de códigos, nomes e categorias BJCP 2021. O texto integral e as descrições do guia não são copiados para este site: a consulta encaminha à tradução oficial em português brasileiro publicada no site do BJCP. A própria BJCP informa que a reprodução integral em aplicativos exige autorização prévia; veja [fontes e política de uso](bjcp-sources.md).
+As fichas exibem um painel expansível que associa automaticamente o estilo informado na planilha às 128 entradas BJCP 2021, com resumos autorais e notas históricas quando pertinentes. X1–X5 são identificados como estilos locais do Apêndice B do BJCP.
+
+Uma biblioteca separada acrescenta as seis fichas do Anexo II — Estilos Rio: o estilo-base 99A e cinco variações de inscrição 99B. Elas são apresentadas como estilos locais do 13FDCRJ, não como categorias oficiais do BJCP. A consulta dos estilos BJCP encaminha à tradução oficial em português brasileiro e nenhuma biblioteca reproduz o texto integral do guia. Veja [fontes e política de uso](bjcp-sources.md).
