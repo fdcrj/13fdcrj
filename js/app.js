@@ -80,6 +80,7 @@ function normalizeSheetData(text, statuses = tapStatuses) {
     const confraria = get(row, 'Confraria') || 'Não informado';
     const name = get(row, 'Nome da cerveja') || `cerveja-${index + 1}`;
     const tapKey = window.FDCRJ_DATA_SOURCE?.tapKey?.(confraria, name, estilo) || `${normalizeText(confraria)}|${normalizeText(name)}|${normalizeText(estilo)}`;
+    const statusEngate = get(row, 'Status Engate') || statuses.get(tapKey) || '';
     return {
       id: beerShareKey({ cerveja: name, confrariaNome: confraria, estilo }),
       rowIndex: index,
@@ -109,8 +110,8 @@ function normalizeSheetData(text, statuses = tapStatuses) {
       copo: get(row, 'Copo', 'Copo recomendado'),
       aroma: get(row, 'Aroma', 'Perfil aromático'),
       sabor: get(row, 'Sabor', 'Perfil de sabor'),
-      statusEngate: statuses.get(tapKey) || '',
-      naTorneira: normalizeText(statuses.get(tapKey)) === 'engatado'
+      statusEngate,
+      naTorneira: normalizeText(statusEngate) === 'engatado'
     };
   }).filter(item => item.cerveja && item.cerveja !== 'Cerveja não informada' || item.descricao || item.confraria !== 'Não informado');
 }
