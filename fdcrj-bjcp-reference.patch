@@ -1,5 +1,5 @@
 [1mdiff --git a/README.md b/README.md[m
-[1mindex 7285f77..22c4865 100644[m
+[1mindex 7285f77..3708016 100644[m
 [1m--- a/README.md[m
 [1m+++ b/README.md[m
 [36m@@ -25,3 +25,7 @@[m [mNo Firebase Console, abra **Firestore Database**, crie o banco de dados e publiq[m
@@ -9,9 +9,9 @@
 [32m+[m
 [32m+[m[32m## Referência de estilos BJCP 2021[m
 [32m+[m
-[32m+[m[32mAs fichas exibem um painel expansível que associa automaticamente o estilo informado na planilha a um índice central de códigos, nomes e categorias BJCP 2021. O texto integral e as descrições do guia não são copiados para este site: a consulta encaminha à tradução oficial em português brasileiro publicada no site do BJCP. A própria BJCP informa que a reprodução integral em aplicativos exige autorização prévia; veja [fontes e política de uso](bjcp-sources.md).[m
+[32m+[m[32mAs fichas exibem um painel expansível que associa automaticamente o estilo informado na planilha a um índice central de códigos, nomes e categorias BJCP 2021. A biblioteca de 128 entradas inclui resumos autorais sobre o que se espera de cada estilo e notas históricas curtas quando pertinentes; X1–X5 são identificados como estilos locais do Apêndice B. Ela não reproduz o texto integral do guia. A consulta também encaminha à tradução oficial em português brasileiro publicada no site do BJCP. Veja [fontes e política de uso](bjcp-sources.md).[m
 [1mdiff --git a/bjcp-sources.md b/bjcp-sources.md[m
-[1mindex 2b7e78a..8f99e0e 100644[m
+[1mindex 2b7e78a..1820cb2 100644[m
 [1m--- a/bjcp-sources.md[m
 [1m+++ b/bjcp-sources.md[m
 [36m@@ -4,5 +4,8 @@[m [mA classificação do site usa o Estilo BJCP 2021 e uma camada didática de quatr[m
@@ -20,7 +20,7 @@
  - [BJCP 2021 Beer Style Guidelines PDF](https://www.bjcp.org/wp-content/uploads/2025/02/2021_Guidelines_Beer_1.25.pdf): explica que categorias BJCP são agrupamentos para julgamento e que agrupamentos por país/região podem ser feitos para fins educacionais; as categorias não implicam, por si só, associação geográfica.[m
 [32m+[m[32m- [Tradução oficial BJCP 2021 em português brasileiro](https://www.bjcp.org/international-translations/portuguese-portugues/): página oficial que hospeda a versão traduzida e atualiza o link para o guia.[m
 [32m+[m[32m- [Política oficial para uso das diretrizes](https://www.bjcp.org/faq/i-want-to-use-your-style-guidelines-can-i/): a BJCP não permite publicar o guia completo em outro site. Aplicações que usem as diretrizes devem solicitar autorização à Communication Director e fornecer capturas de tela e descrição do uso. O sistema de nomes e numeração pode ser reutilizado.[m
-[32m+[m[32m- O arquivo `data/bjcp-2021-index.json` guarda apenas código, nome e categoria para associação automática. Não inclui descrições nem faixas técnicas do guia. Até que haja autorização expressa, a interface encaminha o usuário à tradução oficial hospedada pela BJCP.[m
+[32m+[m[32m- O arquivo `data/bjcp-2021-index.json` guarda códigos, nomes e categorias para associação automática; X1–X5 são identificados como estilos locais do Apêndice B do BJCP 2021, não como subcategorias numeradas. Os resumos e notas históricas em `data/bjcp-2021-summaries.json` são redigidos em linguagem própria; não são transcrições e não substituem a tradução oficial, que segue acessível pelo link da BJCP.[m
  [m
  Escola Alemã definida pelo usuário: 03A, 03B, 03C, 03D, 04A, 04B, 04C, 05A, 05B, 05C, 05D, 06A, 06B, 06C, 07A, 07B, 08A, 08B, 09A, 09B, 09C, 10A, 10B, 10C, 23A, 23G e os estilos históricos 27 Kellerbier, 27 Lichtenhainer, 27 Piwo Grodziskie, 27 Roggenbier e 27 Sahti.[m
 [1mdiff --git a/cerveja.html b/cerveja.html[m
@@ -43,10 +43,10 @@
  <script type="module" src="js/auth.js"></script>[m
  </body>[m
 [1mdiff --git a/css/app.css b/css/app.css[m
-[1mindex 6ec6f93..cb570b1 100644[m
+[1mindex 6ec6f93..e1cdf9a 100644[m
 [1m--- a/css/app.css[m
 [1m+++ b/css/app.css[m
-[36m@@ -481,6 +481,20 @@[m [mfooter { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m[m
+[36m@@ -481,6 +481,30 @@[m [mfooter { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m[m
  .detail-photo { width:90px; height:90px; object-fit:cover; border-radius:14px; border:1px solid var(--line); }[m
  .detail-extra { background:color-mix(in srgb,var(--accent) 8%,transparent); border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line)); padding:12px; border-radius:14px; margin:12px 0; font-size:.86rem; }[m
  .detail-extra strong { color:var(--brand-ink); }[m
@@ -58,6 +58,16 @@
 [32m+[m[32m.bjcp-reference[open] > summary::after { content:'−'; }[m
 [32m+[m[32m.bjcp-reference__body { padding:0 13px 13px; font-size:.8rem; }[m
 [32m+[m[32m.bjcp-reference__body p { color:var(--muted); margin:8px 0; }[m
+[32m+[m[32m.bjcp-reference__summary, .bjcp-reference__history { margin:12px 0; padding:11px 12px; border:1px solid var(--line); border-radius:12px; background:var(--card); }[m
+[32m+[m[32m.bjcp-reference__summary h3, .bjcp-reference__history h3 { margin:0 0 5px; color:var(--ink); font-size:.82rem; }[m
+[32m+[m[32m.bjcp-reference__summary p, .bjcp-reference__history p { margin:0; color:var(--ink); line-height:1.6; }[m
+[32m+[m[32m.bjcp-reference__disclaimer { font-size:.72rem; }[m
+[32m+[m[32m.bjcp-reference__history { border-left:4px solid var(--accent); }[m
+[32m+[m[32m.bjcp-reference__missing { font-weight:700; }[m
+[32m+[m[32m.bjcp-reference__sources { margin:10px 0; color:var(--muted); font-size:.74rem; }[m
+[32m+[m[32m.bjcp-reference__sources summary { cursor:pointer; font-weight:700; }[m
+[32m+[m[32m.bjcp-reference__sources ul { margin:5px 0 0; padding-left:18px; }[m
+[32m+[m[32m.bjcp-reference__sources a { overflow-wrap:anywhere; }[m
 [32m+[m[32m.bjcp-reference__meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }[m
 [32m+[m[32m.bjcp-reference__meta > div { display:grid; gap:3px; min-width:0; padding:9px; border:1px solid var(--line); border-radius:10px; background:var(--card); }[m
 [32m+[m[32m.bjcp-reference__meta span { color:var(--muted); font-size:.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }[m
@@ -67,7 +77,7 @@
  .detail-actions { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }[m
  .qr-box { display:flex; gap:12px; align-items:center; border-top:1px dashed var(--line); padding-top:12px; margin-top:12px; }[m
  #qrCanvas { width:110px; height:110px; border-radius:8px; }[m
-[36m@@ -496,7 +510,7 @@[m [mfooter { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m[m
+[36m@@ -496,7 +520,7 @@[m [mfooter { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m[m
  .font-large { font-size:112%; }[m
  .font-xlarge { font-size:125%; }[m
  @media(max-width:1000px) { .metric-grid { grid-template-columns:repeat(3,1fr); } .chart-grid { grid-template-columns:1fr 1fr; } }[m
@@ -145,784 +155,1533 @@
      const checkIn = item.checkInDate ? `<div class="fdcrj-checkin"><strong>✓ Cerveja no FDCRJ</strong><span>Check-in em ${escapeHtml(item.checkInDate)}</span></div>` : '';[m
      const statusRows = [['aguardando', 'Aguardando'], ['engatado', 'Engatado'], ['acabou', 'Acabou']].filter(([name]) => item.statusDates[name]).map(([name, label]) => `<div class="status-history-row"><span>${label}</span><time>${escapeHtml(item.statusDates[name])}</time></div>`).join('');[m
      $('#beerStatusHistory').innerHTML = `${checkIn}${statusRows ? `<div class="status-history"><strong>Histórico de status</strong>${statusRows}</div>` : ''}`;[m
-diff --git a/data/bjcp-2021-index.json b/data/bjcp-2021-index.json
+diff --git a/data/bjcp-2021-summaries.json b/data/bjcp-2021-summaries.json
 new file mode 100644
 --- /dev/null
-+++ b/data/bjcp-2021-index.json
-@@ -0,0 +1,776 @@
++++ b/data/bjcp-2021-summaries.json
+@@ -0,0 +1,1525 @@
 +{
-+  "version": "2021",
++  "version": "BJCP 2021",
++  "scope": "Sínteses autorais do FDCRJ, não transcrições do guia. Notas históricas são exibidas somente quando pertinentes.",
 +  "source": "https://www.bjcp.org/international-translations/portuguese-portugues/",
-+  "sourceCatalog": "https://github.com/bjcp-brasil/styleguide-2021",
-+  "scope": "Nomenclatura, códigos e categorias apenas; não contém descrições do guia.",
-+  "styles": [
++  "summaries": [
 +    {
++      "id": "0001",
 +      "code": "1A",
 +      "name": "American Light Lager",
-+      "categoryCode": "1",
-+      "categoryName": "Standard American Beer"
++      "summary": "É uma lager muito clara e de perfil deliberadamente discreto, pensada para refrescar quando servida bem fria, sem sabores marcantes que dominem a experiência. O corpo leve e a carbonatação viva favorecem uma impressão seca e limpa; podem aparecer sutis notas de cereal, enquanto lúpulo e amargor ficam em segundo plano.",
++      "historicalNote": "A versão moderna surgiu com a Rheingold em 1967 e ganhou popularidade após a Miller adquirir a receita em 1973.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf",
++        "https://www.bjcp.org/wp-content/uploads/2025/02/2021_Guidelines_Beer_1.25.pdf"
++      ]
 +    },
 +    {
++      "id": "0002",
 +      "code": "1B",
 +      "name": "American Lager",
-+      "categoryCode": "1",
-+      "categoryName": "Standard American Beer"
++      "summary": "Espera-se uma lager muito clara e leve, de perfil limpo e discreto, em que cereais suaves e amargor contido não se sobreponham. A carbonatação viva e o final seco reforçam a impressão de equilíbrio e refrescância, sobretudo quando servida bem fria.",
++      "historicalNote": "A American Lager evoluiu nos EUA a partir de lagers pré-Lei Seca após a Proibição e a Segunda Guerra Mundial.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/1/1B/american-lager/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0003",
 +      "code": "1C",
 +      "name": "Cream Ale",
-+      "categoryCode": "1",
-+      "categoryName": "Standard American Beer"
++      "summary": "Espera-se uma ale americana clara, de perfil limpo e discreto, cujo malte suave e leve nota de milho sustentam uma bebida seca a levemente adocicada. A carbonatação viva e o corpo leve deixam a cerveja macia, refrescante e fácil de beber, com mais presença que uma lager americana comum, sem perder a contenção.",
++      "historicalNote": "A Cream Ale surgiu nos EUA no século XIX, sobreviveu à Lei Seca e foi elaborada para competir com lagers canadenses e de outras regiões americanas.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/1/1c/cream-ale/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0004",
 +      "code": "1D",
 +      "name": "American Wheat Beer",
-+      "categoryCode": "1",
-+      "categoryName": "Standard American Beer"
++      "summary": "É uma cerveja pálida de perfil limpo, com presença de trigo que pode lembrar cereal recém-assado, mas sem o caráter de banana e cravo associado à Weissbier; o lúpulo varia e pode dar leve inclinação amarga. A vivacidade da carbonatação e o corpo contido tornam o conjunto refrescante, com final que pode tender à secura ou conservar toque de malte.",
++      "historicalNote": "Segundo o BJCP, a Anchor produziu o primeiro exemplar em 1984, e a Widmer contribuiu depois para difundir o estilo.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/1/1d/american-wheat-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://byo.com/articles/american-wheat-style-profile-2/"
++      ]
 +    },
 +    {
++      "id": "0005",
 +      "code": "2A",
 +      "name": "International Pale Lager",
-+      "categoryCode": "2",
-+      "categoryName": "International Lager"
++      "summary": "O perfil esperado é contido e limpo: base maltada suave de cereais, amargor presente mas moderado, sem sabores intensos. No gole, corpo leve a médio, carbonatação marcada e final seco fazem dela uma lager fácil de beber e refrescante; nuances discretas de pão ou lúpulo podem complementar sem definir o conjunto.",
++      "historicalNote": "Nos Estados Unidos, desenvolveu-se como opção premium da lager padrão; em outros mercados, também surgiu como adaptação de lagers americanas ou alternativa mais acessível a cervejas tipo Pilsner.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/2/2A/international-pale-lager/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0006",
 +      "code": "2B",
 +      "name": "International Amber Lager",
-+      "categoryCode": "2",
-+      "categoryName": "International Lager"
++      "summary": "Espera-se uma lager âmbar macia e fácil de apreciar, com o malte sugerindo pão tostado e caramelo sem tornar o conjunto pesado ou torrado. Amargor contido, final relativamente seco e fermentação limpa sustentam uma impressão equilibrada e refrescante, de corpo leve a médio.",
++      "historicalNote": "O estilo reúne lagers âmbar de mercado de massa desenvolvidas em diferentes países, muitas como adaptações da lager internacional clara ou de tradições locais.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/2/2B/international-amber-lager/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0007",
 +      "code": "2C",
 +      "name": "International Dark Lager",
-+      "categoryCode": "2",
-+      "categoryName": "International Lager"
++      "summary": "Espera-se uma lager escura de perfil acessível, em que o malte conduz a experiência sem dominar com doçura ou torra: notas discretas de caramelo ou cacau podem aparecer, enquanto amargor e lúpulo ficam moderados a baixos. O conjunto tende a ser limpo, macio e de corpo leve a médio-leve, com final relativamente seco e refrescante.",
++      "historicalNote": "Historicamente, o estilo reúne adaptações mais escuras de lagers industriais claras, concebidas para ampla aceitação, por vezes como alternativas mais acessíveis às lagers escuras tradicionais.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/2/2C/international-dark-lager/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0008",
 +      "code": "3A",
 +      "name": "Czech Pale Lager",
-+      "categoryCode": "3",
-+      "categoryName": "Czech Lager"
++      "summary": "Espera-se uma lager clara de perfil tcheco, vivaz e fácil de beber: a base maltada lembra pão, enquanto o lúpulo traz notas herbais ou condimentadas e um amargor nítido, porém macio. Em comparação com a Czech Premium Pale Lager, apresenta menor intensidade e corpo mais leve, sem perder sabor nem frescor.",
++      "historicalNote": "O BJCP relata que Josef Groll produziu uma výčepní e uma ležák em 1842–43, com o dobro do volume na cerveja de menor densidade.",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/style/2021/3/3A/czech-pale-lager/"
++      ]
 +    },
 +    {
++      "id": "0009",
 +      "code": "3B",
 +      "name": "Czech Premium Pale Lager",
-+      "categoryCode": "3",
-+      "categoryName": "Czech Lager"
++      "summary": "Espera-se uma lager tcheca clara, de dourado médio a intenso, que una malte de perfil de pão a lúpulo floral ou condimentado sem que o amargor se torne áspero. O amargor firme, mas macio, acompanha um final persistente e equilibrado; no conjunto, a cerveja é rica em caráter, refrescante e fácil de beber.",
++      "historicalNote": "A Pilsner Urquell, frequentemente associada ao estilo, teve sua primeira brassagem em Plzeň em 1842, sob o mestre-cervejeiro Josef Groll.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/3/3B/czech-premium-pale-lager/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.prazdroj.cz/en/our-story"
++      ]
 +    },
 +    {
++      "id": "0010",
 +      "code": "3C",
 +      "name": "Czech Amber Lager",
-+      "categoryCode": "3",
-+      "categoryName": "Czech Lager"
++      "summary": "A Czech Amber Lager deve combinar malte rico e cor âmbar com amargor limpo, mantendo um conjunto equilibrado. Pode pender ao pão e a um final mais seco ou ganhar arredondamento caramelado; o lúpulo varia de discreto a notável, e a textura tende a ser macia, sem caráter torrado.",
++      "historicalNote": "Na República Tcheca, a reabertura de pequenas cervejarias contribuiu para ampliar o número de exemplares do estilo.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/3/3C/czech-amber-lager/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0011",
 +      "code": "3D",
 +      "name": "Czech Dark Lager",
-+      "categoryCode": "3",
-+      "categoryName": "Czech Lager"
++      "summary": "Espera-se uma lager tcheca escura e de presença maltada expressiva, em que a torra pode ir de discreta a evidente sem apagar a riqueza do malte. O conjunto tende a ser macio e envolvente, com amargor perceptível e lúpulo condimentado variável, podendo pender do maltado ao equilibrado.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/3/3D/czech-dark-lager/",
++        "https://www.bjcp.org/download/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0012",
 +      "code": "4A",
 +      "name": "Munich Helles",
-+      "categoryCode": "4",
-+      "categoryName": "Pale Malty European Lager"
++      "summary": "Espera-se uma lager dourada e limpa, conduzida por malte de cereal levemente adocicado, mas sem doçura persistente. O amargor contido e um toque discreto de lúpulo equilibram o perfil; final seco, corpo médio e textura macia compõem uma cerveja equilibrada, refrescante e apropriada para o consumo cotidiano.",
++      "historicalNote": "Criada em Munique em 1894, a Helles é associada à Spaten e surgiu para competir com cervejas claras do tipo Pilsner.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/4/4A/munich-helles/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0013",
 +      "code": "4B",
 +      "name": "Festbier",
-+      "categoryCode": "4",
-+      "categoryName": "Pale Malty European Lager"
++      "summary": "Espera-se uma lager alemã clara, elegante e fácil de beber, com presença maltada nítida, mas sem peso excessivo: a base lembra pão recém-assado com leve tostado, enquanto o lúpulo aparece discretamente e equilibra sem roubar a cena. O conjunto deve ser limpo, macio e terminar saboroso, convidando a outro gole.",
++      "historicalNote": "A versão dourada foi criada pela Paulaner em meados dos anos 1970 e, desde 1990, predomina na Oktoberfest de Munique.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/style/2021/4/4B/festbier/"
++      ]
 +    },
 +    {
++      "id": "0014",
 +      "code": "4C",
 +      "name": "Helles Bock",
-+      "categoryCode": "4",
-+      "categoryName": "Pale Malty European Lager"
++      "summary": "A Helles Bock é uma lager alemã dourada e vigorosa, em que o malte de pão e cereais traz riqueza sem tornar a cerveja pesada ou enjoativa. O final seco e limpo, com amargor e notas de lúpulo mais perceptíveis que em outras Bocks, mantém a bebida fluida e equilibrada.",
++      "historicalNote": "Também chamada Maibock, é tradicionalmente oferecida como cerveja sazonal de primavera, associada ao mês de maio.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/4/4C/helles-bock/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0015",
 +      "code": "5A",
 +      "name": "German Leichtbier",
-+      "categoryCode": "5",
-+      "categoryName": "Pale Bitter European Beer"
++      "summary": "Espera-se uma lager alemã clara, muito atenuada e de corpo leve, com menos álcool e calorias que cervejas de teor padrão, mas ainda expressiva: amargor moderado equilibra malte de cereal e lúpulo discreto, e o final seco e limpo favorece uma bebida refrescante e fácil de apreciar.",
++      "historicalNote": "Versões tradicionais eram consumidas por trabalhadores em fábricas e campos; as modernas se voltaram a consumidores atentos à saúde e ao condicionamento físico.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/5/5A/german-leichtbier/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf"
++      ]
 +    },
 +    {
++      "id": "0016",
 +      "code": "5B",
 +      "name": "Kölsch",
-+      "categoryCode": "5",
-+      "categoryName": "Pale Bitter European Beer"
++      "summary": "A expectativa é de uma cerveja clara, brilhante e discreta, cujo malte de cereal se harmoniza com um toque frutado e lúpulo contido, sem que nenhum elemento se imponha. Amargor moderado e boa atenuação dão um final seco e limpo, mas ainda macio, com corpo leve e frescor importante.",
++      "historicalNote": "A Kölsch moderna se desenvolveu em Colônia no fim do século XIX como alternativa às lagers claras; a denominação é protegida pela Kölsch Konvention de 1986.",
++      "sourceUrls": [
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1794566745",
++        "https://www.bjcp.org/download/",
++        "https://www.bjcp.org/style/2021/5/5B/kolsch/"
++      ]
 +    },
 +    {
++      "id": "0017",
 +      "code": "5C",
 +      "name": "German Helles Exportbier",
-+      "categoryCode": "5",
-+      "categoryName": "Pale Bitter European Beer"
++      "summary": "Espera-se uma lager dourada, de perfil maltado de cereais e pão, contraposto por amargor perceptível e lúpulo floral ou herbal sem predominância. A fermentação limpa, o corpo de médio a médio-cheio e o final seco dão à cerveja uma presença mais robusta que uma lager clara leve, mas preservam uma impressão geral equilibrada e fluida.",
++      "historicalNote": "Desenvolvida em Dortmund na década de 1870, em resposta à popularidade das cervejas claras do tipo Pilsner.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://www.bjcp.org/style/2021/5/5C/german-helles-exportbier/"
++      ]
 +    },
 +    {
++      "id": "0018",
 +      "code": "5D",
 +      "name": "German Pils",
-+      "categoryCode": "5",
-+      "categoryName": "Pale Bitter European Beer"
++      "summary": "Espera-se uma lager dourada e muito límpida, de perfil seco e refrescante, em que o amargor firme e os aromas florais, herbais ou condimentados do lúpulo conduzem a experiência sem apagar totalmente a base maltada de cereal e pão. O corpo relativamente leve e a fermentação limpa reforçam um final nítido e convidativo.",
++      "historicalNote": "Derivada da Pilsner tcheca, a German Pils começou a ser produzida na Alemanha no início da década de 1870.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/5/5D/german-pils/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0019",
 +      "code": "6A",
 +      "name": "Märzen",
-+      "categoryCode": "6",
-+      "categoryName": "Amber Malty European Lager"
++      "summary": "Espera-se uma lager alemã âmbar, de caráter maltado marcante, mas refinado: notas lembrando pão e leve tostado dão profundidade sem tornar a bebida pesada ou enjoativa. O amargor moderado e o final relativamente seco equilibram essa riqueza, enquanto fermentação limpa e textura macia sustentam uma impressão geral harmoniosa.",
++      "historicalNote": "A Märzen âmbar foi servida na Oktoberfest de 1872 a 1990, quando a Festbier dourada passou a ser a cerveja-padrão do festival.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/6/6A/marzen/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0020",
 +      "code": "6B",
 +      "name": "Rauchbier",
-+      "categoryCode": "6",
-+      "categoryName": "Amber Malty European Lager"
++      "summary": "Espera-se uma lager alemã âmbar em que a base maltada, tostada e lembrando pão sustente uma fumaça limpa de madeira, cuja presença pode ir de discreta a marcante sem apagar o conjunto. A impressão deve permanecer equilibrada, com amargor moderado, fermentação limpa e final relativamente seco; não se trata de uma cerveja necessariamente muito defumada.",
++      "historicalNote": "A Rauchbier é uma especialidade histórica de Bamberg, embora as origens desse estilo específico não estejam claras.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/6/6B/rauchbier/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf"
++      ]
 +    },
 +    {
++      "id": "0021",
 +      "code": "6C",
 +      "name": "Dunkles Bock",
-+      "categoryCode": "6",
-+      "categoryName": "Amber Malty European Lager"
++      "summary": "A impressão é de uma lager alemã de cor cobre escura a castanha, com presença de malte rica e nuances de pão tostado, sem se tornar pesada em doçura. O amargor discreto sustenta o conjunto; textura macia, fermentação limpa e leve calor alcoólico dão acabamento redondo.",
++      "historicalNote": "O Bock tem origem em Einbeck; a cidade integrou a Liga Hanseática e, mais tarde, a tradição foi recriada em Munique no século XVII.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/6/6C/dunkles-bock/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf",
++        "https://www.beerandbrewing.com/dictionary/VVLZO5c71B"
++      ]
 +    },
 +    {
++      "id": "0022",
 +      "code": "7A",
 +      "name": "Vienna Lager",
-+      "categoryCode": "7",
-+      "categoryName": "Amber Bitter European Beer"
++      "summary": "Espera-se uma lager âmbar de força moderada, com malte limpo e envolvente, lembrando pão e leve tostado, sem doçura pesada; o amargor moderado dá equilíbrio e conduz a um final relativamente seco. No conjunto, deve parecer macia e elegante, com riqueza maltada em primeiro plano, sem notas marcantes de caramelo ou torra.",
++      "historicalNote": "Desenvolvida por Anton Dreher em Viena, em 1841, a Vienna Lager ganhou popularidade no século XIX.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/7/7A/vienna-lager/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/"
++      ]
 +    },
 +    {
++      "id": "0023",
 +      "code": "7B",
 +      "name": "Altbier",
-+      "categoryCode": "7",
-+      "categoryName": "Amber Bitter European Beer"
++      "summary": "A Altbier deve combinar malte âmbar rico, com lembranças de pão e nozes, e amargor firme, sem que um lado apague o outro; espera-se um conjunto seco, de corpo médio e textura lisa. O resultado é uma ale de fermentação limpa, com toque discreto de lúpulo condimentado ou floral e final amargo-maltado persistente.",
++      "historicalNote": "A denominação alude à antiga tradição de fermentação alta, anterior à popularização das lagers; a Altbier moderna se desenvolveu em Düsseldorf no fim do século XIX.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://www.bjcp.org/style/2021/7/"
++      ]
 +    },
 +    {
++      "id": "0024",
 +      "code": "8A",
 +      "name": "Munich Dunkel",
-+      "categoryCode": "8",
-+      "categoryName": "Dark European Lager"
++      "summary": "Espera-se uma lager bávara castanha, em que o malte traz lembranças de pão tostado, chocolate e nozes, sem chegar a sabores queimados. O amargor contido equilibra a riqueza maltada, enquanto a textura macia e o final relativamente seco evitam uma impressão pesada; lúpulo e fermentação permanecem discretos.",
++      "historicalNote": "A Spaten desenvolveu o estilo na década de 1830, após o surgimento do malte Munich, como sucessor das cervejas escuras regionais da época.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/8/8A/munich-dunkel/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0025",
 +      "code": "8B",
 +      "name": "Schwarzbier",
-+      "categoryCode": "8",
-+      "categoryName": "Dark European Lager"
++      "summary": "A Schwarzbier esperada é uma lager alemã escura, mas não necessariamente negra, em que a torra discreta, lembrando chocolate amargo, convive com malte suave e amargor moderado. O conjunto tende a ser seco, leve no corpo e limpo, sem aspereza ou retrogosto queimado, resultando numa cerveja equilibrada e fácil de beber.",
++      "historicalNote": "Tradicionalmente associada à Turíngia, Saxônia e Francônia, a Schwarzbier ganhou popularidade após a reunificação alemã, em 1990.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/8/8B/schwarzbier/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0026",
 +      "code": "9A",
 +      "name": "Doppelbock",
-+      "categoryCode": "9",
-+      "categoryName": "Strong European Beer"
++      "summary": "Doppelbock é uma lager alemã forte e intensamente maltada, com o malte no centro e um perfil rico; nas versões escuras, a profundidade pode trazer notas tostadas e de frutas escuras, enquanto as claras tendem a ser mais secas e discretamente mais lupuladas. Mesmo encorpada, deve manter textura macia, fermentação limpa e aquecimento alcoólico suave, sem aspereza.",
++      "historicalNote": "Relatos do BJCP situam a tradição em Munique no século XVIII, quando monges a consumiam durante o jejum quaresmal.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/9/9A/doppelbock/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0027",
 +      "code": "9B",
 +      "name": "Eisbock",
-+      "categoryCode": "9",
-+      "categoryName": "Strong European Beer"
++      "summary": "Espera-se uma lager alemã escura e muito forte, de corpo amplo e riqueza maltada concentrada, com nuances que podem lembrar pão tostado, caramelo ou frutas escuras. O conjunto deve ser intenso, mas macio e equilibrado: o álcool aquece sem queimar, e um amargor discreto com final relativamente seco impede que a doçura se torne enjoativa.",
++      "historicalNote": "A origem é atribuída a Kulmbach, na Francônia, no fim do século XIX; a história de um congelamento acidental é tratada como lenda, e a origem exata é desconhecida.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/9/9B/eisbock/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.beerandbrewing.com/dictionary/lMVhdQXyVT"
++      ]
 +    },
 +    {
++      "id": "0028",
 +      "code": "9C",
 +      "name": "Baltic Porter",
-+      "categoryCode": "9",
-+      "categoryName": "Strong European Beer"
++      "summary": "Espera-se uma cerveja escura e potente, de maltado profundo e textura aveludada, em que notas de frutas passas e caramelo se unem a uma torra contida, sem aspereza queimada. O calor alcoólico deve estar integrado; o amargor apenas equilibra a riqueza, enquanto um final relativamente seco evita que o conjunto pareça excessivamente doce.",
++      "historicalNote": "Surgiu em países do Báltico após interrupções nas importações de porter e stout inglesas no início do século XIX; a denominação “Baltic Porter” é bem posterior.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/9/9C/baltic-porter/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0029",
 +      "code": "10A",
 +      "name": "Weissbier",
-+      "categoryCode": "10",
-+      "categoryName": "German Wheat Beer"
++      "summary": "Espera-se uma cerveja de trigo alemã clara e refrescante, em que a fermentação oferece notas de banana e cravo, equilibradas por um caráter de trigo macio e malte discreto. A carbonatação viva e o corpo leve a médio favorecem um final seco e arejado; o conjunto deve ser expressivo sem pesar nem deixar dulçor residual.",
++      "historicalNote": "A produção da versão âmbar da Schneider, iniciada em 1872, é apontada como marco da Weissbier moderna; a variante clara se popularizou principalmente nos anos 1960.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf",
++        "https://www.bjcp.org/style/2021/10/10A/weissbier/"
++      ]
 +    },
 +    {
++      "id": "0030",
 +      "code": "10B",
 +      "name": "Dunkles Weissbier",
-+      "categoryCode": "10",
-+      "categoryName": "German Wheat Beer"
++      "summary": "Espera-se uma cerveja de trigo escura em que a fermentação típica da família weizen, com lembranças de banana e cravo, convive com malte de pão tostado e caramelo, sem transformar-se em uma cerveja de torra marcante. A textura macia e cremosa é equilibrada pela carbonatação viva, que mantém o conjunto leve, agradável e refrescante.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/10/10B/dunkles-weissbier/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0031",
 +      "code": "10C",
 +      "name": "Weizenbock",
-+      "categoryCode": "10",
-+      "categoryName": "German Wheat Beer"
++      "summary": "Espera-se uma cerveja alemã de trigo robusta e maltada, em que a riqueza de pão e cereais se combina com a maciez e os traços frutados e condimentados da fermentação, sem que o álcool domine. Clara ou escura, deve mostrar corpo cheio e textura suave; o conjunto é rico e acolhedor, não áspero nem excessivamente doce.",
++      "historicalNote": "A Schneider Weisse introduziu a Aventinus em 1907, batizando-a em homenagem ao historiador bávaro Johannes Aventinus.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/10/10C/weizenbock/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/",
++        "https://schneider-weisse.de/en/node/16"
++      ]
 +    },
 +    {
++      "id": "0032",
 +      "code": "11A",
 +      "name": "Ordinary Bitter",
-+      "categoryCode": "11",
-+      "categoryName": "British Bitter"
++      "summary": "Espera-se uma ale britânica leve e de graduação modesta, feita para ser consumida com facilidade, mas cujo eixo permanece nitidamente amargo; a base maltada é discreta e pode lembrar pão ou biscoito, sem encobrir esse caráter. No conjunto, deve soar seca, pouco pesada e convidativa a outro gole, com notas frutadas e de lúpulo apenas como complemento.",
++      "historicalNote": "A família britânica Bitter se desenvolveu a partir de pale ales inglesas servidas em barril no fim do século XIX.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/11/11A/ordinary-bitter/",
++        "https://bjcp-brasil.github.io/bjcp-2021-pt-br/11-british-bitter/11a-ordinary-bitter/",
++        "https://www.bjcp.org/style/2021/11/british-bitter/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0033",
 +      "code": "11B",
 +      "name": "Best Bitter",
-+      "categoryCode": "11",
-+      "categoryName": "British Bitter"
++      "summary": "A Best Bitter deve ser saborosa e fácil de beber, com amargor nítido que guia o conjunto sem apagar o malte. Notas de pão ou biscoito, leve frutado e final seco apoiam uma cerveja de sessão refrescante, de corpo moderado e expressão variável, mas sempre marcada pelo amargor.",
++      "historicalNote": "A família britânica das bitters se desenvolveu a partir das pale ales inglesas servidas em barril, no fim do século XIX.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://www.bjcp.org/style/2021/11/11B/best-bitter/",
++        "https://www.bjcp.org/style/2021/beer/?pg=3"
++      ]
 +    },
 +    {
++      "id": "0034",
 +      "code": "11C",
 +      "name": "Strong Bitter",
-+      "categoryCode": "11",
-+      "categoryName": "British Bitter"
++      "summary": "A Strong Bitter é uma ale britânica de força intermediária a moderadamente alta, na qual amargor e malte podem se equilibrar ou pender um pouco para o amargo, sem perder a facilidade de beber. Esperam-se notas de malte lembrando pão e biscoito, lúpulo perceptível e final seco a meio-seco, com presença alcoólica discreta.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/11/11C/strong-bitter/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0035",
 +      "code": "12A",
 +      "name": "British Golden Ale",
-+      "categoryCode": "12",
-+      "categoryName": "Pale Commonwealth Beer"
++      "summary": "Espera-se uma ale clara, de força moderada, em que o lúpulo conduz a experiência sem tornar a cerveja pesada: amargor nítido e aromas variáveis encontram uma base discreta de malte claro. A impressão geral é seca, viva e refrescante, com corpo leve a médio e equilíbrio que convida a outro gole.",
++      "historicalNote": "A Hop Back Summer Lightning, produzida pela primeira vez em 1986, é frequentemente citada como uma cerveja que ajudou a consolidar o estilo.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/12/12A/british-golden-ale/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0036",
 +      "code": "12B",
 +      "name": "Australian Sparkling Ale",
-+      "categoryCode": "12",
-+      "categoryName": "Pale Commonwealth Beer"
++      "summary": "Uma ale clara, vibrante e de amargor perceptível, pensada para ser refrescante: a efervescência intensa e o final seco equilibram um corpo relativamente cheio. O malte permanece discreto, enquanto notas de maçã e pera e lúpulo herbal-terroso dão personalidade sem tornar o conjunto pesado.",
++      "historicalNote": "A Coopers produz sua Sparkling Ale desde 1862, embora a formulação tenha mudado ao longo do tempo.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/12/12B/australian-sparkling-ale/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0037",
 +      "code": "12C",
 +      "name": "English IPA",
-+      "categoryCode": "12",
-+      "categoryName": "Pale Commonwealth Beer"
++      "summary": "Espera-se uma ale britânica clara, de força moderada, bem atenuada e nitidamente voltada ao lúpulo, com amargor firme e final seco, sem aspereza. Notas florais, apimentadas ou cítricas podem surgir sobre uma base de malte de pão ou biscoito, que sustenta o conjunto; a textura deve ser suave, sem adstringência lupulada.",
++      "historicalNote": "A IPA não foi criada especificamente para ser enviada à Índia; essa ideia é corrigida pelas diretrizes do BJCP.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/12/12C/english-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0038",
 +      "code": "13A",
 +      "name": "Dark Mild",
-+      "categoryCode": "13",
-+      "categoryName": "Brown British Beer"
++      "summary": "Espera-se uma ale britânica escura, leve e de teor alcoólico modesto, em que a base maltada sustente uma cerveja saborosa e fácil de beber, sem pesar. Tons de pão e toffee podem se combinar a notas tostadas ou frutadas, enquanto o amargor discreto e o corpo leve a médio mantêm o conjunto equilibrado e refrescante.",
++      "historicalNote": "A designação mild originalmente distinguia cervejas não envelhecidas; essas ales começaram a escurecer no século XIX e só se tornaram marrom-escuras após a Primeira Guerra Mundial.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/13/13A/dark-mild/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0039",
 +      "code": "13B",
 +      "name": "British Brown Ale",
-+      "categoryCode": "13",
-+      "categoryName": "Brown British Beer"
++      "summary": "É uma ale britânica marrom, guiada por malte com caramelo e possíveis notas de toffee, nozes ou chocolate suave. A doçura deve permanecer equilibrada, sem torra intensa; o corpo é moderado e o final relativamente seco. Tem mais força que muitas ales britânicas comuns, sem perder a facilidade de beber.",
++      "historicalNote": "Embora o nome tenha antecedentes antigos, a British Brown Ale moderna é uma criação do século XX, distinta de cervejas históricas que também receberam esse nome.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/13/13B/british-brown-ale/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0040",
 +      "code": "13C",
 +      "name": "English Porter",
-+      "categoryCode": "13",
-+      "categoryName": "Brown British Beer"
++      "summary": "Espera-se uma ale inglesa escura, de força moderada, em que maltes de pão e tostado dão lugar a notas suaves de chocolate, caramelo ou toffee, sem aspereza queimada. O conjunto tende ao equilíbrio entre dulçor maltado e amargor moderado, com final relativamente seco a ligeiramente doce e corpo médio-leve a médio.",
++      "historicalNote": "A Porter desapareceu do repertório britânico na década de 1950 e voltou com a era da cerveja artesanal, em 1978.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://www.bjcp.org/style/2021/13/13c-english-porter/"
++      ]
 +    },
 +    {
++      "id": "0041",
 +      "code": "14A",
 +      "name": "Scottish Light",
-+      "categoryCode": "14",
-+      "categoryName": "Scottish Ale"
++      "summary": "Espera-se uma cerveja de baixo teor alcoólico em que o malte conduz a experiência, com lembranças discretas de caramelo, toffee e pão tostado, sem pesar no paladar. Uma secura levemente torrada e amargor contido equilibram o dulçor, enquanto eventuais notas frutadas permanecem sutis; a impressão geral é maltada, acessível e de corpo moderado.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/14/14A/scottish-light/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0042",
 +      "code": "14B",
 +      "name": "Scottish Heavy",
-+      "categoryCode": "14",
-+      "categoryName": "Scottish Ale"
++      "summary": "Espera-se uma ale escocesa de teor alcoólico contido, em que o malte conduz a experiência com lembranças suaves de pão tostado, caramelo e toffee, equilibradas por leve secura no final. A doçura permanece evidente, mas o amargor discreto evita que pese; pode surgir um toque frutado, sem tirar o foco do perfil maltado.",
++      "historicalNote": "A denominação “shilling” já era usada para ales suaves antes da Primeira Guerra Mundial; o perfil moderno dessas cervejas se consolidou após a Segunda.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/14/14B/scottish-heavy/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0043",
 +      "code": "14C",
 +      "name": "Scottish Export",
-+      "categoryCode": "14",
-+      "categoryName": "Scottish Ale"
++      "summary": "De força moderada, apresenta a malta no centro, com lembranças de pão tostado e caramelo que se prolongam num final levemente seco, sem perder o equilíbrio maltado. Frutas discretas podem surgir, enquanto o amargor atua sobretudo como contraponto à doçura, resultando numa cerveja redonda e de perfil acolhedor.",
++      "historicalNote": "Antes da Primeira Guerra Mundial, nomes de cervejas “Shilling” eram usados para cervejas suaves e não envelhecidas; os estilos adquiriram forma moderna após a Segunda Guerra.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/14/14C/scottish-export/",
++        "https://www.bjcp.org/download/",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf"
++      ]
 +    },
 +    {
++      "id": "0044",
 +      "code": "15A",
 +      "name": "Irish Red Ale",
-+      "categoryCode": "15",
-+      "categoryName": "Irish Beer"
++      "summary": "A Irish Red Ale deve ser uma cerveja âmbar a cobre-avermelhada, limpa e fácil de beber, com presença maltada discreta e possíveis notas suaves de caramelo ou toffee equilibradas por cereais e leve tostado. Amargor moderado e final entre meio seco e seco mantêm o conjunto suave, sem deixar o dulçor dominar.",
++      "historicalNote": "O BJCP descreve a forma moderna como uma releitura menos lupulada da English Bitter, redescoberta depois como estilo da cerveja artesanal irlandesa.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/15/15A/irish-red-ale/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0045",
 +      "code": "15B",
 +      "name": "Irish Stout",
-+      "categoryCode": "15",
-+      "categoryName": "Irish Beer"
++      "summary": "Espera-se uma stout negra em que a torra conduz a experiência, lembrando café e podendo trazer nuances de chocolate amargo, com amargor perceptível e final que vai de seco a levemente maltado. O conjunto deve permanecer macio e de corpo moderado; servido com nitro, pode ganhar cremosidade, sem que isso seja expectativa para a versão engarrafada.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/15/15B/irish-stout/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0046",
 +      "code": "15C",
 +      "name": "Irish Extra Stout",
-+      "categoryCode": "15",
-+      "categoryName": "Irish Beer"
++      "summary": "Espera-se uma stout negra e substancial, na qual a torra de café e o caráter de chocolate escuro conduzem a experiência, com o malte acrescentando profundidade. A interpretação pode ir de um equilíbrio agridoce a um perfil mais seco e amargo; em qualquer caso, o conjunto deve ser macio e cremoso, sem aspereza dominante.",
++      "historicalNote": "A Guinness Extra Stout descende de uma cerveja feita em 1821, quando Arthur Guinness II definiu instruções para sua Superior Porter.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/15/15C/irish-extra-stout/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.guinness.com/en-us/beers/guinness-extra-stout"
++      ]
 +    },
 +    {
++      "id": "0047",
 +      "code": "16A",
 +      "name": "Sweet Stout",
-+      "categoryCode": "16",
-+      "categoryName": "Dark British Beer"
++      "summary": "Espera-se uma stout escura e macia, com doçura evidente que ampara notas de torra suave, café ou chocolate, enquanto o amargor permanece moderado. O corpo cheio e a textura cremosa reforçam uma impressão rica, sem aspereza queimada; o equilíbrio pode variar entre uma expressão mais doce e outra relativamente seca.",
++      "historicalNote": "No início do século XX, a stout inglesa era anunciada como tônico; o nome “Milk” aludia à lactose usada para adoçar.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/16/16A/sweet-stout/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0048",
 +      "code": "16B",
 +      "name": "Oatmeal Stout",
-+      "categoryCode": "16",
-+      "categoryName": "Dark British Beer"
++      "summary": "De perfil escuro e maltado, reúne nuances discretas de café e chocolate com dulçor moderado, enquanto a aveia contribui para uma textura redonda e macia. O conjunto pode pender do mais seco ao mais adocicado, mas deve preservar a integração entre tostado, suavidade e amargor moderado, sem que a aveia apague os demais sabores.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/16/16B/oatmeal-stout/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0049",
 +      "code": "16C",
 +      "name": "Tropical Stout",
-+      "categoryCode": "16",
-+      "categoryName": "Dark British Beer"
++      "summary": "A 16C Tropical Stout deve se apresentar quase negra, robusta e nitidamente adocicada, com presença frutada que acompanha notas de malte escuro tostado sem tornar o conjunto áspero. A impressão é de uma stout encorpada e macia, em que café ou chocolate e calor alcoólico discreto ficam subordinados ao dulçor; apesar da força, pode parecer surpreendentemente convidativa em clima quente.",
++      "historicalNote": "No Caribe e em outros mercados tropicais, desenvolveu-se como interpretação regional das Foreign Extra Stouts, com amargor mais contido para atender ao gosto local.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/16/16C/tropical-stout/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/"
++      ]
 +    },
 +    {
++      "id": "0050",
 +      "code": "16D",
 +      "name": "Foreign Extra Stout",
-+      "categoryCode": "16",
-+      "categoryName": "Dark British Beer"
++      "summary": "A expectativa é de uma stout quase negra, encorpada e de força alcoólica perceptível, em que a torra conduz uma expressão intensa, mas sem aspereza dominante. Café e cacau amargo podem vir acompanhados de notas frutadas ou de melaço; o amargor firme e o final seco equilibram a textura macia, por vezes cremosa, com calor alcoólico contido.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/16/16D/foreign-extra-stout/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0051",
 +      "code": "17A",
 +      "name": "British Strong Ale",
-+      "categoryCode": "17",
-+      "categoryName": "Strong British Ale"
++      "summary": "Espera-se uma ale britânica forte e versátil, em que a riqueza maltada e o aquecimento alcoólico convivem com presença variável de ésteres frutados, lúpulo tardio e amargor, sem perder a harmonia. O conjunto pode pender do maltado ao lupulado; corpo médio a cheio e textura macia sustentam uma bebida vigorosa, mas não excessiva.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/17/17A/british-strong-ale/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/bjcp-style-guidelines/"
++      ]
 +    },
 +    {
++      "id": "0052",
 +      "code": "17B",
 +      "name": "Old Ale",
-+      "categoryCode": "17",
-+      "categoryName": "Strong British Ale"
++      "summary": "A Old Ale é uma ale inglesa forte e predominantemente maltada, cuja maturação acrescenta complexidade sem necessariamente alcançar a riqueza de uma barley wine. Notas de fruta seca, caramelo ou vinho podem surgir, com aquecimento alcoólico e corpo mais cheio; no conjunto, a força deve estar integrada e a cerveja seguir agradável de beber.",
++      "historicalNote": "Historicamente, cervejas envelhecidas desse tipo eram guardadas para servir como cerveja de estoque em misturas ou para consumo em sua força plena.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/17/17B/old-ale/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/"
++      ]
 +    },
 +    {
++      "id": "0053",
 +      "code": "17C",
 +      "name": "Wee Heavy",
-+      "categoryCode": "17",
-+      "categoryName": "Strong British Ale"
++      "summary": "Espera-se uma ale de malte abundante, com dulçor de caramelo e toffee, nuances de pão tostado e frutas escuras, sustentados por corpo cheio e aquecimento alcoólico macio. O amargor discreto e o final entre doce e moderadamente seco mantêm a riqueza equilibrada, sem que a cerveja pareça enjoativa ou xaroposa.",
++      "historicalNote": "O BJCP associa a popularização do nome à Fowler’s Wee Heavy, uma 12 Guinea Ale, e explica “wee heavy” como “pequena e forte”.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/17/17C/wee-heavy/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf"
++      ]
 +    },
 +    {
++      "id": "0054",
 +      "code": "17D",
 +      "name": "English Barley wine",
-+      "categoryCode": "17",
-+      "categoryName": "Strong British Ale"
++      "summary": "A English Barleywine deve se mostrar uma ale intensamente maltada e encorpada, com riqueza que pode ir de notas de pão e biscoito a caramelo ou toffee, equilibrada por frutado e presença de lúpulo variáveis. A impressão é de bebida robusta, densa e aveludada, com calor alcoólico macio e apta a ser apreciada lentamente.",
++      "historicalNote": "A Bass No. 1 recebeu o nome barley wine em 1872; a Gold Label dourada surgiu em 1951.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/17/17D/english-barleywine/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/international-resources/translations/"
++      ]
 +    },
 +    {
++      "id": "0055",
 +      "code": "18A",
 +      "name": "Blonde Ale",
-+      "categoryCode": "18",
-+      "categoryName": "Pale American Ale"
++      "summary": "Espera-se uma ale clara, límpida e refrescante, de gole fácil, em que o malte suave conduz o conjunto sem excluir discretas notas de pão ou cereais; fruta e lúpulo podem aparecer, mas sem dominar. O amargor contido a moderado e o corpo leve a médio mantêm a cerveja equilibrada e macia, sem peso nem sabores agressivos.",
++      "historicalNote": "O BJCP atribui sua primeira produção à Catamount em 1987; reportagem histórica confirma que a cervejaria lançou seus primeiros barris naquele ano.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/18/18A/blonde-ale/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://allaboutbeer.com/catamount-brewing/"
++      ]
 +    },
 +    {
++      "id": "0056",
 +      "code": "18B",
 +      "name": "American Pale Ale",
-+      "categoryCode": "18",
-+      "categoryName": "Pale American Ale"
++      "summary": "Espera-se uma pale ale clara e de força média em que o lúpulo se destaca, sem apagar a base maltada: o conjunto deve permanecer equilibrado e convidativo. O perfil pode variar bastante conforme os lúpulos, com amargor perceptível e final limpo; no corpo, tende a ser macia e fácil de beber.",
++      "historicalNote": "A Sierra Nevada Pale Ale, produzida pela primeira vez em 1980, ajudou a popularizar o estilo.",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf",
++        "https://www.bjcp.org/style/2021/18/18B/american-pale-ale/",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/"
++      ]
 +    },
 +    {
++      "id": "0057",
 +      "code": "19A",
 +      "name": "American Amber Ale",
-+      "categoryCode": "19",
-+      "categoryName": "Amber and Brown American Beer"
++      "summary": "A American Amber Ale é uma ale âmbar de força moderada em que o caramelo maltado dá identidade sem apagar o lúpulo: há versões mais redondas e maltosas e outras mais amargas e lupuladas, mas o conjunto permanece integrado. Espere final seco e macio, com corpo médio e amargor perceptível.",
++      "historicalNote": "A Mendocino Red Tail Ale, apontada como precursora do estilo, surgiu em 1983 na Califórnia.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf",
++        "https://www.bjcp.org/style/2021/19/19A/american-amber-ale/",
++        "https://www.beerandbrewing.com/long-red-tail-american-amber-ale",
++        "https://www.fogbeltbrewing.com/redtailale"
++      ]
 +    },
 +    {
++      "id": "0058",
 +      "code": "19B",
 +      "name": "California Common",
-+      "categoryCode": "19",
-+      "categoryName": "Amber and Brown American Beer"
++      "summary": "Espera-se uma cerveja âmbar de força padrão, macia e vivaz, em que o malte tostado e levemente caramelado sustenta um amargor firme, sem dominar a bebida. Lúpulos de perfil tradicional, herbal ou resinoso, podem surgir junto a discreto frutado; o conjunto tende a terminar seco, limpo e bem carbonatado.",
++      "historicalNote": "A tradição da Steam Beer surgiu na Costa Oeste durante a Corrida do Ouro; a versão moderna se consolidou com o relançamento da Anchor nos anos 1970.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/19/19B/california-common/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0059",
 +      "code": "19C",
 +      "name": "American Brown Ale",
-+      "categoryCode": "19",
-+      "categoryName": "Amber and Brown American Beer"
++      "summary": "Espera-se uma ale de intensidade alcoólica usual, com malte achocolatado, caramelado ou suavemente tostado em destaque, acompanhado por lúpulo perceptível que realça esse perfil em vez de encobri-lo. O conjunto tende a equilibrar riqueza maltada e amargor médio a firme, com final de seco a moderadamente seco e torra discreta, sem o peso de uma porter ou stout.",
++      "historicalNote": "O BJCP associa a consolidação do estilo à Pete’s Wicked Ale, de 1986, e registra sua estreia em julgamento no Great American Beer Festival em 1992.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/19/19C/american-brown-ale/",
++        "https://www.bjcp.org/international-resources/translations/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0060",
 +      "code": "20A",
 +      "name": "American Porter",
-+      "categoryCode": "20",
-+      "categoryName": "American Porter and Stout"
++      "summary": "A American Porter é uma cerveja escura, maltada e de amargor perceptível, na qual o tostado e o chocolate costumam formar um conjunto equilibrado, com espaço para variação na presença do lúpulo. Espera-se final de seco a moderadamente doce e corpo médio a médio-cheio; a intensidade pode variar, mas o caráter torrado deve permanecer evidente sem aspereza dominante.",
++      "historicalNote": "O BJCP situa sua origem na era moderna da cerveja artesanal e registra sua introdução em 1974, como versão mais forte e assertiva de porters anteriores.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/20/20A/american-porter/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0061",
 +      "code": "20B",
 +      "name": "American Stout",
-+      "categoryCode": "20",
-+      "categoryName": "American Porter and Stout"
++      "summary": "Espera-se uma stout escura e encorpada, com torra marcante que evoca café e chocolate amargo, acompanhada por amargor e lúpulo mais assertivos que os de stouts tradicionais. A riqueza do malte torrado convive com notas cítricas ou resinosas e um final de médio a seco, sem aspereza excessiva.",
++      "historicalNote": "Nas versões caseiras, o estilo já foi chamado de “West Coast Stout”, nome associado a cervejas mais intensamente lupuladas.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/20/20B/american-stout/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0062",
 +      "code": "20C",
 +      "name": "Imperial Stout",
-+      "categoryCode": "20",
-+      "categoryName": "American Porter and Stout"
++      "summary": "Espera-se uma stout muito escura e potente, em que a torra intensa se articula com nuances de frutas escuras ou secas e um amargor marcante. A impressão é densa e complexa, com aquecimento alcoólico contido e equilíbrio entre elementos; há ampla variação entre exemplares, sem que um perfil único os defina.",
++      "historicalNote": "O BJCP relaciona suas raízes a porters inglesas fortes do século XVIII, exportadas e associadas, segundo relatos, à corte imperial russa.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/20/20C/imperial-stout/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0063",
 +      "code": "21A",
 +      "name": "American IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "Espera-se uma ale americana clara, de força moderada a elevada, em que o lúpulo conduza uma amargura firme e um perfil aromático expressivo, apoiado por malte discreto. A fermentação tende a ser limpa e o final seco, compondo uma cerveja vigorosa e equilibrada sem tirar do lúpulo o protagonismo.",
++      "historicalNote": "A Anchor Liberty Ale, feita pela primeira vez em 1975 com lúpulo Cascade, é apontada como marco da adaptação artesanal americana moderna da IPA.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21A/american-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://americanhistory.si.edu/collections/object/nmah_2033255"
++      ]
 +    },
 +    {
++      "id": "0064",
 +      "code": "21B",
 +      "name": "Specialty IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "Como categoria de competição, não corresponde a um perfil sensorial único: espera-se uma IPA conduzida pelo lúpulo e pelo amargor, com traço próprio da variante declarada. No conjunto, deve ser seca a moderadamente seca, fácil de beber e livre de aspereza, peso excessivo ou conflitos entre lúpulo e demais elementos.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0065",
 +      "code": "21B",
 +      "name": "Specialty IPA: Belgian IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "Espera-se uma IPA seca, amarga e decididamente guiada pelo lúpulo, em que a fermentação belga acrescenta fruta e especiarias sem encobrir esse eixo. O conjunto tende a ser mais claro, leve no corpo e bem atenuado, com final seco que prolonga o amargor; a carbonatação viva ajuda a manter a bebida ágil.",
++      "historicalNote": "O BJCP situa o surgimento do estilo em meados dos anos 2000, quando cervejeiros artesanais passaram a usar levedura belga em receitas de IPA americana.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa-belgian-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0066",
 +      "code": "21B",
 +      "name": "Specialty IPA: Black IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "Espera-se uma IPA escura que mantenha o amargor firme, o final seco e o destaque aromático do lúpulo, com a torra apenas como apoio, sem dominar nem trazer sensação de queimado. No conjunto, deve ser macia e de corpo moderado, combinando notas lupuladas frutadas, cítricas ou resinosas com nuances discretas de café ou chocolate.",
++      "historicalNote": "A entrada do BJCP atribui a primeira produção comercial, por volta de 1990, a Greg Noonan, sob o nome Blackwatch IPA.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa-black-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0067",
 +      "code": "21B",
 +      "name": "Specialty IPA: Brown IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "Espera-se uma IPA de amargor firme e presença lupulada, sustentada por maltes que podem lembrar chocolate, caramelo escuro ou toffee. Essa combinação deve resultar numa cerveja de corpo relativamente enxuto e final seco, mais maltada e expressiva que uma IPA americana comum, sem se tornar doce ou pesada.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa-brown-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1794566745"
++      ]
 +    },
 +    {
++      "id": "0068",
 +      "code": "21B",
 +      "name": "Specialty IPA: Brut IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "Espera-se uma IPA muito clara, de perfil nitidamente lupulado, mas sem o amargor dominante de outras versões: o destaque está na expressão aromática e gustativa do lúpulo, sobre uma base neutra. A fermentação seca e a efervescência intensa deixam a cerveja leve e vivaz, com impressão próxima à de um espumante branco.",
++      "historicalNote": "O estilo surgiu em 2017 na Social Kitchen & Brewery, em San Francisco, como contraponto às IPAs hazy e adocicadas então em alta.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa-brut-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0069",
 +      "code": "21B",
 +      "name": "Specialty IPA: Red IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "Espera-se uma IPA de lúpulo evidente e amargor firme, com teor alcoólico moderado e um contraponto maltado que sugere caramelo, toffee ou fruta, sem deixar o conjunto doce ou pesado. O perfil deve terminar relativamente seco, com corpo enxuto e boa drinkability; notas cítricas, resinosas ou frutadas podem surgir no lúpulo, enquanto o malte permanece em apoio.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa-red-ipa/",
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa/"
++      ]
 +    },
 +    {
++      "id": "0070",
 +      "code": "21B",
 +      "name": "Specialty IPA: Rye IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "É uma IPA de perfil marcadamente lupulado, na qual o centeio aparece como contraponto reconhecível, acrescentando notas de cereal e especiaria sem sobrepor-se aos lúpulos. A impressão esperada é seca e firme, com amargor persistente, corpo macio e moderado; o conjunto deve continuar equilibrado, sem aspereza.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa-rye-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0071",
 +      "code": "21B",
 +      "name": "Specialty IPA: White IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "A White IPA combina o amargor e o caráter lupulado de uma IPA americana com uma expressão mais clara, leve e refrescante, marcada pela fruta e por nuances condimentadas associadas à Witbier. A impressão geral deve equilibrar esses elementos, sem que especiarias ou levedura apaguem a presença do lúpulo.",
++      "historicalNote": "Cervejeiros artesanais dos Estados Unidos a desenvolveram como sazonal de fim de inverno ou primavera, buscando aproximar apreciadores de Witbier e IPA.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21B/specialty-ipa-white-ipa/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0072",
 +      "code": "21C",
 +      "name": "Hazy IPA",
-+      "categoryCode": "21",
-+      "categoryName": "IPA"
++      "summary": "Espera-se uma IPA de perfil fortemente lupulado e frutado, com amargor mais contido e corpo cheio porém macio. A turbidez é comum, mas não deve sugerir desordem; a impressão geral é de intensidade aromática e saborosa, sem peso excessivo ou caráter doce e viscoso.",
++      "historicalNote": "Nascida em New England como variante da American IPA, a Hazy IPA teve na Heady Topper uma inspiração inicial e se popularizou nos anos 2010.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/21/21C/hazy-ipa/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0073",
 +      "code": "22A",
 +      "name": "Double IPA",
-+      "categoryCode": "22",
-+      "categoryName": "Strong American Ale"
++      "summary": "Espera-se uma ale clara de presença intensa do lúpulo e amargor marcante, mas sem aspereza nem peso de malte ou dulçor que a aproximem de uma Barleywine. O conjunto deve terminar seco, com caráter lupulado persistente e aquecimento alcoólico contido; apesar da força, deve continuar fácil de beber.",
++      "historicalNote": "A Russian River relata que sua Pliny the Elder surgiu em 2000, e o BJCP a reconhece como uma cerveja que ajudou a difundir o estilo.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/style/2021/22/22A/double-ipa/",
++        "https://www.russianriverbrewing.com/brew/pliny-the-elder/"
++      ]
 +    },
 +    {
++      "id": "0074",
 +      "code": "22B",
 +      "name": "American Strong Ale",
-+      "categoryCode": "22",
-+      "categoryName": "Strong American Ale"
++      "summary": "É uma ale americana robusta, com malte rico e amargor firme em presença equilibrada, sem a opulência maltada de um barleywine nem a ênfase lupulada de uma Double IPA. Caramelo pode surgir junto a lúpulo cítrico, resinoso ou frutado; espera-se final de levemente seco a suavemente adocicado e aquecimento alcoólico contido.",
++      "historicalNote": "O BJCP aproxima este perfil das antigas stock ales americanas, mas ressalta que não houve continuidade de produção desse tipo de cerveja.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/22/22B/american-strong-ale/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0075",
 +      "code": "22C",
 +      "name": "American Barleywine",
-+      "categoryCode": "22",
-+      "categoryName": "Strong American Ale"
++      "summary": "Espera-se uma ale americana de grande intensidade, em que o malte abundante dá riqueza e corpo a um amargor firme, acompanhado por lúpulo expressivo, sem se tornar extremo como numa Double IPA. O conjunto é denso e aquecedor, com álcool perceptível mas integrado; a impressão é de uma cerveja para apreciar devagar, não de consumo fácil.",
++      "historicalNote": "A Anchor Old Foghorn, produzida desde 1975, é apontada pelo BJCP como uma das primeiras versões artesanais americanas do estilo.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/22/22C/american-barleywine/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0076",
 +      "code": "22D",
 +      "name": "Wheatwine",
-+      "categoryCode": "22",
-+      "categoryName": "Strong American Ale"
++      "summary": "Uma ale forte para ser apreciada sem pressa, em que o trigo e o pão conduzem uma maltosidade rica, acompanhada por frutado e complexidade alcoólica. O corpo cheio e a textura aveludada sustentam essa impressão, com lúpulo discreto a moderado e equilíbrio que pode pender do maltado ao equilibrado, sem doçura xaroposa.",
++      "historicalNote": "O BJCP registra que a Wheatwine foi produzida pela primeira vez na Rubicon Brewing Company em 1988.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/22/22D/wheatwine/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0077",
 +      "code": "23A",
 +      "name": "Berliner Weisse",
-+      "categoryCode": "23",
-+      "categoryName": "European Sour Ale"
++      "summary": "Espera-se uma Berliner Weisse muito clara, leve e vivaz, conduzida por acidez lática limpa e sustentada por discreto caráter de trigo, com final seco. A efervescência intensa reforça o frescor; pode haver fruta delicada, sem que o lúpulo se destaque ou a acidez lembre vinagre.",
++      "historicalNote": "A ficha BJCP situa em 1809 um elogio das tropas napoleônicas que comparava a cerveja ao champanhe.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/23/23A/berliner-weisse/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0078",
 +      "code": "23B",
 +      "name": "Flanders Red Ale",
-+      "categoryCode": "23",
-+      "categoryName": "European Sour Ale"
++      "summary": "Espera-se uma ale belga de tonalidade rubi a castanho-avermelhada, em que acidez marcante e fruta madura se entrelaçam com base maltada tostada e nuances de madeira. O conjunto tende a terminar seco, com leve aspereza tânica e frescor vivaz; lembra vinho tinto apenas na impressão, sem perder sua identidade cervejeira.",
++      "historicalNote": "Originária da Flandres Ocidental, a Flanders Red Ale é associada à cervejaria Rodenbach, fundada em 1821.",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/style/2021/23/23B/flanders-red-ale/"
++      ]
 +    },
 +    {
++      "id": "0079",
 +      "code": "23C",
 +      "name": "Oud Bruin",
-+      "categoryCode": "23",
-+      "categoryName": "European Sour Ale"
++      "summary": "Uma Oud Bruin bem feita é uma cerveja belga escura em que maltes caramelizados sustentam frutas maduras e uma acidez suave e integrada. A impressão combina riqueza maltada e contraste agridoce, com possível calor alcoólico; a acidez não deve assumir caráter avinagrado.",
++      "historicalNote": "A descrição histórica do BJCP liga o estilo às cervejas da Liefman, com raízes que remontam ao século XVII.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/23/23C/oud-bruin/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0080",
 +      "code": "23D",
 +      "name": "Lambic",
-+      "categoryCode": "23",
-+      "categoryName": "European Sour Ale"
++      "summary": "Lambic é uma cerveja belga de trigo cuja acidez viva toma o lugar do amargor, enquanto a fermentação espontânea pode trazer notas frutadas e, com o tempo, nuances rústicas e terrosas. A impressão geral é seca, de corpo leve e tradicionalmente quase sem gás, com maior complexidade nas versões maturadas.",
++      "historicalNote": "Ligada a Bruxelas e arredores, a Lambic preserva uma tradição regional de fermentação espontânea que remonta a vários séculos.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/23/23D/lambic/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0081",
 +      "code": "23E",
 +      "name": "Gueuze",
-+      "categoryCode": "23",
-+      "categoryName": "European Sour Ale"
++      "summary": "A Gueuze é uma cerveja belga de trigo, viva e muito efervescente, em que acidez refrescante e caráter fermentativo selvagem se mantêm em harmonia, com notas frutadas discretas e final seco. Deve parecer complexa, não simplesmente pungente: corpo leve e gás abundante dão-lhe vivacidade sem apagar a maciez.",
++      "historicalNote": "A maturação e a mistura das lambics podem ser conduzidas por mestres misturadores fora da cervejaria, não apenas pelo produtor original.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/23/23E/gueuze/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0082",
 +      "code": "23F",
 +      "name": "Fruit Lambic",
-+      "categoryCode": "23",
-+      "categoryName": "European Sour Ale"
++      "summary": "Espera-se uma cerveja belga de trigo complexa e refrescante, em que a fruta fermentada se integra ao perfil ácido e selvagem de uma Gueuze, sem apagar seu caráter rústico. No conjunto, a fruta deve ser perceptível e complementar, com acidez que pode franzir a boca, corpo leve e final tradicionalmente seco, embora algumas versões tragam doçura variável.",
++      "historicalNote": "Historicamente, misturadores ou taberneiros acrescentavam frutas para ampliar a variedade oferecida nos cafés locais.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/23/23F/fruit-lambic/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0083",
 +      "code": "23G",
 +      "name": "Gose",
-+      "categoryCode": "23",
-+      "categoryName": "European Sour Ale"
++      "summary": "Espera-se uma cerveja de trigo de acidez nítida, mas equilibrada, com sal e coentro cítrico em intensidade contida, sem sabor francamente salgado. Nuances de pão dão apoio ao conjunto; o amargor é mínimo e o final seco, muito carbonatado, mantém a bebida leve e refrescante.",
++      "historicalNote": "Originária de Goslar, a Gose já era documentada em Leipzig por volta de 1740.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/23/23G/gose/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0084",
 +      "code": "24A",
 +      "name": "Witbier",
-+      "categoryCode": "24",
-+      "categoryName": "Belgian Ale"
++      "summary": "A Witbier é esperada como uma ale belga clara, turva e de força moderada, em que o trigo e a levedura sustentam um perfil delicado, com cítrico de laranja e especiarias discretas integrados, não dominantes. A carbonatação viva, o amargor contido e o final seco dão ao conjunto leveza e frescor, sem aspereza nem peso.",
++      "historicalNote": "O estilo desapareceu da região de Leuven em 1957 e foi reavivado por Pierre Celis em 1966, dando origem à linhagem moderna.",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/style/2021/24/24A/witbier/"
++      ]
 +    },
 +    {
++      "id": "0085",
 +      "code": "24B",
 +      "name": "Belgian Pale Ale",
-+      "categoryCode": "24",
-+      "categoryName": "Belgian Ale"
++      "summary": "No copo, espera-se uma ale belga âmbar a acobreada, de força moderada e perfil contido: o malte traz lembranças de pão e leve tostado, acompanhado por fruta fresca da fermentação. Amargor moderado e final seco a equilibrado sustentam sem dominar; a cerveja deve ser macia e harmoniosa, com menos presença de levedura ou acidez que muitas ales belgas.",
++      "historicalNote": "O estilo surgiu de uma competição de 1904 para criar uma especialidade regional belga que concorresse com ales britânicas e lagers continentais.",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/style/2021/24/24B/belgian-pale-ale/"
++      ]
 +    },
 +    {
++      "id": "0086",
 +      "code": "24C",
 +      "name": "Bière de Garde",
-+      "categoryCode": "24",
-+      "categoryName": "Belgian Ale"
++      "summary": "Espera-se uma cerveja francesa de boa força, macia e nitidamente maltada, mas seca e limpa, sem se tornar doce ou pesada. Suas versões vão do dourado ao marrom: nas mais escuras, o malte ganha profundidade; nas claras, pode surgir um pouco mais de lúpulo. Notas de pão e tostado podem apoiar essa impressão.",
++      "historicalNote": "O nome alude à cerveja guardada: no norte da França, era feita no início da primavera e mantida em adegas frias para ser consumida nos meses quentes.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/24/24C/biere-de-garde/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0087",
 +      "code": "25A",
 +      "name": "Belgian Blond Ale",
-+      "categoryCode": "25",
-+      "categoryName": "Strong Belgian Ale"
++      "summary": "Espera-se uma ale dourada e de força moderada, em que a base maltada suave sustenta uma expressão belga contida: notas cítricas e um toque condimentado da levedura, sem dominar. A carbonatação viva acompanha corpo médio e final seco e macio, com equilíbrio que tende ao maltado.",
++      "historicalNote": "O BJCP situa a criação do estilo no pós-Segunda Guerra e aponta a Leffe como responsável por popularizá-lo; a cervejaria registra retomada da produção em 1952.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/25/25A/belgian-blond-ale/",
++        "https://bjcp-brasil.github.io/bjcp-2021-pt-br/25-strong-belgian-ale/25a-belgian-blond-ale/",
++        "https://www.leffe.com/history",
++        "https://www.beerandbrewing.com/dictionary/tq50JkJOdN"
++      ]
 +    },
 +    {
++      "id": "0088",
 +      "code": "25B",
 +      "name": "Saison",
-+      "categoryCode": "25",
-+      "categoryName": "Strong Belgian Ale"
++      "summary": "O esperado é uma cerveja belga vivaz e de final seco, com fermentação frutada e toque especiado equilibrados por amargor de lúpulo e malte de perfil cereal. A efervescência acentuada deixa a experiência leve; cor e teor alcoólico variam, mas a impressão deve permanecer vibrante e descomplicada.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf",
++        "https://www.bjcp.org/style/2021/25/25B/saison/"
++      ]
 +    },
 +    {
++      "id": "0089",
 +      "code": "25C",
 +      "name": "Belgian Golden Strong Ale",
-+      "categoryCode": "25",
-+      "categoryName": "Strong Belgian Ale"
++      "summary": "Espera-se uma ale forte, muito clara e seca, em que a intensidade alcoólica convive com leveza e carbonatação vivaz, sem aspereza. Frutas de polpa branca e notas herbais do lúpulo se destacam sobre base maltada discreta; o conjunto tende a ser complexo, mas delicado, mais frutado e lupulado que condimentado.",
++      "historicalNote": "A cervejaria Moortgat desenvolveu a cerveja precursora no pós-Primeira Guerra; o BJCP registra que sua forma moderna se consolidou até os anos 1970.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/25/25C/belgian-golden-strong-ale/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.duvel.com/en-us/history"
++      ]
 +    },
 +    {
++      "id": "0090",
 +      "code": "26A",
 +      "name": "Belgian Single",
-+      "categoryCode": "26",
-+      "categoryName": "Monastic Ale"
++      "summary": "Espera-se uma cerveja de mesa clara, muito seca e efervescente, em que amargor firme e lúpulo floral ou condimentado convivem com a expressão frutada e especiada da levedura belga. A base de malte é discreta, macia e levemente cereal, dando suporte sem tirar o foco do conjunto vivo, lupulado e refrescante.",
++      "historicalNote": "O guia situa cervejas monásticas de menor teor em 1922, mas caracteriza a versão clara e amarga como moderna; Westvleteren a produziu em 1999.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/26/26A/belgian-single/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0091",
 +      "code": "26B",
 +      "name": "Belgian Dubbel",
-+      "categoryCode": "26",
-+      "categoryName": "Monastic Ale"
++      "summary": "Espera-se uma ale belga de força moderada e tonalidade cobre-avermelhada, em que a riqueza maltada se combina com notas de frutas escuras ou secas e um toque condimentado da fermentação, sem perder um desfecho relativamente seco. A impressão é macia e complexa, com o malte em primeiro plano e o álcool discreto.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/26/26B/belgian-dubbel/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0092",
 +      "code": "26C",
 +      "name": "Belgian Tripel",
-+      "categoryCode": "26",
-+      "categoryName": "Monastic Ale"
++      "summary": "Espera-se uma cerveja belga clara e potente, mas de perfil surpreendentemente leve ao beber: notas de levedura apimentadas e frutadas se integram a um malte discreto, enquanto o amargor e a alta atenuação conduzem a um desfecho seco. A carbonatação viva sustenta a vivacidade sem deixar o álcool dominar.",
++      "historicalNote": "Westmalle ajudou a difundir a Tripel e já a produzia em 1931.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/26/26C/belgian-tripel/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://merchantduvin.com/the-beers/westmalle-trappist-tripel/"
++      ]
 +    },
 +    {
++      "id": "0093",
 +      "code": "26D",
 +      "name": "Belgian Dark Strong Ale",
-+      "categoryCode": "26",
-+      "categoryName": "Monastic Ale"
++      "summary": "Espera-se uma ale belga escura e vigorosa, de malte profundo e notas de frutas escuras, acompanhadas por nuances especiadas da fermentação; não deve lembrar cerveja torrada. Apesar do teor elevado, a carbonatação viva, o calor alcoólico controlado e um final geralmente seco mantêm a bebida macia, complexa e sem peso excessivo.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf",
++        "https://www.bjcp.org/style/2021/26/26D/belgian-dark-strong-ale/"
++      ]
 +    },
 +    {
++      "id": "0094",
 +      "code": "27A",
 +      "name": "Historical Beer: Kellerbier",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "O Kellerbier é uma lager alemã não filtrada, servida fresca e plenamente fermentada; seu perfil parte de uma base como Helles, Märzen ou Dunkel, mas tende a parecer mais rústico e robusto. Pode mostrar toque de pão e levedura, amargor ou malte mais expressivos e leve turbidez, sem aspecto de cerveja verde.",
++      "historicalNote": "O nome significa “cerveja de adega”: originalmente, a lager maturava em cavernas ou adegas da cervejaria e era servida dali.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-kellerbier/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf"
++      ]
 +    },
 +    {
++      "id": "0095",
 +      "code": "27A",
 +      "name": "Historical Beer: Kentucky Common",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "Espera-se uma cerveja escura, mas de caráter leve, seca e muito refrescante, com carbonatação viva e equilíbrio discretamente voltado ao malte. O milho e o cereal trazem dulçor suave, acompanhado por notas sutis de pão ou caramelo e amargor moderado a baixo; deve ser limpa, sem acidez, e terminar seca.",
++      "historicalNote": "Antes da Lei Seca, chegou a representar cerca de 75% das vendas de cerveja na região de Louisville.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-kentucky-common/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0096",
 +      "code": "27A",
 +      "name": "Historical Beer: Lichtenhainer",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "Espera-se uma cerveja de trigo clara e leve, em que a acidez limpa e moderada se equilibra com defumado seco perceptível, sem que nenhum dos dois domine. Frutada, seca e bem carbonatada, deve terminar refrescante, com pouco amargor e final ácido-defumado; não se espera presença de lúpulo no perfil sensorial.",
++      "historicalNote": "Originária de Lichtenhain, na Turíngia, a cerveja teve seu auge de popularidade no fim do século XIX.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-lichtenhainer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0097",
 +      "code": "27A",
 +      "name": "Historical Beer: London Brown Ale",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "A London Brown Ale é uma ale escura, de teor alcoólico baixo, em que a doçura maltada domina sem exigir amargor expressivo. Caramelo e toffee dão profundidade, às vezes acompanhados por frutas escuras; o conjunto tende a ser macio, cremoso e de final doce.",
++      "historicalNote": "A Mann’s lançou a versão engarrafada em 1902; na época, ela era divulgada como a cerveja mais doce de Londres.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-london-brown-ale/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0098",
 +      "code": "27A",
 +      "name": "Historical Beer: Piwo Grodziskie",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "Espera-se uma cerveja de trigo centro-europeia leve, seca e muito efervescente, em que a fumaça delicada de carvalho convive com amargor evidente e fermentação limpa, sem acidez. No conjunto, deve ser clara, refrescante e de final firme, com notas discretas de cereal e lúpulo apenas como complemento.",
++      "historicalNote": "Tradicionalmente, era servida em copos cônicos altos para acomodar a espuma abundante.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-piwo-grodziskie/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/style/2021/27/"
++      ]
 +    },
 +    {
++      "id": "0099",
 +      "code": "27A",
 +      "name": "Historical Beer: Pre-Prohibition Lager",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "É uma lager clara, mas mais expressiva que as versões americanas atuais: o cereal sustenta amargor firme e lúpulos florais, herbais ou condimentados, enquanto o milho pode arredondar o perfil. Deve ser limpa, de corpo médio e textura macia, com final seco e amargo persistente, sem aspereza.",
++      "historicalNote": "Desenvolvida por cervejeiros alemães nos EUA em meados do século XIX, ganhou força na década de 1870 e perdeu espaço após a Lei Seca.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-pre-prohibition-lager/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf",
++        "https://www.bjcp.org/download/"
++      ]
 +    },
 +    {
++      "id": "0100",
 +      "code": "27A",
 +      "name": "Historical Beer: Pre-Prohibition Porter",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "Espera-se uma porter escura de malte cereal e pão, com notas discretas de chocolate e torra, sem que o tostado domine. O amargor moderado mantém equilíbrio com o malte e conduz a um final relativamente seco. A impressão deve ser suave e de corpo médio-leve a médio, podendo surgir leve caráter de milho e fermentação limpa.",
++      "historicalNote": "A Porter foi produzida comercialmente na Filadélfia no período revolucionário; a categoria atual, contudo, se refere à adaptação que evoluiu depois, não a cervejas coloniais.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-pre-prohibition-porter/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0101",
 +      "code": "27A",
 +      "name": "Historical Beer: Roggenbier",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "Espera-se uma cerveja de centeio que combine a base maltada e encorpada de uma Weissbier escura com caráter de cereal mais firme, levemente apimentado, e final relativamente seco. A levedura pode trazer notas frutadas e de cravo; carbonatação viva e textura cremosa completam uma impressão rústica, mas equilibrada.",
++      "historicalNote": "A versão descrita pelo BJCP foi produzida em Regensburg, Baviera, em 1988, na cervejaria Schierlinger.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-roggenbier/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/"
++      ]
 +    },
 +    {
++      "id": "0102",
 +      "code": "27A",
 +      "name": "Historical Beer: Sahti",
-+      "categoryCode": "27",
-+      "categoryName": "Historical Beer"
++      "summary": "Espera-se uma farmhouse finlandesa robusta e densa, em que a doçura de malte e cereais, às vezes com toque de centeio, domina sem ficar sem contraponto: o zimbro pode trazer nuance resinosa e a fermentação, notas frutadas de banana e especiarias de cravo. O corpo é espesso, com pouca efervescência e amargor discreto; a impressão deve ser fresca, não ácida.",
++      "historicalNote": "Na Finlândia, a tradição rural do sahti tem ao menos cinco séculos e foi associada a festas, como casamentos de verão.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/27/27A/historical-beer-sahti/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0103",
 +      "code": "28A",
 +      "name": "Brett Beer",
-+      "categoryCode": "28",
-+      "categoryName": "American Wild Ale"
++      "summary": "A Brett deve se integrar à cerveja-base, deixando-a em geral mais seca, leve e frutada, sem encobrir sua identidade; o quanto isso aparece depende da cepa e da maturação. Em exemplares jovens, a fruta tende a sobressair, enquanto a evolução pode trazer traços terrosos ou de celeiro e um final seco, sem que a acidez seja protagonista.",
++      "historicalNote": "As chamadas cervejas “100% Brett” se popularizaram após 2000, época em que S. Trois ainda era confundida com uma cepa de Brettanomyces.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/28/28A/brett-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0104",
 +      "code": "28B",
 +      "name": "Mixed-Fermentation Sour Beer",
-+      "categoryCode": "28",
-+      "categoryName": "American Wild Ale"
++      "summary": "Espera-se uma cerveja em que a fermentação mista dialogue com a cerveja de base, podendo resultar tanto em acidez e caráter selvagem evidentes quanto em expressão mais sutil. A impressão geral deve ser harmoniosa e convidativa, com acidez firme, mas sem aspereza avinagrada; o corpo costuma ser leve.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/28/28B/mixed-fermentation-sour-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0105",
 +      "code": "28C",
 +      "name": "Wild Specialty Beer",
-+      "categoryCode": "28",
-+      "categoryName": "American Wild Ale"
++      "summary": "Espera-se uma American Wild Ale em que o caráter da fermentação selvagem do estilo-base se integre a um ingrediente especial perceptível, como fruta, erva, especiaria ou madeira. No conjunto, a acidez pode se destacar sem dominar, enquanto o corpo tende a ser leve e a impressão final, seca.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/28/28C/wild-specialty-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0106",
 +      "code": "28D",
 +      "name": "Straight Sour Beer",
-+      "categoryCode": "28",
-+      "categoryName": "American Wild Ale"
++      "summary": "Espera-se uma cerveja clara e revigorante, conduzida por acidez lática limpa e firme, sem aspereza avinagrada. Malte pálido discreto e fruta moderada equilibram a acidez, enquanto o corpo leve, a efervescência e o final seco ou quase seco mantêm a impressão nítida e refrescante, sem protagonismo de lúpulo.",
++      "historicalNote": "Otto Francke desenvolveu, no início do século XX, um processo de acidificação mais rápida e consistente do mosto, hoje associado ao kettle souring.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/28/28D/straight-sour-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://www.beerandbrewing.com/style-school-berliner-weisse-is-legion"
++      ]
 +    },
 +    {
++      "id": "0107",
 +      "code": "29A",
 +      "name": "Fruit Beer",
-+      "categoryCode": "29",
-+      "categoryName": "Fruit Beer"
++      "summary": "Espera-se uma cerveja em que a fruta seja claramente percebida e dê personalidade ao conjunto, sem encobrir a base cervejeira nem fazer a bebida lembrar um produto artificial. A intensidade frutada varia conforme a fruta e a receita; no paladar, a base continua reconhecível, e a adição pode resultar em final mais seco e corpo mais leve.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/29/29A/fruit-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0108",
 +      "code": "29B",
 +      "name": "Fruit and Spice Beer",
-+      "categoryCode": "29",
-+      "categoryName": "Fruit Beer"
++      "summary": "Espera-se uma cerveja em que fruta e especiarias sejam perceptíveis e se integrem à base, sem encobri-la nem dar impressão artificial. A experiência deve permanecer claramente cervejeira, com os ingredientes especiais em harmonia; aroma, sabor e corpo variam conforme a combinação e a cerveja-base, podendo resultar em final mais seco.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/29/29B/fruit-and-spice-beer/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0109",
 +      "code": "29C",
 +      "name": "Specialty Fruit Beer",
-+      "categoryCode": "29",
-+      "categoryName": "Fruit Beer"
++      "summary": "Espera-se uma cerveja em que fruta e ingredientes ou processos especiais sejam perceptíveis, mas se integrem à base e preservem uma impressão claramente cervejeira, sem sugerir um produto artificial. O acréscimo deve contribuir para um conjunto coerente: fruta, cerveja e caráter especial precisam conviver sem que um elemento se imponha ou pareça deslocado.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/29/29C/specialty-fruit-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0110",
 +      "code": "29D",
 +      "name": "Grape Ale",
-+      "categoryCode": "29",
-+      "categoryName": "Fruit Beer"
++      "summary": "A Grape Ale combina a expressão da uva com uma base cervejeira relativamente neutra, resultando em uma bebida que pode ir do frescor à complexidade. A uva deve ser reconhecível sem apagar a cerveja; o conjunto tende a ser leve, vivaz e seco, com acidez apenas de apoio, sem se aproximar de uma cerveja azeda.",
++      "historicalNote": "Produzida inicialmente por cervejarias italianas em 2006–2007, ganhou projeção após ser incluída nas diretrizes BJCP de 2015 como Italian Grape Ale.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/29/29D/grape-ale/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0111",
 +      "code": "30A",
 +      "name": "Spice, Herb, or Vegetable Beer",
-+      "categoryCode": "30",
-+      "categoryName": "Spiced Beer"
++      "summary": "Espera-se uma cerveja em que a especiaria, erva ou vegetal apareça com clareza sem apagar a identidade cervejeira nem romper o equilíbrio com a base declarada. A impressão deve ser integrada e convidativa, com intensidade ajustada aos ingredientes e à receita; aroma e sabor podem ir de discretos a marcantes, e o corpo varia conforme a base.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/30/30A/spice-herb-or-vegetable-beer/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/"
++      ]
 +    },
 +    {
++      "id": "0112",
 +      "code": "30B",
 +      "name": "Autumn Seasonal Beer",
-+      "categoryCode": "30",
-+      "categoryName": "Spiced Beer"
++      "summary": "Espera-se uma cerveja maltada e condimentada, de corpo médio a cheio e calor alcoólico discreto, na qual os sabores que remetem à colheita e ao clima frio se integrem sem encobrir a cerveja-base. No conjunto, deve ser rica e acolhedora, com lúpulo contido e final satisfatório; a criatividade funciona quando preserva o equilíbrio e a facilidade de beber.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/style/2021/30/30B/autumn-seasonal-beer/"
++      ]
 +    },
 +    {
++      "id": "0113",
 +      "code": "30C",
 +      "name": "Winter Seasonal Beer",
-+      "categoryCode": "30",
-+      "categoryName": "Spiced Beer"
++      "summary": "Espera-se uma cerveja sazonal de perfil robusto, na qual a base maltada e geralmente escura acolhe especiarias e outros acentos festivos sem perder unidade. A experiência tende a ser rica e macia, com calor alcoólico discreto e final reconfortante; o tema deve aparecer integrado, não dominar a bebida.",
++      "historicalNote": "O BJCP aponta a Anchor Our Special Ale, lançada em 1975, como inspiração para muitas versões artesanais americanas.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/30/30C/winter-seasonal-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0114",
 +      "code": "30D",
 +      "name": "Specialty Spice Beer",
-+      "categoryCode": "30",
-+      "categoryName": "Spiced Beer"
++      "summary": "Espera-se uma cerveja reconhecível como tal, em que especiarias, ervas ou vegetais e ingredientes especiais se integrem à base de modo perceptível e agradável. O conjunto deve manter equilíbrio, sem acréscimos dominantes ou artificiais; o açúcar pode modificar corpo e final.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/30/30D/specialty-spice-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf"
++      ]
 +    },
 +    {
++      "id": "0115",
 +      "code": "31A",
 +      "name": "Alternative Grain Beer",
-+      "categoryCode": "31",
-+      "categoryName": "Alternative Fermentables Beer"
++      "summary": "Espera-se uma cerveja cuja base continue reconhecível, mas com contribuição perceptível dos grãos adicionais; conforme o cereal, ela pode surgir como nota de pão ou noz, reforço cerealado ou presença discreta. Essa adição deve integrar-se ao conjunto e pode encorpar a textura ou tornar o final mais seco, sem sobrepor a identidade da cerveja-base.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/31/31A/alternative-grain-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355"
++      ]
 +    },
 +    {
++      "id": "0116",
 +      "code": "31B",
 +      "name": "Alternative Sugar Beer",
-+      "categoryCode": "31",
-+      "categoryName": "Alternative Fermentables Beer"
++      "summary": "Espera-se uma cerveja em que o açúcar ou outro adoçante acrescente caráter sensorial perceptível, integrado à cerveja-base sem dominá-la nem fazê-la parecer artificial; ela deve continuar claramente reconhecível como cerveja. O ingrediente pode surgir no aroma ou no sabor, enquanto corpo e final variam conforme sua fermentabilidade, sem impressão de açúcar cru.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/31/31B/alternative-sugar-beer/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1794566745",
++        "https://www.bjcp.org/download/"
++      ]
 +    },
 +    {
++      "id": "0117",
 +      "code": "32A",
 +      "name": "Classic Style Smoked Beer",
-+      "categoryCode": "32",
-+      "categoryName": "Smoked Beer"
++      "summary": "É uma cerveja de estilo clássico reconhecível, na qual a fumaça acrescenta profundidade sem esconder o caráter da base; sua presença pode ser sutil ou expressiva, mas deve integrar-se de modo agradável. No gole, malte e lúpulo mantêm o perfil esperado da base, e a defumação pode deixar um final um pouco mais seco, sem aspereza ou queimado dominantes.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/32/32A/classic-style-smoked-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0118",
 +      "code": "32B",
 +      "name": "Specialty Smoked Beer",
-+      "categoryCode": "32",
-+      "categoryName": "Smoked Beer"
++      "summary": "Espera-se uma cerveja de especialidade em que a defumação se integre de modo agradável à cerveja-base e aos ingredientes especiais, sem exigir intensidades equivalentes entre os componentes. A fumaça pode ser discreta ou marcante, mas o conjunto deve ser convidativo, sem aspereza queimada ou fenólica.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/download/guia-de-estilos-de-cerveja-2021-em-portugues-brasileiro.pdf?tmstv=1783533355",
++        "https://www.bjcp.org/style/2021/32/32B/specialty-smoked-beer/"
++      ]
 +    },
 +    {
++      "id": "0119",
 +      "code": "33A",
 +      "name": "Wood-Aged Beer",
-+      "categoryCode": "33",
-+      "categoryName": "Wood Beer"
++      "summary": "A cerveja deve manter a identidade da base, enquanto o contato com a madeira lhe acrescenta complexidade sem encobri-la; não se espera contribuição alcoólica de uma bebida antes guardada no barril. Baunilha ou notas tostadas podem aparecer, e os taninos podem deixar o final mais seco, sem acidez ou aspereza dominantes.",
++      "historicalNote": "O uso de madeira é tradicional, mas hoje é raro entre grandes cervejarias e mais explorado por produtoras artesanais em busca de cervejas diferenciadas.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/style/2021/33/33A/wood-aged-beer/"
++      ]
 +    },
 +    {
++      "id": "0120",
 +      "code": "33B",
 +      "name": "Specialty Wood-Aged Beer",
-+      "categoryCode": "33",
-+      "categoryName": "Wood Beer"
++      "summary": "Uma cerveja-base enriquecida pela madeira de um barril que já guardou bebida alcoólica, com os aportes do barril e do líquido anterior perceptíveis e integrados, sem encobrir o perfil original. O aroma e o sabor podem evocar madeira tostada ou destilado; a impressão geral é macia e equilibrada, com calor alcoólico sem aspereza dominante.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/33/33B/specialty-wood-aged-beer/",
++        "https://www.bjcp.org/wp-content/uploads/2024/03/bjcp-2021-pt-br-1.4.pdf",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/"
++      ]
 +    },
 +    {
++      "id": "0121",
 +      "code": "34A",
 +      "name": "Commercial Specialty Beer",
-+      "categoryCode": "34",
-+      "categoryName": "Specialty Beer"
++      "summary": "Espera-se uma interpretação de uma cerveja comercial singular que não se enquadre adequadamente em outro estilo definido; o julgamento considera quanto a amostra expressa o caráter da referência declarada, não a precisão de uma réplica. Aroma, sabor e corpo, portanto, dependem da cerveja apresentada, sem perfil sensorial único para a categoria.",
++      "historicalNote": "Edições anteriores traziam uma categoria de especialidade belga; a 34A ampliou essa finalidade para referências comerciais também não belgas.",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/34/34A/commercial-specialty-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/"
++      ]
 +    },
 +    {
++      "id": "0122",
 +      "code": "34B",
 +      "name": "Mixed-Style Beer",
-+      "categoryCode": "34",
-+      "categoryName": "Specialty Beer"
++      "summary": "A 34B abrange cervejas derivadas de estilos reconhecidos, combinados ou alterados por técnica, ingrediente ou intensidade, quando não há categoria mais adequada. Não existe um perfil sensorial único: aromas e sabores devem refletir as bases e escolhas declaradas, integradas de modo coerente, equilibrado e agradável de beber.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/style/2021/34/34B-mixed-style-beer/"
++      ]
 +    },
 +    {
++      "id": "0123",
 +      "code": "34C",
 +      "name": "Experimental Beer",
-+      "categoryCode": "34",
-+      "categoryName": "Specialty Beer"
++      "summary": "Espera-se uma cerveja de identidade singular, concebida para uma experiência que não se encaixe em outro estilo existente, inclusive entre as especialidades. Sua expressão sensorial pode variar muito conforme a proposta, mas deve ser coerente e distinta; o enquadramento não serve para reproduzir uma cerveja comercial conhecida.",
++      "historicalNote": "",
++      "sourceUrls": [
++        "https://www.bjcp.org/style/2021/34/34C/experimental-beer/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf"
++      ]
 +    },
 +    {
++      "id": "0124",
 +      "code": "X1",
 +      "name": "Dorada Pampeana",
-+      "categoryCode": "Estilos Provisórios",
-+      "categoryName": "None"
++      "summary": "X1 Dorada Pampeana é um estilo local do Apêndice B do BJCP 2021, não uma subcategoria oficial nas categorias numeradas do guia. Espera-se uma cerveja dourada, fácil de beber e orientada ao malte: dulçor suave e lúpulo discreto sustentam um conjunto macio, equilibrado e sem amargor áspero.",
++      "historicalNote": "Segundo o BJCP, cervejeiros caseiros argentinos a desenvolveram quando dispunham sobretudo de malte Pilsen, lúpulo Cascade e leveduras secas.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/beer-styles/x1-dorada-pampeana/",
++        "https://www.bjcp.org/beer-styles/beer-style-guidelines/appendix-b-local-styles/"
++      ]
 +    },
 +    {
++      "id": "0125",
 +      "code": "X2",
 +      "name": "IPA Argenta",
-+      "categoryCode": "Estilos Provisórios",
-+      "categoryName": "None"
++      "summary": "É uma ale argentina de força moderada, marcadamente lupulada e amarga, mas refrescante e fácil de beber, sem aspereza. Notas cítricas de toranja e tangerina contrastam com malte discreto, enquanto o trigo contribui para um final seco e equilibrado. No BJCP 2021, X2 consta como estilo local no Apêndice B, não como subcategoria oficial.",
++      "historicalNote": "Desenvolvida em 2013 em encontros da associação argentina Somos Cerveceros, a IPA Argenta teve suas características distintivas definidas nessa ocasião.",
++      "sourceUrls": [
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/beer-styles/beer-style-guidelines/appendix-b-local-styles/",
++        "https://www.bjcp.org/beer-styles/x2-ipa-argenta/"
++      ]
 +    },
 +    {
++      "id": "0126",
 +      "code": "X3",
 +      "name": "Italian Grape Ale",
-+      "categoryCode": "Estilos Provisórios",
-+      "categoryName": "None"
++      "summary": "Espera-se uva perceptível, sem encobrir a base cervejeira, podendo lembrar fruta e mosto/vinho conforme a variedade e a fermentação. A impressão geral tende a frutada, com corpo leve a médio e acidez discreta, sem intensidade de sour. No BJCP 2021, X3 integra o Apêndice B como estilo local, não provisório nem subcategoria da estrutura principal.",
++      "historicalNote": "A Italian Grape Ale começou a ser produzida em 2006–2007 nas cervejarias Birrificio Montegioco e Birrificio Barley.",
++      "sourceUrls": [
++        "https://www.bjcp.org/beer-styles/x3-italian-grape-ale/",
++        "https://www.bjcp.org/beer-styles/beer-style-guidelines/appendix-b-local-styles/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/wp-content/uploads/2025/02/2021_Guidelines_Beer_1.25.pdf"
++      ]
 +    },
 +    {
++      "id": "0127",
 +      "code": "X4",
 +      "name": "Catharina Sour",
-+      "categoryCode": "Estilos Provisórios",
-+      "categoryName": "None"
++      "summary": "No BJCP 2021, a Catharina Sour figura no Apêndice B como estilo local brasileiro, não como subcategoria da classificação principal. Espera-se uma sour de trigo leve e vivaz, em que fruta fresca e acidez lática limpa se equilibram; final seco e efervescência reforçam o frescor, sem amargor perceptível ou caráter fermentativo selvagem.",
++      "historicalNote": "O estilo se popularizou com esse nome após ser formalmente definido em 2015, durante encontro de cervejeiros em Santa Catarina.",
++      "sourceUrls": [
++        "https://www.bjcp.org/wp-content/uploads/2013/10/bjcp-2021-pt-br-1.1.pdf",
++        "https://www.bjcp.org/beer-styles/x4-catharina-sour/",
++        "https://www.bjcp.org/beer-styles/beer-style-guidelines/appendix-b-local-styles/",
++        "https://www.bjcp.org/bjcp-style-guidelines/"
++      ]
 +    },
 +    {
++      "id": "0128",
 +      "code": "X5",
 +      "name": "New Zealand Pilsner",
-+      "categoryCode": "Estilos Provisórios",
-+      "categoryName": "None"
++      "summary": "Espera-se uma pilsner dourada, de fermentação limpa e fácil de beber, com lúpulos neozelandeses em destaque: notas tropicais e cítricas sobre malte discreto, porém perceptível. O amargor firme, sem aspereza, e o final seco a meio-seco equilibram uma textura macia e refrescante. No BJCP 2021, X5 é um estilo local do Apêndice B, não uma subcategoria numerada.",
++      "historicalNote": "A cerveja original da Emerson’s Brewery, criada em meados dos anos 1990, ajudou a definir o estilo.",
++      "sourceUrls": [
++        "https://www.bjcp.org/beer-styles/x5-new-zealand-pilsner/",
++        "https://www.bjcp.org/beer-styles/beer-style-guidelines/appendix-b-local-styles/",
++        "https://www.bjcp.org/international-translations/portuguese-portugues/",
++        "https://www.bjcp.org/news/seven-new-2021-style-guide-translations-available/"
++      ]
 +    }
 +  ]
 +}
@@ -930,12 +1689,15 @@ diff --git a/js/bjcp-reference.js b/js/bjcp-reference.js
 new file mode 100644
 --- /dev/null
 +++ b/js/bjcp-reference.js
-@@ -0,0 +1,94 @@
+@@ -0,0 +1,143 @@
 +(() => {
 +  const OFFICIAL_TRANSLATION_URL = 'https://www.bjcp.org/international-translations/portuguese-portugues/';
 +  const OFFICIAL_POLICY_URL = 'https://www.bjcp.org/faq/i-want-to-use-your-style-guidelines-can-i/';
-+  const INDEX_URL = new URL('../data/bjcp-2021-index.json', document.currentScript.src);
++  const SCRIPT_URL = document.currentScript.src;
++  const INDEX_URL = new URL('../data/bjcp-2021-index.json', SCRIPT_URL);
++  const SUMMARIES_URL = new URL('../data/bjcp-2021-summaries.json', SCRIPT_URL);
 +  let catalogPromise;
++  let summariesPromise;
 +
 +  function normalize(value) {
 +    return String(value || '')
@@ -955,66 +1717,112 @@ new file mode 100644
 +      .replace(/'/g, '&#39;');
 +  }
 +
++  function loadJson(url) {
++    return fetch(url, {cache: 'no-cache'}).then(response => {
++      if (!response.ok) throw new Error(`Falha ao carregar ${url.pathname}: ${response.status}`);
++      return response.json();
++    });
++  }
++
 +  function loadCatalog() {
 +    if (!catalogPromise) {
-+      catalogPromise = fetch(INDEX_URL)
-+        .then(response => {
-+          if (!response.ok) throw new Error(`Falha ao carregar índice BJCP: ${response.status}`);
-+          return response.json();
-+        })
-+        .then(data => Array.isArray(data.styles) ? data.styles : []);
++      catalogPromise = loadJson(INDEX_URL).then(data => Array.isArray(data.styles) ? data.styles : []);
 +    }
 +    return catalogPromise;
 +  }
 +
++  function loadSummaries() {
++    if (!summariesPromise) {
++      summariesPromise = loadJson(SUMMARIES_URL).then(data => Array.isArray(data.summaries) ? data.summaries : []);
++    }
++    return summariesPromise;
++  }
++
++  function namesFor(item) {
++    const names = [item.name];
++    const colon = String(item.name || '').indexOf(':');
++    if (colon >= 0) names.push(String(item.name).slice(colon + 1).trim());
++    return names.map(normalize).filter(Boolean);
++  }
++
 +  async function findStyle(styleLabel) {
 +    const styles = await loadCatalog();
-+    const source = String(styleLabel || '');
-+    const codeMatch = source.match(/(?:^|[^a-z0-9])(\d{1,2}\s*[a-g])(?:$|[^a-z0-9])/i);
++    const normalized = normalize(styleLabel);
++    const exactName = styles.find(item => namesFor(item).includes(normalized));
++    if (exactName) return exactName;
++    const byName = styles.flatMap(item => namesFor(item).map(name => ({item, name})))
++      .filter(candidate => candidate.name.length > 4 && (` ${normalized} `).includes(` ${candidate.name} `))
++      .sort((a, b) => b.name.length - a.name.length);
++    if (byName.length) return byName[0].item;
++
++    const codeMatch = String(styleLabel || '').match(/(?:^|[^a-z0-9])((?:\d{1,2}\s*[a-g])|(?:x\s*\d+))(?:$|[^a-z0-9])/i);
 +    if (codeMatch) {
 +      const code = codeMatch[1].replace(/\s+/g, '').toUpperCase();
-+      const byCode = styles.find(item => String(item.code).toUpperCase() === code);
-+      if (byCode) return byCode;
++      const codeMatches = styles.filter(item => String(item.code).toUpperCase() === code);
++      return codeMatches.length === 1 ? codeMatches[0] : null;
 +    }
 +
-+    const normalized = normalize(source);
-+    const exact = styles.find(item => normalize(item.name) === normalized);
-+    if (exact) return exact;
++    return null;
++  }
 +
-+    return styles
-+      .filter(item => {
-+        const name = normalize(item.name);
-+        return name.length > 5 && (` ${normalized} `).includes(` ${name} `);
-+      })
-+      .sort((a, b) => normalize(b.name).length - normalize(a.name).length)[0] || null;
++  function sourceLinks(urls) {
++    const links = [...new Set((Array.isArray(urls) ? urls : []).filter(value => {
++      try { return ['https:', 'http:'].includes(new URL(value).protocol); } catch (error) { return false; }
++    }))];
++    if (!links.length) return '';
++    const labels = links.map(url => {
++      const host = new URL(url).hostname.replace(/^www\./, '');
++      return host === 'bjcp.org' ? 'BJCP' : host;
++    });
++    const totals = labels.reduce((counts, label) => counts.set(label, (counts.get(label) || 0) + 1), new Map());
++    const seen = new Map();
++    return `<details class="bjcp-reference__sources"><summary>Fontes do resumo</summary><ul>${links.map((url, index) => {
++      const label = labels[index];
++      const ordinal = (seen.get(label) || 0) + 1;
++      seen.set(label, ordinal);
++      return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}${totals.get(label) > 1 ? ` ${ordinal}` : ''}</a></li>`;
++    }).join('')}</ul></details>`;
 +  }
 +
 +  async function panelMarkup(styleLabel) {
 +    let matched = null;
++    let summary = null;
 +    let loadFailed = false;
 +    try {
 +      matched = await findStyle(styleLabel);
++      if (matched) {
++        const summaries = await loadSummaries();
++        summary = summaries.find(item => item.code === matched.code && normalize(item.name) === normalize(matched.name)) || null;
++      }
 +    } catch (error) {
 +      loadFailed = true;
 +      console.error(error);
 +    }
 +
++    const localStyle = matched && /^x[1-5]$/i.test(String(matched.code));
++    const categoryMarkup = localStyle
++      ? `<div><span>Classificação no BJCP 2021</span><strong>Apêndice B — Estilos locais</strong></div>`
++      : `<div><span>Categoria BJCP</span><strong>${escapeHtml(matched?.categoryCode)} — ${escapeHtml(matched?.categoryName)}</strong></div>`;
 +    const detail = matched
 +      ? `<div class="bjcp-reference__meta">
-+          <div><span>Categoria BJCP</span><strong>${escapeHtml(matched.categoryCode)} — ${escapeHtml(matched.categoryName)}</strong></div>
++          ${categoryMarkup}
 +          <div><span>Estilo BJCP</span><strong>${escapeHtml(matched.code)} — ${escapeHtml(matched.name)}</strong></div>
 +        </div>
-+        <p>Esta é a referência oficial do estilo, não uma medição nem uma descrição da cerveja cadastrada.</p>`
++        ${summary ? `<section class="bjcp-reference__summary"><h3>Resumo autoral: o que esperar</h3><p>${escapeHtml(summary.summary)}</p></section>
++          ${summary.historicalNote ? `<aside class="bjcp-reference__history"><h3>Curiosidade histórica</h3><p>${escapeHtml(summary.historicalNote)}</p></aside>` : ''}
++          ${sourceLinks(summary.sourceUrls)}`
++          : '<p class="bjcp-reference__missing">O resumo autoral deste estilo ainda não está disponível.</p>'}
++        <p class="bjcp-reference__disclaimer">Síntese editorial própria baseada na referência BJCP 2021. Não é texto oficial e não descreve nem substitui a avaliação da cerveja cadastrada.</p>`
 +      : `<p>${loadFailed
-+          ? 'Não foi possível carregar o índice de estilos agora.'
-+          : `Não encontrei correspondência exata para “${escapeHtml(styleLabel || 'estilo não informado')}” no índice BJCP 2021.`}
++          ? 'Não foi possível carregar o índice ou os resumos de estilos agora.'
++          : `Não encontrei uma correspondência única para “${escapeHtml(styleLabel || 'estilo não informado')}”. Se o código tiver variantes, confira também o nome do estilo.`}
 +        O acesso à tradução oficial continua disponível abaixo.</p>`;
 +
 +    return `<details class="bjcp-reference">
 +      <summary>Consultar estilo BJCP 2021</summary>
 +      <div class="bjcp-reference__body">
 +        ${detail}
-+        <p>Para preservar o conteúdo e os direitos do guia, a descrição completa é consultada na versão oficial publicada pelo BJCP.</p>
++        <p>Para consultar a descrição técnica integral, abra a versão oficial publicada pelo BJCP.</p>
 +        <div class="bjcp-reference__links">
 +          <a class="pill" href="${OFFICIAL_TRANSLATION_URL}" target="_blank" rel="noopener noreferrer">Abrir tradução oficial em português brasileiro</a>
 +          <a href="${OFFICIAL_POLICY_URL}" target="_blank" rel="noopener noreferrer">Política de uso do BJCP</a>
