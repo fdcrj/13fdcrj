@@ -25,3 +25,7 @@ No Firebase Console, abra **Firestore Database**, crie o banco de dados e publiq
 ## Status Na torneira
 
 O catálogo lê a coluna `Status Engate` das abas públicas das confrarias e combina o resultado com a aba `All Beers`. Os estados esperados são `Aguardando`, `Engatado`, `Esgotado` e `Reserva`. O status aparece obrigatoriamente em cada card e ficha, com cores próprias; quando a célula estiver vazia, o site mostra `Não informado`. Somente `Engatado` é tratado como **Na torneira** e aparece no filtro correspondente; os demais estados continuam visíveis na ficha da cerveja.
+
+## Referência de estilos BJCP 2021
+
+As fichas exibem um painel expansível que associa automaticamente o estilo informado na planilha a um índice central de códigos, nomes e categorias BJCP 2021. O texto integral e as descrições do guia não são copiados para este site: a consulta encaminha à tradução oficial em português brasileiro publicada no site do BJCP. A própria BJCP informa que a reprodução integral em aplicativos exige autorização prévia; veja [fontes e política de uso](bjcp-sources.md).
