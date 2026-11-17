@@ -1,0 +1,54 @@
+{
+  "version": "Anexo II — Estilos Rio, 13FDCRJ v.1.0",
+  "scope": "Estilo-base 99A e cinco variações 99B locais do FDCRJ; não são categorias oficiais do BJCP.",
+  "styles": [
+    {
+      "code": "99A",
+      "name": "Estilo Rio 27",
+      "categoryCode": "99A",
+      "categoryName": "Estilo Rio 27",
+      "origin": "FDCRJ",
+      "aliases": ["Estilo Rio", "Rio 27", "99A Estilo Rio 27"]
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Mate",
+      "categoryCode": "99A",
+      "categoryName": "Estilo Rio 27",
+      "origin": "FDCRJ",
+      "aliases": ["Rio Especial Mate", "99B Mate", "Mate"]
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Cítrico",
+      "categoryCode": "99A",
+      "categoryName": "Estilo Rio 27",
+      "origin": "FDCRJ",
+      "aliases": ["Rio Especial Citrico", "99B Citrico", "Cítrico"]
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Coquetel",
+      "categoryCode": "99A",
+      "categoryName": "Estilo Rio 27",
+      "origin": "FDCRJ",
+      "aliases": ["Rio Especial Coquetel", "99B Coquetel", "Coquetel"]
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Coco",
+      "categoryCode": "99A",
+      "categoryName": "Estilo Rio 27",
+      "origin": "FDCRJ",
+      "aliases": ["Rio Especial Coco", "99B Coco", "Coco"]
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Gengibre",
+      "categoryCode": "99A",
+      "categoryName": "Estilo Rio 27",
+      "origin": "FDCRJ",
+      "aliases": ["Rio Especial Gengibre", "99B Gengibre", "Gengibre"]
+    }
+  ]
+}

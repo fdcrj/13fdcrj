@@ -1,0 +1,54 @@
+{
+  "version": "Anexo II — Estilos Rio, 13FDCRJ v.1.0",
+  "scope": "Impressões gerais e notas históricas das fichas autorais do anexo.",
+  "summaries": [
+    {
+      "code": "99A",
+      "name": "Estilo Rio 27",
+      "summary": "Cerveja de sessão antes de qualquer outra coisa: leve, refrescante, equilibrada e fácil de beber em sequência. A criatividade é bem-vinda, mas não pode se resumir a reproduzir um estilo já catalogado. O perfil pode ser simples ou complexo; o que se julga é a coerência entre a proposta declarada e o que chega ao copo.",
+      "historicalNote": "",
+      "sourceUrls": [],
+      "sourceNote": "Anexo II — Estilos Rio, 13FDCRJ v.1.0."
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Mate",
+      "summary": "Cerveja leve e refrescante, feita para ser bebida em volume, com a erva-mate audível no aroma e no sabor sem nunca dominar. O final pede definição e a carbonatação elevada sustenta o frescor. Notas cítricas ou frutadas entram como contraponto, desde que o conjunto siga harmonioso e fácil de beber.",
+      "historicalNote": "Idealizada em 2019 para os concursos da ACervA Carioca e do FDCRJ; a pandemia fez com que só o primeiro ocorresse naquele período. O FDCRJ voltou em 2022, com ampla participação e predominância de amostras à base de erva-mate.",
+      "sourceUrls": [],
+      "sourceNote": "Anexo II — Estilos Rio, 13FDCRJ v.1.0."
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Cítrico",
+      "summary": "Cerveja leve, vibrante e de perfil cítrico evidente, pensada para dias quentes e consumo despreocupado. O cítrico pode vir do lúpulo, da fruta ou dos dois, e deve ser intenso sem se tornar agressivo. Final seco ou levemente ácido e carbonatação elevada fecham a proposta, ampliando aroma e sensação de frescor.",
+      "historicalNote": "Nasceu como desdobramento do estilo Rio na busca por cervejas mais tropicais e refrescantes, e ganhou tração nos concursos do FDCRJ e da ACervA Carioca, com boa aceitação de público e júri.",
+      "sourceUrls": [],
+      "sourceNote": "Anexo II — Estilos Rio, 13FDCRJ v.1.0."
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Coquetel",
+      "summary": "Cerveja leve e criativa cujo perfil remete a coquetéis clássicos ou tropicais — gim-tônica, caipirinha, mojito, caipivodca. Frutas, ervas, especiarias e botânicos precisam conviver em equilíbrio, com leveza suficiente para várias doses. Final seco ou levemente ácido e carbonatação elevada reforçam a semelhança com drinks gaseificados.",
+      "historicalNote": "Surgiu da vontade de cruzar cerveja artesanal e coquetelaria tropical, e ganhou destaque no FDCRJ e em eventos da ACervA Carioca, com amostras que evocam drinks icônicos e ingredientes regionais.",
+      "sourceUrls": [],
+      "sourceNote": "Anexo II — Estilos Rio, 13FDCRJ v.1.0."
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Coco",
+      "summary": "Cerveja leve e refrescante, adequada a climas quentes, com coco ou água de coco perceptível sem dominar o conjunto. O final deve ser definido e a carbonatação elevada, garantindo frescor a cada gole. A proposta é uma cerveja versátil, de identidade tropical, que continua sendo cerveja antes de ser coco.",
+      "historicalNote": "Alternativa tropical ao estilo Rio, pensada para o clima e a cultura cariocas e para concursos como o FDCRJ e o da ACervA Carioca, ampliando o repertório de ingredientes regionais e afetivos.",
+      "sourceUrls": [],
+      "sourceNote": "Anexo II — Estilos Rio, 13FDCRJ v.1.0."
+    },
+    {
+      "code": "99B",
+      "name": "Rio Especial — Gengibre",
+      "summary": "Cerveja leve, refrescante e picante, com o gengibre em primeiro plano e o capim-limão em contraponto cítrico e herbáceo. A picância deve revigorar sem agredir, e o final precisa ser limpo e seco, com carbonatação elevada. É a variação mais vertical do conjunto: exige controle de dose e de dulçor residual.",
+      "historicalNote": "Segue a tendência de cervejas tropicais condimentadas e se firmou como opção revigorante em festivais e concursos voltados a botânicos e raízes regionais.",
+      "sourceUrls": [],
+      "sourceNote": "Anexo II — Estilos Rio, 13FDCRJ v.1.0."
+    }
+  ]
+}

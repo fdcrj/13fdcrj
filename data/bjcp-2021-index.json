@@ -745,32 +745,32 @@
     {
       "code": "X1",
       "name": "Dorada Pampeana",
-      "categoryCode": "Estilos Provisórios",
-      "categoryName": "None"
+      "categoryCode": "Apêndice B",
+      "categoryName": "Estilos locais"
     },
     {
       "code": "X2",
       "name": "IPA Argenta",
-      "categoryCode": "Estilos Provisórios",
-      "categoryName": "None"
+      "categoryCode": "Apêndice B",
+      "categoryName": "Estilos locais"
     },
     {
       "code": "X3",
       "name": "Italian Grape Ale",
-      "categoryCode": "Estilos Provisórios",
-      "categoryName": "None"
+      "categoryCode": "Apêndice B",
+      "categoryName": "Estilos locais"
     },
     {
       "code": "X4",
       "name": "Catharina Sour",
-      "categoryCode": "Estilos Provisórios",
-      "categoryName": "None"
+      "categoryCode": "Apêndice B",
+      "categoryName": "Estilos locais"
     },
     {
       "code": "X5",
       "name": "New Zealand Pilsner",
-      "categoryCode": "Estilos Provisórios",
-      "categoryName": "None"
+      "categoryCode": "Apêndice B",
+      "categoryName": "Estilos locais"
     }
   ]
 }
