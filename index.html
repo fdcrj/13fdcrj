@@ -43,8 +43,8 @@
 </header>
 
 <main class="wrap">
-  <section class="panel filter-panel" aria-label="Filtros">
-    <div class="filter-heading"><div><h2>Encontre sua cerveja</h2><p>Use a busca ou combine os filtros para refinar a lista.</p></div><span class="filter-help">Atualização automática</span></div>
+  <details class="panel filter-panel" aria-label="Filtros" open>
+    <summary class="filter-panel-summary"><div><h2>Encontre sua cerveja</h2><p>Use a busca ou combine os filtros para refinar a lista.</p></div><span class="filter-help">Clique para recolher</span></summary>
     <div class="search-row">
       <input class="search" id="q" type="search" autocomplete="off"
         placeholder="Buscar por cerveja, aroma ou ingrediente: IPA, cacau, limão, mate, café...">
@@ -80,7 +80,7 @@
       <button class="pill" id="share" type="button">🔗 Copiar link dos filtros</button>
       <button class="clear" id="clear" type="button">Limpar filtros</button>
     </div>
-  </section>
+  </details>
 
   <details class="panel status-board">
     <summary class="status-board-summary"><div><h2 id="statusBoardTitle">Status dos engates</h2><p>Abra para ver rapidamente a situação de cada cerveja no evento.</p></div><span class="status-summary-hint">Aguardando · Engatado · Acabou</span></summary>
