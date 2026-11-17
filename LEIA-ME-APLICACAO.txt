@@ -1,6 +1,3 @@
 Atualização cumulativa do site 13º FDCRJ
 
-Conteúdo: arquivos modificados e novos, mantendo os caminhos relativos ao repositório.
-Para aplicar: extraia na raiz de uma cópia do repositório 13fdcrj, substituindo os arquivos de mesmo nome; revise o diff, faça commit e push para a branch configurada no GitHub Pages.
-
-O pacote não publica automaticamente no site. Alternativamente, aplique o patch correspondente com: git apply 13fdcrj-atualizacao.patch
+Contém arquivos modificados e novos com caminhos relativos ao repositório. Extraia na raiz da cópia do repositório, substituindo arquivos de mesmo nome. Para aplicar o patch: git apply 13fdcrj-atualizacao.patch. Depois revise, faça commit e push para a branch usada pelo GitHub Pages. Este pacote não publica no site automaticamente.

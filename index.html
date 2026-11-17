@@ -105,11 +105,12 @@
   <section class="grid" id="grid" aria-live="polite"></section>
 
 
-  <section class="panel dashboard confraria-directory" id="dashboard" aria-labelledby="confrariaDirectoryTitle">
-    <div class="dashboard-heading"><div><h2 id="confrariaDirectoryTitle">Confrarias</h2><p>Perfis, regiões, links oficiais e histórico de premiações verificadas.</p></div><div class="confraria-summary" id="confrariaSummary" aria-live="polite"></div></div>
-    <div class="confraria-directory-grid" id="confrariaDirectoryGrid"><p class="filter-help">Carregando confrarias...</p></div>
-    <p class="confraria-footnote">Nas abas de cada edição, 1º lugar vale ouro, 2º prata e 3º bronze; menções honrosas não entram nos totais. Premiações externas só são somadas quando o resultado e o vínculo à confraria são confirmados; medalhas sem cor individual verificável ficam fora da soma. Datas ausentes não são inferidas e a falta de registro não prova ausência de prêmios. O Instagram oficial @fdcrj não foi usado como fonte deste levantamento. <a href="https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit" target="_blank" rel="noopener">Abrir planilha histórica do FDCRJ</a>.</p>
-  </section>
+  <details class="panel dashboard confraria-directory" id="dashboard" aria-labelledby="confrariaDirectoryTitle">
+    <summary class="dashboard-heading confraria-directory-toggle"><div><h2 id="confrariaDirectoryTitle">Confrarias</h2><p>Perfis, regiões, links oficiais e histórico de premiações verificadas.</p></div><div class="confraria-summary" id="confrariaSummary" aria-live="polite"></div></summary>
+    <div class="confraria-directory-content">
+      <div class="confraria-directory-grid" id="confrariaDirectoryGrid"><p class="filter-help">Carregando confrarias...</p></div>
+    </div>
+  </details>
   <section class="panel recommendations"><h2>Encontre pelo seu momento</h2><p>Escolha um perfil e o guia sugere cervejas com os dados disponíveis.</p><div class="recommendation-actions"><button class="pill" data-recommend="leve" type="button">Leve e refrescante</button><button class="pill" data-recommend="amarga" type="button">Amarga e lupulada</button><button class="pill" data-recommend="forte" type="button">Forte e intensa</button><button class="pill" data-recommend="escura" type="button">Escura e maltada</button><button class="pill" data-recommend="frutada" type="button">Frutada e aromática</button></div><div class="recommendation-results" id="recommendationResults"><span class="filter-help">Selecione um perfil para receber sugestões.</span></div></section>
   <section class="panel compare-panel" id="comparePanel" hidden><h2>Comparador de cervejas</h2><p>Selecione até três cards para comparar lado a lado.</p><div class="compare-table-wrap" id="compareTable"></div><div class="compare-actions"><button class="pill" id="clearCompare" type="button">Limpar comparação</button></div></section>
   <section class="panel legend">
@@ -150,9 +151,8 @@
 </div>
 
 <footer class="wrap">
-    <p>Guia interativo Oficial do 13º Festival de Confrarias do Rio de Janeiro (13FDCRJ).<br>
-  <p>As avaliações públicas usam o Firebase; suas anotações pessoais ficam salvas localmente no navegador.<br>
-     <p>Página desenvolvida por <a href="https://instagram.com/mdestefano" target="_blank" rel="noopener">Marcelo Destefano</a> e inspirada na elaborada pelo Levi Ciqueira Jr.<br>
+  <p>Guia interativo Oficial do 13º Festival de Confrarias do Rio de Janeiro (13FDCRJ). As avaliações públicas usam o Firebase; suas anotações pessoais ficam salvas localmente no navegador.<br>
+     <p>Página inspirada na elaborada pelo Levi Ciqueira Jr.<br>
   <strong>Aprecie com moderação — Se beber, não dirija! Siga <a href="https://instagram.com/fdcrj" target="_blank" rel="noopener">@fdcrj</a> no Instagram.</strong></p>
 </footer>
 
