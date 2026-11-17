@@ -31,3 +31,15 @@ O catálogo lê a coluna `Status Engate` das abas públicas das confrarias e com
 As fichas exibem um painel expansível que associa automaticamente o estilo informado na planilha às 128 entradas BJCP 2021, com resumos autorais e notas históricas quando pertinentes. X1–X5 são identificados como estilos locais do Apêndice B do BJCP.
 
 Uma biblioteca separada acrescenta as seis fichas do Anexo II — Estilos Rio: o estilo-base 99A e cinco variações de inscrição 99B. Elas são apresentadas como estilos locais do 13FDCRJ, não como categorias oficiais do BJCP. A consulta dos estilos BJCP encaminha à tradução oficial em português brasileiro e nenhuma biblioteca reproduz o texto integral do guia. Veja [fontes e política de uso](bjcp-sources.md).
+
+## Diretório de confrarias e premiações
+
+O antigo painel de gráficos foi substituído por um diretório compacto. Cada cartão pode ser expandido para consultar região, encontros e links oficiais quando essas informações estão documentadas, além das premiações agrupadas por evento, edição e data. O catálogo e as fontes ficam em `data/confraria-profiles.json`; as notas de cobertura de cada perfil indicam lacunas e limites de confirmação.
+
+Nas abas `1FDCRJ` a `12FDCRJ` da planilha histórica, a posição 1 corresponde a ouro, 2 a prata e 3 a bronze, conforme a orientação do usuário. Menções sem posição numérica não entram na soma de medalhas. Resultados de outros concursos só são incluídos com fonte pública; dados de ano ou mês não localizados são deixados sem inferência.
+
+Uma premiação individual só é associada ao perfil de uma confraria quando a fonte confirma que a pessoa integrava o grupo no período do resultado. Quando a fonte publica apenas um total de medalhas do cervejeiro sem ligar a cor a uma cerveja específica, o painel explicita essa limitação e não inventa a atribuição por rótulo.
+
+O levantamento considerou as doze abas de edição fornecidas e resultados externos publicamente verificáveis. A pedido do usuário, o Instagram oficial do FDCRJ (`@fdcrj`) não foi usado como fonte; datas do 12º evento foram conferidas em fontes independentes, inclusive na página pública do Festival no Facebook.
+
+O painel **Encontre sua cerveja** começa recolhido. A escolha de abrir ou fechar fica salva no navegador, e a seção só muda de estado quando a pessoa a abre ou fecha novamente.

@@ -12,7 +12,6 @@
 <title>Guia de Cervejas • 13º Festival de Confrarias do Rio de Janeiro - 13FDCRJ</title>
 <link rel="stylesheet" href="css/app.css">
 <link rel="icon" type="image/jpeg" href="logo fdcrj.jpg">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 </head>
@@ -43,8 +42,8 @@
 </header>
 
 <main class="wrap">
-  <details class="panel filter-panel" aria-label="Filtros" open>
-    <summary class="filter-panel-summary"><div><h2>Encontre sua cerveja</h2><p>Use a busca ou combine os filtros para refinar a lista.</p></div><span class="filter-help">Clique para recolher</span></summary>
+  <details class="panel filter-panel" aria-label="Filtros">
+    <summary class="filter-panel-summary"><div><h2>Encontre sua cerveja</h2><p>Use a busca ou combine os filtros para refinar a lista.</p></div><span class="filter-help">Clique para abrir ou recolher</span></summary>
     <div class="search-row">
       <input class="search" id="q" type="search" autocomplete="off"
         placeholder="Buscar por cerveja, aroma ou ingrediente: IPA, cacau, limão, mate, café...">
@@ -106,10 +105,10 @@
   <section class="grid" id="grid" aria-live="polite"></section>
 
 
-  <section class="panel dashboard" id="dashboard">
-    <div class="dashboard-heading"><div><h2>Painel do festival</h2><p>Explore a composição da programação e descubra perfis diferentes de cerveja.</p></div><span class="filter-help" id="dashboardStatus">Atualizado com os registros carregados</span></div>
-    <div class="metric-grid"><div class="metric"><b id="mAvgAbv">—</b><span>ABV médio</span></div><div class="metric"><b id="mAvgIbu">—</b><span>IBU médio</span></div><div class="metric"><b id="mMaxAbv">—</b><span>Maior ABV</span></div><div class="metric"><b id="mMaxIbu">—</b><span>Maior IBU</span></div><div class="metric"><b id="mDesc">—</b><span>Com descrição</span></div><div class="metric"><b id="mTasted">—</b><span>Já degustadas</span></div></div>
-    <div class="chart-grid"><div class="chart-box"><h3>Cervejas por família</h3><canvas id="familyChart"></canvas></div><div class="chart-box"><h3>Participação por confraria</h3><canvas id="confrariaChart"></canvas></div><div class="chart-box"><h3>ABV × IBU</h3><canvas id="scatterChart"></canvas></div><div class="chart-box"><h3>Distribuição de ABV</h3><canvas id="abvChart"></canvas></div><div class="chart-box"><h3>Perfil médio</h3><canvas id="profileChart"></canvas></div></div>
+  <section class="panel dashboard confraria-directory" id="dashboard" aria-labelledby="confrariaDirectoryTitle">
+    <div class="dashboard-heading"><div><h2 id="confrariaDirectoryTitle">Confrarias</h2><p>Perfis, regiões, links oficiais e histórico de premiações verificadas.</p></div><div class="confraria-summary" id="confrariaSummary" aria-live="polite"></div></div>
+    <div class="confraria-directory-grid" id="confrariaDirectoryGrid"><p class="filter-help">Carregando confrarias...</p></div>
+    <p class="confraria-footnote">Nas abas de cada edição, 1º lugar vale ouro, 2º prata e 3º bronze; menções honrosas não entram nos totais. Premiações externas só são somadas quando o resultado e o vínculo à confraria são confirmados; medalhas sem cor individual verificável ficam fora da soma. Datas ausentes não são inferidas e a falta de registro não prova ausência de prêmios. O Instagram oficial @fdcrj não foi usado como fonte deste levantamento. <a href="https://docs.google.com/spreadsheets/d/1WZO7FAVCeTTH7aUQR5jZ-3uKrrDv3b8DSZRN59njPUM/edit" target="_blank" rel="noopener">Abrir planilha histórica do FDCRJ</a>.</p>
   </section>
   <section class="panel recommendations"><h2>Encontre pelo seu momento</h2><p>Escolha um perfil e o guia sugere cervejas com os dados disponíveis.</p><div class="recommendation-actions"><button class="pill" data-recommend="leve" type="button">Leve e refrescante</button><button class="pill" data-recommend="amarga" type="button">Amarga e lupulada</button><button class="pill" data-recommend="forte" type="button">Forte e intensa</button><button class="pill" data-recommend="escura" type="button">Escura e maltada</button><button class="pill" data-recommend="frutada" type="button">Frutada e aromática</button></div><div class="recommendation-results" id="recommendationResults"><span class="filter-help">Selecione um perfil para receber sugestões.</span></div></section>
   <section class="panel compare-panel" id="comparePanel" hidden><h2>Comparador de cervejas</h2><p>Selecione até três cards para comparar lado a lado.</p><div class="compare-table-wrap" id="compareTable"></div><div class="compare-actions"><button class="pill" id="clearCompare" type="button">Limpar comparação</button></div></section>
@@ -151,9 +150,8 @@
 </div>
 
 <footer class="wrap">
-  <p>Guia interativo Oficial do 13º Festival de Confrarias do Rio de Janeiro (13FDCRJ).<br>
-  <p>As avaliações públicas usam o Firebase; suas anotações pessoais ficam salvas localmente no navegador.<br>
-     <p>Página desenvolvida por <a href="https://instagram.com/mdestefano" target="_blank" rel="noopener">Marcelo Destefano</a> e inspirada na elaborada pelo Levi Ciqueira Jr.<br>
+  <p>Guia interativo Oficial do 13º Festival de Confrarias do Rio de Janeiro (13FDCRJ). As avaliações públicas usam o Firebase; suas anotações pessoais ficam salvas localmente no navegador.<br>
+     <p>Página inspirada na elaborada pelo Levi Ciqueira Jr.<br>
   <strong>Aprecie com moderação — Se beber, não dirija! Siga <a href="https://instagram.com/fdcrj" target="_blank" rel="noopener">@fdcrj</a> no Instagram.</strong></p>
 </footer>
 
@@ -162,6 +160,7 @@
 <script src="js/data-source.js" defer></script>
 <script src="js/beer-model.js" defer></script>
 <script src="js/bjcp-reference.js" defer></script>
+<script src="js/confraria-directory.js" defer></script>
 <script src="js/app.js" defer></script>
 <script type="module" src="js/auth.js"></script>
 </body>
