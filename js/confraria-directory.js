@@ -3,6 +3,7 @@
   const MONTHS = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
   let profiles = [];
   let historicalProfiles = [];
+  let festivalEditions = [];
 
   function escapeHtml(value) {
     return String(value ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -27,9 +28,11 @@
       const payload = await response.json();
       profiles = Array.isArray(payload.confrarias) ? payload.confrarias : [];
       historicalProfiles = Array.isArray(payload.historical_confrarias) ? payload.historical_confrarias : [];
+      festivalEditions = Array.isArray(payload.festival_editions) ? payload.festival_editions : [];
     } catch (error) {
       profiles = [];
       historicalProfiles = [];
+      festivalEditions = [];
       console.warn('Os perfis das confrarias não puderam ser carregados:', error);
     }
   }
@@ -100,59 +103,6 @@
       return String(b.edition || '').localeCompare(String(a.edition || ''),'pt-BR',{numeric:true});
     });
   }
-  function editionNumber(edition) {
-    const match = String(edition || '').match(/(\d+)\s*FDCRJ/i);
-    return match ? Number(match[1]) : null;
-  }
-  function editionOrdinal(edition) {
-    const number = editionNumber(edition);
-    return number ? `${number}ª` : String(edition || 'edição não localizada');
-  }
-  function joinLabels(labels) {
-    const list = labels.filter(Boolean);
-    if (list.length <= 1) return list.join('');
-    return `${list.slice(0,-1).join(', ')} e ${list[list.length-1]}`;
-  }
-  function organizerBadge(profile) {
-    const editions = (Array.isArray(profile.organized_editions) ? profile.organized_editions : [])
-      .map(item => editionNumber(item.edition))
-      .filter(number => number !== null);
-    if (!editions.length) return '';
-    const unique = [...new Set(editions)].sort((a,b) => a-b);
-    const label = unique.length === 1 ? `${unique[0]}ª edição` : `${joinLabels(unique.map(number => `${number}ª`))} edições`;
-    return `<span class="confraria-status-badge confraria-status-badge--org" title="Confraria organizadora do Festival">Organizadora · ${escapeHtml(label)}</span>`;
-  }
-  function organizerOverview(profilesList) {
-    const byEdition = new Map();
-    profilesList.forEach(profile => {
-      (Array.isArray(profile.organized_editions) ? profile.organized_editions : []).forEach(item => {
-        const number = editionNumber(item.edition);
-        if (number === null) return;
-        if (!byEdition.has(item.edition)) byEdition.set(item.edition,{edition:item.edition,number,year:item.year || '',date:item.date || '',organizers:[]});
-        const entry = byEdition.get(item.edition);
-        if (!entry.year && item.year) entry.year = item.year;
-        if (!entry.date && item.date) entry.date = item.date;
-        entry.organizers.push({
-          label: profile.organizer_label || String(profile.official_name || profile.id || '').split(' — ')[0],
-          shared: /não atribui exclusividade|não afirma que tenha sido a única/i.test(String(item.role || ''))
-        });
-      });
-    });
-    if (!byEdition.size) return '';
-    const weight = new Map();
-    profilesList.forEach(profile => {
-      const total = (Array.isArray(profile.organized_editions) ? profile.organized_editions : []).length;
-      weight.set(profile.organizer_label || String(profile.official_name || profile.id || '').split(' — ')[0],total);
-    });
-    [...byEdition.values()].forEach(entry => {
-      entry.organizers.sort((a,b) => (weight.get(b.label) || 0) - (weight.get(a.label) || 0) || a.label.localeCompare(b.label,'pt-BR'));
-    });
-    const rows = [...byEdition.values()].sort((a,b) => a.number - b.number).map(entry => {
-      const names = joinLabels(entry.organizers.map(item => item.shared ? `${item.label} (organização compartilhada)` : item.label));
-      return `<li><b>${escapeHtml(editionOrdinal(entry.edition))} FDCRJ</b><span>${escapeHtml(periodLabel(entry))}</span><span class="confraria-organizer-name">${escapeHtml(names)}</span></li>`;
-    }).join('');
-    return `<section class="confraria-organizers" aria-label="Confrarias organizadoras por edição"><h3>Quem organizou cada edição</h3><p>Confraria organizadora do Festival, por edição. Nas edições com regulamento fornecido, a indicação vem do item sobre organização; nas demais, de fontes públicas. Edições sem organizadora localizada nas fontes consultadas não aparecem na lista.</p><ul>${rows}</ul></section>`;
-  }
   function renderAwards(awards, color, profile) {
     if (!awards.length) return '<p class="filter-help">Nenhuma premiação verificável foi localizada para este perfil. Isso não comprova ausência de prêmios.</p>';
     const profileNames = [profile.id,profile.official_name,...(Array.isArray(profile.aliases)?profile.aliases:[]),...(Array.isArray(profile.historical_aliases)?profile.historical_aliases.filter(alias=>alias && alias.same_community).map(alias=>alias.code):[])].map(normalize).filter(Boolean);
@@ -180,6 +130,12 @@
   function renderCoverageNote(note) {
     return note ? `<details class="confraria-sources confraria-coverage"><summary>Critérios e cobertura do levantamento</summary><p>${escapeHtml(note)}</p></details>` : '';
   }
+  function renderOrganizerTable(editions) {
+    if (!editions.length) return '';
+    const ordered = editions.slice().sort((a,b) => Number(String(a.edition || '').match(/\d+/)?.[0] || 0) - Number(String(b.edition || '').match(/\d+/)?.[0] || 0));
+    const rows = ordered.map(item => `<tr><td>${escapeHtml(item.edition || 'Edição não localizada')}</td><td>${escapeHtml(item.organizer_code || item.organizer || 'Não localizado')}</td><td>${escapeHtml(item.location || 'Local não informado')}</td></tr>`).join('');
+    return `<section class="confraria-organizer-section" aria-labelledby="confrariaOrganizerTitle"><h3 id="confrariaOrganizerTitle">Confrarias organizadoras por edição</h3><p class="filter-help">Confraria responsável e local, conforme a tabela da página atual fornecida pelo usuário.</p><div class="confraria-organizer-table__scroll" role="region" aria-label="Tabela de organizadoras e locais por edição" tabindex="0"><table class="confraria-organizer-table__table"><thead><tr><th scope="col">EDIÇÃO</th><th scope="col">CONFRARIA</th><th scope="col">LOCAL</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
+  }
   function renderProfile(profile,index,beerRows = [],historical = false) {
     const awards = Array.isArray(profile.awards) ? profile.awards : [];
     const sources = Array.isArray(profile.profile_sources) ? profile.profile_sources : [];
@@ -194,13 +150,12 @@
     const medalCount = counts.ouro+counts.prata+counts.bronze;
     const regionLine = historical ? (profile.region || 'Região não localizada') : `${profile.region || 'Região não localizada'} · ${beers} cerveja(s) no catálogo`;
     const statusBadge = historical && profile.status_label ? `<span class="confraria-status-badge">${escapeHtml(profile.status_label)}</span>` : '';
-    const orgBadge = organizerBadge(profile);
     const statusNote = historical && profile.status_note ? `<p class="confraria-status-note">${escapeHtml(profile.status_note)}</p>` : '';
     const statusFact = historical ? fact('Situação no FDCRJ',profile.status_label) : '';
     const participation = (Array.isArray(profile.festival_participations) ? profile.festival_participations : []).map(item => `${item.edition || 'Edição não localizada'} — ${item.role || 'participação registrada'} (${periodLabel(item)})`).join('; ');
-    const organization = (Array.isArray(profile.organized_editions) ? profile.organized_editions : []).map(item => `${item.edition || 'Edição não localizada'} — ${item.role || 'organização registrada'} (${periodLabel(item)})`).join('; ');
+    const organization = (Array.isArray(profile.organized_editions) ? profile.organized_editions : []).map(item => `${item.edition || 'Edição não localizada'} — ${item.role || 'organização registrada'}${item.organizer_code ? ` (${item.organizer_code})` : ''}${item.location ? ` · Local: ${item.location}` : ''}${item.date || item.month || item.year ? ` (${periodLabel(item)})` : ''}`).join('; ');
     const festivalFacts = `${participation ? fact('Participação no Festival',participation) : ''}${organization ? fact('Organização do Festival',organization) : ''}`;
-    return `<details class="confraria-entry${historical ? ' confraria-entry--historical' : ''}" style="--conf-color:${color}"><summary><div><h3 class="confraria-entry__name">${escapeHtml(profile.official_name || profile.id)}</h3><span class="confraria-entry__region">${escapeHtml(regionLine)}</span>${orgBadge}${statusBadge}</div><span class="confraria-medals">${medalMarkup(counts)}</span></summary><div class="confraria-entry__body"><p>${escapeHtml(profile.profile_summary || 'Não foi localizada uma apresentação pública verificável.')}</p>${statusNote}<dl class="confraria-facts">${fact('Região de atuação',profile.region)}${fact('Encontros',profile.meetup_info)}${fact('Fundação',profile.founded)}${festivalFacts}${statusFact}${fact('Premiações documentadas',`${medalCount} medalhas em ${awardCount} registros`)}</dl>${linkMarkup ? `<nav class="confraria-links" aria-label="Links de ${escapeHtml(profile.official_name || profile.id)}">${linkMarkup}</nav>` : '<p class="filter-help">Nenhum perfil oficial de rede social ou site foi localizado.</p>'}<details class="confraria-awards"><summary>Ver prêmios por evento e edição (${awardCount})</summary><div>${renderAwards(awards,color,profile)}</div></details>${renderProfileSources(sources)}${renderCoverageNote(profile.coverage_note)}</div></details>`;
+    return `<details class="confraria-entry${historical ? ' confraria-entry--historical' : ''}" style="--conf-color:${color}"><summary><div><h3 class="confraria-entry__name">${escapeHtml(profile.official_name || profile.id)}</h3><span class="confraria-entry__region">${escapeHtml(regionLine)}</span>${statusBadge}</div><span class="confraria-medals">${medalMarkup(counts)}</span></summary><div class="confraria-entry__body"><p>${escapeHtml(profile.profile_summary || 'Não foi localizada uma apresentação pública verificável.')}</p>${statusNote}<dl class="confraria-facts">${fact('Região de atuação',profile.region)}${fact('Encontros',profile.meetup_info)}${fact('Fundação',profile.founded)}${festivalFacts}${statusFact}${fact('Premiações documentadas',`${medalCount} medalhas em ${awardCount} registros`)}</dl>${linkMarkup ? `<nav class="confraria-links" aria-label="Links de ${escapeHtml(profile.official_name || profile.id)}">${linkMarkup}</nav>` : '<p class="filter-help">Nenhum perfil oficial de rede social ou site foi localizado.</p>'}<details class="confraria-awards"><summary>Ver prêmios por evento e edição (${awardCount})</summary><div>${renderAwards(awards,color,profile)}</div></details>${renderProfileSources(sources)}${renderCoverageNote(profile.coverage_note)}</div></details>`;
   }
   function render(beerRows = []) {
     const grid = document.querySelector('#confrariaDirectoryGrid');
@@ -236,8 +191,9 @@
     const currentCards = items.map((profile,index)=>renderProfile(profile,index,beerRows,false)).join('');
     const historicalHeader = historicalItems.length ? '<div class="confraria-directory-section-heading confraria-directory-section-heading--history"><h3>Confrarias históricas — fora do cadastro atual</h3><p>Inclui medalhistas e grupos de edições passadas. Conforme orientação do usuário, toda confraria listada como participante em um regulamento fornecido é considerada presente na edição correspondente. Estar fora do cadastro atual não significa encerramento da confraria.</p></div>' : '';
     const historicalCards = historicalItems.map((profile,index)=>renderProfile(profile,index,beerRows,true)).join('');
-    const organizerPanel = organizerOverview([...items,...historicalItems]);
-    grid.innerHTML = `${organizerPanel}${currentHeader}${currentCards}${historicalHeader}${historicalCards}`;
+    const organizerTable = document.querySelector('#confrariaOrganizerTable');
+    if (organizerTable) organizerTable.innerHTML = renderOrganizerTable(festivalEditions);
+    grid.innerHTML = `${currentHeader}${currentCards}${historicalHeader}${historicalCards}`;
   }
   window.FDCRJ_CONFRARIA_DIRECTORY = {load,render};
 })();
