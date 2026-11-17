@@ -453,6 +453,11 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .dashboard-heading { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
 .dashboard-heading h2, .recommendations h2, .compare-panel h2 { margin:0; font-size:1.15rem; }
 .dashboard-heading p, .recommendations > p, .compare-panel > p { margin:4px 0 14px; color:var(--muted); font-size:.84rem; }
+.confraria-directory-toggle { cursor:pointer; list-style:none; align-items:center; }
+.confraria-directory-toggle::-webkit-details-marker { display:none; }
+.confraria-directory-toggle::after { content:'＋'; margin-left:auto; color:var(--brand); font-size:1.15rem; font-weight:900; }
+.confraria-directory[open] > .confraria-directory-toggle::after { content:'−'; }
+.confraria-directory-content { margin-top:8px; }
 .confraria-summary { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:7px; }
 .confraria-summary span { border:1px solid var(--line); border-radius:999px; padding:5px 10px; color:var(--muted); font-size:.75rem; font-weight:800; }
 .confraria-directory-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
@@ -488,8 +493,6 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .confraria-sources p { font-size:.72rem; line-height:1.5; }
 .confraria-sources ul { margin:6px 0; padding-left:18px; }
 .confraria-sources li { margin:4px 0; font-size:.72rem; overflow-wrap:anywhere; }
-.confraria-footnote { margin:12px 0 0; color:var(--muted); font-size:.72rem; line-height:1.5; }
-.confraria-footnote a { font-weight:800; }
 @media(max-width:760px) { .confraria-directory-grid { grid-template-columns:1fr; } }
 @media(max-width:560px) { .confraria-entry > summary { grid-template-columns:minmax(0,1fr); } .confraria-medals, .confraria-summary { justify-content:flex-start; } .confraria-facts { grid-template-columns:1fr; } }
 .recommendation-actions { display:flex; flex-wrap:wrap; gap:8px; }
