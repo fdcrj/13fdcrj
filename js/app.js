@@ -176,7 +176,6 @@ let userNotes = JSON.parse(localStorage.getItem('fdcrj_notes') || '{}');
 let userTasting = JSON.parse(localStorage.getItem('fdcrj_tasting') || '{}');
 let userTasted = JSON.parse(localStorage.getItem('fdcrj_tasted') || '{}');
 let compareSet = JSON.parse(localStorage.getItem('fdcrj_compare') || '[]');
-let charts = {};
 let activeModalBeer = null;
 let bjcpReferenceRequest = 0;
 
@@ -440,31 +439,8 @@ function validateData() {
   const issues = Object.entries(checks).filter(([, count]) => count);
   result.innerHTML = `<strong>${DATA.length} registro(s) analisado(s).</strong> ${issues.length ? issues.map(([label, count]) => `${escapeHtml(label)}: ${count}`).join(' · ') : 'Nenhum problema encontrado nos campos principais.'}`;
 }
-function numericValues(key) { return DATA.map(item => toNumber(item[key])).filter(Number.isFinite); }
-function average(key) { const values = numericValues(key); return values.length ? values.reduce((a,b) => a+b, 0) / values.length : NaN; }
-function chartPalette(count) { const colors=['#e67e22','#2a9d8f','#0f2b48','#f4a261','#e76f51','#457b9d','#8ab17d','#b56576','#6d597a','#f6bd60']; return Array.from({length:count}, (_,i)=>colors[i%colors.length]); }
 function renderDashboard() {
-  const values = numericValues('abv'), ibus = numericValues('ibu');
-  const setText = (id, value) => { const el = $('#'+id); if (el) el.textContent = value; };
-  setText('mAvgAbv', Number.isFinite(average('abv')) ? `${average('abv').toFixed(1).replace('.', ',')}%` : '—');
-  setText('mAvgIbu', Number.isFinite(average('ibu')) ? Math.round(average('ibu')) : '—');
-  setText('mMaxAbv', values.length ? `${Math.max(...values).toFixed(1).replace('.', ',')}%` : '—');
-  setText('mMaxIbu', ibus.length ? Math.round(Math.max(...ibus)) : '—');
-  setText('mDesc', DATA.length ? `${Math.round(DATA.filter(item => item.descricao).length / DATA.length * 100)}%` : '—');
-  setText('mTasted', `${Object.keys(userTasted).filter(key => userTasted[key]).length}`);
-  if (typeof Chart === 'undefined') return;
-  const textColor = getComputedStyle(document.documentElement).getPropertyValue('--muted').trim() || '#5c7080';
-  const makeChart = (id, config) => { if (charts[id]) charts[id].destroy(); const el=$('#'+id); if (el) charts[id]=new Chart(el.getContext('2d'), config); };
-  const countBy = key => Object.entries(DATA.reduce((acc,item)=>{ const value=item[key]||'Não informado'; acc[value]=(acc[value]||0)+1; return acc; },{})).sort((a,b)=>b[1]-a[1]).slice(0,10);
-  const fam=countBy('familia'), conf=countBy('confrariaNome');
-  makeChart('familyChart',{type:'bar',data:{labels:fam.map(x=>x[0]),datasets:[{data:fam.map(x=>x[1]),backgroundColor:chartPalette(fam.length),borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:textColor}},y:{beginAtZero:true,ticks:{color:textColor,precision:0}}}}});
-  makeChart('confrariaChart',{type:'doughnut',data:{labels:conf.map(x=>x[0]),datasets:[{data:conf.map(x=>x[1]),backgroundColor:chartPalette(conf.length),borderWidth:2,borderColor:getComputedStyle(document.documentElement).getPropertyValue('--card')}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:textColor,font:{size:10}}}}}});
-  const points=DATA.map((item,index)=>({x:toNumber(item.abv),y:toNumber(item.ibu),label:item.cerveja,index})).filter(point=>Number.isFinite(point.x)&&Number.isFinite(point.y));
-  makeChart('scatterChart',{type:'scatter',data:{datasets:[{label:'Cervejas',data:points,backgroundColor:'#e67e22',pointRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const p=ctx.raw;return `${p.label}: ABV ${p.x}% • IBU ${p.y}`;}}}},scales:{x:{title:{display:true,text:'ABV (%)',color:textColor},ticks:{color:textColor}},y:{title:{display:true,text:'IBU',color:textColor},ticks:{color:textColor}}}}});
-  const bins=[0,2,4,6,8,10,12,14,16], counts=bins.slice(0,-1).map((start,i)=>values.filter(value=>value>=start&&value<(bins[i+1])).length);
-  makeChart('abvChart',{type:'bar',data:{labels:bins.slice(0,-1).map((start,i)=>`${start}–${bins[i+1]}%`),datasets:[{data:counts,backgroundColor:'#2a9d8f',borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:textColor}},y:{beginAtZero:true,ticks:{color:textColor,precision:0}}}}});
-  const maxes={abv:12,ibu:100,ebc:60,volume:50}; const profile=['ABV','IBU','EBC','Volume']; const profileValues=['abv','ibu','ebc','volume'].map(key=>{const value=average(key); return Number.isFinite(value)?Math.min(10,value/maxes[key]*10):0;});
-  makeChart('profileChart',{type:'radar',data:{labels:profile,datasets:[{label:'Média normalizada',data:profileValues,backgroundColor:'rgba(230,126,34,.22)',borderColor:'#e67e22',pointBackgroundColor:'#e67e22'}]},options:{responsive:true,maintainAspectRatio:false,scales:{r:{beginAtZero:true,max:10,ticks:{display:false},pointLabels:{color:textColor,font:{size:10}}}},plugins:{legend:{display:false}}}});
+  window.FDCRJ_CONFRARIA_DIRECTORY?.render(DATA);
 }
 function getRecommendationScore(item, profile) {
   const abv=toNumber(item.abv), ibu=toNumber(item.ibu), text=normalizeText([item.estilo,item.familia,item.descricao,item.sabor,item.aroma,item.ingredientes].join(' '));
@@ -800,5 +776,14 @@ function formatMeasure(value, unit) {
   if (new RegExp(`\\s${unit}$`, 'i').test(clean)) return clean;
   return `${clean} ${unit}`;
 }
+function setupFilterPanelPersistence() {
+  const panel = $('.filter-panel');
+  if (!panel) return;
+  const key = 'fdcrj_filter_panel_open';
+  const saved = localStorage.getItem(key);
+  if (saved !== null) panel.open = saved === '1';
+  panel.addEventListener('toggle', () => localStorage.setItem(key, panel.open ? '1' : '0'));
+}
+setupFilterPanelPersistence();
 window.addEventListener('fdcrj-auth-ready', loadSharedRatings);
-document.addEventListener('DOMContentLoaded', async () => { await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); init(); loadSharedRatings(); });
+document.addEventListener('DOMContentLoaded', async () => { await Promise.all([loadSheetData(), window.FDCRJ_CONFRARIA_DIRECTORY?.load()]); BEERS = DATA.map((b, i) => ({ ...b, id: i })); init(); loadSharedRatings(); });
