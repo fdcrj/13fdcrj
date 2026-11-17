@@ -1,5 +1,7 @@
 const SHEET_CSV_URL = window.FDCRJ_DATA_SOURCE?.sheetCsvUrl || 'https://docs.google.com/spreadsheets/d/1S_ajLE6RhxOfa771lQaWYcAKhK_BnS1fRC9lLhABLx4/gviz/tq?tqx=out:csv&gid=503452782';
 let DATA = [];
+let sharedRatings = {};
+let tapStatuses = new Map();
 
 function parseCSV(text) {
   const rows = [];
@@ -67,7 +69,7 @@ function beerShareUrl(item) {
   page.searchParams.set('slug', beerShareKey(item));
   return page.href;
 }
-function normalizeSheetData(text) {
+function normalizeSheetData(text, statuses = tapStatuses) {
   const rows = parseCSV(text);
   if (!rows.length) return [];
   const headers = rows[0].map(value => value.trim().toLowerCase());
@@ -76,15 +78,17 @@ function normalizeSheetData(text) {
   return rows.slice(1).map((row, index) => {
     const estilo = get(row, 'Estilo BJCP') || 'Não informado';
     const confraria = get(row, 'Confraria') || 'Não informado';
+    const name = get(row, 'Nome da cerveja') || `cerveja-${index + 1}`;
+    const tapKey = window.FDCRJ_DATA_SOURCE?.tapKey?.(confraria, name, estilo) || `${normalizeText(confraria)}|${normalizeText(name)}|${normalizeText(estilo)}`;
     return {
-      id: beerShareKey({ cerveja: get(row, 'Nome da cerveja') || `cerveja-${index + 1}`, confrariaNome: confraria, estilo }),
+      id: beerShareKey({ cerveja: name, confrariaNome: confraria, estilo }),
       rowIndex: index,
       confraria,
       confrariaNome: confraria,
       categoria: get(row, 'Tipo') || 'Não informado',
       responsavel: get(row, 'Cervejeiro') || 'Não informado',
       escola: classifyBeerSchool(estilo),
-      cerveja: get(row, 'Nome da cerveja') || 'Cerveja não informada',
+      cerveja: name === `cerveja-${index + 1}` ? 'Cerveja não informada' : name,
       estilo,
       descricao: get(row, 'Descrição'),
       volume: get(row, 'Volume'),
@@ -104,7 +108,9 @@ function normalizeSheetData(text) {
       temperatura: get(row, 'Temperatura', 'Temperatura ideal'),
       copo: get(row, 'Copo', 'Copo recomendado'),
       aroma: get(row, 'Aroma', 'Perfil aromático'),
-      sabor: get(row, 'Sabor', 'Perfil de sabor')
+      sabor: get(row, 'Sabor', 'Perfil de sabor'),
+      statusEngate: statuses.get(tapKey) || '',
+      naTorneira: normalizeText(statuses.get(tapKey)) === 'engatado'
     };
   }).filter(item => item.cerveja && item.cerveja !== 'Cerveja não informada' || item.descricao || item.confraria !== 'Não informado');
 }
@@ -112,12 +118,13 @@ async function loadSheetData() {
   const status = document.getElementById('dataSourceStatus');
   try {
     const csvText = window.FDCRJ_DATA_SOURCE ? await window.FDCRJ_DATA_SOURCE.fetchCsv() : await (await fetch(SHEET_CSV_URL, { cache: 'no-store' })).text();
-    DATA = normalizeSheetData(csvText);
+    tapStatuses = window.FDCRJ_DATA_SOURCE?.fetchTapStatuses ? await window.FDCRJ_DATA_SOURCE.fetchTapStatuses() : new Map();
+    DATA = normalizeSheetData(csvText, tapStatuses);
     const previousSnapshot = JSON.parse(localStorage.getItem('fdcrj_snapshot') || 'null');
     const delta = previousSnapshot ? DATA.length - previousSnapshot.count : 0;
     const changeText = previousSnapshot ? ` • ${delta >= 0 ? '+' : ''}${delta} desde a última visita` : '';
     localStorage.setItem('fdcrj_snapshot', JSON.stringify({ count: DATA.length, timestamp: new Date().toISOString() }));
-    if (status) status.textContent = DATA.length ? `Fonte: planilha 13º FDCRJ • ${DATA.length} cervejas carregadas${changeText} • carregado em ${new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}` : 'Fonte conectada: a aba All Beers ainda não possui registros';
+    if (status) status.textContent = DATA.length ? `Fonte: planilha 13º FDCRJ • ${DATA.length} cervejas carregadas${changeText} • ${DATA.filter(item => item.naTorneira).length} na torneira • carregado em ${new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}` : 'Fonte conectada: a aba All Beers ainda não possui registros';
   } catch (error) {
     DATA = [];
     if (status) status.textContent = 'Não foi possível carregar a planilha. Verifique o acesso público e tente novamente.';
@@ -200,6 +207,20 @@ function toNumber(value) {
 function hasCompleteData(item) {
   return Boolean(item.confrariaNome && item.cerveja && item.estilo && item.descricao && item.volume && item.abv && item.ibu && item.ebc);
 }
+async function loadSharedRatings() {
+  if (!window.FDCRJ_AUTH?.getSharedRating) return;
+  try {
+    await window.FDCRJ_AUTH.ready;
+    const results = await Promise.all(DATA.map(async item => {
+      const slug = beerShareKey(item);
+      return [slug, await window.FDCRJ_AUTH.getSharedRating(slug)];
+    }));
+    sharedRatings = Object.fromEntries(results);
+    renderGrid();
+  } catch (error) {
+    console.warn('Avaliações públicas indisponíveis:', error);
+  }
+}
 function buildFilters() {
   const confs = [...new Set(DATA.map(d => d.confrariaNome))].sort();
   const cats = [...new Set(DATA.map(d => d.categoria))].sort();
@@ -236,6 +257,7 @@ function getFilteredData() {
   const onlyIpa = $('#onlyIpa').getAttribute('aria-pressed') === 'true';
   const onlyComplete = $('#onlyComplete').getAttribute('aria-pressed') === 'true';
   const onlyUntasted = $('#onlyUntasted').getAttribute('aria-pressed') === 'true';
+  const onlyTap = $('#onlyTap').getAttribute('aria-pressed') === 'true';
   return DATA.filter((item, idx) => {
     if (cf && item.confrariaNome !== cf) return false;
     if (ct && item.categoria !== ct) return false;
@@ -254,6 +276,7 @@ function getFilteredData() {
     if (onlyIpa && !normalizeText(item.estilo).includes('ipa') && !normalizeText(item.familia).includes('ipa')) return false;
     if (onlyComplete && !hasCompleteData(item)) return false;
     if (onlyUntasted && userTasted[idx]) return false;
+    if (onlyTap && !item.naTorneira) return false;
     if (q) {
       const haystack = normalizeText([item.cerveja, item.estilo, item.confrariaNome, item.responsavel, item.escola, item.descricao, item.categoria, item.familia, item.volume, item.abv, item.ibu, item.ebc].join(' '));
       if (!q.split(/\s+/).every(term => haystack.includes(term))) return false;
@@ -265,7 +288,7 @@ function getFilteredData() {
     if (sort === 'confraria') return a.confrariaNome.localeCompare(b.confrariaNome);
     if (sort === 'estilo') return a.estilo.localeCompare(b.estilo);
     if (sort === 'categoria') return a.categoria.localeCompare(b.categoria);
-    if (sort === 'rating') return (userRatings[idxB] || 0) - (userRatings[idxA] || 0);
+    if (sort === 'rating') return (sharedRatings[beerShareKey(b)]?.average || 0) - (sharedRatings[beerShareKey(a)]?.average || 0);
     return 0;
   });
 }
@@ -312,7 +335,7 @@ function renderGrid() {
           <button class="fav" aria-pressed="${isFav}" onclick="toggleFav(event, ${idx})" title="Favoritar">⭐</button>
           <h3>${escapeHtml(item.cerveja)}${stars}</h3>
           <div class="meta">${escapeHtml(item.estilo)} • <strong>${escapeHtml(item.confrariaNome)}</strong></div>
-          <div class="specs">${item.volume ? `<span class="spec">${escapeHtml(formatMeasure(item.volume, 'L'))}</span>` : ''}${item.abv ? `<span class="spec">${escapeHtml(formatMeasure(item.abv, '% ABV'))}</span>` : ''}${item.ibu ? `<span class="spec">${escapeHtml(formatMeasure(item.ibu, 'IBU'))}</span>` : ''}</div>
+          <div class="specs"><span class="tap-badge ${normalizeText(item.statusEngate || 'não informado').replace(/[^a-z]+/g, '-')}">${item.naTorneira ? '🍺 ' : ''}Status: ${escapeHtml(item.statusEngate || 'Não informado')}</span>${sharedRatings[beerShareKey(item)]?.count ? `<span class="spec">★ ${sharedRatings[beerShareKey(item)].average.toFixed(1).replace('.', ',')} (${sharedRatings[beerShareKey(item)].count})</span>` : ''}${item.volume ? `<span class="spec">${escapeHtml(formatMeasure(item.volume, 'L'))}</span>` : ''}${item.abv ? `<span class="spec">${escapeHtml(formatMeasure(item.abv, '% ABV'))}</span>` : ''}${item.ibu ? `<span class="spec">${escapeHtml(formatMeasure(item.ibu, 'IBU'))}</span>` : ''}</div>
           <p class="desc">${item.descricao ? escapeHtml(item.descricao) : '<em>Sem descrição sensorial detalhada.</em>'}</p>
           <div class="owner">👤 ${escapeHtml(item.responsavel)} (${escapeHtml(item.categoria)})${item.escola ? `<br>🎓 ${escapeHtml(item.escola)}` : ''}</div><div class="compare-actions"><a class="compare-card-button" href="${beerShareUrl(item)}" onclick="event.stopPropagation()">↗ Abrir ficha</a><button class="compare-card-button" type="button" onclick="event.stopPropagation(); toggleCompare(${idx})">${isCompared ? '✓ Comparando' : '⚖️ Comparar'}</button>${userTasted[idx] ? '<span class="compare-card-button">✓ Já degustei</span>' : ''}</div>
         </div>
@@ -464,7 +487,7 @@ function openModal(idx) {
 
   $('#mdesc').innerHTML = item.descricao ? escapeHtml(item.descricao) : '<em>Sem descrição adicional cadastrada para esta cerveja.</em>';
   const extras = [item.ingredientes ? `<div><strong>Ingredientes:</strong> ${escapeHtml(item.ingredientes)}</div>` : '', item.aroma ? `<div><strong>Aroma:</strong> ${escapeHtml(item.aroma)}</div>` : '', item.sabor ? `<div><strong>Sabor:</strong> ${escapeHtml(item.sabor)}</div>` : '', item.harmonizacao ? `<div><strong>Harmonização:</strong> ${escapeHtml(item.harmonizacao)}</div>` : '', item.temperatura ? `<div><strong>Temperatura ideal:</strong> ${escapeHtml(item.temperatura)}</div>` : '', item.copo ? `<div><strong>Copo recomendado:</strong> ${escapeHtml(item.copo)}</div>` : '', getLocationMarkup(item)].filter(Boolean).join('');
-  $('#detailExtras').innerHTML = extras || '<span class="filter-help">Ainda não há características adicionais cadastradas para esta cerveja.</span>';
+  $('#detailExtras').innerHTML = `<div class="tap-status ${normalizeText(item.statusEngate || 'não informado').replace(/[^a-z]+/g, '-')}">${item.naTorneira ? '🍺 ' : ''}Status do engate: ${escapeHtml(item.statusEngate || 'Não informado')}</div>${extras || '<span class="filter-help">Ainda não há características adicionais cadastradas para esta cerveja.</span>'}`;
   $('#notes').value = userNotes[idx] || '';
   const tasting = userTasting[idx] || {};
   $('#tasteDate').value=tasting.date||''; $('#appearance').value=tasting.appearance||''; $('#aroma').value=tasting.aroma||''; $('#flavor').value=tasting.flavor||''; $('#bitterness').value=tasting.bitterness||''; $('#body').value=tasting.body||''; $('#pairing').value=tasting.pairing||'';
@@ -477,6 +500,7 @@ function openModal(idx) {
   }
 
   renderModalStars(userRatings[idx] || 0);
+  renderPublicRating(beerShareKey(item));
 
   const isFav = userFavs.includes(idx);
   const mfav = $('#mfav');
@@ -495,12 +519,32 @@ function renderModalStars(rating) {
   container.innerHTML = html;
 }
 
-function setRating(r) {
+function renderPublicRating(slug) {
+  const target = $('#publicRating');
+  if (!target) return;
+  const summary = sharedRatings[slug];
+  target.textContent = summary?.count ? `Avaliação pública: ★ ${summary.average.toFixed(1).replace('.', ',')} de 5 (${summary.count} ${summary.count === 1 ? 'voto' : 'votos'})` : 'Ainda não há avaliações públicas. Entre com Google para votar.';
+}
+
+async function setRating(r) {
   if (activeModalBeer === null) return;
+  const item = DATA[activeModalBeer];
+  if (!window.FDCRJ_AUTH?.getUser?.()) {
+    showToast('Entre com Google para registrar sua avaliação');
+    await window.FDCRJ_AUTH?.loginWithGoogle?.();
+    if (!window.FDCRJ_AUTH?.getUser?.()) return;
+  }
   userRatings[activeModalBeer] = r;
   localStorage.setItem('fdcrj_ratings', JSON.stringify(userRatings));
   renderModalStars(r);
-  renderGrid();
+  try {
+    sharedRatings[beerShareKey(item)] = await window.FDCRJ_AUTH.saveSharedRating(beerShareKey(item), r);
+    renderPublicRating(beerShareKey(item));
+    renderGrid();
+    showToast('Avaliação pública registrada');
+  } catch (error) {
+    showToast('Não foi possível registrar a avaliação');
+  }
 }
 
 function saveTastingField(field, value) {
@@ -566,7 +610,7 @@ function bindEvents() {
     $(sel).addEventListener('input', renderGrid);
   });
 
-  ['onlyFav', 'onlyDesc', 'onlyRio', 'onlyIpa', 'onlyComplete', 'onlyUntasted'].forEach(id => {
+  ['onlyFav', 'onlyDesc', 'onlyRio', 'onlyIpa', 'onlyComplete', 'onlyUntasted', 'onlyTap'].forEach(id => {
     $(`#${id}`).addEventListener('click', function() {
       const pressed = this.getAttribute('aria-pressed') === 'true';
       this.setAttribute('aria-pressed', !pressed);
@@ -644,4 +688,5 @@ function formatMeasure(value, unit) {
   if (new RegExp(`\\s${unit}$`, 'i').test(clean)) return clean;
   return `${clean} ${unit}`;
 }
-document.addEventListener('DOMContentLoaded', async () => { await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); init(); });
+window.addEventListener('fdcrj-auth-ready', loadSharedRatings);
+document.addEventListener('DOMContentLoaded', async () => { await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); init(); loadSharedRatings(); });

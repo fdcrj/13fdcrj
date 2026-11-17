@@ -1,9 +1,11 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { getFirestore, collection, doc, getDocs, setDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
 import { firebaseConfig } from './firebase-config.js';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 
@@ -72,11 +74,35 @@ async function logout() {
   }
 }
 
+async function getSharedRating(slug) {
+  const snapshot = await getDocs(collection(db, 'beerRatings', slug, 'votes'));
+  const ratings = snapshot.docs.map(item => Number(item.data()?.rating)).filter(value => Number.isInteger(value) && value >= 1 && value <= 5);
+  const userRating = currentUser ? Number(snapshot.docs.find(item => item.id === currentUser.uid)?.data()?.rating || 0) : 0;
+  return { average: ratings.length ? ratings.reduce((sum, value) => sum + value, 0) / ratings.length : 0, count: ratings.length, userRating };
+}
+
+async function saveSharedRating(slug, rating) {
+  const user = currentUser || await authReady;
+  if (!user) throw new Error('AUTH_REQUIRED');
+  const value = Number(rating);
+  if (!Number.isInteger(value) || value < 1 || value > 5) throw new Error('INVALID_RATING');
+  await setDoc(doc(db, 'beerRatings', slug, 'votes', user.uid), { rating: value });
+  return getSharedRating(slug);
+}
+
+async function removeSharedRating(slug) {
+  const user = currentUser || await authReady;
+  if (!user) throw new Error('AUTH_REQUIRED');
+  await deleteDoc(doc(db, 'beerRatings', slug, 'votes', user.uid));
+  return getSharedRating(slug);
+}
+
 $('#googleSignIn')?.addEventListener('click', loginWithGoogle);
 $('#googleSignOut')?.addEventListener('click', logout);
 onAuthStateChanged(auth, user => {
   renderAuth(user);
   resolveAuthReady(user || null);
+  window.dispatchEvent(new CustomEvent('fdcrj-auth-ready', { detail: { user } }));
 });
 
 window.FDCRJ_AUTH = {
@@ -85,5 +111,8 @@ window.FDCRJ_AUTH = {
   ready: authReady,
   getUser: () => currentUser,
   loginWithGoogle,
-  logout
+  logout,
+  getSharedRating,
+  saveSharedRating,
+  removeSharedRating
 };
