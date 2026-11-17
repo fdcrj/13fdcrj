@@ -489,6 +489,16 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .bjcp-reference[open] > summary::after { content:'−'; }
 .bjcp-reference__body { padding:0 13px 13px; font-size:.8rem; }
 .bjcp-reference__body p { color:var(--muted); margin:8px 0; }
+.bjcp-reference__summary, .bjcp-reference__history { margin:12px 0; padding:11px 12px; border:1px solid var(--line); border-radius:12px; background:var(--card); }
+.bjcp-reference__summary h3, .bjcp-reference__history h3 { margin:0 0 5px; color:var(--ink); font-size:.82rem; }
+.bjcp-reference__summary p, .bjcp-reference__history p { margin:0; color:var(--ink); line-height:1.6; }
+.bjcp-reference__disclaimer { font-size:.72rem; }
+.bjcp-reference__history { border-left:4px solid var(--accent); }
+.bjcp-reference__missing { font-weight:700; }
+.bjcp-reference__sources { margin:10px 0; color:var(--muted); font-size:.74rem; }
+.bjcp-reference__sources summary { cursor:pointer; font-weight:700; }
+.bjcp-reference__sources ul { margin:5px 0 0; padding-left:18px; }
+.bjcp-reference__sources a { overflow-wrap:anywhere; }
 .bjcp-reference__meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
 .bjcp-reference__meta > div { display:grid; gap:3px; min-width:0; padding:9px; border:1px solid var(--line); border-radius:10px; background:var(--card); }
 .bjcp-reference__meta span { color:var(--muted); font-size:.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }
