@@ -461,6 +461,10 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .confraria-summary { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:7px; }
 .confraria-summary span { border:1px solid var(--line); border-radius:999px; padding:5px 10px; color:var(--muted); font-size:.75rem; font-weight:800; }
 .confraria-directory-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.confraria-directory-section-heading { grid-column:1/-1; margin:8px 0 -2px; padding:10px 0 2px; border-top:1px solid var(--line); }
+.confraria-directory-section-heading h3 { margin:0; font-size:.95rem; }
+.confraria-directory-section-heading p { margin:4px 0 0; color:var(--muted); font-size:.75rem; line-height:1.45; }
+.confraria-directory-section-heading--history { margin-top:16px; }
 .confraria-entry { min-width:0; border:1px solid var(--line); border-left:5px solid var(--conf-color,var(--brand)); border-radius:14px; background:var(--card); overflow:hidden; }
 .confraria-entry > summary { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:8px; padding:12px; cursor:pointer; list-style:none; }
 .confraria-entry > summary::-webkit-details-marker { display:none; }
@@ -468,6 +472,17 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .confraria-entry[open] > summary::after { content:'−'; }
 .confraria-entry__name { margin:0; font-size:.92rem; line-height:1.25; }
 .confraria-entry__region { display:block; margin-top:4px; color:var(--muted); font-size:.74rem; }
+.confraria-status-badge { display:inline-flex; margin-top:6px; border:1px solid color-mix(in srgb,var(--conf-color,var(--brand)) 35%,var(--line)); border-radius:999px; padding:3px 7px; color:var(--conf-color,var(--brand)); background:color-mix(in srgb,var(--conf-color,var(--brand)) 8%,var(--card)); font-size:.65rem; font-weight:800; line-height:1.35; }
+.confraria-status-badge--org { border-color:color-mix(in srgb,var(--accent) 55%,var(--line)); background:color-mix(in srgb,var(--accent) 16%,var(--card)); color:var(--brand-ink); }
+.confraria-organizers { grid-column:1/-1; margin:2px 0 6px; border:1px solid var(--line); border-radius:14px; background:color-mix(in srgb,var(--accent) 6%,var(--card)); padding:12px 14px; }
+.confraria-organizers h3 { margin:0; font-size:.9rem; }
+.confraria-organizers > p { margin:5px 0 9px; color:var(--muted); font-size:.74rem; line-height:1.5; }
+.confraria-organizers ul { margin:0; padding:0; list-style:none; display:grid; gap:6px; }
+.confraria-organizers li { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px; border-top:1px solid var(--line); padding-top:6px; font-size:.76rem; }
+.confraria-organizers li:first-child { border-top:0; padding-top:0; }
+.confraria-organizers li b { min-width:78px; font-size:.76rem; }
+.confraria-organizers li span { color:var(--muted); font-size:.72rem; }
+.confraria-organizers .confraria-organizer-name { color:var(--ink); font-weight:800; font-size:.76rem; }
 .confraria-medals { display:flex; align-items:center; gap:4px; flex-wrap:wrap; justify-content:flex-end; }
 .confraria-medal { display:inline-flex; align-items:center; gap:3px; border:1px solid var(--line); border-radius:999px; padding:3px 6px; color:var(--ink); font-size:.65rem; font-weight:800; white-space:nowrap; }
 .confraria-medal--ouro { background:#fff4cc; border-color:#d6a900; color:#745500; }
@@ -475,6 +490,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .confraria-medal--bronze { background:#f8e6d9; border-color:#bd7042; color:#78401f; }
 .confraria-entry__body { border-top:1px solid var(--line); padding:12px; }
 .confraria-entry__body > p { margin:0 0 10px; font-size:.82rem; line-height:1.55; }
+.confraria-entry__body > .confraria-status-note { margin:0 0 10px; border-left:3px solid var(--conf-color,var(--brand)); padding:7px 9px; background:color-mix(in srgb,var(--conf-color,var(--brand)) 7%,var(--card)); color:var(--muted); font-size:.74rem; line-height:1.5; }
 .confraria-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:10px 0; }
 .confraria-facts > div { min-width:0; border:1px solid var(--line); border-radius:10px; padding:8px; }
 .confraria-facts dt { color:var(--muted); font-size:.65rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }
