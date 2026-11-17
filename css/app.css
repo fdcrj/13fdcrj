@@ -276,6 +276,25 @@ select {
 .tap-badge.esgotado, .tap-status.esgotado { background:#ffe1e1; border-color:#dc6b6b; color:#9a2525; }
 .tap-badge.reserva, .tap-status.reserva { background:#e8e5ff; border-color:#8176d8; color:#4b429d; }
 .tap-badge.nao-informado, .tap-status.nao-informado { background:#edf0f3; border-color:#b9c1c9; color:#59636c; }
+.status-board { margin: 18px 0; }
+.status-board-heading { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:12px; }
+.status-board-heading h2 { margin:0 0 4px; }
+.status-board-heading p { margin:0; color:var(--muted); }
+.status-tabs { display:flex; gap:8px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:8px; }
+.status-tab { border:1px solid var(--line); background:var(--surface-2); color:var(--text); border-radius:999px; padding:8px 13px; font-weight:800; cursor:pointer; }
+.status-tab.active { background:var(--brand); color:#fff; border-color:var(--brand); }
+.status-tab span { display:inline-grid; place-items:center; min-width:22px; height:20px; margin-left:5px; border-radius:999px; background:rgba(255,255,255,.28); font-size:.74rem; }
+.status-panel { padding-top:12px; }
+.status-bars { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:8px; }
+.status-beer-bar { display:grid; grid-template-columns:1fr auto; grid-template-rows:auto auto; gap:2px 8px; width:100%; border:1px solid var(--line); border-left:5px solid #aeb7c1; border-radius:10px; background:var(--surface-2); color:var(--text); padding:9px 11px; text-align:left; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; }
+.status-beer-bar:hover { transform:translateY(-1px); box-shadow:var(--shadow-sm); }
+.status-beer-bar strong { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.status-beer-bar span { grid-column:1/-1; color:var(--muted); font-size:.76rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.status-beer-bar small { grid-column:1/-1; color:var(--muted); font-size:.7rem; }
+.status-beer-bar.aguardando { border-left-color:#e5b94c; }
+.status-beer-bar.engatado { border-left-color:#39a96b; }
+.status-beer-bar.esgotado { border-left-color:#dc6b6b; }
+.status-empty { border:1px dashed var(--line); border-radius:10px; padding:14px; color:var(--muted); text-align:center; }
 
 /* Legend section */
 .legend { margin-top: 32px; }
