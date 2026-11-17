@@ -166,6 +166,7 @@ let userTasted = JSON.parse(localStorage.getItem('fdcrj_tasted') || '{}');
 let compareSet = JSON.parse(localStorage.getItem('fdcrj_compare') || '[]');
 let charts = {};
 let activeModalBeer = null;
+let bjcpReferenceRequest = 0;
 
 // Elementos DOM
 const $ = s => document.querySelector(s); const $$ = s => document.querySelectorAll(s);
@@ -549,6 +550,12 @@ function openModal(idx) {
   $('#mt').style.setProperty('--c', color);
   $('#mn').textContent = item.cerveja;
   $('#mfam').textContent = `${item.estilo} • ${item.familia}`;
+  const referenceRequest = ++bjcpReferenceRequest;
+  const referenceTarget = $('#bjcpReference');
+  referenceTarget.innerHTML = '<p class="filter-help">Carregando referência BJCP 2021…</p>';
+  window.FDCRJ_BJCP_REFERENCE?.panelMarkup(item.estilo).then(markup => {
+    if (referenceRequest === bjcpReferenceRequest) referenceTarget.innerHTML = markup;
+  });
   $('#detailHero').innerHTML = item.foto ? `<img class="detail-photo" src="${escapeAttr(item.foto)}" alt="Imagem de ${escapeAttr(item.cerveja)}" onerror="this.remove()">` : `<div class="tag" style="--c:${color}">${escapeHtml(item.familia)}</div>`;
 
   $('#details').innerHTML = `
@@ -671,6 +678,7 @@ $('#clearCompare').addEventListener('click', () => { compareSet=[]; localStorage
 function closeModal() {
   $('#modal').classList.remove('open');
   activeModalBeer = null;
+  bjcpReferenceRequest++;
 }
 
 $('#x').addEventListener('click', closeModal);
