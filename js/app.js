@@ -165,6 +165,7 @@ function init() {
   setupTheme();
   setupExperience();
   buildFilters();
+  renderStatusBoard();
   renderGrid();
   renderLegend();
   updateStats();
@@ -174,6 +175,29 @@ function init() {
   renderCompare();
   bindEvents();
   parseURLParams();
+}
+
+function statusBoardBucket(status) {
+  const value = normalizeText(status);
+  if (value === 'aguardando') return 'Aguardando';
+  if (value === 'engatado') return 'Engatado';
+  if (value === 'esgotado' || value === 'acabou') return 'Acabou';
+  return null;
+}
+
+function renderStatusBoard() {
+  const buckets = { Aguardando: [], Engatado: [], Acabou: [] };
+  DATA.forEach((item, index) => {
+    const bucket = statusBoardBucket(item.statusEngate);
+    if (bucket) buckets[bucket].push({ item, index });
+  });
+  Object.entries(buckets).forEach(([bucket, entries]) => {
+    const count = $(`#statusCount${bucket}`);
+    const list = $(`#statusList${bucket}`);
+    if (count) count.textContent = entries.length;
+    if (!list) return;
+    list.innerHTML = entries.length ? entries.map(({ item, index }) => `<button class="status-beer-bar ${normalizeText(item.statusEngate).replace(/[^a-z]+/g, '-')}" type="button" onclick="openModal(${index})"><strong>${escapeHtml(item.cerveja)}</strong><span>${escapeHtml(item.estilo)}</span><small>${escapeHtml(item.confrariaNome)}</small></button>`).join('') : '<div class="status-empty">Nenhuma cerveja neste status.</div>';
+  });
 }
 
 function setupExperience() {
@@ -620,7 +644,8 @@ function bindEvents() {
   });
 
   $('#clear').addEventListener('click', () => { clearAllFilters(); showToast('Filtros limpos'); });
-  $('#reloadData').addEventListener('click', async () => { $('#reloadData').disabled = true; $('#reloadData').textContent = '↻ Carregando...'; await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); buildFilters(); renderGrid(); renderLegend(); updateStats(); renderInsights(); renderDashboard(); renderRecommendations(); renderCompare(); $('#reloadData').disabled = false; $('#reloadData').textContent = '↻ Atualizar dados'; showToast('Dados atualizados'); });
+  $('#reloadData').addEventListener('click', async () => { $('#reloadData').disabled = true; $('#reloadData').textContent = '↻ Carregando...'; await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); buildFilters(); renderStatusBoard(); renderGrid(); renderLegend(); updateStats(); renderInsights(); renderDashboard(); renderRecommendations(); renderCompare(); $('#reloadData').disabled = false; $('#reloadData').textContent = '↻ Atualizar dados'; showToast('Dados atualizados'); });
+  document.querySelectorAll('[data-status-tab]').forEach(tab => tab.addEventListener('click', () => { const target = tab.dataset.statusTab; document.querySelectorAll('[data-status-tab]').forEach(item => { const active = item === tab; item.classList.toggle('active', active); item.setAttribute('aria-selected', active); }); document.querySelectorAll('.status-panel').forEach(panel => { const active = panel.id === `statusPanel${target}`; panel.classList.toggle('active', active); panel.hidden = !active; }); }));
   $('#presentationToggle').addEventListener('click', event => { const active = document.body.classList.toggle('presentation-mode'); event.currentTarget.setAttribute('aria-pressed', active); event.currentTarget.textContent = active ? '▣ Sair da apresentação' : '▣ Apresentação'; });
   $('#validateData').addEventListener('click', validateData);
   document.querySelectorAll('[data-recommend]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-recommend]').forEach(item => item.classList.remove('active')); button.classList.add('active'); renderRecommendations(button.dataset.recommend); }));
