@@ -2,7 +2,7 @@
   "schema_version": 2,
   "medal_rule": "Nas abas 1FDCRJ a 12FDCRJ, 1º lugar = ouro, 2º = prata, 3º = bronze, conforme informado pelo usuário. Menções honrosas e reconhecimentos sem medalha especificada não entram nos totais. Resultados externos só entram quando a fonte confirma o resultado e a associação do premiado à confraria.",
   "source_policy": "Fontes públicas independentes, canais oficiais do FDCRJ e documentos fornecidos pelo usuário podem ser consultados para identidade, cronologia, participação e contexto. Conforme orientação expressa do usuário, todas as confrarias listadas como participantes nos regulamentos fornecidos são consideradas presentes na edição correspondente. As medalhas históricas foram transcritas do registro fornecido pelo usuário; seu link não é publicado no site.",
-  "coverage_note": "A seção atual mostra o cadastro de confrarias participantes. A seção histórica registra medalhistas e outros grupos presentes em edições passadas, fora do cadastro atual; isso não significa encerramento das confrarias. Os regulamentos fornecidos listam 8 participantes na 1ª edição, 13 na 2ª, 16 na 3ª, 19 na 4ª e 19 na 5ª; conforme orientação do usuário, todas são consideradas presentes. A 4 Cantos RJ organizou a 1ª e a 2ª edições e dividiu a 3ª com a CCZS e a 4ª com a CCLA; na 5ª, o regulamento identifica a INSULANA como realizadora e confraria-sede, com organização formal por comissões, e registra que membros da 4CRJ idealizaram o Festival. Fontes consultadas também identificam participação da CCN na organização da 6ª e a Cocejucana como organizadora da 7ª. Posições 1/2/3 são convertidas em ouro/prata/bronze conforme a regra do usuário.",
+  "coverage_note": "A organização e os locais das edições 1FDCRJ a 13FDCRJ são exibidos conforme a tabela da página atual do site fornecida pelo usuário. As participações dos regulamentos do 1º e 2º FDCRJ seguem a interpretação expressa do usuário de que todos os grupos listados estiveram presentes. Os perfis mantêm as demais fontes e totais documentados.",
   "confrarias": [
     {
       "awards": [
@@ -203,18 +203,6 @@
           "field": "Participação no 2º FDCRJ (2016)",
           "title": "Regulamento do 2º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3, 1.5 e 3.2, pp. 2–3 (documento fornecido pelo usuário)",
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros de Jacarepaguá — 3CJ” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 45 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros Caseiros de Jacarepaguá” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
         }
       ],
       "profile_summary": "Confraria de cervejeiros caseiros de Jacarepaguá, descrita como um grupo de caráter não profissional dedicado a encontros, brassagens coletivas, treinamentos e troca de experiências cervejeiras.",
@@ -240,33 +228,9 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 45
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
         }
-      ]
+      ],
+      "organized_editions": []
     },
     {
       "awards": [
@@ -391,12 +355,6 @@
           "field": "region",
           "title": "Publicação de RuivaRaivosa sobre a ACRL no 10º Festival das Confrarias",
           "url": "https://www.instagram.com/p/C_Et-hNpbEJ/"
-        },
-        {
-          "evidence": "O art. 3º lista “Associação de Cervejeiros da Região dos Lagos” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
         }
       ],
       "profile_summary": "Associação/confraria regional de cervejeiros artesanais caseiros. Uma publicação pública de agosto de 2024 descreve a união da CCAR (Araruama) com a CCRO (Rio das Ostras), formando a ACRL, e sua apresentação conjunta da produção artesanal da região no 10º Festival das Confrarias. A publicação usa a variante de nome ‘Associação Cervejeira da Região dos Lagos’.",
@@ -406,16 +364,7 @@
         "ACRL",
         "Associação dos Cervejeiros da Região dos Lagos"
       ],
-      "festival_participations": [
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
-        }
-      ]
+      "organized_editions": []
     },
     {
       "awards": [
@@ -521,7 +470,8 @@
       "aliases": [
         "ACZ",
         "Associação de Cervejeiros da Zona da Mata"
-      ]
+      ],
+      "organized_editions": []
     },
     {
       "awards": [
@@ -656,7 +606,8 @@
       "aliases": [
         "C3",
         "Confraria Cervejeiros Caxienses"
-      ]
+      ],
+      "organized_editions": []
     },
     {
       "awards": [
@@ -1034,16 +985,9 @@
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros da Barra da Tijuca e Recreio — CCBR” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
         },
         {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 60 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Cervejeiros Caseiros da Barra da Tijuca e Recreio dos Bandeirantes” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "8FDCRJ: CCBR — Ramada, Recreio."
         }
       ],
       "profile_summary": "Grupo de cervejeiros caseiros da Barra da Tijuca e do Recreio dos Bandeirantes, no Rio de Janeiro. As fontes públicas descrevem encontros mensais para troca de conhecimentos sobre cerveja e brassagens.",
@@ -1062,31 +1006,15 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
+        }
+      ],
+      "organized_editions": [
         {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 60
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
+          "edition": "8FDCRJ",
+          "organizer_code": "CCBR",
+          "role": "Confraria organizadora",
+          "location": "Ramada, Recreio",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
       ]
     },
@@ -1189,7 +1117,7 @@
         "prata": 0
       },
       "meetup_info": "Não foi possível confirmar local ou frequência de encontros regulares. Um evento público pontual coorganizado com a Confraria Coisa de Mulher ocorreu em 3 de fevereiro de 2024, das 12h às 22h, na Cervejaria Duas Torres, em Petrópolis.",
-      "official_name": "Confraria dos Cervejeiros Caseiros de Petrópolis",
+      "official_name": "CCCP — Confraria dos Cervejeiros Caseiros de Petrópolis",
       "other_links": [
         "https://www.facebook.com/cccpetropolis/"
       ],
@@ -1225,10 +1153,9 @@
           "url": "https://www.facebook.com/cccpetropolis/"
         },
         {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros Caseiros de Petrópolis” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "11FDCRJ: CCCP — Bohemia, Petrópolis."
         }
       ],
       "profile_summary": "Confraria de cervejeiros caseiros de Petrópolis. Seu perfil oficial a apresenta como campeã do 10º Festival de Confrarias do Rio de Janeiro e quatro vezes medalhista; os quatro pódios confirmados nesta pesquisa são das edições 8 e 10 do FDCRJ.",
@@ -1236,16 +1163,16 @@
       "website_url": "",
       "aliases": [
         "CCCP",
-        "Confraria de Cervejeiros Caseiros de Petrópolis"
+        "Confraria de Cervejeiros Caseiros de Petrópolis",
+        "Confraria dos Cervejeiros Caseiros de Petrópolis"
       ],
-      "festival_participations": [
+      "organized_editions": [
         {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
+          "edition": "11FDCRJ",
+          "organizer_code": "CCCP",
+          "role": "Confraria organizadora",
+          "location": "Bohemia, Petrópolis",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
       ]
     },
@@ -1579,16 +1506,9 @@
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros do Grande Méier — CCGM” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
         },
         {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 60 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros Caseiros do Grande Méier” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "12FDCRJ: CCGM — Engenhão, Engenho de Dentro."
         }
       ],
       "profile_summary": "Confraria de cervejeiros caseiros do Grande Méier, na cidade do Rio de Janeiro, dedicada à produção e à cultura da cerveja artesanal. Há registro público de atividade já em fevereiro de 2016. A confraria mantém encontros e participa do Festival de Confrarias do Rio de Janeiro.",
@@ -1615,31 +1535,15 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
+        }
+      ],
+      "organized_editions": [
         {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 60
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
+          "edition": "12FDCRJ",
+          "organizer_code": "CCGM",
+          "role": "Confraria organizadora",
+          "location": "Engenhão, Engenho de Dentro",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
       ]
     },
@@ -2021,22 +1925,9 @@
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros da Leopoldina — CCLA” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
         },
         {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 60 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.5 atribui a organização do 4º Festival aos idealizadores da Confraria 4 Cantos do Rio de Janeiro e da Confraria dos Cervejeiros da Leopoldina e Adjacências, com apoio de membros das confrarias; o item 3.2 fixa o evento em 20/01/2018.",
-          "field": "Organização do 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.5 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros da Leopoldina e Adjacência” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "4FDCRJ: CCLA — Clube do Olaria, Bariri."
         }
       ],
       "profile_summary": "Confraria de cervejeiros caseiros dedicada ao desenvolvimento e ao compartilhamento da cultura cervejeira na região da Leopoldina e adjacências, no Rio de Janeiro. Seu perfil público registra encontros e participação no Festival de Confrarias do Rio de Janeiro.",
@@ -2064,40 +1955,15 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 60
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
         }
       ],
       "organized_editions": [
         {
-          "date": "2018-01-20",
           "edition": "4FDCRJ",
-          "reference": "item 1.5",
-          "role": "organizadora em conjunto com a 4 Cantos RJ; o regulamento atribui a organização aos idealizadores das duas confrarias, com apoio de membros das confrarias",
-          "year": "2018"
+          "organizer_code": "CCLA",
+          "role": "Confraria organizadora",
+          "location": "Clube do Olaria, Bariri",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
       ]
     },
@@ -2388,7 +2254,8 @@
       "aliases": [
         "CCLO",
         "Confraria Cervejeiros do Lado Oeste"
-      ]
+      ],
+      "organized_editions": []
     },
     {
       "awards": [],
@@ -2451,7 +2318,8 @@
       "aliases": [
         "CDM",
         "Confraria Coisa de Mulher"
-      ]
+      ],
+      "organized_editions": []
     },
     {
       "awards": [
@@ -2672,16 +2540,9 @@
           "url": "https://www.facebook.com/festivaldeconfrariasrj/posts/-falta-exatamente-1-m%C3%AAs-para-o-12%C2%BA-fdcrj-confrades-e-confreiras-a-contagem-regre/1789980706463599/"
         },
         {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 25 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria Grajaú” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "13FDCRJ: CG — Atual, a definir."
         }
       ],
       "profile_summary": "Confraria de cervejeiros caseiros do Grajaú, no Rio de Janeiro, que produz cervejas artesanais e participa de festivais cervejeiros.",
@@ -2691,23 +2552,13 @@
         "CG",
         "Confraria Grajaú de Cerveja Artesanal"
       ],
-      "festival_participations": [
+      "organized_editions": [
         {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 25
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
+          "edition": "13FDCRJ",
+          "organizer_code": "CG",
+          "role": "Confraria organizadora",
+          "location": "Atual, a definir",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
       ]
     },
@@ -3002,16 +2853,9 @@
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros da Baixada Fluminense — CONCEBA” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
         },
         {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 60 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros Caseiros da Baixada Fluminense” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "9FDCRJ: CONCEBA — Beija-Flor, Nilópolis."
         }
       ],
       "profile_summary": "Confraria de cervejeiros caseiros da Baixada Fluminense. Em publicação de apresentação, o Festival de Confrarias descreve sua origem como a união de amigos amantes da arte de fazer cerveja; o Instagram da própria confraria convida interessados a participar.",
@@ -3038,31 +2882,15 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
+        }
+      ],
+      "organized_editions": [
         {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 60
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
+          "edition": "9FDCRJ",
+          "organizer_code": "CONCEBA",
+          "role": "Confraria organizadora",
+          "location": "Beija-Flor, Nilópolis",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
       ]
     },
@@ -3112,7 +2940,7 @@
         "prata": 0
       },
       "meetup_info": "",
-      "official_name": "Confraria dos Cervejeiros Artesanais de Miracema e Adjacências Fernando Junior",
+      "official_name": "CONCERMIRAFJ — Confraria dos Cervejeiros Artesanais de Miracema e Adjacências e Fernando Junior",
       "other_links": [],
       "profile_sources": [
         {
@@ -3157,8 +2985,11 @@
       "website_url": "",
       "aliases": [
         "CONCERMIRAFJ",
-        "Confraria de Cervejeiros de Miracema e Região Fernando Jr"
-      ]
+        "Confraria de Cervejeiros de Miracema e Região Fernando Jr",
+        "Confraria dos Cervejeiros Artesanais de Miracema e Adjacências e Fernando Junior",
+        "Confraria dos Cervejeiros Artesanais de Miracema e Adjacências Fernando Junior"
+      ],
+      "organized_editions": []
     },
     {
       "awards": [
@@ -3445,16 +3276,9 @@
           "url": "https://www.facebook.com/festivaldeconfrariasrj/posts/-falta-exatamente-1-m%C3%AAs-para-o-12%C2%BA-fdcrj-confrades-e-confreiras-a-contagem-regre/1789980706463599/"
         },
         {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 20 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria Rock & Bier” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "10FDCRJ: CRB — Beija-Flor, Nilópolis."
         }
       ],
       "profile_summary": "Confraria de cervejeiros caseiros e amigos ligados à cultura cervejeira e ao rock; a própria confraria descreve a produção de cerveja artesanal e encontros entre seus membros.",
@@ -3464,23 +3288,13 @@
         "CRB",
         "Confraria Rock & Bier"
       ],
-      "festival_participations": [
+      "organized_editions": [
         {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 20
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
+          "edition": "10FDCRJ",
+          "organizer_code": "CRB",
+          "role": "Confraria organizadora",
+          "location": "Beija-Flor, Nilópolis",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
       ]
     },
@@ -3555,7 +3369,7 @@
         "prata": 2
       },
       "meetup_info": "",
-      "official_name": "Confraria Sul Fluminense",
+      "official_name": "CSF — Confraria Sul Fluminense",
       "other_links": [],
       "profile_sources": [
         {
@@ -3575,12 +3389,6 @@
           "field": "profile_summary; contexto do evento",
           "title": "8° Concurso do Festival de Confrarias do Rio de Janeiro",
           "url": "https://beerawardsplatform.com/8cfdcrj"
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria Sul Fluminense” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes. A lista identifica a CSF como “CONFRAMENDES, CVR e CAN”; isso é registrado como composição/associação, não como três inscrições adicionais.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
         }
       ],
       "profile_summary": "Confraria de cervejeiros caseiros da região Sul Fluminense. A plataforma de resultados do FDCRJ identifica a CSF em Mendes, Rio de Janeiro.",
@@ -3590,17 +3398,7 @@
         "CSF",
         "Confraria Sul Fluminense"
       ],
-      "festival_participations": [
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "composition_note": "O regulamento põe CONFRAMENDES, CVR e CAN entre parênteses como composição/associação da Confraria Sul Fluminense (CSF); não foram contados como três participantes adicionais."
-        }
-      ]
+      "organized_editions": []
     },
     {
       "awards": [
@@ -3739,22 +3537,9 @@
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros da Ilha do Governador — INSULANA” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
         },
         {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 45 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros da Ilha do Governador” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
-        },
-        {
-          "evidence": "A capa identifica “Realização: Insulana”; o art. 6º indica a INSULANA como confraria-sede; o art. 7º define a organização por comissões (fixa, júri e confraria-sede). O art. 5º informa que Ricardo Rios e Rodrigo Baruffaldi, ambos da 4CRJ, idealizaram o evento e podiam participar da organização, sem atribuir organização exclusiva à 4CRJ.",
-          "field": "Organização do 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — capa e arts. 5º–7º, 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "5FDCRJ: INSULANA — União da Ilha, Ilha do Governador."
         }
       ],
       "profile_summary": "Confraria cervejeira de bairro, não profissional, voltada à cultura da cerveja caseira; os encontros são abertos, sujeitos a controle de participação. A própria confraria relata que venceu todos os quatro prêmios possíveis no 3º FDCRJ.",
@@ -3772,41 +3557,15 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 45
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
         }
       ],
-      "organizer_label": "INSULANA (realização e confraria-sede)",
       "organized_editions": [
         {
-          "date": "2018-07-21",
           "edition": "5FDCRJ",
-          "reference": "capa (“Realização: Insulana”); arts. 6º–7º; data nos arts. 12º–13º",
-          "role": "confraria realizadora e sede; a organização formal foi atribuída a uma comissão fixa, à comissão do júri e à comissão da confraria-sede. O art. 5º informa que Ricardo Rios e Rodrigo Baruffaldi, ambos da 4CRJ, idealizaram o Festival e podiam participar da organização; o regulamento não atribui organização exclusiva à 4CRJ.",
-          "year": "2018"
+          "organizer_code": "INSULANA",
+          "role": "Confraria organizadora",
+          "location": "União da Ilha, Ilha do Governador",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
       ]
     }
@@ -3815,7 +3574,7 @@
     {
       "id": "4cantos-rj",
       "sort_name": "4 Cantos RJ",
-      "official_name": "Confraria 4 Cantos do Rio de Janeiro (4 Cantos RJ / 4CRJ)",
+      "official_name": "4CRJ — Confraria 4 Cantos do Rio de Janeiro",
       "aliases": [
         "4CRJ",
         "4 CANTOS RJ",
@@ -3868,34 +3627,14 @@
           "evidence": "O item 1.3 lista “Confraria 4 Cantos RJ — 4CRJ” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes. O item 1.5 atribui a responsabilidade pela organização aos idealizadores da 4 Cantos RJ, com apoio de membros das confrarias."
         },
         {
-          "evidence": "O item 1.5 atribui a organização do 3º Festival aos idealizadores da Confraria 4 Cantos RJ e da Confraria dos Cervejeiros Caseiros da Zona Sul, com apoio de membros das confrarias; o item 3.2 fixa o evento em 15/07/2017.",
-          "field": "Organização do 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.5 e 3.2",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "1FDCRJ: 4CRJ — Bar da Portuguesa."
         },
         {
-          "evidence": "O item 1.5 atribui a organização do 3º Festival aos idealizadores da Confraria 4 Cantos RJ e da Confraria dos Cervejeiros Caseiros da Zona Sul, com apoio de membros das confrarias; o item 3.2 fixa o evento em 15/07/2017.",
-          "field": "Organização do 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.5 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 25 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.5 atribui a organização do 4º Festival aos idealizadores da Confraria 4 Cantos do Rio de Janeiro e da Confraria dos Cervejeiros da Leopoldina e Adjacências, com apoio de membros das confrarias; o item 3.2 fixa o evento em 20/01/2018.",
-          "field": "Organização do 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.5 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria 4 Cantos RJ” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "2FDCRJ: 4CRJ — Bar da Portuguesa."
         }
       ],
       "awards": [
@@ -4020,64 +3759,24 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 25
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
         }
       ],
       "organized_editions": [
         {
           "edition": "1FDCRJ",
-          "year": "2016",
-          "date": "2016-07-17",
-          "role": "organizadora; o regulamento atribui a organização aos idealizadores da própria confraria, com apoio de membros das confrarias",
-          "reference": "item 1.5; data do evento no item 3.2"
+          "organizer_code": "4CRJ",
+          "role": "Confraria organizadora",
+          "location": "Bar da Portuguesa",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         },
         {
           "edition": "2FDCRJ",
-          "year": "2016",
-          "date": "2016-12-18",
-          "role": "organizadora; o regulamento atribui a organização aos idealizadores da própria confraria, com apoio de membros das confrarias",
-          "reference": "item 1.5"
-        },
-        {
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.5",
-          "role": "organizadora em conjunto com a CCZS; o regulamento atribui a organização aos idealizadores das duas confrarias, com apoio de membros das confrarias",
-          "year": "2017"
-        },
-        {
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.5",
-          "role": "organizadora em conjunto com a CCLA; o regulamento atribui a organização aos idealizadores das duas confrarias, com apoio de membros das confrarias",
-          "year": "2018"
+          "organizer_code": "4CRJ",
+          "role": "Confraria organizadora",
+          "location": "Bar da Portuguesa",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
-      ],
-      "organizer_label": "4 Cantos RJ"
+      ]
     },
     {
       "id": "C4G",
@@ -4088,7 +3787,7 @@
         "Confraria dos Cervejeiros Caseiros de Campo Grande"
       ],
       "region": "Campo Grande, RJ (indicado no nome no regulamento)",
-      "profile_summary": "Os regulamentos do 2º, 3º e 5º FDCRJ listam a Confraria dos Cervejeiros Caseiros de Campo Grande (C4G) entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes nas edições correspondentes.",
+      "profile_summary": "O regulamento do 2º FDCRJ lista Confraria dos Cervejeiros Caseiros de Campo Grande (C4G) entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas em regulamentos fornecidos são consideradas presentes na edição correspondente.",
       "meetup_info": "Não localizado nas fontes consultadas.",
       "founded": "Não localizada nas fontes consultadas.",
       "instagram_url": "",
@@ -4101,8 +3800,8 @@
         "prata": 0,
         "bronze": 0
       },
-      "status_label": "Presente no 2º, 3º e 5º FDCRJ (2016–2018); medalha não localizada no registro consultado",
-      "status_note": "A confraria consta no art. 1.3 do regulamento do 2º FDCRJ e nos itens 1.3 dos regulamentos do 3º e do 5º FDCRJ; conforme orientação do usuário, está registrada como presente nessas três edições. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
+      "status_label": "Presente no 2º FDCRJ (2016); medalha não localizada no registro consultado",
+      "status_note": "A confraria consta no item 1.3 do regulamento do 2º FDCRJ; conforme orientação do usuário, está registrada como presente na edição. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
       "festival_participations": [
         {
           "edition": "2FDCRJ",
@@ -4111,22 +3810,6 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
         }
       ],
       "profile_sources": [
@@ -4134,125 +3817,10 @@
           "field": "Participação no 2º FDCRJ (2016)",
           "title": "Regulamento do 2º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3, 1.5 e 3.2, pp. 2–3 (documento fornecido pelo usuário)",
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros de Campo Grande — C4G” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
-        },
-        {
-          "evidence": "O item 1.3 do regulamento lista a confraria entre as dezesseis participantes do 3º FDCRJ; o item 3.2 fixa o evento em 15/07/2017. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3 e 3.2 (documento fornecido pelo usuário)",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros Caseiros de Campo Grande” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
         }
       ],
-      "coverage_note": "Os regulamentos do 2º, 3º e 5º FDCRJ listam a confraria; conforme orientação do usuário, ela é considerada presente nessas edições. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas."
-    },
-    {
-      "aliases": [
-        "CC",
-        "Cervejeiras Cariocas"
-      ],
-      "awards": [],
-      "color": "#a05a7d",
-      "coverage_note": "O regulamento do 4º FDCRJ lista a confraria; conforme orientação do usuário, ela é considerada presente na edição. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas.",
-      "festival_participations": [
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 20
-        }
-      ],
-      "founded": "Não localizada nas fontes consultadas.",
-      "id": "cervejeiras-cariocas",
-      "instagram_url": "",
-      "meetup_info": "Não localizado nas fontes consultadas.",
-      "official_name": "CC — Cervejeiras Cariocas",
-      "other_links": [],
-      "profile_sources": [
-        {
-          "evidence": "O item 1.3 lista Cervejeiras Cariocas (CC) entre as dezenove confrarias participantes do 4º FDCRJ; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        }
-      ],
-      "profile_summary": "O regulamento do 4º FDCRJ lista CC — Cervejeiras Cariocas entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes na edição correspondente.",
-      "region": "Rio de Janeiro (conforme o nome adotado no regulamento).",
-      "sort_name": "CC",
-      "status_label": "Presente no 4º FDCRJ (2018); medalha não localizada no registro consultado",
-      "status_note": "A confraria consta no item 1.3 do regulamento do 4º FDCRJ; conforme orientação do usuário, está registrada como presente na edição. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
-      "website_url": "",
-      "medal_totals": {
-        "ouro": 0,
-        "prata": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "aliases": [
-        "CCG",
-        "Cervejeiros Caseiros Gonçalenses"
-      ],
-      "awards": [],
-      "color": "#4d7a8c",
-      "coverage_note": "O regulamento do 4º FDCRJ lista a confraria; conforme orientação do usuário, ela é considerada presente na edição. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas.",
-      "festival_participations": [
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 40
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
-        }
-      ],
-      "founded": "Não localizada nas fontes consultadas.",
-      "id": "CCG",
-      "instagram_url": "",
-      "meetup_info": "Não localizado nas fontes consultadas.",
-      "official_name": "CCG — Cervejeiros Caseiros Gonçalenses",
-      "other_links": [],
-      "profile_sources": [
-        {
-          "evidence": "O item 1.3 lista Cervejeiros Caseiros Gonçalenses (CCG) entre as dezenove confrarias participantes do 4º FDCRJ; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Cervejeiros Caseiros Gonçalenses” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
-        }
-      ],
-      "profile_summary": "O regulamento do 4º FDCRJ lista CCG — Cervejeiros Caseiros Gonçalenses entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes na edição correspondente.",
-      "region": "São Gonçalo, Rio de Janeiro (conforme o nome adotado no regulamento).",
-      "sort_name": "CCG",
-      "status_label": "Presente no 4º FDCRJ (2018); medalha não localizada no registro consultado",
-      "status_note": "A confraria consta no item 1.3 do regulamento do 4º FDCRJ; conforme orientação do usuário, está registrada como presente na edição. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
-      "website_url": "",
-      "medal_totals": {
-        "ouro": 0,
-        "prata": 0,
-        "bronze": 0
-      }
+      "coverage_note": "O regulamento do 2º FDCRJ lista a confraria; conforme orientação do usuário, ela é considerada presente na edição. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas.",
+      "organized_editions": []
     },
     {
       "id": "ccmm",
@@ -4294,24 +3862,6 @@
           "title": "Confraria Mulheres do Malte — Facebook",
           "url": "https://www.facebook.com/confrariamulheresdomalte/",
           "evidence": "Página pública identificada como Confraria Mulheres do Malte; a publicação acessível consultada é de 2020 e não comprova atividade atual."
-        },
-        {
-          "evidence": "O item 1.3 do regulamento lista a confraria entre as dezesseis participantes do 3º FDCRJ; o item 3.2 fixa o evento em 15/07/2017. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3 e 3.2 (documento fornecido pelo usuário)",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 20 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria Cervejeira Mulheres do Malte” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
         }
       ],
       "awards": [
@@ -4367,33 +3917,7 @@
         "bronze": 0
       },
       "status_label": "Não integra o cadastro atual do FDCRJ",
-      "festival_participations": [
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 20
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
-        }
-      ]
+      "organized_editions": []
     },
     {
       "id": "ccn",
@@ -4433,22 +3957,9 @@
           "evidence": "A própria confraria anunciou que participaria do 8º Festival."
         },
         {
-          "evidence": "O item 1.3 do regulamento lista a confraria entre as dezesseis participantes do 3º FDCRJ; o item 3.2 fixa o evento em 15/07/2017. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3 e 3.2 (documento fornecido pelo usuário)",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 60 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros de Niterói” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "6FDCRJ: CCN — Clube Naval Charitas, Niterói."
         }
       ],
       "awards": [
@@ -4549,31 +4060,6 @@
       "status_label": "Não integra o cadastro atual do FDCRJ",
       "festival_participations": [
         {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 60
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
-        },
-        {
           "edition": "6FDCRJ",
           "year": "2019",
           "role": "participante e parte da organização, conforme fonte jornalística",
@@ -4583,12 +4069,12 @@
       "organized_editions": [
         {
           "edition": "6FDCRJ",
-          "year": "2019",
-          "role": "participação na organização em Niterói; a fonte não atribui exclusividade",
-          "reference": "CCBR reage e vence o 6º Festival das Confrarias RJ — Comunic Sônia Apolinário"
+          "organizer_code": "CCN",
+          "role": "Confraria organizadora",
+          "location": "Clube Naval Charitas, Niterói",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
-      ],
-      "organizer_label": "CCN"
+      ]
     },
     {
       "id": "CCZO",
@@ -4599,7 +4085,7 @@
         "Confraria dos Cervejeiros Caseiros da Zona Oeste"
       ],
       "region": "Zona Oeste do Rio de Janeiro (indicado no nome no regulamento)",
-      "profile_summary": "Os regulamentos do 2º, 3º e 4º FDCRJ listam CCZO — Confraria dos Cervejeiros Caseiros da Zona Oeste entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes nas edições correspondentes.",
+      "profile_summary": "O regulamento do 2º FDCRJ lista Confraria dos Cervejeiros Caseiros da Zona Oeste (CCZO) entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas em regulamentos fornecidos são consideradas presentes na edição correspondente.",
       "meetup_info": "Não localizado nas fontes consultadas.",
       "founded": "Não localizada nas fontes consultadas.",
       "instagram_url": "",
@@ -4612,8 +4098,8 @@
         "prata": 0,
         "bronze": 0
       },
-      "status_label": "Presente nos 2º, 3º e 4º FDCRJ (2016–2018); medalha não localizada no registro consultado",
-      "status_note": "A confraria consta no item 1.3 dos regulamentos do 2º, 3º e 4º FDCRJ; conforme orientação do usuário, está registrada como presente nas edições. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
+      "status_label": "Presente no 2º FDCRJ (2016); medalha não localizada no registro consultado",
+      "status_note": "A confraria consta no item 1.3 do regulamento do 2º FDCRJ; conforme orientação do usuário, está registrada como presente na edição. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
       "festival_participations": [
         {
           "edition": "2FDCRJ",
@@ -4622,23 +4108,6 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 40
         }
       ],
       "profile_sources": [
@@ -4646,21 +4115,10 @@
           "field": "Participação no 2º FDCRJ (2016)",
           "title": "Regulamento do 2º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3, 1.5 e 3.2, pp. 2–3 (documento fornecido pelo usuário)",
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros da Zona Oeste — CCZO” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
-        },
-        {
-          "evidence": "O item 1.3 do regulamento lista a confraria entre as dezesseis participantes do 3º FDCRJ; o item 3.2 fixa o evento em 15/07/2017. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3 e 3.2 (documento fornecido pelo usuário)",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 40 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
         }
       ],
-      "coverage_note": "Os regulamentos do 2º, 3º e 4º FDCRJ listam a confraria; conforme orientação do usuário, ela é considerada presente nas edições correspondentes. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas."
+      "coverage_note": "O regulamento do 2º FDCRJ lista a confraria; conforme orientação do usuário, ela é considerada presente na edição. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas.",
+      "organized_editions": []
     },
     {
       "id": "cczs",
@@ -4710,28 +4168,9 @@
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros da Zona Sul — CCZS” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
         },
         {
-          "evidence": "O item 1.5 atribui a organização do 3º Festival aos idealizadores da Confraria 4 Cantos RJ e da Confraria dos Cervejeiros Caseiros da Zona Sul, com apoio de membros das confrarias; o item 3.2 fixa o evento em 15/07/2017.",
-          "field": "Organização do 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.5 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.5 atribui a organização do 3º Festival aos idealizadores da Confraria 4 Cantos RJ e da Confraria dos Cervejeiros Caseiros da Zona Sul, com apoio de membros das confrarias; o item 3.2 fixa o evento em 15/07/2017.",
-          "field": "Organização do 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.5 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 60 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria dos Cervejeiros Caseiros da Zona Sul” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "3FDCRJ: CCZS — Nossa Sra. de Lourdes, Botafogo."
         }
       ],
       "awards": [
@@ -4813,43 +4252,17 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 60
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
         }
       ],
       "organized_editions": [
         {
-          "date": "2017-07-15",
           "edition": "3FDCRJ",
-          "reference": "item 1.5",
-          "role": "organizadora em conjunto com a 4 Cantos RJ; o regulamento atribui a organização aos idealizadores das duas confrarias, com apoio de membros das confrarias",
-          "year": "2017"
+          "organizer_code": "CCZS",
+          "role": "Confraria organizadora",
+          "location": "Nossa Sra. de Lourdes, Botafogo",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
-      ],
-      "organizer_label": "CCZS"
+      ]
     },
     {
       "id": "cocejucana",
@@ -4909,22 +4322,9 @@
           "evidence": "O item 1.3 lista “Confraria Tijucana — COCEJUCANA” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
         },
         {
-          "evidence": "O item 1.3 do regulamento lista a confraria entre as dezesseis participantes do 3º FDCRJ; o item 3.2 fixa o evento em 15/07/2017. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3 e 3.2 (documento fornecido pelo usuário)",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 60 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O art. 3º lista “Confraria de Cervejeiros Tijucana” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
+          "field": "Organização e local do Festival",
+          "title": "Tabela das confrarias organizadoras e locais por edição (dados fornecidos pelo usuário a partir da página atual do site)",
+          "evidence": "7FDCRJ: COCEJUCANA — Salgueiro, Tijuca."
         }
       ],
       "awards": [
@@ -5033,115 +4433,29 @@
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
         },
         {
+          "edition": "7FDCRJ",
+          "year": "2019",
+          "role": "participante e organizadora, conforme fontes públicas",
+          "reference": "Histórico BAP do 10º concurso e publicação da Confraria Insulana sobre o VII Festival"
+        },
+        {
           "edition": "2FDCRJ",
           "year": "2016",
           "date": "2016-12-18",
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 60
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
-        },
-        {
-          "edition": "7FDCRJ",
-          "year": "2019",
-          "role": "participante e organizadora, conforme fontes públicas",
-          "reference": "Histórico BAP do 10º concurso e publicação da Confraria Insulana sobre o VII Festival"
         }
       ],
       "organized_editions": [
         {
           "edition": "7FDCRJ",
-          "year": "2019",
-          "role": "organizadora do 7º FDCRJ, na Tijuca",
-          "reference": "Histórico BAP do 10º concurso; publicação da Confraria Insulana sobre o VII Festival"
+          "organizer_code": "COCEJUCANA",
+          "role": "Confraria organizadora",
+          "location": "Salgueiro, Tijuca",
+          "reference": "Tabela de organizadoras da página atual do site, fornecida pelo usuário."
         }
-      ],
-      "organizer_label": "Cocejucana"
-    },
-    {
-      "aliases": [
-        "ConfraIPA",
-        "ConfraIPA de Nova Friburgo",
-        "ConfrarIPA",
-        "ConfrarIPA de Nova Friburgo"
-      ],
-      "awards": [],
-      "color": "#2f7d6d",
-      "coverage_note": "Os regulamentos do 3º e 4º FDCRJ listam a confraria; conforme orientação do usuário, ela é considerada presente nas edições correspondentes. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas.",
-      "festival_participations": [
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 20
-        }
-      ],
-      "founded": "Não localizada nas fontes consultadas.",
-      "id": "confraipa",
-      "instagram_url": "",
-      "meetup_info": "Não localizado nas fontes consultadas.",
-      "official_name": "ConfraIPA de Nova Friburgo",
-      "other_links": [],
-      "profile_sources": [
-        {
-          "evidence": "O item 1.3 lista “ConfraIPA de Nova Friburgo — ConfraIPA” como participante; o item 3.2 fixa o evento em 15/07/2017. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 20 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        }
-      ],
-      "profile_summary": "Os regulamentos do 3º e 4º FDCRJ listam ConfraIPA — ConfraIPA de Nova Friburgo entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes nas edições correspondentes.",
-      "region": "Nova Friburgo, Rio de Janeiro (conforme o nome adotado no regulamento).",
-      "sort_name": "ConfraIPA",
-      "status_label": "Presente nos 3º e 4º FDCRJ (2017–2018); medalha não localizada no registro consultado",
-      "status_note": "A confraria consta no item 1.3 dos regulamentos do 3º e 4º FDCRJ; conforme orientação do usuário, está registrada como presente nas edições. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
-      "website_url": "",
-      "medal_totals": {
-        "ouro": 0,
-        "prata": 0,
-        "bronze": 0
-      }
+      ]
     },
     {
       "id": "confra-mendes",
@@ -5152,7 +4466,7 @@
         "Confraria dos Cervejeiros Caseiros de Mendes"
       ],
       "region": "Mendes, RJ (indicado no nome no regulamento)",
-      "profile_summary": "Os regulamentos do 1º, 2º, 3º e 4º FDCRJ listam ConfraMendes — Confraria dos Cervejeiros Caseiros de Mendes entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes nas edições correspondentes.",
+      "profile_summary": "O regulamento do 1º FDCRJ lista a ConfraMendes entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes na edição correspondente.",
       "meetup_info": "Não localizado nas fontes consultadas.",
       "founded": "Não localizada nas fontes consultadas.",
       "instagram_url": "",
@@ -5165,8 +4479,8 @@
         "prata": 0,
         "bronze": 0
       },
-      "status_label": "Presente nos 1º, 2º, 3º e 4º FDCRJ (2016–2018); medalha não localizada no registro consultado",
-      "status_note": "A confraria consta no item 1.3 dos regulamentos do 1º, 2º, 3º e 4º FDCRJ; conforme orientação do usuário, está registrada como presente nas edições. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
+      "status_label": "Presente no 1º FDCRJ (2016); medalha não localizada no registro consultado",
+      "status_note": "O item 1.3 do regulamento lista a ConfraMendes; conforme orientação do usuário, ela é considerada presente no 1º FDCRJ. Não foi localizada uma posição de pódio da confraria no registro histórico consultado, o que não comprova ausência de premiação.",
       "festival_participations": [
         {
           "edition": "1FDCRJ",
@@ -5183,23 +4497,6 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 25
         }
       ],
       "profile_sources": [
@@ -5212,71 +4509,10 @@
           "field": "Participação no 2º FDCRJ (2016)",
           "title": "Regulamento do 2º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3, 1.5 e 3.2, pp. 2–3 (documento fornecido pelo usuário)",
           "evidence": "O item 1.3 lista “Confraria dos Cervejeiros Caseiros de Mendes — ConfraMendes” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
-        },
-        {
-          "evidence": "O item 1.3 do regulamento lista a confraria entre as dezesseis participantes do 3º FDCRJ; o item 3.2 fixa o evento em 15/07/2017. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3 e 3.2 (documento fornecido pelo usuário)",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 25 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
-        },
-        {
-          "evidence": "No art. 3º, a lista registra “Confraria Sul Fluminense - CSF (CONFRAMENDES, CVR e CAN)”. ConfraMendes aparece entre parênteses como parte da composição/associação da CSF, não como uma entrada numerada separada; por isso a participação da 5ª edição foi registrada na ficha da CSF, sem duplicar ConfraMendes como confraria participante autônoma.",
-          "field": "Menção como parte da composição da CSF no 5º FDCRJ",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º",
-          "url": ""
         }
       ],
-      "coverage_note": "Os regulamentos do 1º, 2º, 3º e 4º FDCRJ listam a confraria; conforme orientação do usuário, ela é considerada presente nas edições correspondentes. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas."
-    },
-    {
-      "aliases": [
-        "CRJ",
-        "Confraria RJ"
-      ],
-      "awards": [],
-      "color": "#7d6794",
-      "coverage_note": "O regulamento do 5º FDCRJ lista Confraria RJ (CRJ) como participante; conforme orientação do usuário, ela é considerada presente na edição. Não foi localizada posição de pódio para esse nome no registro consultado, o que não prova ausência de premiação. Informações sobre região, encontros, fundação e canais oficiais não foram localizadas.",
-      "festival_participations": [
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-07-21",
-          "edition": "5FDCRJ",
-          "reference": "art. 3º; data do evento nos arts. 12 e 13",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018"
-        }
-      ],
-      "founded": "Não localizada nas fontes consultadas.",
-      "id": "CRJ",
-      "instagram_url": "",
-      "medal_totals": {
-        "ouro": 0,
-        "prata": 0,
-        "bronze": 0
-      },
-      "meetup_info": "Não localizado nas fontes consultadas.",
-      "official_name": "CRJ — Confraria RJ",
-      "other_links": [],
-      "profile_sources": [
-        {
-          "evidence": "O art. 3º lista “Confraria RJ” entre as dezenove confrarias participantes; os arts. 12º e 13º fixam o local e a data em 21/07/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 5º FDCRJ (2018)",
-          "title": "Regulamento do 5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — art. 3º e arts. 12º–13º",
-          "url": ""
-        }
-      ],
-      "profile_summary": "O regulamento do 5º FDCRJ lista Confraria RJ (CRJ) entre as dezenove confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas em regulamentos fornecidos são consideradas presentes na edição correspondente.",
-      "region": "Não localizada nas fontes consultadas.",
-      "sort_name": "CRJ",
-      "status_label": "Presente no 5º FDCRJ (2018); medalha não localizada no registro consultado",
-      "status_note": "A confraria consta no art. 3º do regulamento do 5º FDCRJ; conforme orientação do usuário, está registrada como presente na edição. Não foi localizada uma posição de pódio para este nome no registro consultado; isso não prova ausência de premiação.",
-      "website_url": ""
+      "coverage_note": "A participação é considerada presença no dia conforme a regra de interpretação fornecida pelo usuário para confrarias listadas em regulamentos anexados. Nenhuma medalha foi localizada para a ConfraMendes no registro de resultados consultado; isso não é tratado como prova de ausência de premiação. Não foi localizada informação pública suficiente sobre links, fundação ou encontros atuais.",
+      "organized_editions": []
     },
     {
       "id": "SUBURBREJA",
@@ -5286,7 +4522,7 @@
         "SUBURBREJA"
       ],
       "region": "",
-      "profile_summary": "Os regulamentos do 2º, 3º e 4º FDCRJ listam SUBURBREJA entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes nas edições correspondentes.",
+      "profile_summary": "O regulamento do 2º FDCRJ lista SUBURBREJA (SUBURBREJA) entre as confrarias participantes. Conforme orientação do usuário, todas as confrarias listadas em regulamentos fornecidos são consideradas presentes na edição correspondente.",
       "meetup_info": "Não localizado nas fontes consultadas.",
       "founded": "Não localizada nas fontes consultadas.",
       "instagram_url": "",
@@ -5299,8 +4535,8 @@
         "prata": 0,
         "bronze": 0
       },
-      "status_label": "Presente nos 2º, 3º e 4º FDCRJ (2016–2018); medalha não localizada no registro consultado",
-      "status_note": "A confraria consta no item 1.3 dos regulamentos do 2º, 3º e 4º FDCRJ; conforme orientação do usuário, está registrada como presente nas edições. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
+      "status_label": "Presente no 2º FDCRJ (2016); medalha não localizada no registro consultado",
+      "status_note": "A confraria consta no item 1.3 do regulamento do 2º FDCRJ; conforme orientação do usuário, está registrada como presente na edição. Não foi localizada uma posição de pódio para este nome no registro de resultados consultado; isso não prova ausência de premiação.",
       "festival_participations": [
         {
           "edition": "2FDCRJ",
@@ -5309,23 +4545,6 @@
           "role": "presente no dia (listada no regulamento)",
           "reference": "itens 1.3 e 3.2",
           "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos."
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2017-07-15",
-          "edition": "3FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2017"
-        },
-        {
-          "attendance_basis": "A orientação do usuário é considerar presentes todas as confrarias listadas nos regulamentos fornecidos.",
-          "date": "2018-01-20",
-          "edition": "4FDCRJ",
-          "reference": "item 1.3; data do evento no item 3.2",
-          "role": "presente no dia (listada no regulamento)",
-          "year": "2018",
-          "canecas": 20
         }
       ],
       "profile_sources": [
@@ -5333,21 +4552,10 @@
           "field": "Participação no 2º FDCRJ (2016)",
           "title": "Regulamento do 2º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3, 1.5 e 3.2, pp. 2–3 (documento fornecido pelo usuário)",
           "evidence": "O item 1.3 lista “SUBURBREJA — SUBURBREJA” como participante; o item 3.2 fixa o evento em 18/12/2016. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes."
-        },
-        {
-          "evidence": "O item 1.3 do regulamento lista a confraria entre as dezesseis participantes do 3º FDCRJ; o item 3.2 fixa o evento em 15/07/2017. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 3º FDCRJ (2017)",
-          "title": "Regulamento do 3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro — itens 1.3 e 3.2 (documento fornecido pelo usuário)",
-          "url": ""
-        },
-        {
-          "evidence": "O item 1.3 lista a confraria entre as dezenove participantes do 4º FDCRJ, na faixa de 20 canecas; o item 3.2 fixa o evento em 20/01/2018. Conforme orientação do usuário, todas as confrarias listadas nos regulamentos fornecidos são consideradas presentes.",
-          "field": "Participação no 4º FDCRJ (2018)",
-          "title": "Regulamento do 4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro (documento fornecido pelo usuário) — itens 1.3 e 3.2",
-          "url": ""
         }
       ],
-      "coverage_note": "Os regulamentos do 2º, 3º e 4º FDCRJ listam a confraria; conforme orientação do usuário, ela é considerada presente nas edições correspondentes. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas."
+      "coverage_note": "O regulamento do 2º FDCRJ lista a confraria; conforme orientação do usuário, ela é considerada presente na edição. Não foi localizada uma posição de pódio no registro de resultados consultado. As informações sobre fundação, encontros e canais atuais não foram localizadas.",
+      "organized_editions": []
     }
   ],
   "festival_editions": [
@@ -5389,10 +4597,13 @@
           "code": "3CJ"
         }
       ],
-      "organizer": "Confraria 4 Cantos RJ (4CRJ)",
+      "organizer": "4CRJ — Confraria 4 Cantos do Rio de Janeiro",
       "organizer_note": "O regulamento atribui a responsabilidade aos idealizadores da 4 Cantos RJ, com apoio de membros das confrarias.",
       "source_reference": "Regulamento fornecido pelo usuário, itens 1.3, 1.5 e 3.2, pp. 2–3. A presença dos nomes listados é considerada confirmada conforme orientação expressa do usuário; o documento original é um regulamento pré-evento.",
-      "attendance_interpretation": "Conforme orientação do usuário, as oito confrarias listadas no regulamento são consideradas presentes no dia."
+      "attendance_interpretation": "Conforme orientação do usuário, as oito confrarias listadas no regulamento são consideradas presentes no dia.",
+      "organizer_code": "4CRJ",
+      "location": "Bar da Portuguesa",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
     },
     {
       "edition": "2FDCRJ",
@@ -5452,287 +4663,91 @@
           "code": "SUBURBREJA"
         }
       ],
-      "organizer": "Confraria 4 Cantos RJ (4CRJ)",
+      "organizer": "4CRJ — Confraria 4 Cantos do Rio de Janeiro",
       "organizer_note": "O item 1.5 atribui a responsabilidade aos idealizadores da Confraria 4 Cantos RJ, com apoio de membros das confrarias.",
       "attendance_interpretation": "Conforme orientação expressa do usuário, as treze confrarias listadas no regulamento são consideradas presentes no dia.",
-      "source_reference": "Regulamento fornecido pelo usuário, itens 1.3, 1.5 e 3.2, pp. 2–3; documento não disponibilizado por link no site."
+      "source_reference": "Regulamento fornecido pelo usuário, itens 1.3, 1.5 e 3.2, pp. 2–3; documento não disponibilizado por link no site.",
+      "organizer_code": "4CRJ",
+      "location": "Bar da Portuguesa",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
     },
     {
-      "attendance_interpretation": "Conforme orientação expressa do usuário, as dezesseis confrarias listadas no regulamento são consideradas presentes no dia.",
-      "date": "2017-07-15",
       "edition": "3FDCRJ",
-      "name": "3º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro",
-      "organizer": "Confraria 4 Cantos RJ (4CRJ) e Confraria dos Cervejeiros Caseiros da Zona Sul (CCZS)",
-      "organizer_note": "O item 1.5 atribui a organização aos idealizadores da Confraria 4 Cantos RJ e da Confraria dos Cervejeiros Caseiros da Zona Sul, com apoio de membros das confrarias.",
-      "participants": [
-        {
-          "code": "4CRJ",
-          "name": "Confraria 4 Cantos RJ"
-        },
-        {
-          "code": "CCGM",
-          "name": "Confraria dos Cervejeiros Caseiros do Grande Méier"
-        },
-        {
-          "code": "COCEJUCANA",
-          "name": "Confraria Tijucana"
-        },
-        {
-          "code": "ConfraMendes",
-          "name": "Confraria dos Cervejeiros Caseiros de Mendes"
-        },
-        {
-          "code": "CONCEBA",
-          "name": "Confraria dos Cervejeiros Caseiros da Baixada Fluminense"
-        },
-        {
-          "code": "CCLA",
-          "name": "Confraria dos Cervejeiros Caseiros da Leopoldina"
-        },
-        {
-          "code": "CCZS",
-          "name": "Confraria dos Cervejeiros Caseiros da Zona Sul"
-        },
-        {
-          "code": "3CJ",
-          "name": "Confraria dos Cervejeiros Caseiros de Jacarepaguá"
-        },
-        {
-          "code": "INSULANA",
-          "name": "Confraria dos Cervejeiros da Ilha do Governador"
-        },
-        {
-          "code": "C4G",
-          "name": "Confraria dos Cervejeiros Caseiros de Campo Grande"
-        },
-        {
-          "code": "CCBR",
-          "name": "Confraria dos Cervejeiros Caseiros da Barra da Tijuca e Recreio"
-        },
-        {
-          "code": "CCZO",
-          "name": "Confraria dos Cervejeiros Caseiros da Zona Oeste"
-        },
-        {
-          "code": "SUBURBREJA",
-          "name": "SUBURBREJA"
-        },
-        {
-          "code": "CCN",
-          "name": "Confraria dos Cervejeiros de Niterói"
-        },
-        {
-          "code": "ConfraIPA",
-          "name": "ConfraIPA de Nova Friburgo"
-        },
-        {
-          "code": "CCMM",
-          "name": "Confraria Cervejeira Mulheres do Malte"
-        }
-      ],
-      "source_reference": "Regulamento fornecido pelo usuário, itens 1.3, 1.5 e 3.2. A presença dos nomes listados é considerada confirmada conforme orientação expressa do usuário; o documento original é um regulamento pré-evento.",
-      "venue": "Educandário da Misericórdia — Rua São Clemente, 446, Botafogo, Rio de Janeiro (RJ)"
+      "organizer_code": "CCZS",
+      "organizer": "CCZS — Confraria dos Cervejeiros Caseiros da Zona Sul",
+      "location": "Nossa Sra. de Lourdes, Botafogo",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
     },
     {
-      "attendance_interpretation": "Conforme orientação expressa do usuário, as dezenove confrarias listadas no regulamento são consideradas presentes no dia.",
-      "date": "2018-01-20",
       "edition": "4FDCRJ",
-      "name": "4º Festival das Confrarias de Cervejeiros Caseiros do Rio de Janeiro",
-      "organizer": "Confraria 4 Cantos do Rio de Janeiro (4CRJ) e Confraria dos Cervejeiros da Leopoldina e Adjacências (CCLA)",
-      "organizer_note": "O item 1.5 atribui a organização aos idealizadores da Confraria 4 Cantos do Rio de Janeiro e da Confraria dos Cervejeiros da Leopoldina e Adjacências, com apoio de membros das confrarias.",
-      "participants": [
-        {
-          "canecas": 20,
-          "code": "SUBURBREJA",
-          "name": "SUBURBREJA"
-        },
-        {
-          "canecas": 20,
-          "code": "ConfrarIPA",
-          "name": "ConfrarIPA de Nova Friburgo"
-        },
-        {
-          "canecas": 20,
-          "code": "CCMM",
-          "name": "Confraria Cervejeira Mulheres do Malte"
-        },
-        {
-          "canecas": 20,
-          "code": "CC",
-          "name": "Cervejeiras Cariocas"
-        },
-        {
-          "canecas": 20,
-          "code": "CRB",
-          "name": "Confraria Rock & Bier"
-        },
-        {
-          "canecas": 25,
-          "code": "4CRJ",
-          "name": "Confraria 4 Cantos RJ"
-        },
-        {
-          "canecas": 25,
-          "code": "CG",
-          "name": "Confraria Grajaú"
-        },
-        {
-          "canecas": 25,
-          "code": "ConfraMendes",
-          "name": "Confraria dos Cervejeiros Caseiros de Mendes"
-        },
-        {
-          "canecas": 40,
-          "code": "CCZO",
-          "name": "Confraria Cervejeira da Zona Oeste"
-        },
-        {
-          "canecas": 40,
-          "code": "CCG",
-          "name": "Cervejeiros Caseiros Gonçalenses"
-        },
-        {
-          "canecas": 45,
-          "code": "INSULANA",
-          "name": "Confraria dos Cervejeiros da Ilha do Governador"
-        },
-        {
-          "canecas": 45,
-          "code": "3CJ",
-          "name": "Confraria dos Cervejeiros Caseiros de Jacarepaguá"
-        },
-        {
-          "canecas": 60,
-          "code": "CCGM",
-          "name": "Confraria dos Cervejeiros Caseiros do Grande Méier"
-        },
-        {
-          "canecas": 60,
-          "code": "COCEJUCANA",
-          "name": "Confraria de Cervejeiros Tijucana"
-        },
-        {
-          "canecas": 60,
-          "code": "CONCEBA",
-          "name": "Confraria dos Cervejeiros Caseiros da Baixada Fluminense"
-        },
-        {
-          "canecas": 60,
-          "code": "CCLA",
-          "name": "Cervejeiros Caseiros da Leopoldina e Adjacências"
-        },
-        {
-          "canecas": 60,
-          "code": "CCZS",
-          "name": "Cervejeiros Caseiros da Zona Sul"
-        },
-        {
-          "canecas": 60,
-          "code": "CCBR",
-          "name": "Cervejeiros Caseiros da Barra e Recreio"
-        },
-        {
-          "canecas": 60,
-          "code": "CCN",
-          "name": "Confraria dos Cervejeiros de Niterói"
-        }
-      ],
-      "source_reference": "Regulamento fornecido pelo usuário, itens 1.3, 1.5, 3.1 e 3.2 (versão minutada). A presença dos nomes listados é considerada confirmada conforme orientação expressa do usuário; o documento original é um regulamento pré-evento.",
-      "venue": "Olaria Atlético Clube — Rua Bariri, 251, Olaria, Rio de Janeiro (RJ)"
+      "organizer_code": "CCLA",
+      "organizer": "CCLA — Confraria de Cervejeiros da Leopoldina e Adjacências",
+      "location": "Clube do Olaria, Bariri",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
     },
     {
-      "attendance_interpretation": "Conforme orientação expressa do usuário, as dezenove confrarias listadas no regulamento são consideradas presentes no dia.",
-      "date": "2018-07-21",
       "edition": "5FDCRJ",
-      "name": "5º Festival de Confrarias de Cervejeiros Caseiros do Rio de Janeiro",
-      "organizer": "INSULANA (realização e confraria-sede; organização formal por comissões)",
-      "organizer_note": "A capa indica “Realização: Insulana”; o art. 6º designa a INSULANA como confraria-sede. O art. 7º define uma comissão de organização composta pela comissão fixa, comissão do júri e comissão da confraria-sede. O art. 5º informa que Ricardo Rios e Rodrigo Baruffaldi, ambos da 4CRJ, idealizaram o Festival e podiam participar da organização; o texto não atribui organização exclusiva à 4CRJ.",
-      "participants": [
-        {
-          "code": "4CRJ",
-          "name": "Confraria 4 Cantos RJ"
-        },
-        {
-          "code": "CCGM",
-          "name": "Confraria dos Cervejeiros Caseiros do Grande Méier"
-        },
-        {
-          "code": "COCEJUCANA",
-          "name": "Confraria de Cervejeiros Tijucana"
-        },
-        {
-          "code": "CCZS",
-          "name": "Confraria dos Cervejeiros Caseiros da Zona Sul"
-        },
-        {
-          "code": "CONCEBA",
-          "name": "Confraria dos Cervejeiros Caseiros da Baixada Fluminense"
-        },
-        {
-          "code": "CCLA",
-          "name": "Confraria dos Cervejeiros da Leopoldina e Adjacência"
-        },
-        {
-          "code": "3CJ",
-          "name": "Confraria dos Cervejeiros Caseiros de Jacarepaguá"
-        },
-        {
-          "code": "CSF",
-          "name": "Confraria Sul Fluminense",
-          "composition": [
-            "CONFRAMENDES",
-            "CVR",
-            "CAN"
-          ]
-        },
-        {
-          "code": "INSULANA",
-          "name": "Confraria dos Cervejeiros da Ilha do Governador"
-        },
-        {
-          "code": "CCBR",
-          "name": "Cervejeiros Caseiros da Barra da Tijuca e Recreio dos Bandeirantes"
-        },
-        {
-          "code": "CCN",
-          "name": "Confraria dos Cervejeiros de Niterói"
-        },
-        {
-          "code": "CCMM",
-          "name": "Confraria Cervejeira Mulheres do Malte"
-        },
-        {
-          "code": "CRB",
-          "name": "Confraria Rock & Bier"
-        },
-        {
-          "code": "CG",
-          "name": "Confraria Grajaú"
-        },
-        {
-          "code": "CCG",
-          "name": "Cervejeiros Caseiros Gonçalenses"
-        },
-        {
-          "code": "ACRL",
-          "name": "Associação de Cervejeiros da Região dos Lagos"
-        },
-        {
-          "code": "CRJ",
-          "name": "Confraria RJ"
-        },
-        {
-          "code": "C4G",
-          "name": "Confraria dos Cervejeiros Caseiros de Campo Grande"
-        },
-        {
-          "code": "CCCP",
-          "name": "Confraria dos Cervejeiros Caseiros de Petrópolis"
-        }
-      ],
-      "source_reference": "Regulamento fornecido pelo usuário, arts. 3º, 5º–7º e 12º–13º (pp. 2–4). A presença dos nomes listados é considerada confirmada conforme orientação expressa do usuário; o documento original é um regulamento pré-evento.",
-      "venue": "Quadra da União da Ilha — Estrada do Galeão, 322, Cacuia, Ilha do Governador, Rio de Janeiro (RJ)"
+      "organizer_code": "INSULANA",
+      "organizer": "INSULANA — Confraria dos Cervejeiros da Ilha do Governador",
+      "location": "União da Ilha, Ilha do Governador",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
+    },
+    {
+      "edition": "6FDCRJ",
+      "organizer_code": "CCN",
+      "organizer": "CCN — Confraria dos Cervejeiros de Niterói",
+      "location": "Clube Naval Charitas, Niterói",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
+    },
+    {
+      "edition": "7FDCRJ",
+      "organizer_code": "COCEJUCANA",
+      "organizer": "Cocejucana — Confraria de Cervejeiros Tijucana",
+      "location": "Salgueiro, Tijuca",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
+    },
+    {
+      "edition": "8FDCRJ",
+      "organizer_code": "CCBR",
+      "organizer": "CCBR — Cervejeiros Caseiros da Barra e Recreio",
+      "location": "Ramada, Recreio",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
+    },
+    {
+      "edition": "9FDCRJ",
+      "organizer_code": "CONCEBA",
+      "organizer": "CONCEBA — Confraria de Cervejeiros da Baixada",
+      "location": "Beija-Flor, Nilópolis",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
+    },
+    {
+      "edition": "10FDCRJ",
+      "organizer_code": "CRB",
+      "organizer": "CRB — Confraria Rock & Bier",
+      "location": "Beija-Flor, Nilópolis",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
+    },
+    {
+      "edition": "11FDCRJ",
+      "organizer_code": "CCCP",
+      "organizer": "CCCP — Confraria dos Cervejeiros Caseiros de Petrópolis",
+      "location": "Bohemia, Petrópolis",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
+    },
+    {
+      "edition": "12FDCRJ",
+      "organizer_code": "CCGM",
+      "organizer": "CCGM — Confraria dos Cervejeiros do Grande Méier",
+      "location": "Engenhão, Engenho de Dentro",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
+    },
+    {
+      "edition": "13FDCRJ",
+      "organizer_code": "CG",
+      "organizer": "CG — Confraria Grajaú de Cerveja Artesanal",
+      "location": "Atual, a definir",
+      "organizer_source": "Tabela das confrarias organizadoras e locais por edição, fornecida pelo usuário a partir da página atual do site."
     }
   ],
-  "regulation_attendance_policy": "Para os regulamentos de edições do Festival fornecidos pelo usuário (1ª a 5ª edições até o momento), cada confraria listada como participante é considerada presente no dia da edição correspondente, conforme instrução expressa do usuário; a regra vale também para novos regulamentos que venham a ser anexados. A confraria organizadora é indicada por edição conforme as palavras do regulamento: na 5ª, INSULANA é identificada como realizadora/confraria-sede, enquanto a comissão de organização é composta por comissão fixa, júri e comissão da confraria-sede; o regulamento também identifica membros da 4CRJ como idealizadores, sem lhe atribuir organização exclusiva."
+  "regulation_attendance_policy": "Para os regulamentos de edições do Festival fornecidos pelo usuário, cada confraria listada como participante é considerada presente no dia da edição correspondente, conforme instrução expressa do usuário; aplicar também a novos regulamentos que venham a ser anexados."
 }
