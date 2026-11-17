@@ -137,8 +137,10 @@
       <p id="mdesc"></p>
       <h3 style="margin:18px 0 6px;font-size:1rem">Minha avaliação & degustação</h3>
       <div class="rate" id="rate" aria-label="Minha nota"></div><div class="public-rating" id="publicRating" aria-live="polite">Carregando avaliação pública...</div>
+      <div class="tasting-check"><input id="tastedCheckbox" type="checkbox"><label for="tastedCheckbox"><strong>Eu bebi/de degustei esta cerveja</strong><span>Marque voluntariamente para registrar esta degustação no seu histórico.</span></label></div>
       <div class="tasting-grid"><div><label for="tasteDate">Data da degustação</label><input id="tasteDate" type="date"></div><div><label for="appearance">Aparência</label><input id="appearance" type="text" placeholder="Cor, espuma, limpidez"></div><div><label for="aroma">Aroma</label><input id="aroma" type="text" placeholder="Notas aromáticas"></div><div><label for="flavor">Sabor</label><input id="flavor" type="text" placeholder="Sabores percebidos"></div><div><label for="bitterness">Amargor</label><input id="bitterness" type="text" placeholder="Leve, médio, intenso"></div><div><label for="body">Corpo</label><input id="body" type="text" placeholder="Leve, médio, cheio"></div><div class="wide"><label for="pairing">Harmonização</label><input id="pairing" type="text" placeholder="Comida ou ocasião"></div></div>
       <textarea class="notes" id="notes" placeholder="Sua percepção geral da degustação..."></textarea>
+      <div class="tasting-history" id="tastingHistory" aria-live="polite"></div>
       <div class="quick" style="margin-top:12px">
         <button class="pill" id="mfav" type="button" aria-pressed="false">⭐ Favoritar</button>
         <button class="pill" id="modalShare" type="button">🔗 Compartilhar cerveja</button><button class="pill" id="modalCompare" type="button">⚖️ Comparar</button>
