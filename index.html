@@ -82,6 +82,18 @@
     </div>
   </section>
 
+  <section class="panel status-board" aria-labelledby="statusBoardTitle">
+    <div class="status-board-heading"><div><h2 id="statusBoardTitle">Status dos engates</h2><p>Veja rapidamente a situação de cada cerveja no evento.</p></div></div>
+    <div class="status-tabs" role="tablist" aria-label="Status das cervejas">
+      <button class="status-tab active" type="button" role="tab" aria-selected="true" aria-controls="statusPanelAguardando" data-status-tab="Aguardando">Aguardando <span id="statusCountAguardando">0</span></button>
+      <button class="status-tab" type="button" role="tab" aria-selected="false" aria-controls="statusPanelEngatado" data-status-tab="Engatado">Engatado <span id="statusCountEngatado">0</span></button>
+      <button class="status-tab" type="button" role="tab" aria-selected="false" aria-controls="statusPanelAcabou" data-status-tab="Acabou">Acabou <span id="statusCountAcabou">0</span></button>
+    </div>
+    <div class="status-panel active" id="statusPanelAguardando" role="tabpanel"><div class="status-bars" id="statusListAguardando"></div></div>
+    <div class="status-panel" id="statusPanelEngatado" role="tabpanel" hidden><div class="status-bars" id="statusListEngatado"></div></div>
+    <div class="status-panel" id="statusPanelAcabou" role="tabpanel" hidden><div class="status-bars" id="statusListAcabou"></div></div>
+  </section>
+
   <div class="bar">
     <div>
       <h2>Cervejas do festival</h2>
