@@ -65,13 +65,23 @@ async function fetchTapStatuses() {
       const nameIndex = headers.indexOf(fdcrjNormalize('Nome da cerveja'));
       const styleIndex = headers.indexOf(fdcrjNormalize('Estilo BJCP'));
       const statusIndex = headers.indexOf(fdcrjNormalize('Status Engate'));
+      const checkInIndex = headers.indexOf(fdcrjNormalize('Data Check-in'));
+      const statusDateIndexes = {
+        aguardando: headers.indexOf(fdcrjNormalize('Aguardando')),
+        engatado: headers.indexOf(fdcrjNormalize('Engatado')),
+        acabou: headers.indexOf(fdcrjNormalize('Acabou'))
+      };
       if (nameIndex < 0 || statusIndex < 0) return;
       rows.slice(headerIndex + 1).forEach(row => {
         const name = String(row[nameIndex] || '').trim();
         if (!name) return;
         const style = String(row[styleIndex] || '').trim();
         const key = `${fdcrjNormalize(confraria)}|${fdcrjNormalize(name)}|${fdcrjNormalize(style)}`;
-        statuses.set(key, String(row[statusIndex] || '').trim());
+        statuses.set(key, {
+          status: String(row[statusIndex] || '').trim(),
+          checkInDate: checkInIndex >= 0 ? String(row[checkInIndex] || '').trim() : '',
+          statusDates: Object.fromEntries(Object.entries(statusDateIndexes).map(([name, index]) => [name, index >= 0 ? String(row[index] || '').trim() : '']))
+        });
       });
     } catch (error) {
       console.warn(`Não foi possível ler a aba ${confraria}:`, error);

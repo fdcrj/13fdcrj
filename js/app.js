@@ -80,7 +80,14 @@ function normalizeSheetData(text, statuses = tapStatuses) {
     const confraria = get(row, 'Confraria') || 'Não informado';
     const name = get(row, 'Nome da cerveja') || `cerveja-${index + 1}`;
     const tapKey = window.FDCRJ_DATA_SOURCE?.tapKey?.(confraria, name, estilo) || `${normalizeText(confraria)}|${normalizeText(name)}|${normalizeText(estilo)}`;
-    const statusEngate = get(row, 'Status Engate') || statuses.get(tapKey) || '';
+    const statusRecord = statuses.get(tapKey) || {};
+    const statusEngate = get(row, 'Status Engate') || statusRecord.status || '';
+    const checkInDate = get(row, 'Data Check-in') || statusRecord.checkInDate || '';
+    const statusDates = {
+      aguardando: get(row, 'Aguardando') || statusRecord.statusDates?.aguardando || '',
+      engatado: get(row, 'Engatado') || statusRecord.statusDates?.engatado || '',
+      acabou: get(row, 'Acabou', 'Esgotado') || statusRecord.statusDates?.acabou || ''
+    };
     return {
       id: beerShareKey({ cerveja: name, confrariaNome: confraria, estilo }),
       rowIndex: index,
@@ -104,6 +111,8 @@ function normalizeSheetData(text, statuses = tapStatuses) {
       longitude: get(row, 'Longitude', 'Lon', 'Lng'),
       foto: get(row, 'Foto', 'Imagem', 'Image', 'URL da foto'),
       logo: get(row, 'Logo', 'Logo da confraria'),
+      checkInDate,
+      statusDates,
       ingredientes: get(row, 'Ingredientes', 'Maltes e lúpulos', 'Maltes e lupulos'),
       harmonizacao: get(row, 'Harmonização', 'Harmonizacao', 'Harmonização sugerida'),
       temperatura: get(row, 'Temperatura', 'Temperatura ideal'),
@@ -111,7 +120,8 @@ function normalizeSheetData(text, statuses = tapStatuses) {
       aroma: get(row, 'Aroma', 'Perfil aromático'),
       sabor: get(row, 'Sabor', 'Perfil de sabor'),
       statusEngate,
-      naTorneira: normalizeText(statusEngate) === 'engatado'
+      naTorneira: normalizeText(statusEngate) === 'engatado',
+      noFdcrj: Boolean(checkInDate)
     };
   }).filter(item => item.cerveja && item.cerveja !== 'Cerveja não informada' || item.descricao || item.confraria !== 'Não informado');
 }
@@ -187,6 +197,7 @@ function statusBoardBucket(status) {
 
 function renderStatusBoard() {
   const buckets = { Aguardando: [], Engatado: [], Acabou: [] };
+  const statusDateKey = { Aguardando: 'aguardando', Engatado: 'engatado', Acabou: 'acabou' };
   DATA.forEach((item, index) => {
     const bucket = statusBoardBucket(item.statusEngate);
     if (bucket) buckets[bucket].push({ item, index });
@@ -196,7 +207,7 @@ function renderStatusBoard() {
     const list = $(`#statusList${bucket}`);
     if (count) count.textContent = entries.length;
     if (!list) return;
-    list.innerHTML = entries.length ? entries.map(({ item, index }) => `<button class="status-beer-bar ${normalizeText(item.statusEngate).replace(/[^a-z]+/g, '-')}" type="button" onclick="openModal(${index})"><strong>${escapeHtml(item.cerveja)}</strong><span>${escapeHtml(item.estilo)}</span><small>${escapeHtml(item.confrariaNome)}</small></button>`).join('') : '<div class="status-empty">Nenhuma cerveja neste status.</div>';
+    list.innerHTML = entries.length ? entries.map(({ item, index }) => { const statusDate = item.statusDates?.[statusDateKey[bucket]]; return `<button class="status-beer-bar ${normalizeText(item.statusEngate).replace(/[^a-z]+/g, '-')}" type="button" onclick="openModal(${index})"><strong>${escapeHtml(item.cerveja)}</strong><span>${escapeHtml(item.estilo)}</span><small>${escapeHtml(item.confrariaNome)}</small>${statusDate ? `<small class="status-date">${escapeHtml(bucket)} em ${escapeHtml(statusDate)}</small>` : ''}</button>`; }).join('') : '<div class="status-empty">Nenhuma cerveja neste status.</div>';
   });
 }
 
@@ -512,7 +523,10 @@ function openModal(idx) {
 
   $('#mdesc').innerHTML = item.descricao ? escapeHtml(item.descricao) : '<em>Sem descrição adicional cadastrada para esta cerveja.</em>';
   const extras = [item.ingredientes ? `<div><strong>Ingredientes:</strong> ${escapeHtml(item.ingredientes)}</div>` : '', item.aroma ? `<div><strong>Aroma:</strong> ${escapeHtml(item.aroma)}</div>` : '', item.sabor ? `<div><strong>Sabor:</strong> ${escapeHtml(item.sabor)}</div>` : '', item.harmonizacao ? `<div><strong>Harmonização:</strong> ${escapeHtml(item.harmonizacao)}</div>` : '', item.temperatura ? `<div><strong>Temperatura ideal:</strong> ${escapeHtml(item.temperatura)}</div>` : '', item.copo ? `<div><strong>Copo recomendado:</strong> ${escapeHtml(item.copo)}</div>` : '', getLocationMarkup(item)].filter(Boolean).join('');
-  $('#detailExtras').innerHTML = `<div class="tap-status ${normalizeText(item.statusEngate || 'não informado').replace(/[^a-z]+/g, '-')}">${item.naTorneira ? '🍺 ' : ''}Status do engate: ${escapeHtml(item.statusEngate || 'Não informado')}</div>${extras || '<span class="filter-help">Ainda não há características adicionais cadastradas para esta cerveja.</span>'}`;
+  const statusTimeline = [['aguardando', 'Aguardando'], ['engatado', 'Engatado'], ['acabou', 'Acabou']].filter(([key]) => item.statusDates?.[key]).map(([key, label]) => `<div class="status-history-row"><span>${label}</span><time>${escapeHtml(item.statusDates[key])}</time></div>`).join('');
+  const fdcrjBadge = item.noFdcrj ? `<div class="fdcrj-checkin"><strong>✓ Cerveja no FDCRJ</strong><span>Check-in em ${escapeHtml(item.checkInDate)}</span></div>` : '';
+  const statusHistory = statusTimeline ? `<div class="status-history"><strong>Histórico de status</strong>${statusTimeline}</div>` : '';
+  $('#detailExtras').innerHTML = `${fdcrjBadge}<div class="tap-status ${normalizeText(item.statusEngate || 'não informado').replace(/[^a-z]+/g, '-')}">${item.naTorneira ? '🍺 ' : ''}Status do engate: ${escapeHtml(item.statusEngate || 'Não informado')}</div>${statusHistory}${extras || '<span class="filter-help">Ainda não há características adicionais cadastradas para esta cerveja.</span>'}`;
   $('#notes').value = userNotes[idx] || '';
   const tasting = userTasting[idx] || {};
   $('#tasteDate').value=tasting.date||''; $('#appearance').value=tasting.appearance||''; $('#aroma').value=tasting.aroma||''; $('#flavor').value=tasting.flavor||''; $('#bitterness').value=tasting.bitterness||''; $('#body').value=tasting.body||''; $('#pairing').value=tasting.pairing||'';
