@@ -36,7 +36,7 @@ function deriveFamily(style) {
   if (/fruit|frut|spice|herb|vegetable|experimental|rio/.test(value)) return 'Especiais & Frutadas';
   return 'Outros';
 }
-const BEER_SCHOOLS = ['Alemã', 'Americana', 'Belga', 'Inglesa'];
+const BEER_SCHOOLS = ['Alemã', 'Americana', 'Belga', 'Inglesa', 'Não informado'];
 const GERMAN_BJCP_CODES = new Set(['3A','3B','3C','3D','4A','4B','4C','5A','5B','5C','5D','6A','6B','6C','7A','7B','8A','8B','9A','9B','9C','10A','10B','10C','23A','23G']);
 const GERMAN_HISTORICAL_STYLES = ['kellerbier', 'lichtenhainer', 'piwo grodziskie', 'roggenbier', 'sahti'];
 function getBJCPCode(style) {
@@ -50,6 +50,7 @@ function isGermanSchoolStyle(style) {
 }
 function classifyBeerSchool(style) {
   const value = normalizeText(style);
+  if (!value || value === 'nao informado' || value === 'estilo nao informado') return 'Não informado';
   // Regra deliberadamente fechada: a Escola Alemã contém somente os estilos solicitados.
   if (isGermanSchoolStyle(style)) return 'Alemã';
   if (/belg|belga|trappist|monastic|saison|lambic|gueuze|flanders|witbier|dubbel|tripel|golden strong|biere de garde|fruit lambic/.test(value)) return 'Belga';
@@ -72,9 +73,13 @@ function beerShareUrl(item) {
 function normalizeSheetData(text, statuses = tapStatuses) {
   const rows = parseCSV(text);
   if (!rows.length) return [];
-  const headers = rows[0].map(value => value.trim().toLowerCase());
-  const column = (...names) => names.map(name => headers.indexOf(name.toLowerCase())).find(index => index >= 0);
-  const get = (row, ...names) => { const index = column(...names); return index === undefined ? '' : String(row[index] || '').trim(); };
+  const headers = rows[0].map(value => String(value || '').trim().toLowerCase().replace(/\s+/g, ' '));
+  const column = (...names) => {
+    const targets = names.map(name => String(name).trim().toLowerCase().replace(/\s+/g, ' '));
+    const exactIndex = headers.findIndex(header => targets.includes(header));
+    return exactIndex >= 0 ? exactIndex : headers.findIndex(header => targets.some(name => header.startsWith(`${name} `) || header.startsWith(`${name}:`)));
+  };
+  const get = (row, ...names) => { const index = column(...names); return index < 0 ? '' : String(row[index] || '').trim(); };
   return rows.slice(1).map((row, index) => {
     const estilo = get(row, 'Estilo BJCP') || 'Não informado';
     const confraria = get(row, 'Confraria') || 'Não informado';
@@ -123,7 +128,14 @@ function normalizeSheetData(text, statuses = tapStatuses) {
       naTorneira: normalizeText(statusEngate) === 'engatado',
       noFdcrj: Boolean(checkInDate)
     };
-  }).filter(item => item.cerveja && item.cerveja !== 'Cerveja não informada' || item.descricao || item.confraria !== 'Não informado');
+  }).filter(item => item.cerveja !== 'Cerveja não informada'
+    || item.descricao
+    || item.confrariaNome !== 'Não informado'
+    || item.estilo !== 'Não informado'
+    || item.volume
+    || item.abv
+    || item.ibu
+    || item.ebc);
 }
 async function loadSheetData() {
   const status = document.getElementById('dataSourceStatus');
@@ -242,7 +254,9 @@ function toNumber(value) {
   return match ? Number(match[0]) : NaN;
 }
 function hasCompleteData(item) {
-  return Boolean(item.confrariaNome && item.cerveja && item.estilo && item.descricao && item.volume && item.abv && item.ibu && item.ebc);
+  return Boolean(item.confrariaNome && item.confrariaNome !== 'Não informado'
+    && item.cerveja && item.cerveja !== 'Cerveja não informada'
+    && item.descricao && item.abv && item.ibu && item.ebc);
 }
 async function loadSharedRatings() {
   if (!window.FDCRJ_AUTH?.getSharedRating) return;
@@ -416,8 +430,9 @@ function validateData() {
   const checks = {
     'sem nome': DATA.filter(item => !item.cerveja || item.cerveja === 'Cerveja não informada').length,
     'sem confraria': DATA.filter(item => !item.confrariaNome || item.confrariaNome === 'Não informado').length,
-    'sem estilo': DATA.filter(item => !item.estilo || item.estilo === 'Não informado').length,
+    'sem estilo (opcional)': DATA.filter(item => !item.estilo || item.estilo === 'Não informado').length,
     'sem descrição': DATA.filter(item => !item.descricao).length,
+    'sem volume (opcional)': DATA.filter(item => !item.volume).length,
     'ABV inválido': DATA.filter(item => !Number.isFinite(toNumber(item.abv))).length,
     'IBU inválido': DATA.filter(item => !Number.isFinite(toNumber(item.ibu))).length,
     'EBC inválido': DATA.filter(item => !Number.isFinite(toNumber(item.ebc))).length

@@ -19,7 +19,14 @@ const FDCRJ_TAP_SHEETS = {
 };
 
 function fdcrjNormalize(value) {
-  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
+}
+
+function fdcrjFindColumn(headers, names) {
+  const targets = names.map(fdcrjNormalize);
+  const normalizedHeaders = headers.map(fdcrjNormalize);
+  const exactIndex = normalizedHeaders.findIndex(header => targets.includes(header));
+  return exactIndex >= 0 ? exactIndex : normalizedHeaders.findIndex(header => targets.some(name => header.startsWith(`${name} `) || header.startsWith(`${name}:`)));
 }
 
 function fdcrjParseCSV(text) {
@@ -44,8 +51,7 @@ function fdcrjParseCSV(text) {
 }
 
 function fdcrjFindHeader(rows, names) {
-  const wanted = names.map(fdcrjNormalize);
-  return rows.findIndex(row => row.some(value => wanted.includes(fdcrjNormalize(value))));
+  return rows.findIndex(row => fdcrjFindColumn(row, names) >= 0);
 }
 
 async function fetchTapStatuses() {
@@ -62,14 +68,14 @@ async function fetchTapStatuses() {
       const headerIndex = fdcrjFindHeader(rows, ['Nome da cerveja']);
       if (headerIndex < 0) return;
       const headers = rows[headerIndex].map(fdcrjNormalize);
-      const nameIndex = headers.indexOf(fdcrjNormalize('Nome da cerveja'));
-      const styleIndex = headers.indexOf(fdcrjNormalize('Estilo BJCP'));
-      const statusIndex = headers.indexOf(fdcrjNormalize('Status Engate'));
-      const checkInIndex = headers.indexOf(fdcrjNormalize('Data Check-in'));
+      const nameIndex = fdcrjFindColumn(headers, ['Nome da cerveja']);
+      const styleIndex = fdcrjFindColumn(headers, ['Estilo BJCP']);
+      const statusIndex = fdcrjFindColumn(headers, ['Status Engate']);
+      const checkInIndex = fdcrjFindColumn(headers, ['Data Check-in']);
       const statusDateIndexes = {
-        aguardando: headers.indexOf(fdcrjNormalize('Aguardando')),
-        engatado: headers.indexOf(fdcrjNormalize('Engatado')),
-        acabou: headers.indexOf(fdcrjNormalize('Acabou'))
+        aguardando: fdcrjFindColumn(headers, ['Aguardando']),
+        engatado: fdcrjFindColumn(headers, ['Engatado']),
+        acabou: fdcrjFindColumn(headers, ['Acabou'])
       };
       if (nameIndex < 0 || statusIndex < 0) return;
       rows.slice(headerIndex + 1).forEach(row => {

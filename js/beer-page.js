@@ -1,14 +1,14 @@
 (() => {
   const $ = selector => document.querySelector(selector);
   const escapeHtml = value => String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
   function parseCSV(text) {
     const rows=[]; let row=[], cell='', quoted=false;
     for (let i=0;i<text.length;i++) { const char=text[i], next=text[i+1]; if (char==='"' && quoted && next==='"') { cell+='"'; i++; } else if (char==='"') quoted=!quoted; else if (char===',' && !quoted) { row.push(cell); cell=''; } else if ((char==='\n'||char==='\r')&&!quoted) { if (char==='\r'&&next==='\n') i++; row.push(cell); if (row.some(value=>value.trim())) rows.push(row); row=[]; cell=''; } else cell+=char; }
     if (cell||row.length) { row.push(cell); rows.push(row); } return rows;
   }
-  function field(row, headers, ...names) { const index=names.map(name=>headers.indexOf(normalize(name))).find(index=>index >= 0); return index === undefined ? '' : String(row[index] || '').trim(); }
-  function school(style) { const value=normalize(style); if (/czech|munich|german|kolsch|altbier|marzen|rauchbier|bock|schwarzbier|weiss|weizen|festbier|kellerbier|gose|berliner|roggenbier|sahti|vienna/.test(value)) return 'Alemã'; if (/belg|trappist|saison|lambic|gueuze|flanders|witbier|dubbel|tripel/.test(value)) return 'Belga'; if (/american|california|ipa|hazy|imperial/.test(value)) return 'Americana'; return 'Inglesa'; }
+  function field(row, headers, ...names) { const targets=names.map(normalize); const exact=headers.findIndex(header=>targets.includes(header)); const index=exact>=0?exact:headers.findIndex(header=>targets.some(name=>header.startsWith(`${name} `)||header.startsWith(`${name}:`))); return index<0?'':String(row[index]||'').trim(); }
+  function school(style) { const value=normalize(style); if (!value||value==='nao informado'||value==='estilo nao informado') return 'Não informado'; if (/czech|munich|german|kolsch|altbier|marzen|rauchbier|bock|schwarzbier|weiss|weizen|festbier|kellerbier|gose|berliner|roggenbier|sahti|vienna/.test(value)) return 'Alemã'; if (/belg|trappist|saison|lambic|gueuze|flanders|witbier|dubbel|tripel/.test(value)) return 'Belga'; if (/american|california|ipa|hazy|imperial/.test(value)) return 'Americana'; return 'Inglesa'; }
   function key(item) { return window.FDCRJ_BEER_MODEL.shareKey({ cerveja: item.name || item.cerveja, confrariaNome: item.confrariaNome || item.confraria, estilo: item.style || item.estilo }); }
   function renderBJCPReference(style) { const target=$('#beerBJCPReference'); if (!target) return; target.innerHTML='<p class="filter-help">Carregando referência BJCP 2021…</p>'; window.FDCRJ_BJCP_REFERENCE?.panelMarkup(style).then(markup=>{ if (target.isConnected) target.innerHTML=markup; }); }
   function showBeer(item) {
