@@ -1,5 +1,5 @@
 diff --git a/README.md b/README.md
-index 7285f773ab3edfcc78cd91984bd52ef986414a90..84cc18af96d912f81f82e5fb15a180c42210d016 100644
+index 7285f773ab3edfcc78cd91984bd52ef986414a90..746306cb07f936b8af766ab390001fc3c08c1107 100644
 --- a/README.md
 +++ b/README.md
 @@ -16,6 +16,12 @@ No Firebase Console, mantenha o provedor Google ativo em **Authentication → Si
@@ -30,7 +30,7 @@ index 7285f773ab3edfcc78cd91984bd52ef986414a90..84cc18af96d912f81f82e5fb15a180c4
 +
 +## Diretório de confrarias e premiações
 +
-+O antigo painel de gráficos foi substituído por um diretório de confrarias. As fichas individuais ficam expandidas por padrão para mostrar região, encontros, participação, organização, links oficiais quando disponíveis e totais de premiações; os detalhamentos de prêmios e fontes continuam em expansões próprias para não sobrecarregar a leitura inicial. O catálogo e as fontes ficam em `data/confraria-profiles.json`; as notas de cobertura de cada perfil indicam lacunas e limites de confirmação.
++O antigo painel de gráficos foi substituído por um diretório de confrarias. A seção do diretório e a tabela de organizadoras permanecem visíveis; cada ficha individual, tanto atual quanto histórica, começa recolhida e pode ser aberta para mostrar região, encontros, participação, organização, links oficiais e totais de premiações. Os detalhamentos de prêmios e fontes também permanecem em expansões próprias. O catálogo e as fontes ficam em `data/confraria-profiles.json`; as notas de cobertura de cada perfil indicam lacunas e limites de confirmação.
 +
 +Uma seção alfabética separada registra cinco confrarias medalhistas e quatro participantes históricos sem medalha localizada no registro consultado: ConfraMendes, C4G, CCZO e Suburbreja. Nenhuma integra o cadastro atual, o que não presume encerramento das atividades. “4CRJ” e “4 Cantos RJ” foram identificadas como nomes do mesmo grupo e aparecem em um único perfil. Para Cocejucana, a ficha também ressalva um comentário público de 2026 que demonstra interesse em vaga, mas não comprova participação oficial na 12ª edição. As fontes e totais estão documentados em `confrarias-historicas-fontes.md`.
 +
@@ -8388,7 +8388,7 @@ index 0000000000000000000000000000000000000000..1c717ed543a0585cf33faf02d0d4057a
 +})();
 diff --git a/js/confraria-directory.js b/js/confraria-directory.js
 new file mode 100644
-index 0000000000000000000000000000000000000000..36298283598debc90355a699620b50eb81ecf989
+index 0000000000000000000000000000000000000000..fcdc75e5332a6949a0bda7902185c8012b710eb4
 --- /dev/null
 +++ b/js/confraria-directory.js
 @@ -0,0 +1,199 @@
@@ -8549,7 +8549,7 @@ index 0000000000000000000000000000000000000000..36298283598debc90355a699620b50eb
 +    const participation = (Array.isArray(profile.festival_participations) ? profile.festival_participations : []).map(item => `${item.edition || 'Edição não localizada'} — ${item.role || 'participação registrada'} (${periodLabel(item)})`).join('; ');
 +    const organization = (Array.isArray(profile.organized_editions) ? profile.organized_editions : []).map(item => `${item.edition || 'Edição não localizada'} — ${item.role || 'organização registrada'}${item.organizer_code ? ` (${item.organizer_code})` : ''}${item.location ? ` · Local: ${item.location}` : ''}${item.date || item.month || item.year ? ` (${periodLabel(item)})` : ''}`).join('; ');
 +    const festivalFacts = `${participation ? fact('Participação no Festival',participation) : ''}${organization ? fact('Organização do Festival',organization) : ''}`;
-+    return `<details class="confraria-entry${historical ? ' confraria-entry--historical' : ''}" style="--conf-color:${color}" open><summary><div><h3 class="confraria-entry__name">${escapeHtml(profile.official_name || profile.id)}</h3><span class="confraria-entry__region">${escapeHtml(regionLine)}</span>${statusBadge}</div><span class="confraria-medals">${medalMarkup(counts)}</span></summary><div class="confraria-entry__body"><p>${escapeHtml(profile.profile_summary || 'Não foi localizada uma apresentação pública verificável.')}</p>${statusNote}<dl class="confraria-facts">${fact('Região de atuação',profile.region)}${fact('Encontros',profile.meetup_info)}${fact('Fundação',profile.founded)}${festivalFacts}${statusFact}${fact('Premiações documentadas',`${medalCount} medalhas em ${awardCount} registros`)}</dl>${linkMarkup ? `<nav class="confraria-links" aria-label="Links de ${escapeHtml(profile.official_name || profile.id)}">${linkMarkup}</nav>` : '<p class="filter-help">Nenhum perfil oficial de rede social ou site foi localizado.</p>'}<details class="confraria-awards"><summary>Ver prêmios por evento e edição (${awardCount})</summary><div>${renderAwards(awards,color,profile)}</div></details>${renderProfileSources(sources)}${renderCoverageNote(profile.coverage_note)}</div></details>`;
++    return `<details class="confraria-entry${historical ? ' confraria-entry--historical' : ''}" style="--conf-color:${color}"><summary><div><h3 class="confraria-entry__name">${escapeHtml(profile.official_name || profile.id)}</h3><span class="confraria-entry__region">${escapeHtml(regionLine)}</span>${statusBadge}</div><span class="confraria-medals">${medalMarkup(counts)}</span></summary><div class="confraria-entry__body"><p>${escapeHtml(profile.profile_summary || 'Não foi localizada uma apresentação pública verificável.')}</p>${statusNote}<dl class="confraria-facts">${fact('Região de atuação',profile.region)}${fact('Encontros',profile.meetup_info)}${fact('Fundação',profile.founded)}${festivalFacts}${statusFact}${fact('Premiações documentadas',`${medalCount} medalhas em ${awardCount} registros`)}</dl>${linkMarkup ? `<nav class="confraria-links" aria-label="Links de ${escapeHtml(profile.official_name || profile.id)}">${linkMarkup}</nav>` : '<p class="filter-help">Nenhum perfil oficial de rede social ou site foi localizado.</p>'}<details class="confraria-awards"><summary>Ver prêmios por evento e edição (${awardCount})</summary><div>${renderAwards(awards,color,profile)}</div></details>${renderProfileSources(sources)}${renderCoverageNote(profile.coverage_note)}</div></details>`;
 +  }
 +  function render(beerRows = []) {
 +    const grid = document.querySelector('#confrariaDirectoryGrid');

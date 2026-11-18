@@ -40,7 +40,7 @@ Uma biblioteca separada acrescenta as seis fichas do Anexo II — Estilos Rio: o
 
 ## Diretório de confrarias e premiações
 
-O antigo painel de gráficos foi substituído por um diretório de confrarias. As fichas individuais ficam expandidas por padrão para mostrar região, encontros, participação, organização, links oficiais quando disponíveis e totais de premiações; os detalhamentos de prêmios e fontes continuam em expansões próprias para não sobrecarregar a leitura inicial. O catálogo e as fontes ficam em `data/confraria-profiles.json`; as notas de cobertura de cada perfil indicam lacunas e limites de confirmação.
+O antigo painel de gráficos foi substituído por um diretório de confrarias. A seção do diretório e a tabela de organizadoras permanecem visíveis; cada ficha individual, tanto atual quanto histórica, começa recolhida e pode ser aberta para mostrar região, encontros, participação, organização, links oficiais e totais de premiações. Os detalhamentos de prêmios e fontes também permanecem em expansões próprias. O catálogo e as fontes ficam em `data/confraria-profiles.json`; as notas de cobertura de cada perfil indicam lacunas e limites de confirmação.
 
 Uma seção alfabética separada registra cinco confrarias medalhistas e quatro participantes históricos sem medalha localizada no registro consultado: ConfraMendes, C4G, CCZO e Suburbreja. Nenhuma integra o cadastro atual, o que não presume encerramento das atividades. “4CRJ” e “4 Cantos RJ” foram identificadas como nomes do mesmo grupo e aparecem em um único perfil. Para Cocejucana, a ficha também ressalva um comentário público de 2026 que demonstra interesse em vaga, mas não comprova participação oficial na 12ª edição. As fontes e totais estão documentados em `confrarias-historicas-fontes.md`.
 
