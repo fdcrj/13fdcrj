@@ -18,7 +18,9 @@ O login não exige chave privada nem arquivo de conta de serviço. O objeto de c
 
 ## Navegação do guia
 
-O guia é dividido em abas horizontais sem numeração: **Consulta** concentra busca, filtros, recursos de consulta e o painel de status dos engates; os resultados de cerveja só aparecem após uma busca ou filtro. **Todas as cervejas** mostra o catálogo integral, independentemente da pesquisa. **Confrarias** reúne a tabela de organizadoras e os perfis com informações e premiações. No celular, as abas podem ser percorridas lateralmente.
+O guia é dividido em quatro abas horizontais sem numeração: **Consulta** concentra busca, filtros e os demais recursos; os resultados só aparecem após uma busca ou filtro. **Cervejas do Evento** mostra o catálogo integral em cards compactos com informações essenciais; ao abrir um card, a ficha detalhada continua disponível. **Status** apresenta simultaneamente Aguardando, Engatado, Acabou, Reserva e Outros/sem status. **Confrarias** reúne a tabela de organizadoras e os perfis individuais, expandidos por padrão. No celular, as abas podem ser percorridas lateralmente.
+
+Os campos de busca e filtros abrem por padrão, respeitando a preferência já salva no navegador. Na ficha de uma cerveja, avaliação e degustação ficam em uma expansão própria, recolhida até que a pessoa queira registrar informações. A URL pública do site e o endereço já configurado da planilha permanecem inalterados; o endereço da planilha não é apresentado como link na interface. Como o guia é estático, o navegador precisa acessar a planilha diretamente para carregar os dados.
 
 ## Avaliações públicas
 
@@ -28,7 +30,7 @@ No Firebase Console, abra **Firestore Database**, crie o banco de dados e publiq
 
 ## Status Na torneira
 
-O catálogo lê a coluna `Status Engate` das abas públicas das confrarias e combina o resultado com a aba `All Beers`. Os estados esperados são `Aguardando`, `Engatado`, `Esgotado` e `Reserva`. O status aparece obrigatoriamente em cada card e ficha, com cores próprias; quando a célula estiver vazia, o site mostra `Não informado`. Somente `Engatado` é tratado como **Na torneira** e aparece no filtro correspondente; os demais estados continuam visíveis na ficha da cerveja.
+O catálogo lê a coluna `Status Engate` das abas públicas das confrarias e combina o resultado com a aba `All Beers`. A aba **Status** mostra simultaneamente `Aguardando`, `Engatado`, `Acabou`, `Reserva` e `Outros / sem status`, contabilizando também registros vazios ou com rótulos diferentes. Cada cerveja pode ser aberta dali para consultar a ficha completa. Somente `Engatado` é tratado como **Na torneira** e aparece no filtro correspondente.
 
 ## Referência BJCP 2021 e Estilos Rio
 
@@ -38,7 +40,7 @@ Uma biblioteca separada acrescenta as seis fichas do Anexo II — Estilos Rio: o
 
 ## Diretório de confrarias e premiações
 
-O antigo painel de gráficos foi substituído por um diretório compacto. Cada cartão pode ser expandido para consultar região, encontros e links oficiais quando essas informações estão documentadas, além das premiações agrupadas por evento, edição e data. O catálogo e as fontes ficam em `data/confraria-profiles.json`; as notas de cobertura de cada perfil indicam lacunas e limites de confirmação.
+O antigo painel de gráficos foi substituído por um diretório de confrarias. As fichas individuais ficam expandidas por padrão para mostrar região, encontros, participação, organização, links oficiais quando disponíveis e totais de premiações; os detalhamentos de prêmios e fontes continuam em expansões próprias para não sobrecarregar a leitura inicial. O catálogo e as fontes ficam em `data/confraria-profiles.json`; as notas de cobertura de cada perfil indicam lacunas e limites de confirmação.
 
 Uma seção alfabética separada registra cinco confrarias medalhistas e quatro participantes históricos sem medalha localizada no registro consultado: ConfraMendes, C4G, CCZO e Suburbreja. Nenhuma integra o cadastro atual, o que não presume encerramento das atividades. “4CRJ” e “4 Cantos RJ” foram identificadas como nomes do mesmo grupo e aparecem em um único perfil. Para Cocejucana, a ficha também ressalva um comentário público de 2026 que demonstra interesse em vaga, mas não comprova participação oficial na 12ª edição. As fontes e totais estão documentados em `confrarias-historicas-fontes.md`.
 
@@ -50,4 +52,4 @@ Uma premiação individual só é associada ao perfil de uma confraria quando a 
 
 O levantamento considerou as doze abas de edição fornecidas e resultados externos publicamente verificáveis. O Instagram oficial do FDCRJ (`@fdcrj`) foi consultado como fonte complementar de contexto; comentários em suas publicações não são tratados como confirmação de inscrição, participação oficial ou premiação. O link do registro histórico fornecido pelo usuário não é publicado no site.
 
-O painel **Encontre sua cerveja** começa recolhido. A escolha de abrir ou fechar fica salva no navegador, e a seção só muda de estado quando a pessoa a abre ou fecha novamente.
+O painel **Encontre sua cerveja** abre por padrão. A escolha de abrir ou fechar continua salva no navegador, de modo que uma preferência explícita da pessoa é respeitada.

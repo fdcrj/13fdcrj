@@ -44,12 +44,13 @@
 <main class="wrap">
   <nav class="app-tabs" id="appTabs" role="tablist" aria-label="Seções do guia" tabindex="0">
     <button class="app-tab active" id="tabConsulta" type="button" role="tab" aria-selected="true" aria-controls="panelConsulta" data-app-tab="consulta">Consulta</button>
-    <button class="app-tab" id="tabTodasCervejas" type="button" role="tab" aria-selected="false" aria-controls="panelTodasCervejas" data-app-tab="todas-cervejas" tabindex="-1">Todas as cervejas</button>
+    <button class="app-tab" id="tabCervejasEvento" type="button" role="tab" aria-selected="false" aria-controls="panelCervejasEvento" data-app-tab="cervejas-evento" tabindex="-1">Cervejas do Evento</button>
+    <button class="app-tab" id="tabStatus" type="button" role="tab" aria-selected="false" aria-controls="panelStatus" data-app-tab="status" tabindex="-1">Status</button>
     <button class="app-tab" id="tabConfrarias" type="button" role="tab" aria-selected="false" aria-controls="panelConfrarias" data-app-tab="confrarias" tabindex="-1">Confrarias</button>
   </nav>
 
   <section class="app-tab-panel active" id="panelConsulta" role="tabpanel" aria-labelledby="tabConsulta" data-app-panel="consulta">
-    <details class="panel filter-panel" aria-label="Filtros">
+    <details class="panel filter-panel" aria-label="Filtros" open>
       <summary class="filter-panel-summary"><div><h2>Encontre sua cerveja</h2><p>Use a busca ou combine os filtros para refinar a lista.</p></div><span class="filter-help">Clique para abrir ou recolher</span></summary>
       <div class="search-row">
         <input class="search" id="q" type="search" autocomplete="off"
@@ -88,18 +89,6 @@
       </div>
     </details>
 
-    <details class="panel status-board">
-      <summary class="status-board-summary"><div><h2 id="statusBoardTitle">Status dos engates</h2><p>Abra para ver rapidamente a situação de cada cerveja no evento.</p></div><span class="status-summary-hint">Aguardando · Engatado · Acabou</span></summary>
-      <div class="status-tabs" role="tablist" aria-label="Status das cervejas">
-        <button class="status-tab active" type="button" role="tab" aria-selected="true" aria-controls="statusPanelAguardando" data-status-tab="Aguardando">Aguardando <span id="statusCountAguardando">0</span></button>
-        <button class="status-tab" type="button" role="tab" aria-selected="false" aria-controls="statusPanelEngatado" data-status-tab="Engatado">Engatado <span id="statusCountEngatado">0</span></button>
-        <button class="status-tab" type="button" role="tab" aria-selected="false" aria-controls="statusPanelAcabou" data-status-tab="Acabou">Acabou <span id="statusCountAcabou">0</span></button>
-      </div>
-      <div class="status-panel active" id="statusPanelAguardando" role="tabpanel"><div class="status-bars" id="statusListAguardando"></div></div>
-      <div class="status-panel" id="statusPanelEngatado" role="tabpanel" hidden><div class="status-bars" id="statusListEngatado"></div></div>
-      <div class="status-panel" id="statusPanelAcabou" role="tabpanel" hidden><div class="status-bars" id="statusListAcabou"></div></div>
-    </details>
-
     <div class="bar">
       <div>
         <h2>Resultados da consulta</h2>
@@ -121,13 +110,26 @@
     <section class="panel validation-panel"><div class="bar" style="margin:0"><div><h2>Qualidade dos dados</h2><span>Confira campos ausentes e valores que precisam de revisão.</span></div><button class="pill" id="validateData" type="button">Validar registros</button></div><div class="validation-result" id="validationResult">A validação ainda não foi executada.</div></section>
   </section>
 
-  <section class="app-tab-panel" id="panelTodasCervejas" role="tabpanel" aria-labelledby="tabTodasCervejas" data-app-panel="todas-cervejas" hidden>
-    <div class="bar all-beers-heading"><div><h2>Todas as cervejas do festival</h2><span id="allBeersCount">Carregando catálogo...</span><p>Lista completa independente da busca e dos filtros da aba Consulta. Cada card mantém seu status e acesso à ficha.</p></div><button class="pill" id="printAllBeers" type="button">🖨️ Imprimir catálogo completo</button></div>
+  <section class="app-tab-panel" id="panelCervejasEvento" role="tabpanel" aria-labelledby="tabCervejasEvento" data-app-panel="cervejas-evento" hidden>
+    <div class="bar all-beers-heading"><div><h2>Cervejas do Evento</h2><span id="allBeersCount">Carregando catálogo...</span><p>Lista completa com informações essenciais. Abra uma cerveja para ver a ficha detalhada.</p></div><button class="pill" id="printAllBeers" type="button">🖨️ Imprimir catálogo</button></div>
     <section class="grid" id="allBeersGrid" aria-live="polite"><div class="empty"><strong>Carregando cervejas</strong></div></section>
   </section>
 
+  <section class="app-tab-panel" id="panelStatus" role="tabpanel" aria-labelledby="tabStatus" data-app-panel="status" hidden>
+    <section class="panel status-board" aria-labelledby="statusBoardTitle">
+      <div class="status-board-heading"><div><h2 id="statusBoardTitle">Status das cervejas</h2><p>Visão completa dos engates; selecione qualquer cerveja para abrir a ficha.</p></div></div>
+      <div class="status-groups">
+        <section class="status-group status-group--aguardando" aria-labelledby="statusHeadingAguardando"><h3 id="statusHeadingAguardando">Aguardando <span id="statusCountAguardando">0</span></h3><div class="status-bars" id="statusListAguardando"></div></section>
+        <section class="status-group status-group--engatado" aria-labelledby="statusHeadingEngatado"><h3 id="statusHeadingEngatado">Engatado <span id="statusCountEngatado">0</span></h3><div class="status-bars" id="statusListEngatado"></div></section>
+        <section class="status-group status-group--acabou" aria-labelledby="statusHeadingAcabou"><h3 id="statusHeadingAcabou">Acabou <span id="statusCountAcabou">0</span></h3><div class="status-bars" id="statusListAcabou"></div></section>
+        <section class="status-group status-group--reserva" aria-labelledby="statusHeadingReserva"><h3 id="statusHeadingReserva">Reserva <span id="statusCountReserva">0</span></h3><div class="status-bars" id="statusListReserva"></div></section>
+        <section class="status-group status-group--outros" aria-labelledby="statusHeadingOutros"><h3 id="statusHeadingOutros">Outros / sem status <span id="statusCountOutros">0</span></h3><div class="status-bars" id="statusListOutros"></div></section>
+      </div>
+    </section>
+  </section>
+
   <section class="app-tab-panel confraria-tab-panel" id="panelConfrarias" role="tabpanel" aria-labelledby="tabConfrarias" data-app-panel="confrarias" hidden>
-    <details class="panel dashboard confraria-directory" id="dashboard" aria-labelledby="confrariaDirectoryTitle">
+    <details class="panel dashboard confraria-directory" id="dashboard" aria-labelledby="confrariaDirectoryTitle" open>
       <summary class="dashboard-heading confraria-directory-toggle"><div><h2 id="confrariaDirectoryTitle">Confrarias</h2><p>Perfis, regiões, links oficiais e histórico de premiações verificadas.</p></div><div class="confraria-summary" id="confrariaSummary" aria-live="polite"></div></summary>
       <div class="confraria-directory-content">
         <div id="confrariaOrganizerTable" class="confraria-organizer-table"></div>
@@ -151,16 +153,18 @@
       <div class="details" id="details"></div>
       <div class="detail-extra" id="detailExtras"></div>
       <p id="mdesc"></p>
-      <h3 style="margin:18px 0 6px;font-size:1rem">Minha avaliação & degustação</h3>
-      <div class="rate" id="rate" aria-label="Minha nota"></div><div class="public-rating" id="publicRating" aria-live="polite">Carregando avaliação pública...</div>
-      <div class="tasting-check"><input id="tastedCheckbox" type="checkbox"><label for="tastedCheckbox"><strong>Eu bebi/de degustei esta cerveja</strong><span>Marque voluntariamente para registrar esta degustação no seu histórico.</span></label></div>
-      <div class="tasting-grid"><div><label for="tasteDate">Data da degustação</label><input id="tasteDate" type="date"></div><div><label for="appearance">Aparência</label><input id="appearance" type="text" placeholder="Cor, espuma, limpidez"></div><div><label for="aroma">Aroma</label><input id="aroma" type="text" placeholder="Notas aromáticas"></div><div><label for="flavor">Sabor</label><input id="flavor" type="text" placeholder="Sabores percebidos"></div><div><label for="bitterness">Amargor</label><input id="bitterness" type="text" placeholder="Leve, médio, intenso"></div><div><label for="body">Corpo</label><input id="body" type="text" placeholder="Leve, médio, cheio"></div><div class="wide"><label for="pairing">Harmonização</label><input id="pairing" type="text" placeholder="Comida ou ocasião"></div></div>
-      <textarea class="notes" id="notes" placeholder="Sua percepção geral da degustação..."></textarea>
-      <div class="tasting-history" id="tastingHistory" aria-live="polite"></div>
       <div class="quick" style="margin-top:12px">
         <button class="pill" id="mfav" type="button" aria-pressed="false">⭐ Favoritar</button>
         <button class="pill" id="modalShare" type="button">🔗 Compartilhar cerveja</button><button class="pill" id="modalCompare" type="button">⚖️ Comparar</button>
       </div>
+      <details class="tasting-panel">
+        <summary>Minha avaliação & degustação</summary>
+        <div class="rate" id="rate" aria-label="Minha nota"></div><div class="public-rating" id="publicRating" aria-live="polite">Carregando avaliação pública...</div>
+        <div class="tasting-check"><input id="tastedCheckbox" type="checkbox"><label for="tastedCheckbox"><strong>Eu bebi/de degustei esta cerveja</strong><span>Marque voluntariamente para registrar esta degustação no seu histórico.</span></label></div>
+        <div class="tasting-grid"><div><label for="tasteDate">Data da degustação</label><input id="tasteDate" type="date"></div><div><label for="appearance">Aparência</label><input id="appearance" type="text" placeholder="Cor, espuma, limpidez"></div><div><label for="aroma">Aroma</label><input id="aroma" type="text" placeholder="Notas aromáticas"></div><div><label for="flavor">Sabor</label><input id="flavor" type="text" placeholder="Sabores percebidos"></div><div><label for="bitterness">Amargor</label><input id="bitterness" type="text" placeholder="Leve, médio, intenso"></div><div><label for="body">Corpo</label><input id="body" type="text" placeholder="Leve, médio, cheio"></div><div class="wide"><label for="pairing">Harmonização</label><input id="pairing" type="text" placeholder="Comida ou ocasião"></div></div>
+        <textarea class="notes" id="notes" placeholder="Sua percepção geral da degustação..."></textarea>
+        <div class="tasting-history" id="tastingHistory" aria-live="polite"></div>
+      </details>
     </div>
   </article>
 </div>
