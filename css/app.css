@@ -215,6 +215,14 @@ select {
 .card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(15, 43, 72, 0.15); }
 .stripe { height: 8px; background: var(--c, var(--brand)); }
 .body { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+.card--compact:hover { transform: translateY(-2px); }
+.card--compact .body { padding: 13px; }
+.compact-card-head { display:flex; align-items:center; min-height:24px; }
+.card--compact h3 { margin-top:8px; margin-bottom:3px; font-size:1.02rem; }
+.compact-card-meta { line-height:1.45; }
+.compact-card-specs { min-height:30px; align-items:center; margin:9px 0 0 !important; }
+.compact-card-footer { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:9px; padding-top:8px; border-top:1px dashed var(--line); color:var(--muted); font-size:.72rem; }
+.compact-card-footer .compare-card-button { flex:0 0 auto; }
 .tag {
   display: inline-block;
   background: color-mix(in srgb, var(--c, var(--brand)) 18%, transparent);
@@ -285,6 +293,7 @@ select {
 .tap-badge.aguardando, .tap-status.aguardando { background:#fff4d6; border-color:#e5b94c; color:#805d00; }
 .tap-badge.engatado, .tap-status.engatado { background:#dff6ea; border-color:#39a96b; color:#17683d; }
 .tap-badge.esgotado, .tap-status.esgotado { background:#ffe1e1; border-color:#dc6b6b; color:#9a2525; }
+.tap-badge.acabou, .tap-status.acabou { background:#ffe1e1; border-color:#dc6b6b; color:#9a2525; }
 .tap-badge.reserva, .tap-status.reserva { background:#e8e5ff; border-color:#8176d8; color:#4b429d; }
 .tap-badge.nao-informado, .tap-status.nao-informado { background:#edf0f3; border-color:#b9c1c9; color:#59636c; }
 .filter-panel-summary { display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; list-style:none; }
@@ -303,21 +312,19 @@ select {
 .status-history-row { display:flex; justify-content:space-between; gap:12px; font-size:.74rem; }
 .status-history-row span { color:var(--muted); }
 .status-history-row time { color:var(--ink); font-weight:800; text-align:right; }
-.status-board { margin: 14px 0; }
-.status-board-summary { display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; list-style:none; }
-.status-board-summary::-webkit-details-marker { display:none; }
-.status-board-summary::before { content:'＋'; display:grid; place-items:center; width:24px; height:24px; border:1px solid var(--line); border-radius:50%; color:var(--brand-ink); font-weight:900; flex:0 0 auto; }
-.status-board[open] .status-board-summary::before { content:'−'; }
-.status-board-summary > div { flex:1; }
-.status-board-summary h2 { margin:0 0 3px; font-size:1rem; }
-.status-board-summary p { margin:0; color:var(--muted); font-size:.78rem; }
-.status-summary-hint { color:var(--muted); font-size:.72rem; white-space:nowrap; }
-.status-tabs { display:flex; gap:8px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:8px; }
-.status-tab { border:1px solid var(--line); background:var(--surface-2); color:var(--text); border-radius:999px; padding:8px 13px; font-weight:800; cursor:pointer; }
-.status-tab.active { background:var(--brand); color:#fff; border-color:var(--brand); }
-.status-tab span { display:inline-grid; place-items:center; min-width:22px; height:20px; margin-left:5px; border-radius:999px; background:rgba(255,255,255,.28); font-size:.74rem; }
-.status-panel { padding-top:12px; }
-.status-bars { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:8px; }
+.status-board { margin: 0; }
+.status-board-heading h2 { margin:0 0 4px; font-size:1.15rem; }
+.status-board-heading p { margin:0; color:var(--muted); font-size:.82rem; }
+.status-groups { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:16px; }
+.status-group { min-width:0; padding:13px; border:1px solid var(--line); border-top:4px solid var(--brand); border-radius:15px; background:var(--card); }
+.status-group--aguardando { border-top-color:#e5b94c; }
+.status-group--engatado { border-top-color:#39a96b; }
+.status-group--acabou { border-top-color:#dc6b6b; }
+.status-group--reserva { border-top-color:#8176d8; }
+.status-group--outros { border-top-color:#84909c; }
+.status-group h3 { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:0 0 10px; font-size:.95rem; }
+.status-group h3 span { display:inline-grid; place-items:center; min-width:25px; height:23px; padding:0 6px; border-radius:999px; background:var(--surface-2); color:var(--muted); font-size:.72rem; }
+.status-bars { display:grid; grid-template-columns:1fr; gap:8px; }
 .status-beer-bar { display:grid; grid-template-columns:1fr auto; grid-template-rows:auto auto; gap:2px 8px; width:100%; border:1px solid var(--line); border-left:5px solid #aeb7c1; border-radius:10px; background:var(--surface-2); color:var(--text); padding:9px 11px; text-align:left; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; }
 .status-beer-bar:hover { transform:translateY(-1px); box-shadow:var(--shadow-sm); }
 .status-beer-bar strong { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
@@ -326,8 +333,14 @@ select {
 .status-beer-bar .status-date { color:var(--brand-ink); font-weight:800; }
 .status-beer-bar.aguardando { border-left-color:#e5b94c; }
 .status-beer-bar.engatado { border-left-color:#39a96b; }
-.status-beer-bar.esgotado { border-left-color:#dc6b6b; }
+.status-beer-bar.esgotado, .status-beer-bar.acabou { border-left-color:#dc6b6b; }
+.status-beer-bar.reserva { border-left-color:#8176d8; }
 .status-empty { border:1px dashed var(--line); border-radius:10px; padding:14px; color:var(--muted); text-align:center; }
+.tasting-panel { margin-top:14px; padding:0 13px 13px; border:1px solid var(--line); border-radius:13px; background:var(--surface-2); }
+.tasting-panel summary { display:flex; align-items:center; gap:9px; min-height:48px; cursor:pointer; color:var(--brand-ink); font-weight:800; list-style:none; }
+.tasting-panel summary::-webkit-details-marker { display:none; }
+.tasting-panel summary::before { content:'＋'; display:grid; place-items:center; width:22px; height:22px; flex:0 0 auto; border:1px solid var(--line); border-radius:50%; }
+.tasting-panel[open] summary::before { content:'−'; }
 
 /* Legend section */
 .legend { margin-top: 32px; }
@@ -439,7 +452,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .toast.show { transform: translate(-50%, 0); }
 
 /* Responsive Adjustments */
-@media(max-width: 900px) { .sel, .advanced-grid { grid-template-columns: repeat(2, 1fr); } .insights-grid { grid-template-columns: 1fr; } }
+@media(max-width: 900px) { .sel, .advanced-grid { grid-template-columns: repeat(2, 1fr); } .insights-grid { grid-template-columns: 1fr; } .status-groups { grid-template-columns:1fr; } }
 @media(max-width:560px) {
   .sel { grid-template-columns: 1fr; }
   .grid { grid-template-columns: 1fr; }
@@ -458,8 +471,8 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
   header, .panel, .quick, .legend, footer, .fav { display: none !important; }
   .app-tabs { display:none !important; }
   .app-tab-panel[hidden] { display:none !important; }
-  body.print-all-beers #panelConsulta, body.print-all-beers #panelConfrarias { display:none !important; }
-  body.print-all-beers #panelTodasCervejas { display:block !important; }
+  body.print-all-beers #panelConsulta, body.print-all-beers #panelStatus, body.print-all-beers #panelConfrarias { display:none !important; }
+  body.print-all-beers #panelCervejasEvento { display:block !important; }
   body.print-all-beers #printAllBeers { display:none !important; }
   .card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
   main { margin-top: 10px; }
