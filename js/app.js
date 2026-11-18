@@ -357,19 +357,14 @@ function renderActiveFilters() {
   ].filter(([, value]) => value);
   target.innerHTML = filters.length ? filters.map(([label, value]) => `<span class="active-filter">${escapeHtml(label)}: ${escapeHtml(value)}</span>`).join('') : '<span class="filter-help">Nenhum filtro aplicado</span>';
 }
-function renderGrid() {
-  const list = getFilteredData();
-  const grid = $('#grid');
-  $('#count').textContent = `${list.length} cerveja(s) encontrada(s)`;
-
-  if (list.length === 0) {
-    grid.innerHTML = DATA.length === 0
-      ? `<div class="empty"><strong>A lista ainda está aguardando os dados</strong><p>A conexão com a aba <b>All Beers</b> está funcionando, mas a planilha ainda não possui registros preenchidos.</p></div>`
-      : `<div class="empty"><strong>Nenhuma cerveja encontrada</strong><p>Tente remover algum filtro ou use o botão “Limpar filtros”.</p><button class="pill" type="button" onclick="clearAllFilters()">Limpar filtros</button></div>`;
-    return;
-  }
-
-  grid.innerHTML = list.map(item => {
+function hasActiveSearchCriteria() {
+  const textOrSelectCriteria = ['#q','#cf','#ct','#fm','#st','#brewer','#school','#abvMin','#abvMax','#ibuMin','#volumeFilter'];
+  if (textOrSelectCriteria.some(selector => Boolean($(selector)?.value.trim()))) return true;
+  return ['onlyFav','onlyDesc','onlyRio','onlyIpa','onlyComplete','onlyUntasted','onlyTap']
+    .some(id => $(`#${id}`)?.getAttribute('aria-pressed') === 'true');
+}
+function renderBeerCards(list) {
+  return list.map(item => {
     const idx = DATA.indexOf(item);
     const color = FAM_COLORS[item.familia] || 'var(--brand)';
     const isFav = userFavs.includes(idx);
@@ -392,6 +387,35 @@ function renderGrid() {
       </article>
     `;
   }).join('');
+}
+function renderAllBeersGrid() {
+  const grid = $('#allBeersGrid');
+  const count = $('#allBeersCount');
+  if (!grid || !count) return;
+  const list = DATA.slice().sort((a,b) => a.cerveja.localeCompare(b.cerveja,'pt-BR'));
+  count.textContent = `${list.length} cerveja(s) no catálogo completo`;
+  grid.innerHTML = list.length
+    ? renderBeerCards(list)
+    : '<div class="empty"><strong>Nenhuma cerveja cadastrada</strong><p>Quando o catálogo do festival receber cervejas, elas aparecerão aqui.</p></div>';
+}
+function renderGrid() {
+  const list = getFilteredData();
+  const grid = $('#grid');
+  const hasCriteria = hasActiveSearchCriteria();
+  renderActiveFilters();
+  if (!hasCriteria) {
+    $('#count').textContent = 'Pesquise ou aplique filtros para ver cervejas';
+    grid.innerHTML = DATA.length
+      ? '<div class="empty"><strong>Encontre uma cerveja</strong><p>Digite um termo ou aplique um filtro para ver correspondências nesta aba. O catálogo completo está na aba “Todas as cervejas”.</p></div>'
+      : '<div class="empty"><strong>A lista ainda está aguardando os dados</strong><p>A conexão com a aba <b>All Beers</b> está funcionando, mas a planilha ainda não possui registros preenchidos.</p></div>';
+    renderAllBeersGrid();
+    return;
+  }
+  $('#count').textContent = `${list.length} cerveja(s) encontrada(s)`;
+  grid.innerHTML = list.length
+    ? renderBeerCards(list)
+    : '<div class="empty"><strong>Nenhuma cerveja encontrada</strong><p>Tente remover algum filtro ou use o botão “Limpar filtros”.</p><button class="pill" type="button" onclick="clearAllFilters()">Limpar filtros</button></div>';
+  renderAllBeersGrid();
 }
 
 function renderLegend() {
@@ -692,7 +716,52 @@ function clearAllFilters() {
   $$('.quick .pill[aria-pressed]').forEach(btn => btn.setAttribute('aria-pressed', 'false'));
   renderGrid();
 }
+function setActiveAppTab(tabName, focusButton = false) {
+  const buttons = [...document.querySelectorAll('[data-app-tab]')];
+  const target = buttons.find(button => button.dataset.appTab === tabName);
+  if (!target) return;
+  buttons.forEach(button => {
+    const active = button === target;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-selected', String(active));
+    button.tabIndex = active ? 0 : -1;
+  });
+  document.querySelectorAll('[data-app-panel]').forEach(panel => {
+    const active = panel.dataset.appPanel === tabName;
+    panel.hidden = !active;
+    panel.classList.toggle('active', active);
+  });
+  localStorage.setItem('fdcrj_active_app_tab', tabName);
+  if (focusButton) target.focus();
+}
+function setupAppTabs() {
+  const tabs = $('#appTabs');
+  if (!tabs) return;
+  const buttons = [...tabs.querySelectorAll('[data-app-tab]')];
+  tabs.addEventListener('click', event => {
+    const button = event.target.closest('[data-app-tab]');
+    if (button) setActiveAppTab(button.dataset.appTab);
+  });
+  tabs.addEventListener('keydown', event => {
+    const currentIndex = buttons.indexOf(document.activeElement);
+    if (currentIndex < 0) return;
+    let nextIndex = currentIndex;
+    if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % buttons.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = buttons.length - 1;
+    else return;
+    event.preventDefault();
+    setActiveAppTab(buttons[nextIndex].dataset.appTab, true);
+    buttons[nextIndex].scrollIntoView({block:'nearest',inline:'nearest'});
+  });
+  const params = new URLSearchParams(window.location.search);
+  const hasSharedQuery = ['q','cf','ct','fm','st','brewer','school','abvMin','abvMax','ibuMin','volumeFilter','complete','untasted','beer','slug'].some(key => params.has(key));
+  const savedTab = hasSharedQuery ? 'consulta' : (localStorage.getItem('fdcrj_active_app_tab') || 'consulta');
+  setActiveAppTab(savedTab);
+}
 function bindEvents() {
+  setupAppTabs();
   ['#q', '#cf', '#ct', '#fm', '#st', '#or', '#brewer', '#school', '#abvMin', '#abvMax', '#ibuMin', '#volumeFilter'].forEach(sel => {
     $(sel).addEventListener('input', renderGrid);
   });
@@ -707,6 +776,7 @@ function bindEvents() {
 
   $('#clear').addEventListener('click', () => { clearAllFilters(); showToast('Filtros limpos'); });
   $('#reloadData').addEventListener('click', async () => { $('#reloadData').disabled = true; $('#reloadData').textContent = '↻ Carregando...'; await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); buildFilters(); renderStatusBoard(); renderGrid(); renderLegend(); updateStats(); renderInsights(); renderDashboard(); renderRecommendations(); renderCompare(); $('#reloadData').disabled = false; $('#reloadData').textContent = '↻ Atualizar dados'; showToast('Dados atualizados'); });
+  $('#printAllBeers').addEventListener('click', () => { document.body.classList.add('print-all-beers'); window.print(); setTimeout(() => document.body.classList.remove('print-all-beers'), 1000); });
   document.querySelectorAll('[data-status-tab]').forEach(tab => tab.addEventListener('click', () => { const target = tab.dataset.statusTab; document.querySelectorAll('[data-status-tab]').forEach(item => { const active = item === tab; item.classList.toggle('active', active); item.setAttribute('aria-selected', active); }); document.querySelectorAll('.status-panel').forEach(panel => { const active = panel.id === `statusPanel${target}`; panel.classList.toggle('active', active); panel.hidden = !active; }); }));
   $('#presentationToggle').addEventListener('click', event => { const active = document.body.classList.toggle('presentation-mode'); event.currentTarget.setAttribute('aria-pressed', active); event.currentTarget.textContent = active ? '▣ Sair da apresentação' : '▣ Apresentação'; });
   $('#validateData').addEventListener('click', validateData);
