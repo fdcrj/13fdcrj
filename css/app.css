@@ -104,6 +104,17 @@ h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 6px 0 6px; line-height: 1.1; f
 
 /* Main layout & Panel */
 main { margin-top: -62px; padding-bottom: 56px; }
+.app-tabs { position:sticky; top:0; z-index:30; display:flex; gap:4px; width:100%; margin:0 0 16px; padding:0 10px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x proximity; border:1px solid var(--line); border-radius:16px; background:var(--card); box-shadow:var(--shadow); scrollbar-width:thin; }
+.app-tab { position:relative; flex:0 0 auto; min-height:48px; padding:11px 18px; border:0; border-radius:0; background:transparent; color:var(--muted); font:inherit; font-size:.9rem; font-weight:800; white-space:nowrap; cursor:pointer; scroll-snap-align:start; }
+.app-tab:hover { color:var(--brand-ink); background:color-mix(in srgb,var(--brand) 7%,transparent); }
+.app-tab.active { color:var(--brand-ink); }
+.app-tab.active::after { position:absolute; right:12px; bottom:0; left:12px; height:3px; border-radius:3px 3px 0 0; background:var(--brand); content:""; }
+.app-tab:focus-visible { z-index:1; outline:3px solid color-mix(in srgb,var(--brand) 45%,transparent); outline-offset:-3px; }
+.app-tab-panel { min-width:0; }
+.app-tab-panel[hidden] { display:none !important; }
+.all-beers-heading { align-items:flex-start; }
+.all-beers-heading p { max-width:70ch; margin:5px 0 0; color:var(--muted); font-size:.82rem; }
+.all-beers-heading > div > span { display:block; margin-top:3px; }
 .panel {
   background: var(--card);
   border: 1px solid var(--line);
@@ -445,6 +456,11 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 }
 @media print {
   header, .panel, .quick, .legend, footer, .fav { display: none !important; }
+  .app-tabs { display:none !important; }
+  .app-tab-panel[hidden] { display:none !important; }
+  body.print-all-beers #panelConsulta, body.print-all-beers #panelConfrarias { display:none !important; }
+  body.print-all-beers #panelTodasCervejas { display:block !important; }
+  body.print-all-beers #printAllBeers { display:none !important; }
   .card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
   main { margin-top: 10px; }
 }
