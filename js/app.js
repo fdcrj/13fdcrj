@@ -204,22 +204,24 @@ function statusBoardBucket(status) {
   if (value === 'aguardando') return 'Aguardando';
   if (value === 'engatado') return 'Engatado';
   if (value === 'esgotado' || value === 'acabou') return 'Acabou';
-  return null;
+  if (value === 'reserva') return 'Reserva';
+  return 'Outros';
 }
 
 function renderStatusBoard() {
-  const buckets = { Aguardando: [], Engatado: [], Acabou: [] };
+  const buckets = { Aguardando: [], Engatado: [], Acabou: [], Reserva: [], Outros: [] };
+  const bucketLabels = { Aguardando:'Aguardando', Engatado:'Engatado', Acabou:'Acabou', Reserva:'Reserva', Outros:'Outros / sem status' };
   const statusDateKey = { Aguardando: 'aguardando', Engatado: 'engatado', Acabou: 'acabou' };
   DATA.forEach((item, index) => {
     const bucket = statusBoardBucket(item.statusEngate);
-    if (bucket) buckets[bucket].push({ item, index });
+    buckets[bucket].push({ item, index });
   });
   Object.entries(buckets).forEach(([bucket, entries]) => {
     const count = $(`#statusCount${bucket}`);
     const list = $(`#statusList${bucket}`);
     if (count) count.textContent = entries.length;
     if (!list) return;
-    list.innerHTML = entries.length ? entries.map(({ item, index }) => { const statusDate = item.statusDates?.[statusDateKey[bucket]]; return `<button class="status-beer-bar ${normalizeText(item.statusEngate).replace(/[^a-z]+/g, '-')}" type="button" onclick="openModal(${index})"><strong>${escapeHtml(item.cerveja)}</strong><span>${escapeHtml(item.estilo)}</span><small>${escapeHtml(item.confrariaNome)}</small>${statusDate ? `<small class="status-date">${escapeHtml(bucket)} em ${escapeHtml(statusDate)}</small>` : ''}</button>`; }).join('') : '<div class="status-empty">Nenhuma cerveja neste status.</div>';
+    list.innerHTML = entries.length ? entries.map(({ item, index }) => { const statusDate = item.statusDates?.[statusDateKey[bucket]]; const beerStatusClass = normalizeText(item.statusEngate || 'não informado').replace(/[^a-z]+/g, '-'); return `<button class="status-beer-bar ${beerStatusClass}" type="button" onclick="openModal(${index})"><strong>${escapeHtml(item.cerveja)}</strong><span>${escapeHtml(item.estilo)}</span><small>${escapeHtml(item.confrariaNome)}</small>${statusDate ? `<small class="status-date">${escapeHtml(bucketLabels[bucket])} em ${escapeHtml(statusDate)}</small>` : ''}</button>`; }).join('') : '<div class="status-empty">Nenhuma cerveja neste status.</div>';
   });
 }
 
@@ -368,21 +370,18 @@ function renderBeerCards(list) {
     const idx = DATA.indexOf(item);
     const color = FAM_COLORS[item.familia] || 'var(--brand)';
     const isFav = userFavs.includes(idx);
-    const rating = userRatings[idx] || 0;
     const isCompared = compareSet.includes(idx);
-    const stars = rating > 0 ? ' ⭐'.repeat(rating) : '';
 
     return `
-      <article class="card" onclick="openModal(${idx})">
+      <article class="card card--compact" onclick="openModal(${idx})" aria-label="Abrir ficha de ${escapeHtml(item.cerveja)}">
         <div class="stripe" style="--c:${color}"></div>
         <div class="body">
-          <div><span class="tag" style="--c:${color}">${escapeHtml(item.familia)}</span></div>
+          <div class="compact-card-head"><span class="tag" style="--c:${color}">${escapeHtml(item.familia)}</span></div>
           <button class="fav" aria-pressed="${isFav}" onclick="toggleFav(event, ${idx})" title="Favoritar">⭐</button>
-          <h3>${escapeHtml(item.cerveja)}${stars}</h3>
-          <div class="meta">${escapeHtml(item.estilo)} • <strong>${escapeHtml(item.confrariaNome)}</strong></div>
-          <div class="specs"><span class="tap-badge ${normalizeText(item.statusEngate || 'não informado').replace(/[^a-z]+/g, '-')}">${item.naTorneira ? '🍺 ' : ''}Status: ${escapeHtml(item.statusEngate || 'Não informado')}</span>${sharedRatings[beerShareKey(item)]?.count ? `<span class="spec">★ ${sharedRatings[beerShareKey(item)].average.toFixed(1).replace('.', ',')} (${sharedRatings[beerShareKey(item)].count})</span>` : ''}${item.volume ? `<span class="spec">${escapeHtml(formatMeasure(item.volume, 'L'))}</span>` : ''}${item.abv ? `<span class="spec">${escapeHtml(formatMeasure(item.abv, '% ABV'))}</span>` : ''}${item.ibu ? `<span class="spec">${escapeHtml(formatMeasure(item.ibu, 'IBU'))}</span>` : ''}</div>
-          <p class="desc">${item.descricao ? escapeHtml(item.descricao) : '<em>Sem descrição sensorial detalhada.</em>'}</p>
-          <div class="owner">👤 ${escapeHtml(item.responsavel)} (${escapeHtml(item.categoria)})${item.escola ? `<br>🎓 ${escapeHtml(item.escola)}` : ''}</div><div class="compare-actions"><a class="compare-card-button" href="${beerShareUrl(item)}" onclick="event.stopPropagation()">↗ Abrir ficha</a><button class="compare-card-button" type="button" onclick="event.stopPropagation(); toggleCompare(${idx})">${isCompared ? '✓ Comparando' : '⚖️ Comparar'}</button>${userTasted[idx] ? '<span class="compare-card-button">✓ Já degustei</span>' : ''}</div>
+          <h3>${escapeHtml(item.cerveja)}</h3>
+          <div class="meta compact-card-meta">${escapeHtml(item.estilo || 'Estilo não informado')}<br><strong>${escapeHtml(item.confrariaNome)}</strong></div>
+          <div class="specs compact-card-specs"><span class="tap-badge ${normalizeText(item.statusEngate || 'não informado').replace(/[^a-z]+/g, '-')}">${item.naTorneira ? '🍺 ' : ''}Status: ${escapeHtml(item.statusEngate || 'Não informado')}</span>${item.abv ? `<span class="spec">${escapeHtml(formatMeasure(item.abv, '% ABV'))}</span>` : ''}${item.ibu ? `<span class="spec">${escapeHtml(formatMeasure(item.ibu, 'IBU'))}</span>` : ''}${item.volume ? `<span class="spec">${escapeHtml(formatMeasure(item.volume, 'L'))}</span>` : ''}${sharedRatings[beerShareKey(item)]?.count ? `<span class="spec">★ ${sharedRatings[beerShareKey(item)].average.toFixed(1).replace('.', ',')}</span>` : ''}</div>
+          <div class="compact-card-footer"><span>${userTasted[idx] ? '✓ Degustada' : 'Abrir ficha completa ↗'}</span><button class="compare-card-button" type="button" onclick="event.stopPropagation(); toggleCompare(${idx})">${isCompared ? '✓ Comparando' : '⚖️ Comparar'}</button></div>
         </div>
       </article>
     `;
@@ -406,7 +405,7 @@ function renderGrid() {
   if (!hasCriteria) {
     $('#count').textContent = 'Pesquise ou aplique filtros para ver cervejas';
     grid.innerHTML = DATA.length
-      ? '<div class="empty"><strong>Encontre uma cerveja</strong><p>Digite um termo ou aplique um filtro para ver correspondências nesta aba. O catálogo completo está na aba “Todas as cervejas”.</p></div>'
+      ? '<div class="empty"><strong>Encontre uma cerveja</strong><p>Digite um termo ou aplique um filtro para ver correspondências nesta aba. O catálogo completo está na aba “Cervejas do Evento”.</p></div>'
       : '<div class="empty"><strong>A lista ainda está aguardando os dados</strong><p>A conexão com a aba <b>All Beers</b> está funcionando, mas a planilha ainda não possui registros preenchidos.</p></div>';
     renderAllBeersGrid();
     return;
@@ -757,7 +756,9 @@ function setupAppTabs() {
   });
   const params = new URLSearchParams(window.location.search);
   const hasSharedQuery = ['q','cf','ct','fm','st','brewer','school','abvMin','abvMax','ibuMin','volumeFilter','complete','untasted','beer','slug'].some(key => params.has(key));
-  const savedTab = hasSharedQuery ? 'consulta' : (localStorage.getItem('fdcrj_active_app_tab') || 'consulta');
+  const storedTab = localStorage.getItem('fdcrj_active_app_tab') || 'consulta';
+  const migratedTab = storedTab === 'todas-cervejas' ? 'cervejas-evento' : storedTab;
+  const savedTab = hasSharedQuery ? 'consulta' : (['consulta','cervejas-evento','status','confrarias'].includes(migratedTab) ? migratedTab : 'consulta');
   setActiveAppTab(savedTab);
 }
 function bindEvents() {
@@ -777,7 +778,6 @@ function bindEvents() {
   $('#clear').addEventListener('click', () => { clearAllFilters(); showToast('Filtros limpos'); });
   $('#reloadData').addEventListener('click', async () => { $('#reloadData').disabled = true; $('#reloadData').textContent = '↻ Carregando...'; await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); buildFilters(); renderStatusBoard(); renderGrid(); renderLegend(); updateStats(); renderInsights(); renderDashboard(); renderRecommendations(); renderCompare(); $('#reloadData').disabled = false; $('#reloadData').textContent = '↻ Atualizar dados'; showToast('Dados atualizados'); });
   $('#printAllBeers').addEventListener('click', () => { document.body.classList.add('print-all-beers'); window.print(); setTimeout(() => document.body.classList.remove('print-all-beers'), 1000); });
-  document.querySelectorAll('[data-status-tab]').forEach(tab => tab.addEventListener('click', () => { const target = tab.dataset.statusTab; document.querySelectorAll('[data-status-tab]').forEach(item => { const active = item === tab; item.classList.toggle('active', active); item.setAttribute('aria-selected', active); }); document.querySelectorAll('.status-panel').forEach(panel => { const active = panel.id === `statusPanel${target}`; panel.classList.toggle('active', active); panel.hidden = !active; }); }));
   $('#presentationToggle').addEventListener('click', event => { const active = document.body.classList.toggle('presentation-mode'); event.currentTarget.setAttribute('aria-pressed', active); event.currentTarget.textContent = active ? '▣ Sair da apresentação' : '▣ Apresentação'; });
   $('#validateData').addEventListener('click', validateData);
   document.querySelectorAll('[data-recommend]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-recommend]').forEach(item => item.classList.remove('active')); button.classList.add('active'); renderRecommendations(button.dataset.recommend); }));
