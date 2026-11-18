@@ -42,85 +42,99 @@
 </header>
 
 <main class="wrap">
-  <details class="panel filter-panel" aria-label="Filtros">
-    <summary class="filter-panel-summary"><div><h2>Encontre sua cerveja</h2><p>Use a busca ou combine os filtros para refinar a lista.</p></div><span class="filter-help">Clique para abrir ou recolher</span></summary>
-    <div class="search-row">
-      <input class="search" id="q" type="search" autocomplete="off"
-        placeholder="Buscar por cerveja, aroma ou ingrediente: IPA, cacau, limão, mate, café...">
-    </div>
-    <div class="sel">
-      <div class="field"><label for="cf">Confraria</label><select id="cf"></select></div>
-      <div class="field"><label for="ct">Categoria</label><select id="ct"></select></div>
-      <div class="field"><label for="fm">Família de estilo</label><select id="fm"></select></div>
-      <div class="field"><label for="st">Estilo BJCP</label><select id="st"></select></div>
-      <div class="field"><label for="or">Ordenar por</label>
-        <select id="or">
-          <option value="cerveja">Nome da cerveja (A–Z)</option>
-          <option value="confraria">Confraria</option>
-          <option value="estilo">Estilo</option>
-          <option value="categoria">Categoria</option>
-          <option value="rating">Nota pública (maior primeiro)</option>
-        </select>
+  <nav class="app-tabs" id="appTabs" role="tablist" aria-label="Seções do guia" tabindex="0">
+    <button class="app-tab active" id="tabConsulta" type="button" role="tab" aria-selected="true" aria-controls="panelConsulta" data-app-tab="consulta">Consulta</button>
+    <button class="app-tab" id="tabTodasCervejas" type="button" role="tab" aria-selected="false" aria-controls="panelTodasCervejas" data-app-tab="todas-cervejas" tabindex="-1">Todas as cervejas</button>
+    <button class="app-tab" id="tabConfrarias" type="button" role="tab" aria-selected="false" aria-controls="panelConfrarias" data-app-tab="confrarias" tabindex="-1">Confrarias</button>
+  </nav>
+
+  <section class="app-tab-panel active" id="panelConsulta" role="tabpanel" aria-labelledby="tabConsulta" data-app-panel="consulta">
+    <details class="panel filter-panel" aria-label="Filtros">
+      <summary class="filter-panel-summary"><div><h2>Encontre sua cerveja</h2><p>Use a busca ou combine os filtros para refinar a lista.</p></div><span class="filter-help">Clique para abrir ou recolher</span></summary>
+      <div class="search-row">
+        <input class="search" id="q" type="search" autocomplete="off"
+          placeholder="Buscar por cerveja, aroma ou ingrediente: IPA, cacau, limão, mate, café...">
       </div>
-    </div>
-    <details class="advanced-filters"><summary>Mais filtros e critérios</summary><div class="advanced-grid">
-      <div class="field"><label for="brewer">Cervejeiro</label><select id="brewer"></select></div><div class="field"><label for="school">Escola de cerveja</label><select id="school"></select></div>
-      <div class="field"><label for="abvMin">ABV mínimo</label><input class="number-input" id="abvMin" inputmode="decimal" placeholder="Ex.: 4,5"></div>
-      <div class="field"><label for="abvMax">ABV máximo</label><input class="number-input" id="abvMax" inputmode="decimal" placeholder="Ex.: 8,0"></div>
-      <div class="field"><label for="ibuMin">IBU mínimo</label><input class="number-input" id="ibuMin" inputmode="numeric" placeholder="Ex.: 20"></div>
-      <div class="field"><label for="volumeFilter">Volume</label><input class="number-input" id="volumeFilter" inputmode="decimal" placeholder="Ex.: 30"></div>
-    </div></details>
-    <div class="quick">
-      <button class="pill" id="onlyFav" type="button" aria-pressed="false">⭐ Só favoritas</button>
-      <button class="pill" id="onlyDesc" type="button" aria-pressed="false">📝 Com descrição</button>
-      <button class="pill" id="onlyRio" type="button" aria-pressed="false">🏖️ Estilo Rio</button>
-      <button class="pill" id="onlyIpa" type="button" aria-pressed="false">🌿 IPAs</button>
-      <button class="pill" id="onlyComplete" type="button" aria-pressed="false">✅ Dados completos</button><button class="pill" id="onlyUntasted" type="button" aria-pressed="false">🧭 Ainda não provei</button><button class="pill" id="onlyTap" type="button" aria-pressed="false">🍺 Na torneira</button>
-      <button class="pill" id="share" type="button">🔗 Copiar link dos filtros</button>
-      <button class="clear" id="clear" type="button">Limpar filtros</button>
-    </div>
-  </details>
+      <div class="sel">
+        <div class="field"><label for="cf">Confraria</label><select id="cf"></select></div>
+        <div class="field"><label for="ct">Categoria</label><select id="ct"></select></div>
+        <div class="field"><label for="fm">Família de estilo</label><select id="fm"></select></div>
+        <div class="field"><label for="st">Estilo BJCP</label><select id="st"></select></div>
+        <div class="field"><label for="or">Ordenar por</label>
+          <select id="or">
+            <option value="cerveja">Nome da cerveja (A–Z)</option>
+            <option value="confraria">Confraria</option>
+            <option value="estilo">Estilo</option>
+            <option value="categoria">Categoria</option>
+            <option value="rating">Nota pública (maior primeiro)</option>
+          </select>
+        </div>
+      </div>
+      <details class="advanced-filters"><summary>Mais filtros e critérios</summary><div class="advanced-grid">
+        <div class="field"><label for="brewer">Cervejeiro</label><select id="brewer"></select></div><div class="field"><label for="school">Escola de cerveja</label><select id="school"></select></div>
+        <div class="field"><label for="abvMin">ABV mínimo</label><input class="number-input" id="abvMin" inputmode="decimal" placeholder="Ex.: 4,5"></div>
+        <div class="field"><label for="abvMax">ABV máximo</label><input class="number-input" id="abvMax" inputmode="decimal" placeholder="Ex.: 8,0"></div>
+        <div class="field"><label for="ibuMin">IBU mínimo</label><input class="number-input" id="ibuMin" inputmode="numeric" placeholder="Ex.: 20"></div>
+        <div class="field"><label for="volumeFilter">Volume</label><input class="number-input" id="volumeFilter" inputmode="decimal" placeholder="Ex.: 30"></div>
+      </div></details>
+      <div class="quick">
+        <button class="pill" id="onlyFav" type="button" aria-pressed="false">⭐ Só favoritas</button>
+        <button class="pill" id="onlyDesc" type="button" aria-pressed="false">📝 Com descrição</button>
+        <button class="pill" id="onlyRio" type="button" aria-pressed="false">🏖️ Estilo Rio</button>
+        <button class="pill" id="onlyIpa" type="button" aria-pressed="false">🌿 IPAs</button>
+        <button class="pill" id="onlyComplete" type="button" aria-pressed="false">✅ Dados completos</button><button class="pill" id="onlyUntasted" type="button" aria-pressed="false">🧭 Ainda não provei</button><button class="pill" id="onlyTap" type="button" aria-pressed="false">🍺 Na torneira</button>
+        <button class="pill" id="share" type="button">🔗 Copiar link dos filtros</button>
+        <button class="clear" id="clear" type="button">Limpar filtros</button>
+      </div>
+    </details>
 
-  <details class="panel status-board">
-    <summary class="status-board-summary"><div><h2 id="statusBoardTitle">Status dos engates</h2><p>Abra para ver rapidamente a situação de cada cerveja no evento.</p></div><span class="status-summary-hint">Aguardando · Engatado · Acabou</span></summary>
-    <div class="status-tabs" role="tablist" aria-label="Status das cervejas">
-      <button class="status-tab active" type="button" role="tab" aria-selected="true" aria-controls="statusPanelAguardando" data-status-tab="Aguardando">Aguardando <span id="statusCountAguardando">0</span></button>
-      <button class="status-tab" type="button" role="tab" aria-selected="false" aria-controls="statusPanelEngatado" data-status-tab="Engatado">Engatado <span id="statusCountEngatado">0</span></button>
-      <button class="status-tab" type="button" role="tab" aria-selected="false" aria-controls="statusPanelAcabou" data-status-tab="Acabou">Acabou <span id="statusCountAcabou">0</span></button>
+    <details class="panel status-board">
+      <summary class="status-board-summary"><div><h2 id="statusBoardTitle">Status dos engates</h2><p>Abra para ver rapidamente a situação de cada cerveja no evento.</p></div><span class="status-summary-hint">Aguardando · Engatado · Acabou</span></summary>
+      <div class="status-tabs" role="tablist" aria-label="Status das cervejas">
+        <button class="status-tab active" type="button" role="tab" aria-selected="true" aria-controls="statusPanelAguardando" data-status-tab="Aguardando">Aguardando <span id="statusCountAguardando">0</span></button>
+        <button class="status-tab" type="button" role="tab" aria-selected="false" aria-controls="statusPanelEngatado" data-status-tab="Engatado">Engatado <span id="statusCountEngatado">0</span></button>
+        <button class="status-tab" type="button" role="tab" aria-selected="false" aria-controls="statusPanelAcabou" data-status-tab="Acabou">Acabou <span id="statusCountAcabou">0</span></button>
+      </div>
+      <div class="status-panel active" id="statusPanelAguardando" role="tabpanel"><div class="status-bars" id="statusListAguardando"></div></div>
+      <div class="status-panel" id="statusPanelEngatado" role="tabpanel" hidden><div class="status-bars" id="statusListEngatado"></div></div>
+      <div class="status-panel" id="statusPanelAcabou" role="tabpanel" hidden><div class="status-bars" id="statusListAcabou"></div></div>
+    </details>
+
+    <div class="bar">
+      <div>
+        <h2>Resultados da consulta</h2>
+        <span id="count">Pesquise ou aplique filtros para ver cervejas</span>
+        <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+      </div>
+      <button class="pill" id="print" type="button">🖨️ Imprimir resultados</button>
     </div>
-    <div class="status-panel active" id="statusPanelAguardando" role="tabpanel"><div class="status-bars" id="statusListAguardando"></div></div>
-    <div class="status-panel" id="statusPanelEngatado" role="tabpanel" hidden><div class="status-bars" id="statusListEngatado"></div></div>
-    <div class="status-panel" id="statusPanelAcabou" role="tabpanel" hidden><div class="status-bars" id="statusListAcabou"></div></div>
-  </details>
+    <section class="grid" id="grid" aria-live="polite"></section>
 
-  <div class="bar">
-    <div>
-      <h2>Cervejas do festival</h2>
-      <span id="count">—</span>
-      <div class="active-filters" id="activeFilters" aria-live="polite"></div>
-    </div>
-    <button class="pill" id="print" type="button">🖨️ Imprimir lista filtrada</button>
-  </div>
-
-  <section class="grid" id="grid" aria-live="polite"></section>
-
-
-  <details class="panel dashboard confraria-directory" id="dashboard" aria-labelledby="confrariaDirectoryTitle">
-    <summary class="dashboard-heading confraria-directory-toggle"><div><h2 id="confrariaDirectoryTitle">Confrarias</h2><p>Perfis, regiões, links oficiais e histórico de premiações verificadas.</p></div><div class="confraria-summary" id="confrariaSummary" aria-live="polite"></div></summary>
-    <div class="confraria-directory-content">
-      <div id="confrariaOrganizerTable" class="confraria-organizer-table"></div>
-      <div class="confraria-directory-grid" id="confrariaDirectoryGrid"><p class="filter-help">Carregando confrarias...</p></div>
-    </div>
-  </details>
-  <section class="panel recommendations"><h2>Encontre pelo seu momento</h2><p>Escolha um perfil e o guia sugere cervejas com os dados disponíveis.</p><div class="recommendation-actions"><button class="pill" data-recommend="leve" type="button">Leve e refrescante</button><button class="pill" data-recommend="amarga" type="button">Amarga e lupulada</button><button class="pill" data-recommend="forte" type="button">Forte e intensa</button><button class="pill" data-recommend="escura" type="button">Escura e maltada</button><button class="pill" data-recommend="frutada" type="button">Frutada e aromática</button></div><div class="recommendation-results" id="recommendationResults"><span class="filter-help">Selecione um perfil para receber sugestões.</span></div></section>
-  <section class="panel compare-panel" id="comparePanel" hidden><h2>Comparador de cervejas</h2><p>Selecione até três cards para comparar lado a lado.</p><div class="compare-table-wrap" id="compareTable"></div><div class="compare-actions"><button class="pill" id="clearCompare" type="button">Limpar comparação</button></div></section>
-  <section class="panel legend">
-    <h2>Legenda de famílias</h2>
-    <p>Clique em uma família de estilos para filtrar a lista instantaneamente.</p>
-    <div class="chips" id="chips"></div>
+    <section class="panel recommendations"><h2>Encontre pelo seu momento</h2><p>Escolha um perfil e o guia sugere cervejas com os dados disponíveis.</p><div class="recommendation-actions"><button class="pill" data-recommend="leve" type="button">Leve e refrescante</button><button class="pill" data-recommend="amarga" type="button">Amarga e lupulada</button><button class="pill" data-recommend="forte" type="button">Forte e intensa</button><button class="pill" data-recommend="escura" type="button">Escura e maltada</button><button class="pill" data-recommend="frutada" type="button">Frutada e aromática</button></div><div class="recommendation-results" id="recommendationResults"><span class="filter-help">Selecione um perfil para receber sugestões.</span></div></section>
+    <section class="panel compare-panel" id="comparePanel" hidden><h2>Comparador de cervejas</h2><p>Selecione até três cards para comparar lado a lado.</p><div class="compare-table-wrap" id="compareTable"></div><div class="compare-actions"><button class="pill" id="clearCompare" type="button">Limpar comparação</button></div></section>
+    <section class="panel legend">
+      <h2>Legenda de famílias</h2>
+      <p>Clique em uma família de estilos para filtrar os resultados da consulta.</p>
+      <div class="chips" id="chips"></div>
+    </section>
+    <section class="panel insights"><h2>Visão geral</h2><p>Resumo atualizado com os dados atualmente carregados.</p><div class="insights-grid" id="insightsGrid"></div></section>
+    <section class="panel validation-panel"><div class="bar" style="margin:0"><div><h2>Qualidade dos dados</h2><span>Confira campos ausentes e valores que precisam de revisão.</span></div><button class="pill" id="validateData" type="button">Validar registros</button></div><div class="validation-result" id="validationResult">A validação ainda não foi executada.</div></section>
   </section>
-  <section class="panel insights"><h2>Visão geral</h2><p>Resumo atualizado com os dados atualmente carregados.</p><div class="insights-grid" id="insightsGrid"></div></section>
-  <section class="panel validation-panel"><div class="bar" style="margin:0"><div><h2>Qualidade dos dados</h2><span>Confira campos ausentes e valores que precisam de revisão.</span></div><button class="pill" id="validateData" type="button">Validar registros</button></div><div class="validation-result" id="validationResult">A validação ainda não foi executada.</div></section>
+
+  <section class="app-tab-panel" id="panelTodasCervejas" role="tabpanel" aria-labelledby="tabTodasCervejas" data-app-panel="todas-cervejas" hidden>
+    <div class="bar all-beers-heading"><div><h2>Todas as cervejas do festival</h2><span id="allBeersCount">Carregando catálogo...</span><p>Lista completa independente da busca e dos filtros da aba Consulta. Cada card mantém seu status e acesso à ficha.</p></div><button class="pill" id="printAllBeers" type="button">🖨️ Imprimir catálogo completo</button></div>
+    <section class="grid" id="allBeersGrid" aria-live="polite"><div class="empty"><strong>Carregando cervejas</strong></div></section>
+  </section>
+
+  <section class="app-tab-panel confraria-tab-panel" id="panelConfrarias" role="tabpanel" aria-labelledby="tabConfrarias" data-app-panel="confrarias" hidden>
+    <details class="panel dashboard confraria-directory" id="dashboard" aria-labelledby="confrariaDirectoryTitle">
+      <summary class="dashboard-heading confraria-directory-toggle"><div><h2 id="confrariaDirectoryTitle">Confrarias</h2><p>Perfis, regiões, links oficiais e histórico de premiações verificadas.</p></div><div class="confraria-summary" id="confrariaSummary" aria-live="polite"></div></summary>
+      <div class="confraria-directory-content">
+        <div id="confrariaOrganizerTable" class="confraria-organizer-table"></div>
+        <div class="confraria-directory-grid" id="confrariaDirectoryGrid"><p class="filter-help">Carregando confrarias...</p></div>
+      </div>
+    </details>
+  </section>
 </main>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mn">
@@ -153,7 +167,7 @@
 
 <footer class="wrap">
   <p>Guia interativo Oficial do 13º Festival de Confrarias do Rio de Janeiro (13FDCRJ). As avaliações públicas usam o Firebase; suas anotações pessoais ficam salvas localmente no navegador.<br>
-  <p>Página elaborada por <a href="https://instagram.com/mdestefano" target="_blank" rel="noopener">Marcelo Destefano</a> inspirada na elaborada pelo Levi Ciqueira Jr.<br>
+     <p>Página inspirada na elaborada pelo Levi Ciqueira Jr.<br>
   <strong>Aprecie com moderação — Se beber, não dirija! Siga <a href="https://instagram.com/fdcrj" target="_blank" rel="noopener">@fdcrj</a> no Instagram.</strong></p>
 </footer>
 

@@ -16,6 +16,10 @@ No Firebase Console, mantenha o provedor Google ativo em **Authentication → Si
 
 O login não exige chave privada nem arquivo de conta de serviço. O objeto de configuração Web do Firebase é público e está restrito ao projeto `fdcrj-a71e4`.
 
+## Navegação do guia
+
+O guia é dividido em abas horizontais sem numeração: **Consulta** concentra busca, filtros, recursos de consulta e o painel de status dos engates; os resultados de cerveja só aparecem após uma busca ou filtro. **Todas as cervejas** mostra o catálogo integral, independentemente da pesquisa. **Confrarias** reúne a tabela de organizadoras e os perfis com informações e premiações. No celular, as abas podem ser percorridas lateralmente.
+
 ## Avaliações públicas
 
 As notas são gravadas no Firestore em `beerRatings/{slug}/votes/{uid}`. Cada conta Google pode manter uma nota de 1 a 5 por cerveja. O catálogo calcula a média, mostra a quantidade de votos e permite ordenar por **Nota pública**.
