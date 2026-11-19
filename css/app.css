@@ -69,6 +69,9 @@ h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 6px 0 6px; line-height: 1.1; f
 .top-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 .auth-panel { display:flex; align-items:center; justify-content:flex-end; gap:8px; flex-wrap:wrap; margin-top:10px; }
 .google-sign-in, .auth-sign-out { border:1px solid rgba(255,255,255,.38); background:#fff; color:#0f2b48; border-radius:999px; padding:8px 14px; font-weight:800; cursor:pointer; font-size:.8rem; }
+.google-sign-in { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:38px; }
+.google-sign-in__logo { display:block; width:18px; height:18px; flex:0 0 18px; }
+.google-sign-in__label { line-height:1.2; }
 .google-sign-in:hover, .auth-sign-out:hover { background:#fceae6; }
 .google-sign-in:disabled { opacity:.65; cursor:wait; }
 .auth-user { display:flex; align-items:center; gap:7px; color:#fff; font-size:.8rem; font-weight:700; }
@@ -282,11 +285,6 @@ select {
 .insight-row .fill { height: 100%; border-radius: inherit; background: var(--brand); }
 .validation-result { margin-top: 12px; color: var(--muted); font-size: 0.82rem; }
 .validation-result strong { color: var(--ink); }
-.presentation-mode header { min-height: 100vh; display: flex; align-items: center; }
-.presentation-mode main { max-width: 1400px; }
-.presentation-mode .filter-panel, .presentation-mode .legend, .presentation-mode footer, .presentation-mode .insights, .presentation-mode .validation-panel { display: none; }
-.presentation-mode .grid { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 22px; }
-.presentation-mode .card h3 { font-size: 1.45rem; }
 .card .specs { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 10px; }
 .card .spec { border: 1px solid var(--line); border-radius: 999px; padding: 3px 7px; color: var(--muted); font-size: 0.68rem; }
 .tap-badge, .tap-status { display:inline-flex; align-items:center; gap:4px; border:1px solid color-mix(in srgb,#2a9d8f 45%,var(--line)); background:color-mix(in srgb,#2a9d8f 13%,transparent); color:#19766c; border-radius:999px; padding:3px 8px; font-size:.68rem; font-weight:800; }
@@ -590,10 +588,6 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
 .modal-qr .qr-copy { display:flex; flex-direction:column; gap:4px; min-width:0; }
 .modal-qr .qr-copy strong { font-size:.9rem; }
 .modal-qr .qr-link { display:inline-flex; width:max-content; max-width:100%; color:var(--brand-ink); font-size:.76rem; font-weight:800; }
-.event-mode header { padding-bottom:55px; }
-.event-mode .filter-panel { position:static; }
-.event-mode .card { min-height:300px; }
-.event-mode .card h3 { font-size:1.35rem; }
 .high-contrast { filter:contrast(1.18); }
 .font-large { font-size:112%; }
 .font-xlarge { font-size:125%; }
