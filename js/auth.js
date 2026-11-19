@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { getAuth, GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
 import { getFirestore, collection, doc, getDocs, setDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
 import { firebaseConfig } from './firebase-config.js';
 
@@ -20,6 +20,18 @@ function setAuthMessage(message, isError = false) {
   if (!status) return;
   status.textContent = message;
   status.classList.toggle('auth-error', isError);
+}
+
+function authErrorMessage(error) {
+  switch (error?.code) {
+    case 'auth/unauthorized-domain': return 'Domínio não autorizado no Firebase. Adicione fdcrj.github.io em Authentication → Settings → Authorized domains.';
+    case 'auth/operation-not-allowed': return 'O login Google está desativado no Firebase. Ative Google em Authentication → Sign-in method.';
+    case 'auth/popup-closed-by-user': return 'A janela de login foi fechada antes da conclusão.';
+    case 'auth/network-request-failed': return 'Falha de conexão. Verifique a internet e tente novamente.';
+    case 'auth/too-many-requests': return 'Muitas tentativas em sequência. Aguarde um pouco antes de tentar novamente.';
+    case 'auth/web-storage-unsupported': return 'O navegador bloqueou o armazenamento necessário ao login. Habilite cookies e armazenamento do site.';
+    default: return `Não foi possível concluir o login Google${error?.code ? ` (${error.code})` : ''}. Tente novamente.`;
+  }
 }
 
 function renderAuth(user) {
@@ -47,20 +59,29 @@ function renderAuth(user) {
 
 async function loginWithGoogle() {
   const button = $('#googleSignIn');
-  if (button) { button.disabled = true; button.textContent = 'Entrando...'; }
+  const label = button?.querySelector('.google-sign-in__label');
+  if (button) { button.disabled = true; }
+  if (label) label.textContent = 'Entrando...';
   setAuthMessage('Abrindo a conta Google...');
   try {
     await signInWithPopup(auth, provider);
   } catch (error) {
-    console.error('Falha no login Google:', error);
-    const message = error?.code === 'auth/popup-blocked'
-      ? 'O navegador bloqueou a janela. Permita pop-ups para entrar.'
-      : error?.code === 'auth/unauthorized-domain'
-        ? 'Este domínio ainda não foi autorizado no Firebase.'
-        : 'Não foi possível concluir o login Google.';
-    setAuthMessage(message, true);
+    if (['auth/popup-blocked','auth/operation-not-supported-in-this-environment'].includes(error?.code)) {
+      try {
+        setAuthMessage('O navegador não abriu a janela. Redirecionando para o Google...');
+        await signInWithRedirect(auth, provider);
+        return;
+      } catch (redirectError) {
+        console.error('Falha no redirecionamento Google:', redirectError);
+        setAuthMessage(authErrorMessage(redirectError), true);
+      }
+    } else {
+      console.error('Falha no login Google:', error);
+      setAuthMessage(authErrorMessage(error), true);
+    }
   } finally {
-    if (button) { button.disabled = false; button.textContent = 'Continuar com Google'; }
+    if (button) button.disabled = false;
+    if (label) label.textContent = 'Continuar com Google';
   }
 }
 
@@ -99,6 +120,10 @@ async function removeSharedRating(slug) {
 
 $('#googleSignIn')?.addEventListener('click', loginWithGoogle);
 $('#googleSignOut')?.addEventListener('click', logout);
+getRedirectResult(auth).catch(error => {
+  console.error('Falha no retorno do login Google:', error);
+  setAuthMessage(authErrorMessage(error), true);
+});
 onAuthStateChanged(auth, user => {
   renderAuth(user);
   resolveAuthReady(user || null);
