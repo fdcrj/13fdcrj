@@ -1,8 +1,16 @@
 diff --git a/README.md b/README.md
-index 7285f773ab3edfcc78cd91984bd52ef986414a90..746306cb07f936b8af766ab390001fc3c08c1107 100644
+index 7285f773ab3edfcc78cd91984bd52ef986414a90..d2e9816415e729bb1c20ca0ee37d6b76283e15c4 100644
 --- a/README.md
 +++ b/README.md
-@@ -16,6 +16,12 @@ No Firebase Console, mantenha o provedor Google ativo em **Authentication → Si
+@@ -10,12 +10,18 @@ A publicação é feita pelo workflow `.github/workflows/pages.yml`.
+ 
+ ## Login exclusivo com Google
+ 
+-O site usa Firebase Authentication com o provedor Google. A configuração pública do aplicativo fica em `js/firebase-config.js` e o fluxo de login fica em `js/auth.js`. Não há provedor GitHub habilitado no código.
++O site usa Firebase Authentication com o provedor Google. O botão apresenta o logotipo Google; o login tenta a janela pop-up e, se o navegador a bloquear ou não oferecer suporte, recorre ao redirecionamento. Erros de domínio não autorizado e provedor desativado são mostrados junto ao botão. A configuração pública do aplicativo fica em `js/firebase-config.js` e o fluxo de login fica em `js/auth.js`. Não há provedor GitHub habilitado no código.
+ 
+-No Firebase Console, mantenha o provedor Google ativo em **Authentication → Sign-in method** e adicione `fdcrj.github.io` em **Authentication → Settings → Authorized domains**. Para testar localmente, adicione também `localhost`.
++Para o login funcionar, no Firebase Console do projeto `fdcrj-a71e4`, confirme que Google está habilitado em **Authentication → Sign-in method** e que `fdcrj.github.io` consta em **Authentication → Settings → Authorized domains**. Adicione também `localhost` para testes locais e o domínio exato de qualquer ambiente de pré-visualização usado.
  
  O login não exige chave privada nem arquivo de conta de serviço. O objeto de configuração Web do Firebase é público e está restrito ao projeto `fdcrj-a71e4`.
  
@@ -58,7 +66,7 @@ index 2b7e78a0281c7539880ffdac037d09a8b631d33d..c1b00d2a740ba7b8390bd15d38f6841a
  
  Escola Alemã definida pelo usuário: 03A, 03B, 03C, 03D, 04A, 04B, 04C, 05A, 05B, 05C, 05D, 06A, 06B, 06C, 07A, 07B, 08A, 08B, 09A, 09B, 09C, 10A, 10B, 10C, 23A, 23G e os estilos históricos 27 Kellerbier, 27 Lichtenhainer, 27 Piwo Grodziskie, 27 Roggenbier e 27 Sahti.
 diff --git a/cerveja.html b/cerveja.html
-index f1a9ea4398129c9cd0aacf8813a8538df7ef30a3..327acbeb9ea056e9f52e06c657b37d7aa970c610 100644
+index f1a9ea4398129c9cd0aacf8813a8538df7ef30a3..a30200ee9bf71b4be82cc668be9ee805f5673eba 100644
 --- a/cerveja.html
 +++ b/cerveja.html
 @@ -9,12 +9,13 @@
@@ -70,8 +78,9 @@ index f1a9ea4398129c9cd0aacf8813a8538df7ef30a3..327acbeb9ea056e9f52e06c657b37d7a
  <title>Ficha da cerveja • 13º FDCRJ</title>
  </head>
  <body>
- <header class="hero"><div class="wrap"><div class="topline">🍻 13º FESTIVAL DE CONFRARIAS DO RIO DE JANEIRO · 13FDCRJ</div><div class="beer-page-actions"><a class="ghost" href="index.html">← Voltar ao guia</a><div class="auth-panel auth-panel-page" id="authArea" aria-live="polite"><button class="google-sign-in" id="googleSignIn" type="button">Continuar com Google</button><div class="auth-user" id="authUser" hidden><img id="authAvatar" alt="" hidden><span id="authName"></span><button class="auth-sign-out" id="googleSignOut" type="button">Sair</button></div><span class="auth-status" id="authStatus">Entre para salvar sua experiência</span></div></div><div class="hero-content"><img src="logo fdcrj.jpg" alt="Logo FDCRJ"><div><h1 id="beerName">Carregando ficha...</h1><p id="beerSubtitle">Consultando os dados da cerveja.</p></div><div class="top-qr"><canvas id="beerQr" width="118" height="118" aria-label="QR Code desta cerveja"></canvas><span>Escaneie para abrir</span><button id="copyBeerUrl" class="pill" type="button">Copiar link</button></div></div></div></header>
+-<header class="hero"><div class="wrap"><div class="topline">🍻 13º FESTIVAL DE CONFRARIAS DO RIO DE JANEIRO · 13FDCRJ</div><div class="beer-page-actions"><a class="ghost" href="index.html">← Voltar ao guia</a><div class="auth-panel auth-panel-page" id="authArea" aria-live="polite"><button class="google-sign-in" id="googleSignIn" type="button">Continuar com Google</button><div class="auth-user" id="authUser" hidden><img id="authAvatar" alt="" hidden><span id="authName"></span><button class="auth-sign-out" id="googleSignOut" type="button">Sair</button></div><span class="auth-status" id="authStatus">Entre para salvar sua experiência</span></div></div><div class="hero-content"><img src="logo fdcrj.jpg" alt="Logo FDCRJ"><div><h1 id="beerName">Carregando ficha...</h1><p id="beerSubtitle">Consultando os dados da cerveja.</p></div><div class="top-qr"><canvas id="beerQr" width="118" height="118" aria-label="QR Code desta cerveja"></canvas><span>Escaneie para abrir</span><button id="copyBeerUrl" class="pill" type="button">Copiar link</button></div></div></div></header>
 -<main class="wrap beer-page"><div id="beerStatus" class="panel">Carregando informações...</div><article id="beerCard" class="panel beer-detail-page" hidden><div class="detail-page-grid"><div><div id="beerImage" class="beer-image-placeholder">🍺</div></div><div><div class="tag" id="beerSchool"></div><h2 id="beerTitle"></h2><p id="beerStyle" class="meta"></p><div id="beerTapStatus" class="tap-status" hidden></div><div id="beerStatusHistory"></div><div id="beerPublicRating" class="public-rating">Carregando avaliação pública...</div><div id="beerMetrics" class="detail-page-metrics"></div><div id="beerDescription"></div><div id="beerExtras" class="detail-extra"></div></div></div></article></main>
++<header class="hero"><div class="wrap"><div class="topline">🍻 13º FESTIVAL DE CONFRARIAS DO RIO DE JANEIRO · 13FDCRJ</div><div class="beer-page-actions"><a class="ghost" href="index.html">← Voltar ao guia</a><div class="auth-panel auth-panel-page" id="authArea" aria-live="polite"><button class="google-sign-in" id="googleSignIn" type="button"><svg class="google-sign-in__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M43.6 24.5c0-1.6-.1-3.2-.4-4.7H24v8.9h11.1c-.5 2.9-2.1 5.3-4.5 6.9v5.7h7.3c4.3-4 6.7-9.8 6.7-16.8z"/><path fill="#34A853" d="M24 44c5.4 0 9.9-1.8 13.2-4.8l-7.3-5.7c-1.8 1.2-4.1 1.9-5.9 1.9-4.5 0-8.3-3-9.7-7H6.8v5.9C10.1 40.1 16.5 44 24 44z"/><path fill="#FBBC05" d="M14.3 28.4c-.4-1.2-.7-2.8-.7-4.4s.3-3.2.8-4.5v-5.9H6.8C5.1 16.9 4 20.3 4 24s1.1 7.1 2.8 10.4l7.5-6z"/><path fill="#EA4335" d="M24 12.1c3.1 0 5.9 1.1 8.1 3.2l6.1-6.1C34.5 5.7 29.6 4 24 4 16.5 4 10.1 7.9 6.8 13.6l7.5 5.9c1.4-4.2 5.2-7.4 9.7-7.4z"/></svg><span class="google-sign-in__label">Continuar com Google</span></button><div class="auth-user" id="authUser" hidden><img id="authAvatar" alt="" hidden><span id="authName"></span><button class="auth-sign-out" id="googleSignOut" type="button">Sair</button></div><span class="auth-status" id="authStatus">Entre para salvar sua experiência</span></div></div><div class="hero-content"><img src="logo fdcrj.jpg" alt="Logo FDCRJ"><div><h1 id="beerName">Carregando ficha...</h1><p id="beerSubtitle">Consultando os dados da cerveja.</p></div><div class="top-qr"><canvas id="beerQr" width="118" height="118" aria-label="QR Code desta cerveja"></canvas><span>Escaneie para abrir</span><button id="copyBeerUrl" class="pill" type="button">Copiar link</button></div></div></div></header>
 +<main class="wrap beer-page"><div id="beerStatus" class="panel">Carregando informações...</div><article id="beerCard" class="panel beer-detail-page" hidden><div class="detail-page-grid"><div><div id="beerImage" class="beer-image-placeholder">🍺</div></div><div><div class="tag" id="beerSchool"></div><h2 id="beerTitle"></h2><p id="beerStyle" class="meta"></p><div id="beerBJCPReference" class="bjcp-reference-slot"></div><div id="beerTapStatus" class="tap-status" hidden></div><div id="beerStatusHistory"></div><div id="beerPublicRating" class="public-rating">Carregando avaliação pública...</div><div id="beerMetrics" class="detail-page-metrics"></div><div id="beerDescription"></div><div id="beerExtras" class="detail-extra"></div></div></div></article></main>
  <script>document.documentElement.classList.add('beer-page-ready');</script>
  <script type="module" src="js/auth.js"></script>
@@ -203,10 +212,20 @@ index 0000000000000000000000000000000000000000..851af9142f2ef8d3133047968e416f4e
 +
 +C4G, CCZO e Suburbreja não tinham perfil no diretório nem medalha localizada no registro de resultados consultado. Foram adicionadas como participantes históricas sem medalha documentada; isso não afirma que não tenham recebido premiações. Seus perfis não inventam informações de fundação, encontros ou canais oficiais.
 diff --git a/css/app.css b/css/app.css
-index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3566d1ec7 100644
+index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..0831f306b2927616729b370b297dff840b2ed350 100644
 --- a/css/app.css
 +++ b/css/app.css
-@@ -104,6 +104,17 @@ h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 6px 0 6px; line-height: 1.1; f
+@@ -69,6 +69,9 @@ h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 6px 0 6px; line-height: 1.1; f
+ .top-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+ .auth-panel { display:flex; align-items:center; justify-content:flex-end; gap:8px; flex-wrap:wrap; margin-top:10px; }
+ .google-sign-in, .auth-sign-out { border:1px solid rgba(255,255,255,.38); background:#fff; color:#0f2b48; border-radius:999px; padding:8px 14px; font-weight:800; cursor:pointer; font-size:.8rem; }
++.google-sign-in { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:38px; }
++.google-sign-in__logo { display:block; width:18px; height:18px; flex:0 0 18px; }
++.google-sign-in__label { line-height:1.2; }
+ .google-sign-in:hover, .auth-sign-out:hover { background:#fceae6; }
+ .google-sign-in:disabled { opacity:.65; cursor:wait; }
+ .auth-user { display:flex; align-items:center; gap:7px; color:#fff; font-size:.8rem; font-weight:700; }
+@@ -104,6 +107,17 @@ h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 6px 0 6px; line-height: 1.1; f
  
  /* Main layout & Panel */
  main { margin-top: -62px; padding-bottom: 56px; }
@@ -224,7 +243,7 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
  .panel {
    background: var(--card);
    border: 1px solid var(--line);
-@@ -204,6 +215,14 @@ select {
+@@ -204,6 +218,14 @@ select {
  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(15, 43, 72, 0.15); }
  .stripe { height: 8px; background: var(--c, var(--brand)); }
  .body { padding: 16px; display: flex; flex-direction: column; flex: 1; }
@@ -239,7 +258,18 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
  .tag {
    display: inline-block;
    background: color-mix(in srgb, var(--c, var(--brand)) 18%, transparent);
-@@ -274,6 +293,7 @@ select {
+@@ -263,17 +285,13 @@ select {
+ .insight-row .fill { height: 100%; border-radius: inherit; background: var(--brand); }
+ .validation-result { margin-top: 12px; color: var(--muted); font-size: 0.82rem; }
+ .validation-result strong { color: var(--ink); }
+-.presentation-mode header { min-height: 100vh; display: flex; align-items: center; }
+-.presentation-mode main { max-width: 1400px; }
+-.presentation-mode .filter-panel, .presentation-mode .legend, .presentation-mode footer, .presentation-mode .insights, .presentation-mode .validation-panel { display: none; }
+-.presentation-mode .grid { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 22px; }
+-.presentation-mode .card h3 { font-size: 1.45rem; }
+ .card .specs { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 10px; }
+ .card .spec { border: 1px solid var(--line); border-radius: 999px; padding: 3px 7px; color: var(--muted); font-size: 0.68rem; }
+ .tap-badge, .tap-status { display:inline-flex; align-items:center; gap:4px; border:1px solid color-mix(in srgb,#2a9d8f 45%,var(--line)); background:color-mix(in srgb,#2a9d8f 13%,transparent); color:#19766c; border-radius:999px; padding:3px 8px; font-size:.68rem; font-weight:800; }
  .tap-badge.aguardando, .tap-status.aguardando { background:#fff4d6; border-color:#e5b94c; color:#805d00; }
  .tap-badge.engatado, .tap-status.engatado { background:#dff6ea; border-color:#39a96b; color:#17683d; }
  .tap-badge.esgotado, .tap-status.esgotado { background:#ffe1e1; border-color:#dc6b6b; color:#9a2525; }
@@ -247,7 +277,7 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
  .tap-badge.reserva, .tap-status.reserva { background:#e8e5ff; border-color:#8176d8; color:#4b429d; }
  .tap-badge.nao-informado, .tap-status.nao-informado { background:#edf0f3; border-color:#b9c1c9; color:#59636c; }
  .filter-panel-summary { display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; list-style:none; }
-@@ -292,21 +312,19 @@ select {
+@@ -292,21 +310,19 @@ select {
  .status-history-row { display:flex; justify-content:space-between; gap:12px; font-size:.74rem; }
  .status-history-row span { color:var(--muted); }
  .status-history-row time { color:var(--ink); font-weight:800; text-align:right; }
@@ -282,7 +312,7 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
  .status-beer-bar { display:grid; grid-template-columns:1fr auto; grid-template-rows:auto auto; gap:2px 8px; width:100%; border:1px solid var(--line); border-left:5px solid #aeb7c1; border-radius:10px; background:var(--surface-2); color:var(--text); padding:9px 11px; text-align:left; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; }
  .status-beer-bar:hover { transform:translateY(-1px); box-shadow:var(--shadow-sm); }
  .status-beer-bar strong { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-@@ -315,8 +333,14 @@ select {
+@@ -315,8 +331,14 @@ select {
  .status-beer-bar .status-date { color:var(--brand-ink); font-weight:800; }
  .status-beer-bar.aguardando { border-left-color:#e5b94c; }
  .status-beer-bar.engatado { border-left-color:#39a96b; }
@@ -298,7 +328,7 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
  
  /* Legend section */
  .legend { margin-top: 32px; }
-@@ -428,7 +452,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
+@@ -428,7 +450,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
  .toast.show { transform: translate(-50%, 0); }
  
  /* Responsive Adjustments */
@@ -307,7 +337,7 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
  @media(max-width:560px) {
    .sel { grid-template-columns: 1fr; }
    .grid { grid-template-columns: 1fr; }
-@@ -445,6 +469,11 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
+@@ -445,6 +467,11 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
  }
  @media print {
    header, .panel, .quick, .legend, footer, .fav { display: none !important; }
@@ -319,7 +349,7 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
    .card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
    main { margin-top: 10px; }
  }
-@@ -453,14 +482,63 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
+@@ -453,14 +480,63 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
  .dashboard-heading { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
  .dashboard-heading h2, .recommendations h2, .compare-panel h2 { margin:0; font-size:1.15rem; }
  .dashboard-heading p, .recommendations > p, .compare-panel > p { margin:4px 0 14px; color:var(--muted); font-size:.84rem; }
@@ -391,7 +421,7 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
  .recommendation-actions { display:flex; flex-wrap:wrap; gap:8px; }
  .recommendation-actions .pill.active { background:var(--brand); color:#fff; border-color:var(--brand); }
  .recommendation-results { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; }
-@@ -481,6 +559,30 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
+@@ -481,6 +557,30 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
  .detail-photo { width:90px; height:90px; object-fit:cover; border-radius:14px; border:1px solid var(--line); }
  .detail-extra { background:color-mix(in srgb,var(--accent) 8%,transparent); border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line)); padding:12px; border-radius:14px; margin:12px 0; font-size:.86rem; }
  .detail-extra strong { color:var(--brand-ink); }
@@ -422,7 +452,15 @@ index 6ec6f93484d99ed2f36f8fb383cd2e3ed1a9a074..a5da5ffbe2eb84fc7816bc1a1d20ffb3
  .detail-actions { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
  .qr-box { display:flex; gap:12px; align-items:center; border-top:1px dashed var(--line); padding-top:12px; margin-top:12px; }
  #qrCanvas { width:110px; height:110px; border-radius:8px; }
-@@ -496,7 +598,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
+@@ -488,15 +588,11 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 36px; color: var(--m
+ .modal-qr .qr-copy { display:flex; flex-direction:column; gap:4px; min-width:0; }
+ .modal-qr .qr-copy strong { font-size:.9rem; }
+ .modal-qr .qr-link { display:inline-flex; width:max-content; max-width:100%; color:var(--brand-ink); font-size:.76rem; font-weight:800; }
+-.event-mode header { padding-bottom:55px; }
+-.event-mode .filter-panel { position:static; }
+-.event-mode .card { min-height:300px; }
+-.event-mode .card h3 { font-size:1.35rem; }
+ .high-contrast { filter:contrast(1.18); }
  .font-large { font-size:112%; }
  .font-xlarge { font-size:125%; }
  @media(max-width:1000px) { .metric-grid { grid-template-columns:repeat(3,1fr); } .chart-grid { grid-template-columns:1fr 1fr; } }
@@ -7624,10 +7662,10 @@ index 0000000000000000000000000000000000000000..33da89c030511e7ae882fcdadae9f79f
 +  ]
 +}
 diff --git a/index.html b/index.html
-index f5dc8077fb0593a1bac63e8e8a3e8500a91c1b86..5d331d8901195ab93a6e1217921e7141de4f838a 100644
+index f5dc8077fb0593a1bac63e8e8a3e8500a91c1b86..a4666d6b3c4c3753d6b4cfe54287e5a3a69ad77b 100644
 --- a/index.html
 +++ b/index.html
-@@ -12,7 +12,6 @@
+@@ -12,17 +12,16 @@
  <title>Guia de Cervejas • 13º Festival de Confrarias do Rio de Janeiro - 13FDCRJ</title>
  <link rel="stylesheet" href="css/app.css">
  <link rel="icon" type="image/jpeg" href="logo fdcrj.jpg">
@@ -7635,6 +7673,19 @@ index f5dc8077fb0593a1bac63e8e8a3e8500a91c1b86..5d331d8901195ab93a6e1217921e7141
  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
  
  </head>
+ <body>
+ <header>
+   <div class="wrap">
+-    <div class="topbar">
++      <div class="topbar">
+       <span class="kicker">🍻 13º Festival de Confrarias do Rio de Janeiro - 13FDCRJ • @fdcrj</span>
+-      <div class="top-actions"><button class="ghost" id="reloadData" type="button">↻ Atualizar dados</button><button class="ghost" id="presentationToggle" type="button" aria-pressed="false">▣ Apresentação</button><button class="ghost" id="eventModeToggle" type="button" aria-pressed="false">🎪 Modo evento</button><button class="ghost" id="accessibilityToggle" type="button" aria-pressed="false">◐ Acessibilidade</button><button class="ghost" id="theme" type="button">🌙 Tema</button></div>
+-      <div class="auth-panel" id="authArea" aria-live="polite"><button class="google-sign-in" id="googleSignIn" type="button">Continuar com Google</button><div class="auth-user" id="authUser" hidden><img id="authAvatar" alt="" hidden><span id="authName"></span><button class="auth-sign-out" id="googleSignOut" type="button">Sair</button></div><span class="auth-status" id="authStatus">Entre para salvar sua experiência</span></div>
++      <div class="top-actions"><button class="ghost" id="reloadData" type="button">↻ Atualizar dados</button><button class="ghost" id="accessibilityToggle" type="button" aria-pressed="false">◐ Acessibilidade</button><button class="ghost" id="theme" type="button">🌙 Tema</button></div>
++      <div class="auth-panel" id="authArea" aria-live="polite"><button class="google-sign-in" id="googleSignIn" type="button"><svg class="google-sign-in__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M43.6 24.5c0-1.6-.1-3.2-.4-4.7H24v8.9h11.1c-.5 2.9-2.1 5.3-4.5 6.9v5.7h7.3c4.3-4 6.7-9.8 6.7-16.8z"/><path fill="#34A853" d="M24 44c5.4 0 9.9-1.8 13.2-4.8l-7.3-5.7c-1.8 1.2-4.1 1.9-5.9 1.9-4.5 0-8.3-3-9.7-7H6.8v5.9C10.1 40.1 16.5 44 24 44z"/><path fill="#FBBC05" d="M14.3 28.4c-.4-1.2-.7-2.8-.7-4.4s.3-3.2.8-4.5v-5.9H6.8C5.1 16.9 4 20.3 4 24s1.1 7.1 2.8 10.4l7.5-6z"/><path fill="#EA4335" d="M24 12.1c3.1 0 5.9 1.1 8.1 3.2l6.1-6.1C34.5 5.7 29.6 4 24 4 16.5 4 10.1 7.9 6.8 13.6l7.5 5.9c1.4-4.2 5.2-7.4 9.7-7.4z"/></svg><span class="google-sign-in__label">Continuar com Google</span></button><div class="auth-user" id="authUser" hidden><img id="authAvatar" alt="" hidden><span id="authName"></span><button class="auth-sign-out" id="googleSignOut" type="button">Sair</button></div><span class="auth-status" id="authStatus">Entre para salvar sua experiência</span></div>
+     </div>
+ <!-- Estrutura HTML -->
+ <div class="header-logo">
 @@ -43,83 +42,101 @@
  </header>
  
@@ -7847,7 +7898,7 @@ index f5dc8077fb0593a1bac63e8e8a3e8500a91c1b86..5d331d8901195ab93a6e1217921e7141
  <script type="module" src="js/auth.js"></script>
  </body>
 diff --git a/js/app.js b/js/app.js
-index 8783e4e36e354865699dd01c2a1557b626e630e6..d18cc2492c1339e9a15c8b19fba45c68ee9bb1e4 100644
+index 8783e4e36e354865699dd01c2a1557b626e630e6..25073b2f99f103b643cb5b73262ab985f78f0841 100644
 --- a/js/app.js
 +++ b/js/app.js
 @@ -36,7 +36,7 @@ function deriveFamily(style) {
@@ -7910,7 +7961,7 @@ index 8783e4e36e354865699dd01c2a1557b626e630e6..d18cc2492c1339e9a15c8b19fba45c68
  
  // Elementos DOM
  const $ = s => document.querySelector(s); const $$ = s => document.querySelectorAll(s);
-@@ -192,22 +204,24 @@ function statusBoardBucket(status) {
+@@ -192,27 +204,29 @@ function statusBoardBucket(status) {
    if (value === 'aguardando') return 'Aguardando';
    if (value === 'engatado') return 'Engatado';
    if (value === 'esgotado' || value === 'acabou') return 'Acabou';
@@ -7939,6 +7990,12 @@ index 8783e4e36e354865699dd01c2a1557b626e630e6..d18cc2492c1339e9a15c8b19fba45c68
    });
  }
  
+ function setupExperience() {
+-  if (localStorage.getItem('fdcrj_event_mode') === '1') { document.body.classList.add('event-mode'); $('#eventModeToggle').setAttribute('aria-pressed','true'); $('#eventModeToggle').textContent='🎪 Sair do evento'; }
++  localStorage.removeItem('fdcrj_event_mode');
+   const accessibility = localStorage.getItem('fdcrj_accessibility') || 'normal';
+   if (accessibility === 'contrast') document.body.classList.add('high-contrast');
+   if (accessibility === 'large') document.body.classList.add('font-large');
 @@ -241,7 +255,9 @@ function toNumber(value) {
    return match ? Number(match[0]) : NaN;
  }
@@ -8156,16 +8213,20 @@ index 8783e4e36e354865699dd01c2a1557b626e630e6..d18cc2492c1339e9a15c8b19fba45c68
    ['#q', '#cf', '#ct', '#fm', '#st', '#or', '#brewer', '#school', '#abvMin', '#abvMax', '#ibuMin', '#volumeFilter'].forEach(sel => {
      $(sel).addEventListener('input', renderGrid);
    });
-@@ -708,7 +777,7 @@ function bindEvents() {
+@@ -708,11 +777,9 @@ function bindEvents() {
  
    $('#clear').addEventListener('click', () => { clearAllFilters(); showToast('Filtros limpos'); });
    $('#reloadData').addEventListener('click', async () => { $('#reloadData').disabled = true; $('#reloadData').textContent = '↻ Carregando...'; await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); buildFilters(); renderStatusBoard(); renderGrid(); renderLegend(); updateStats(); renderInsights(); renderDashboard(); renderRecommendations(); renderCompare(); $('#reloadData').disabled = false; $('#reloadData').textContent = '↻ Atualizar dados'; showToast('Dados atualizados'); });
 -  document.querySelectorAll('[data-status-tab]').forEach(tab => tab.addEventListener('click', () => { const target = tab.dataset.statusTab; document.querySelectorAll('[data-status-tab]').forEach(item => { const active = item === tab; item.classList.toggle('active', active); item.setAttribute('aria-selected', active); }); document.querySelectorAll('.status-panel').forEach(panel => { const active = panel.id === `statusPanel${target}`; panel.classList.toggle('active', active); panel.hidden = !active; }); }));
+-  $('#presentationToggle').addEventListener('click', event => { const active = document.body.classList.toggle('presentation-mode'); event.currentTarget.setAttribute('aria-pressed', active); event.currentTarget.textContent = active ? '▣ Sair da apresentação' : '▣ Apresentação'; });
 +  $('#printAllBeers').addEventListener('click', () => { document.body.classList.add('print-all-beers'); window.print(); setTimeout(() => document.body.classList.remove('print-all-beers'), 1000); });
-   $('#presentationToggle').addEventListener('click', event => { const active = document.body.classList.toggle('presentation-mode'); event.currentTarget.setAttribute('aria-pressed', active); event.currentTarget.textContent = active ? '▣ Sair da apresentação' : '▣ Apresentação'; });
    $('#validateData').addEventListener('click', validateData);
    document.querySelectorAll('[data-recommend]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-recommend]').forEach(item => item.classList.remove('active')); button.classList.add('active'); renderRecommendations(button.dataset.recommend); }));
-@@ -777,5 +846,14 @@ function formatMeasure(value, unit) {
+-  $('#eventModeToggle').addEventListener('click', event => { const active=document.body.classList.toggle('event-mode'); localStorage.setItem('fdcrj_event_mode',active?'1':'0'); event.currentTarget.setAttribute('aria-pressed',active); event.currentTarget.textContent=active?'🎪 Sair do evento':'🎪 Modo evento'; });
+   $('#accessibilityToggle').addEventListener('click', event => { const order=['normal','large','xlarge','contrast']; const current=localStorage.getItem('fdcrj_accessibility')||'normal'; const next=order[(order.indexOf(current)+1)%order.length]; document.body.classList.remove('font-large','font-xlarge','high-contrast'); if(next==='large') document.body.classList.add('font-large'); if(next==='xlarge') document.body.classList.add('font-xlarge'); if(next==='contrast') document.body.classList.add('high-contrast'); localStorage.setItem('fdcrj_accessibility',next); event.currentTarget.textContent=next==='normal'?'◐ Acessibilidade':next==='contrast'?'◐ Alto contraste':`◐ Fonte ${next==='large'?'grande':'maior'}`; });
+   $('#print').addEventListener('click', () => window.print());
+ 
+@@ -777,5 +844,14 @@ function formatMeasure(value, unit) {
    if (new RegExp(`\\s${unit}$`, 'i').test(clean)) return clean;
    return `${clean} ${unit}`;
  }
@@ -8181,6 +8242,86 @@ index 8783e4e36e354865699dd01c2a1557b626e630e6..d18cc2492c1339e9a15c8b19fba45c68
  window.addEventListener('fdcrj-auth-ready', loadSharedRatings);
 -document.addEventListener('DOMContentLoaded', async () => { await loadSheetData(); BEERS = DATA.map((b, i) => ({ ...b, id: i })); init(); loadSharedRatings(); });
 +document.addEventListener('DOMContentLoaded', async () => { await Promise.all([loadSheetData(), window.FDCRJ_CONFRARIA_DIRECTORY?.load()]); BEERS = DATA.map((b, i) => ({ ...b, id: i })); init(); loadSharedRatings(); });
+diff --git a/js/auth.js b/js/auth.js
+index f6436968628a3d65bd8617a688ceb205c078a5ce..f02424c39cca6f3966fc633cefb94e53c71e51d9 100644
+--- a/js/auth.js
++++ b/js/auth.js
+@@ -1,5 +1,5 @@
+ import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
+-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
++import { getAuth, GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+ import { getFirestore, collection, doc, getDocs, setDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
+ import { firebaseConfig } from './firebase-config.js';
+ 
+@@ -22,6 +22,18 @@ function setAuthMessage(message, isError = false) {
+   status.classList.toggle('auth-error', isError);
+ }
+ 
++function authErrorMessage(error) {
++  switch (error?.code) {
++    case 'auth/unauthorized-domain': return 'Domínio não autorizado no Firebase. Adicione fdcrj.github.io em Authentication → Settings → Authorized domains.';
++    case 'auth/operation-not-allowed': return 'O login Google está desativado no Firebase. Ative Google em Authentication → Sign-in method.';
++    case 'auth/popup-closed-by-user': return 'A janela de login foi fechada antes da conclusão.';
++    case 'auth/network-request-failed': return 'Falha de conexão. Verifique a internet e tente novamente.';
++    case 'auth/too-many-requests': return 'Muitas tentativas em sequência. Aguarde um pouco antes de tentar novamente.';
++    case 'auth/web-storage-unsupported': return 'O navegador bloqueou o armazenamento necessário ao login. Habilite cookies e armazenamento do site.';
++    default: return `Não foi possível concluir o login Google${error?.code ? ` (${error.code})` : ''}. Tente novamente.`;
++  }
++}
++
+ function renderAuth(user) {
+   currentUser = user || null;
+   const signIn = $('#googleSignIn');
+@@ -47,20 +59,29 @@ function renderAuth(user) {
+ 
+ async function loginWithGoogle() {
+   const button = $('#googleSignIn');
+-  if (button) { button.disabled = true; button.textContent = 'Entrando...'; }
++  const label = button?.querySelector('.google-sign-in__label');
++  if (button) { button.disabled = true; }
++  if (label) label.textContent = 'Entrando...';
+   setAuthMessage('Abrindo a conta Google...');
+   try {
+     await signInWithPopup(auth, provider);
+   } catch (error) {
+-    console.error('Falha no login Google:', error);
+-    const message = error?.code === 'auth/popup-blocked'
+-      ? 'O navegador bloqueou a janela. Permita pop-ups para entrar.'
+-      : error?.code === 'auth/unauthorized-domain'
+-        ? 'Este domínio ainda não foi autorizado no Firebase.'
+-        : 'Não foi possível concluir o login Google.';
+-    setAuthMessage(message, true);
++    if (['auth/popup-blocked','auth/operation-not-supported-in-this-environment'].includes(error?.code)) {
++      try {
++        setAuthMessage('O navegador não abriu a janela. Redirecionando para o Google...');
++        await signInWithRedirect(auth, provider);
++        return;
++      } catch (redirectError) {
++        console.error('Falha no redirecionamento Google:', redirectError);
++        setAuthMessage(authErrorMessage(redirectError), true);
++      }
++    } else {
++      console.error('Falha no login Google:', error);
++      setAuthMessage(authErrorMessage(error), true);
++    }
+   } finally {
+-    if (button) { button.disabled = false; button.textContent = 'Continuar com Google'; }
++    if (button) button.disabled = false;
++    if (label) label.textContent = 'Continuar com Google';
+   }
+ }
+ 
+@@ -99,6 +120,10 @@ async function removeSharedRating(slug) {
+ 
+ $('#googleSignIn')?.addEventListener('click', loginWithGoogle);
+ $('#googleSignOut')?.addEventListener('click', logout);
++getRedirectResult(auth).catch(error => {
++  console.error('Falha no retorno do login Google:', error);
++  setAuthMessage(authErrorMessage(error), true);
++});
+ onAuthStateChanged(auth, user => {
+   renderAuth(user);
+   resolveAuthReady(user || null);
 diff --git a/js/beer-page.js b/js/beer-page.js
 index 628d567b891b8c420d7e7e51d28814fe7fdb1762..118be635b8b418a59995822551b824be5344c4ec 100644
 --- a/js/beer-page.js
